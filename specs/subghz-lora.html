@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LoRa + Sub-GHz — FREE-WILi 2 Specifications</title>
+<meta name="description" content="FREE-WILi 2 spec detail: CC1101 sub-GHz and STM32WLE5JC LoRa radio with Meshtastic support.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"></noscript>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="../index.html" class="logo" aria-label="FREE-WILi 2 — home">
+      <img class="logo-img" src="../assets/FW_Full_Logo_WHT2.svg" alt="FREE-WILi">
+    </a>
+    <nav class="links">
+      <a href="../index.html#features">Features</a>
+      <a href="../index.html#software">Software</a>
+      <a href="../index.html#gaming">Gaming</a>
+      <a href="../index.html#specs">Specs</a>
+    </nav>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScKhaCV1lJEdg0SZROQ1WWX5aNY4GcFk7fkkuHtbKtyJYV3zA/viewform" target="_blank" rel="noopener" class="btn btn-primary">DEFCON Preorder</a>
+  </div>
+</header>
+
+<!-- SPEC HERO -->
+<main>
+<section class="spec-hero">
+  <div class="wrap">
+    <span class="eyebrow" style="justify-content:center">// specifications</span>
+    <h1>Sub-GHz + <span class="n">LoRa</span> radio</h1>
+    <div class="big-stat">LoRa+Sub<em>Ghz</em></div>
+    <div class="sub">CC1101+LoRa+External Antenna</div>
+  </div>
+</section>
+
+<!-- BODY -->
+<div class="wrap">
+  <div class="spec-body">
+    <p>FREE-WILi 2 brings <b>upgraded sub-GHz radio support</b> with a single external antenna that is switchable between two radios: the CC1101 for general sub-GHz work and a dedicated LoRa radio for long-range mesh networking.</p>
+    <p>The LoRa side is powered by the <b>STM32WLE5JC</b> &mdash; an STM32 microcontroller with integrated LoRa, a powerful and self-contained solution. The Meshtastic app has already been ported to run on FREE-WILi 2, so you can go full pirate radio right out of the box.</p>
+    <div class="frame"><img src="../assets/meshtastic.webp" alt="Meshtastic running on FREE-WILi 2" loading="lazy" decoding="async"></div>
+    <div class="spec-facts">
+      <h4>Key facts</h4>
+      <dl>
+        <dt>Sub-GHz</dt><dd>CC1101</dd>
+        <dt>LoRa</dt><dd>STM32WLE5JC</dd>
+        <dt>Antenna</dt><dd>shared, switched, external</dd>
+        <dt>App</dt><dd>Meshtastic</dd>
+      </dl>
+    </div>
+  </div>
+  <nav class="spec-nav">
+    <a href="sd-bootloader.html">&larr; SD Bootloader</a>
+    <a class="home" href="../index.html">FREE-WILi 2 home</a>
+    <a href="usb-host.html">USB Host &times;3 &rarr;</a>
+  </nav>
+</div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot-in">
+    <a href="../index.html" class="logo" aria-label="FREE-WILi 2 — home">
+      <img class="logo-img" src="../assets/FW_Full_Logo_WHT2.svg" alt="FREE-WILi">
+    </a>
+    <div class="foot-links">
+      <a href="https://www.freewili.com">freewili.com</a>
+      <a href="../index.html#features">Features</a>
+      <a href="../index.html#specs">Specs</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScKhaCV1lJEdg0SZROQ1WWX5aNY4GcFk7fkkuHtbKtyJYV3zA/viewform" target="_blank" rel="noopener">Buy</a>
+    </div>
+    <div>&copy; 2026 FREE-WILi &middot; Open hardware</div>
+  </div>
+</footer>
+
+<!-- click-to-zoom lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lb-close" type="button" aria-label="Close image">&#10005;</button>
+  <img alt="">
+</div>
+
+<script>
+(function(){
+  var lb=document.getElementById('lightbox'),lbImg=lb.querySelector('img'),closeBtn=lb.querySelector('.lb-close');
+  function open(src,alt){lbImg.src=src;lbImg.alt=alt||'';lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
+  function close(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');lbImg.src='';document.body.style.overflow=''}
+  document.querySelectorAll('.frame img').forEach(function(img){img.addEventListener('click',function(){open(img.currentSrc||img.src,img.alt)})});
+  lb.addEventListener('click',close);
+  closeBtn.addEventListener('click',function(e){e.stopPropagation();close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('open'))close()});
+})();
+</script>
+</body>
+</html>

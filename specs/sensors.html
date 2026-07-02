@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sensors — FREE-WILi 2 Specifications</title>
+<meta name="description" content="FREE-WILi 2 spec detail: BMI323 IMU, BMM350 magnetometer, OPT4001 light, SHT40 humidity/temperature, improved IR.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"></noscript>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="../index.html" class="logo" aria-label="FREE-WILi 2 — home">
+      <img class="logo-img" src="../assets/FW_Full_Logo_WHT2.svg" alt="FREE-WILi">
+    </a>
+    <nav class="links">
+      <a href="../index.html#features">Features</a>
+      <a href="../index.html#software">Software</a>
+      <a href="../index.html#gaming">Gaming</a>
+      <a href="../index.html#specs">Specs</a>
+    </nav>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScKhaCV1lJEdg0SZROQ1WWX5aNY4GcFk7fkkuHtbKtyJYV3zA/viewform" target="_blank" rel="noopener" class="btn btn-primary">DEFCON Preorder</a>
+  </div>
+</header>
+
+<!-- SPEC HERO -->
+<main>
+<section class="spec-hero">
+  <div class="wrap">
+    <span class="eyebrow" style="justify-content:center">// specifications</span>
+    <h1>Sensor <span class="n">package</span></h1>
+    <div class="big-stat">Sensor<em>Package</em></div>
+    <div class="sub">IR, IMU, MAG, ALS, Humidity</div>
+  </div>
+</section>
+
+<!-- BODY -->
+<div class="wrap">
+  <div class="spec-body">
+    <p>FREE-WILi 2 upgrades its motion sensing to a <b>full IMU (BMI323) plus a dedicated magnetometer (BMM350)</b>, enabling really cool use cases where physical orientation and position become direct input to an application. Combined, these open the door to compass-based navigation, gesture recognition, and immersive device interaction.</p>
+    <p>Rounding out the sensor suite, an <b>ambient light sensor (OPT4001) and a humidity/temperature sensor (SHT40)</b> give FREE-WILi 2 genuine environmental awareness &mdash; useful for anything from adaptive display brightness to field data logging.</p>
+    <p>IR support sees meaningful improvements: a stronger LED for transmission, <b>a real IR window cut into the case</b>, and better physical orientation of the IR RX/TX circuit all combine for more reliable wireless communication. Crucially, all sensors connect to the ULP micro, meaning they can serve as <b>wake-up sources</b> and keep the board sleeping until something meaningful happens.</p>
+    <div class="frame"><img src="../assets/sensors.webp" alt="FREE-WILi 2 onboard sensors" loading="lazy" decoding="async"></div>
+    <div class="spec-facts">
+      <h4>Key facts</h4>
+      <dl>
+        <dt>IMU</dt><dd>BMI323</dd>
+        <dt>Magnetometer</dt><dd>BMM350</dd>
+        <dt>Light</dt><dd>OPT4001</dd>
+        <dt>Temp/RH</dt><dd>SHT40</dd>
+        <dt>IR</dt><dd>TX/RX + case window</dd>
+        <dt>Wake</dt><dd>via ULP</dd>
+      </dl>
+    </div>
+  </div>
+  <nav class="spec-nav">
+    <a href="gaming.html">&larr; Gaming</a>
+    <a class="home" href="../index.html">FREE-WILi 2 home</a>
+    <a href="ai-agents.html">AI Agents &rarr;</a>
+  </nav>
+</div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot-in">
+    <a href="../index.html" class="logo" aria-label="FREE-WILi 2 — home">
+      <img class="logo-img" src="../assets/FW_Full_Logo_WHT2.svg" alt="FREE-WILi">
+    </a>
+    <div class="foot-links">
+      <a href="https://www.freewili.com">freewili.com</a>
+      <a href="../index.html#features">Features</a>
+      <a href="../index.html#specs">Specs</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScKhaCV1lJEdg0SZROQ1WWX5aNY4GcFk7fkkuHtbKtyJYV3zA/viewform" target="_blank" rel="noopener">Buy</a>
+    </div>
+    <div>&copy; 2026 FREE-WILi &middot; Open hardware</div>
+  </div>
+</footer>
+
+<!-- click-to-zoom lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lb-close" type="button" aria-label="Close image">&#10005;</button>
+  <img alt="">
+</div>
+
+<script>
+(function(){
+  var lb=document.getElementById('lightbox'),lbImg=lb.querySelector('img'),closeBtn=lb.querySelector('.lb-close');
+  function open(src,alt){lbImg.src=src;lbImg.alt=alt||'';lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
+  function close(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');lbImg.src='';document.body.style.overflow=''}
+  document.querySelectorAll('.frame img').forEach(function(img){img.addEventListener('click',function(){open(img.currentSrc||img.src,img.alt)})});
+  lb.addEventListener('click',close);
+  closeBtn.addEventListener('click',function(e){e.stopPropagation();close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('open'))close()});
+})();
+</script>
+</body>
+</html>

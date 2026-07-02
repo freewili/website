@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ESP32-C5 WiFi — FREE-WILi 2 Specifications</title>
+<meta name="description" content="FREE-WILi 2 spec detail: integrated ESP32-C5 with 2.4 and 5 GHz WiFi and Bluetooth.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"></noscript>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="../index.html" class="logo" aria-label="FREE-WILi 2 — home">
+      <img class="logo-img" src="../assets/FW_Full_Logo_WHT2.svg" alt="FREE-WILi">
+    </a>
+    <nav class="links">
+      <a href="../index.html#features">Features</a>
+      <a href="../index.html#software">Software</a>
+      <a href="../index.html#gaming">Gaming</a>
+      <a href="../index.html#specs">Specs</a>
+    </nav>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScKhaCV1lJEdg0SZROQ1WWX5aNY4GcFk7fkkuHtbKtyJYV3zA/viewform" target="_blank" rel="noopener" class="btn btn-primary">DEFCON Preorder</a>
+  </div>
+</header>
+
+<!-- SPEC HERO -->
+<main>
+<section class="spec-hero">
+  <div class="wrap">
+    <span class="eyebrow" style="justify-content:center">// specifications</span>
+    <h1>WiFi &amp; BT: ESP32-<span class="n">C5</span></h1>
+    <div class="big-stat">ESP32<em>C5</em></div>
+    <div class="sub">2.4/5GHz WiFi+BT</div>
+  </div>
+</section>
+
+<!-- BODY -->
+<div class="wrap">
+  <div class="spec-body">
+    
+    <p>To support main stream wireless, the free wili includes the&nbsp;&nbsp;<b style="">ESP32-C5 Wireless microcontroller. The C5 revision supports both 2.4Ghz and 5&nbsp;GHz WiFi support</b>&nbsp;.&nbsp;&nbsp;<div><br></div><div>The FREE-WILi 2 default firmware that provides access to the CLI over websockets or a webserver.<div><br></div><div>The ESP32 is completely open and supported by the FREE-WILi 2 UF2 bootloader.<br><div><br></div><div style="">The USB on the module connects to the onboard USB hub. ESP32C5 exposes a USB JTAG and COM port over this connection. This allows debugging to happen with all the ESP32 development tools. To make it easy to start - a tricolor LED is dedicated to the ESP32. These are on the exact same pins as the dev kit so SDK examples just work.<div><br></div><div>In an optional setup mode, the ESP32 can connect directly to the display and receive button input. In this mode ESP32 firmware can run without other CPUs. This makes is easier to run community applications which run on the ESP32.</div><div><br></div></div></div></div></p>
+    <div class="spec-facts">
+      <h4>Key facts</h4>
+      <dl>
+        <dt>Module</dt><dd>ESP32-C5</dd>
+        <dt>Bands</dt><dd>2.4 + 5 GHz</dd>
+        <dt>BT</dt><dd>yes BTLE</dd>
+        <dt>LED</dt><dd>Tri-Color Serial compatible with SDK examples</dd>
+        <dt>Extra</dt><dd>USB debug + serial</dd>
+      </dl>
+    </div>
+  </div>
+  <nav class="spec-nav">
+    <a href="linux-cm0.html">&larr; Linux CM0</a>
+    <a class="home" href="../index.html">FREE-WILi 2 home</a>
+    <a href="ice40-fpga.html">ICE40 FPGA &rarr;</a>
+  </nav>
+</div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot-in">
+    <a href="../index.html" class="logo" aria-label="FREE-WILi 2 — home">
+      <img class="logo-img" src="../assets/FW_Full_Logo_WHT2.svg" alt="FREE-WILi">
+    </a>
+    <div class="foot-links">
+      <a href="https://www.freewili.com">freewili.com</a>
+      <a href="../index.html#features">Features</a>
+      <a href="../index.html#specs">Specs</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScKhaCV1lJEdg0SZROQ1WWX5aNY4GcFk7fkkuHtbKtyJYV3zA/viewform" target="_blank" rel="noopener">Buy</a>
+    </div>
+    <div>&copy; 2026 FREE-WILi &middot; Open hardware</div>
+  </div>
+</footer>
+
+<!-- click-to-zoom lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lb-close" type="button" aria-label="Close image">&#10005;</button>
+  <img alt="">
+</div>
+
+<script>
+(function(){
+  var lb=document.getElementById('lightbox'),lbImg=lb.querySelector('img'),closeBtn=lb.querySelector('.lb-close');
+  function open(src,alt){lbImg.src=src;lbImg.alt=alt||'';lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
+  function close(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');lbImg.src='';document.body.style.overflow=''}
+  document.querySelectorAll('.frame img').forEach(function(img){img.addEventListener('click',function(){open(img.currentSrc||img.src,img.alt)})});
+  lb.addEventListener('click',close);
+  closeBtn.addEventListener('click',function(e){e.stopPropagation();close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('open'))close()});
+})();
+</script>
+</body>
+</html>

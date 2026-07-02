@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GPIO — FREE-WILi 2 Specifications</title>
+<meta name="description" content="FREE-WILi 2 spec detail: Orca-compatible 20-pos connector, new 10-pos analog connector, selectable IO voltage.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"></noscript>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="../index.html" class="logo" aria-label="FREE-WILi 2 — home">
+      <img class="logo-img" src="../assets/FW_Full_Logo_WHT2.svg" alt="FREE-WILi">
+    </a>
+    <nav class="links">
+      <a href="../index.html#features">Features</a>
+      <a href="../index.html#software">Software</a>
+      <a href="../index.html#gaming">Gaming</a>
+      <a href="../index.html#specs">Specs</a>
+    </nav>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScKhaCV1lJEdg0SZROQ1WWX5aNY4GcFk7fkkuHtbKtyJYV3zA/viewform" target="_blank" rel="noopener" class="btn btn-primary">DEFCON Preorder</a>
+  </div>
+</header>
+
+<!-- SPEC HERO -->
+<main>
+<section class="spec-hero">
+  <div class="wrap">
+    <span class="eyebrow" style="justify-content:center">// specifications</span>
+    <h1>Expanded <span class="n">GPIO</span></h1>
+    <div class="big-stat">GPIO<em>IOx14</em></div>
+    <div class="sub">SPI, I2C, GPIO, UART</div>
+  </div>
+</section>
+
+<!-- BODY -->
+<div class="wrap">
+  <div class="spec-body">
+    <p>FREE-WILi 2 keeps the <b>20-position Orca connector</b> from FreeWili1, preserving compatibility with the full library of existing Orcas. A brand-new 10-position connector extends the ecosystem with additional IOs that are primarily oriented toward analog functions, and mechanical fastening posts let Orcas attach rigidly &mdash; no flex, no intermittent connections. The I2C translator also received a speed upgrade, reducing latency on any peripherals that live on that bus.</p>
+    <p>One of the most requested fixes from FreeWili1 was <b>simpler IO-voltage configuration</b>, and FREE-WILi 2 delivers: software can now select from four voltage sources (the 5&nbsp;V rail, the 3.3&nbsp;V rail, the IO pin as in FreeWili1, or the new programmable power supply), and an ADC continuously reads the actual IO voltage so firmware always knows what&rsquo;s present.</p>
+    <p>Finally, an <b>EEPROM in the Orca</b> allows FREE-WILi 2 to automatically detect, configure, and persist Orca-related settings &mdash; plug in a new Orca and the device knows exactly what it&rsquo;s dealing with, without manual setup.</p>
+    <div class="frame"><img src="../assets/pinout.webp" alt="FREE-WILi 2 GPIO pinout" loading="lazy" decoding="async"></div>
+    <div class="spec-facts">
+      <h4>Key facts</h4>
+      <dl>
+        <dt>Legacy</dt><dd>20-pos, Orca-compatible</dd>
+        <dt>New</dt><dd>10-pos analog connector</dd>
+        <dt>IO voltage</dt><dd>4 selectable sources + ADC readback</dd>
+        <dt>Orca</dt><dd>EEPROM auto-config</dd>
+      </dl>
+    </div>
+  </div>
+  <nav class="spec-nav">
+    <a href="analog-io.html">&larr; Analog I/O</a>
+    <a class="home" href="../index.html">FREE-WILi 2 home</a>
+    <a href="programmable-power.html">Programmable Power &rarr;</a>
+  </nav>
+</div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot-in">
+    <a href="../index.html" class="logo" aria-label="FREE-WILi 2 — home">
+      <img class="logo-img" src="../assets/FW_Full_Logo_WHT2.svg" alt="FREE-WILi">
+    </a>
+    <div class="foot-links">
+      <a href="https://www.freewili.com">freewili.com</a>
+      <a href="../index.html#features">Features</a>
+      <a href="../index.html#specs">Specs</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScKhaCV1lJEdg0SZROQ1WWX5aNY4GcFk7fkkuHtbKtyJYV3zA/viewform" target="_blank" rel="noopener">Buy</a>
+    </div>
+    <div>&copy; 2026 FREE-WILi &middot; Open hardware</div>
+  </div>
+</footer>
+
+<!-- click-to-zoom lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lb-close" type="button" aria-label="Close image">&#10005;</button>
+  <img alt="">
+</div>
+
+<script>
+(function(){
+  var lb=document.getElementById('lightbox'),lbImg=lb.querySelector('img'),closeBtn=lb.querySelector('.lb-close');
+  function open(src,alt){lbImg.src=src;lbImg.alt=alt||'';lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
+  function close(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');lbImg.src='';document.body.style.overflow=''}
+  document.querySelectorAll('.frame img').forEach(function(img){img.addEventListener('click',function(){open(img.currentSrc||img.src,img.alt)})});
+  lb.addEventListener('click',close);
+  closeBtn.addEventListener('click',function(e){e.stopPropagation();close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('open'))close()});
+})();
+</script>
+</body>
+</html>

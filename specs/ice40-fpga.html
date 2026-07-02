@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICE40 FPGA — FREE-WILi 2 Specifications</title>
+<meta name="description" content="FREE-WILi 2 spec detail: Lattice ICE40 FPGA with 8 MB SRAM for programmable logic.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"></noscript>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="../index.html" class="logo" aria-label="FREE-WILi 2 — home">
+      <img class="logo-img" src="../assets/FW_Full_Logo_WHT2.svg" alt="FREE-WILi">
+    </a>
+    <nav class="links">
+      <a href="../index.html#features">Features</a>
+      <a href="../index.html#software">Software</a>
+      <a href="../index.html#gaming">Gaming</a>
+      <a href="../index.html#specs">Specs</a>
+    </nav>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScKhaCV1lJEdg0SZROQ1WWX5aNY4GcFk7fkkuHtbKtyJYV3zA/viewform" target="_blank" rel="noopener" class="btn btn-primary">DEFCON Preorder</a>
+  </div>
+</header>
+
+<!-- SPEC HERO -->
+<main>
+<section class="spec-hero">
+  <div class="wrap">
+    <span class="eyebrow" style="justify-content:center">// specifications</span>
+    <h1>Lattice <span class="n">ICE40</span> FPGA</h1>
+    <div class="big-stat">ICE40<em>FPGA</em></div>
+    <div class="sub">Software Programmable Logic</div>
+  </div>
+</section>
+
+<!-- BODY -->
+<div class="wrap">
+  <div class="spec-body">
+    <p>FREE-WILi 2 carries the same proven Lattice ICE40 FPGA as FreeWili1 &mdash; and it&rsquo;s a <b>pretty amazing device</b>. There are tasks the RP2350 can&rsquo;t handle well, even with PIO and dual cores, and the ICE40 covers them cleanly. SPI slave simulation is a prime example of the kind of cycle-accurate work only programmable logic can do reliably.</p>
+    <p>The FPGA is backed by <b>8&nbsp;MB of dedicated SRAM</b>, giving it substantial working memory for logic-intensive workloads. The optional Linux CM0 module connects directly to the ICE40, so software running on Linux has a fast, low-latency path into the programmable fabric.</p>
+    <div class="spec-facts">
+      <h4>Key facts</h4>
+      <dl>
+        <dt>FPGA</dt><dd>Lattice ICE40</dd>
+        <dt>SRAM</dt><dd>8 MB</dd>
+        <dt>Example use</dt><dd>SPI slave simulation</dd>
+        <dt>Linux</dt><dd>direct CM0 link</dd>
+      </dl>
+    </div>
+  </div>
+  <nav class="spec-nav">
+    <a href="esp32-c5.html">&larr; ESP32-C5 WiFi</a>
+    <a class="home" href="../index.html">FREE-WILi 2 home</a>
+    <a href="display.html">3.5&Prime; Touch &rarr;</a>
+  </nav>
+</div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot-in">
+    <a href="../index.html" class="logo" aria-label="FREE-WILi 2 — home">
+      <img class="logo-img" src="../assets/FW_Full_Logo_WHT2.svg" alt="FREE-WILi">
+    </a>
+    <div class="foot-links">
+      <a href="https://www.freewili.com">freewili.com</a>
+      <a href="../index.html#features">Features</a>
+      <a href="../index.html#specs">Specs</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScKhaCV1lJEdg0SZROQ1WWX5aNY4GcFk7fkkuHtbKtyJYV3zA/viewform" target="_blank" rel="noopener">Buy</a>
+    </div>
+    <div>&copy; 2026 FREE-WILi &middot; Open hardware</div>
+  </div>
+</footer>
+
+<!-- click-to-zoom lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lb-close" type="button" aria-label="Close image">&#10005;</button>
+  <img alt="">
+</div>
+
+<script>
+(function(){
+  var lb=document.getElementById('lightbox'),lbImg=lb.querySelector('img'),closeBtn=lb.querySelector('.lb-close');
+  function open(src,alt){lbImg.src=src;lbImg.alt=alt||'';lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
+  function close(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');lbImg.src='';document.body.style.overflow=''}
+  document.querySelectorAll('.frame img').forEach(function(img){img.addEventListener('click',function(){open(img.currentSrc||img.src,img.alt)})});
+  lb.addEventListener('click',close);
+  closeBtn.addEventListener('click',function(e){e.stopPropagation();close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('open'))close()});
+})();
+</script>
+</body>
+</html>

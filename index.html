@@ -1,0 +1,567 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FREE-WILi 2 — The Open Electronics Multitool</title>
+<meta name="description" content="FREE-WILi 2: a portable open-hardware electronics platform built on the RP2350. 3.5&quot; touch, WiFi 5GHz, LoRa/Meshtastic, RFID/NFC, CAN FD, onboard Linux, AI agents, and retro gaming. See it at DEFCON.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- non-blocking font load: page paints instantly with system fallbacks, upgrades when fonts arrive -->
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"></noscript>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="https://www.freewili.com" target="_blank" rel="noopener" class="logo" aria-label="FREE-WILi — visit freewili.com">
+      <img class="logo-img" src="assets/FW_Full_Logo_WHT2.svg" alt="FREE-WILi">
+    </a>
+    <nav class="links">
+      <a href="#features">Features</a>
+      <a href="#software">Software</a>
+      <a href="#gaming">Gaming</a>
+      <a href="#specs">Specs</a>
+    </nav>
+    <div class="nav-right-wrap">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScKhaCV1lJEdg0SZROQ1WWX5aNY4GcFk7fkkuHtbKtyJYV3zA/viewform" target="_blank" rel="noopener" class="btn btn-primary">DEFCON Preorder</a>
+      <button class="burger" id="burger" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div class="rise in" style="--d:0s"><a class="badge" href="https://defcon.org" target="_blank" rel="noopener"><span class="dot"></span>DEFCON 2026 in <span id="countdown" class="cd" aria-live="off">&mdash;</span></a></div>
+    <h1 class="rise in" style="--d:.08s" aria-label="FREE-WILi 2"><img class="title-logo" src="assets/FW2_Full_Logo_WHT2.png" alt="FREE-WILi 2" width="9877" height="3164"></h1>
+    <p class="tag rise in" style="--d:.16s">The <b>open electronics multitool</b>. A pocket lab for wireless, gpio, analog, RFID, CAN, retro gaming, onboard Linux &mdash; and AI agents that write firmware <b>with</b> you.</p>
+    <div class="hero-cta rise in" style="--d:.24s">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScKhaCV1lJEdg0SZROQ1WWX5aNY4GcFk7fkkuHtbKtyJYV3zA/viewform" target="_blank" rel="noopener" class="btn btn-primary">DEFCON Preorder →</a>
+      <a href="fwgui/fwcom.html" target="_blank" rel="noopener" class="btn btn-green">Try it now</a>
+      <a href="#features" class="btn btn-ghost">Explore the hardware</a>
+    </div>
+    <div class="hero-device rise in" style="--d:.34s">
+      <img fetchpriority="high" decoding="async" src="assets/FREE-WILi-Main.webp" alt="FREE-WILi 2 device: 3.5-inch touchscreen, D-pad, action buttons and seven RGB status LEDs" width="1893" height="1213">
+    </div>
+  </div>
+</section>
+
+<!-- SPEC STRIP -->
+<div class="strip">
+  <div class="wrap"><div class="strip-in">
+    <a class="stat" href="specs/rp2350.html"><div class="v">RP<em>2350</em></div><div class="k">Dual MCU 16+8MByte</div></a>
+    <a class="stat" href="specs/linux-cm0.html"><div class="v">Linux<em>CM0</em></div><div class="k">Raspberry Pi CM0</div></a>
+    <a class="stat" href="specs/esp32-c5.html"><div class="v">ESP32<em>C5</em></div><div class="k">2.4/5GHz WiFi+BT</div></a>
+    <a class="stat" href="specs/ice40-fpga.html"><div class="v">ICE40UP5K<em>FPGA</em></div><div class="k">Software Programmable Logic</div></a>
+    <a class="stat" href="specs/display.html"><div class="v">3.5<em>"</em></div><div class="k">480×320 Touch</div></a>
+    <a class="stat" href="specs/sd-bootloader.html"><div class="v">SDCard<em>Bootloader</em></div><div class="k">Load any RP2350/ESP32 Binaries</div></a>
+    <a class="stat" href="specs/subghz-lora.html"><div class="v">LoRa+Sub<em>GHz</em></div><div class="k">CC1101+LoRa+External Antenna</div></a>
+    <a class="stat" href="specs/usb-host.html"><div class="v">USBHost<em>x3</em></div><div class="k">GPS,UART,Joystick,Keyboard</div></a>
+    <a class="stat" href="specs/can-fd.html"><div class="v">CAN<em>FD</em></div><div class="k">8Mbit SIC</div></a>
+    <a class="stat" href="specs/audio.html"><div class="v">Audio<em>IO</em></div><div class="k">4 Mic Array, 2 Watt Speaker, 3.5mm Jack</div></a>
+    <a class="stat" href="specs/analog-io.html"><div class="v">Analog<em>IO</em></div><div class="k">4 analog in, 4 analog out, PGA</div></a>
+    <a class="stat" href="specs/gpio.html"><div class="v">GPIO<em>IOx14</em></div><div class="k">SPI,I2C,GPIO,UART</div></a>
+    <a class="stat" href="specs/programmable-power.html"><div class="v">Programmable<em>PWR</em></div><div class="k">1.1 to 5.5V with glitching</div></a>
+    <a class="stat" href="specs/debug.html"><div class="v">Integrated<em>Debug</em></div><div class="k">RPi Debug Probe Onboard, ESP32 JTAG</div></a>
+    <a class="stat" href="specs/scriptable-usb.html"><div class="v">Nice<em>USB</em></div><div class="k">Scriptable USB Host+Device</div></a>
+    <a class="stat" href="specs/dvi.html"><div class="v">DVI<em>out</em></div><div class="k">TV Time</div></a>
+    <a class="stat" href="specs/sd-reader.html"><div class="v">SDCard<em>reader</em></div><div class="k">High speed USB SD card reader onboard</div></a>
+    <a class="stat" href="specs/gaming.html"><div class="v">Game<em>ON</em></div><div class="k">14 gamer buttons, emulator friendly</div></a>
+    <a class="stat" href="specs/sensors.html"><div class="v">Sensor<em>Package</em></div><div class="k">IR, IMU, MAG, ALS, HUMIDITY</div></a>
+    <a class="stat" href="specs/ai-agents.html"><div class="v">AI<em>Agent</em></div><div class="k">Open hardware, UF2 Bootloader</div></a>
+    <a class="stat" href="specs/power.html"><div class="v">3000<em>mAh</em></div><div class="k">17 Power Zones</div></a>
+    <a class="stat" href="specs/python-api.html"><div class="v">Python<em>API</em></div><div class="k">Runs on host or internal Linux</div></a>
+    <a class="stat" href="specs/zoomio.html"><div class="v">ZoomIO<em>RISCV</em></div><div class="k">Sub microsecond BitBang scripting</div></a>
+    <a class="stat" href="specs/rthon.html"><div class="v">rTHON<em>Script</em></div><div class="k">PythonLike embedded script</div></a>
+    <a class="stat" href="specs/wasm.html"><div class="v">C++/Rust<em>WASM</em></div><div class="k">Onboard WiliWASM engine and debugger and API</div></a>
+    <a class="stat" href="specs/wiliblocks.html"><div class="v">Wili<em>BLOCKS</em></div><div class="k">Point & Click scripting</div></a>
+  </div></div>
+</div>
+
+<!-- FEATURES -->
+<section class="block" id="features">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">// the hardware</span>
+      <h2>Everything, in one pocket.</h2>
+      <p>FREE-WILi 2 packs a full electronics lab, a software-defined radio bench, and a games console into an open, scriptable, agent-ready tool.</p>
+    </div>
+
+    <!-- internals banner -->
+    <div class="board-banner rise">
+      <div class="frame glow" data-tag="FW2_Features.png · features"><img loading="lazy" decoding="async" src="assets/FW2_Features.png" alt="FREE-WILi 2 feature map: LoRa/Sub-GHz, NFC/RFID, sensors, CAN FD, programmable power, GPIO, analog I/O, DAC and Wi-Fi 6"></div>
+      <div class="board-cap">
+        <span><b>2×</b> RP2350</span>
+        <span><b>ESP32-C5</b> WiFi</span>
+        <span><b>ICE40</b> FPGA</span>
+        <span><b>CC1101</b> + LoRa</span>
+        <span><b>3×</b> USB host</span>
+        <span><b>Orca</b> headers</span>
+        <span><b>RFID</b> / NFC</span>
+        <span><b>17</b> power zones</span>
+      </div>
+    </div>
+
+    <!-- 1. brains -->
+    <div class="feature rise">
+      <div class="f-text">
+        <span class="f-tag">// the brains</span>
+        <h3>Community Favorite CPU/FPGA Technologies</h3>
+        <p>Raspberry Pi <a href="https://www.raspberrypi.com/products/rp2350/" target="_blank" rel="noopener">RP2350</a>, Espressif <a href="https://www.espressif.com/en/products/socs/esp32-c5" target="_blank" rel="noopener">ESP32C5</a>, Raspberry Pi <a href="https://www.raspberrypi.com/products/compute-module-zero/" target="_blank" rel="noopener">CM0</a>, <a href="https://www.latticesemi.com/Products/FPGAandCPLD/iCE40UltraPlus" target="_blank" rel="noopener">ICE40UP5K</a> - all widely used technologies and supported by the community. All have great open source tools available. All can be programmed and debugged with the onboard debug hardware.</p>
+        <p>There is one "main" RP2350 CPU that controls IO and does scripting. The second RP2350 "display" controls all the GUI elements (buttons, screen, sound, DVI). They both have the max memory <b>8&nbsp;MByte of serial SRAM</b> and <b>16&nbsp;MByte of flash</b>.</p>
+        <p>Even though the RP2350 PIO is amazing, there are some things you can't do. The ICE40UP5K FPGA covers those &mdash; like SPI-slave emulation or multicore RISCV IO. The FPGA has an 8&nbsp;MByte SRAM too and can be swapped dynamically with the main CPU. Supported by the <a href="https://prjicestorm.readthedocs.io/en/latest/" target="_blank" rel="noopener">ICEStorm project</a>.</p>
+        <p>The Raspberry Pi CM0 offers up real Python scripting, mature software tools, onboard CPU/FPGA compilers, and big libraries you can't do well in embedded.</p>
+        <p>The ESP32C5 provides wireless access to FREE-WILi 2. The C5 model supports both 2.4 and 5 GHz. The ESP32 USB is connected directly to the host - so its built in JTAG and COM port just works with the Espressif SDK or other tools.</p>
+        <ul class="f-list"><li><b>Community</b> Silicon</li><li>Onboard Debug</li><li>FPGA</li><li>Linux</li></ul>
+      </div>
+      <div class="f-media rise">
+        <div class="frame glow" data-tag="wili8.webp · live"><img loading="lazy" decoding="async" src="assets/wili8.webp" alt="FREE-WILi 2 board running a Hello World demo on its display"></div>
+      </div>
+    </div>
+
+    <!-- 2. Display -->
+    <div class="feature reverse rise">
+      <div class="f-text">
+        <span class="f-tag">// display, sound &amp; input</span>
+        <h3>Multi Media User Experience</h3>
+        <p>A 3.5″ capacitive touchscreen with 480×320 of color. Around it: a full 5-way D-pad, four A/B/X/Y backlit buttons (home · ok · cancel · page), five under-screen context backlit keys, and an innovative <b>two-press-per-letter</b> keyboard.</p>
+        <p>Audio is first class with onboard 2 Watt speaker and 4 channel phased-array microphone. A 3.5 mm jack lets you connect to speakers, mic or headphones for big or little sound.</p>
+        <p>Full color LEDs visible from multiple sides give you indication of what's going on. Also buttons contain LEDs for indication when they are needed.</p>
+        <p>Doing something heavy and OK with being less portable? The USB host allows standard keyboard, mouse or joystick input. Those mini Bluetooth keyboards work nicely.</p>
+        <p>Tilt it, too &mdash; the onboard IMU turns physical position into an input axis.</p>
+
+        <ul class="f-list"><li><b>480×320</b> cap-touch</li><li>5-way D-pad</li><li>A·B·X·Y</li><li>5 context keys</li><li>motion input</li><li>backlit</li></ul>
+      </div>
+      <div class="f-media rise">
+        <div class="frame glow-red" data-tag="FREE-WILi 2 · layout"><img loading="lazy" decoding="async" src="assets/wili2_3QTR_1.png" alt="FREE-WILi 2 showing the touchscreen, D-pad, A/B/X/Y buttons and context keys"></div>
+      </div>
+    </div>
+
+    <!-- 3. Radios / Meshtastic -->
+    <div class="feature rise">
+      <div class="f-text">
+        <span class="f-tag">// wireless: WiFi BT LoRa SubGhz NFC RFID IR</span>
+        <h3>Radio Time.</h3>
+        <p>WiFi is now built in and supports both 2.4 GHz and 5 GHz. And other standards supported by the ESP32C5: BT LE, IEEE 802.15.4 (Zigbee and Thread).</p>
+        <p>SubGHz rides a single antenna that switches between a <b>CC1101</b> and a <b>LoRa</b> radio. We ported <b>Meshtastic</b>, so FREE-WILi 2 talks to the mesh straight out of the box. You can switch the antenna dynamically - so at low bandwidth these radios effectively can be used at the same time.</p>
+        <p>NFC and 125 kHz RFID are supported with internal antennas on the rear of the device. 125 kHz RFID — where the RP2350's fast ADC and PIO get genuinely interesting — plus NFC via the ST25R3916B. </p>
+        <p>IR transmit and receive are onboard too, with a dedicated IR window.</p>
+        <ul class="f-list"><li><b>WiFi</b> 5GHz · C5</li><li>CC1101</li><li>LoRa</li><li>Meshtastic</li></ul>
+      </div>
+      <div class="f-media rise">
+        <div class="frame" data-tag="meshtastic.webp"><img loading="lazy" decoding="async" src="assets/meshtastic.webp" alt="Meshtastic messaging app running on a FREE-WILi device"></div>
+      </div>
+    </div>
+
+    <!-- 4. GPIO / analog -->
+    <div class="feature reverse rise">
+      <div class="f-text">
+        <span class="f-tag">// analog &amp; gpio</span>
+        <h3>25 Expandable, software-defined I/O.</h3>
+        <p>Both a 20 pin connector and a 10 pin connector supply flexible voltage high speed IO. There is a rigid mounting system with off-the-shelf case options that make add-ons seamless and rugged. We call FREE-WILi add-ons Orcas and you can even make your own with our orca development kit.</p>
+        <p>The GPIOs are driven by the FREE-WILi scripting engines. The scripting engines utilize the RP2350 PIO, the RISCV CPU and the FPGA for precise timing control. While most pins have programmable direction, the default functions and directions include: SPI, UART, and I2C. </p>
+        <p>Analog IO are onboard too: 0–5V analog in, 0–5V analog out at 25&nbsp;kHz. The analog inputs are fully buffered with opamps and bring the entire 0-5V to the high speed RP2350 ADC. Analog inputs also have a ADC with PGA for measuring low level signals like bridge sensors or current shunts.</p>
+        <p>There is a new 1–5.5V / 1.5A programmable supply with a MOSFET crowbar for <b>voltage glitching</b>.</p>
+        <p> Set the GPIO IO voltage <b>in software</b> from the 5V rail, 3.3V rail, the pin itself, or the onboard programmable supply &mdash; and measure the IO voltage with an ADC.</p>
+
+        <p><b>CAN FD</b> at full 8&nbsp;Mbit with the latest CAN SIC transceiver. CANFD is backward compatible with CAN which is on every vehicle for the past 15 years.</p>
+        <ul class="f-list"><li><b>PIO+FPGA+RISCV</b> Control</li><li><b>CAN FD</b> 8Mbit</li><li><b>Glitch</b></li><li>0–5V Analog in/out</li><li>PGA + window comparator</li><li>prog. PSU + crowbar</li></ul>
+      </div>
+      <div class="f-media rise">
+        <div class="frame wide" data-tag="pinout.webp"><img loading="lazy" decoding="async" src="assets/pinout.webp" alt="FREE-WILi 2 GPIO pinout diagram"></div>
+      </div>
+    </div>
+
+    <!-- 5. Sensors -->
+    <div class="feature rise">
+      <div class="f-text">
+        <span class="f-tag">// sense the room</span>
+        <h3>9-DOF motion + environment.</h3>
+        <p>A full IMU (<b>BMI323</b>) plus magnetometer (<b>BMM350</b>) opens up motion and orientation as input. An <b>OPT4001</b> ambient light sensor and an <b>SHT40</b> temperature/humidity sensor round out environmental awareness.</p>
+        <p>Audio levels up too: a 3.5&nbsp;mm headphone/mic jack and a <b>4-mic phased array</b> that, with the RP2350's spare cycles, makes real beamforming possible. Viva Las Vegas, loud and clear.</p>
+        <p>There are so many great sensors on I2C. Our GPIO connector makes adding new sensors easy.</p>
+        <ul class="f-list"><li><b>BMI323</b> IMU</li><li>BMM350 mag</li><li>OPT4001 light</li><li>SHT40 temp/RH</li><li>4-mic array</li></ul>
+      </div>
+      <div class="f-media rise">
+        <div class="frame tall" data-tag="sensors.webp"><img loading="lazy" decoding="async" src="assets/sensors.webp" alt="Diagram of a 9-DOF IMU and magnetometer sensor package"></div>
+      </div>
+    </div>
+
+    <!-- 6. Power -->
+    <div class="feature reverse rise">
+      <div class="f-text">
+        <span class="f-tag">// portable by design</span>
+        <h3>17 power zones, one tiny brain.</h3>
+        <p>A portable device needs to run on a battery for as long as possible. We included a dedicated ultra-low-power (ULP) micro that switches <b>17 power zones</b> on and off dynamically. Sensors wire into the ULP as wake sources, the battery is <b>3000&nbsp;mAh</b>, and the ULP squeezes the most out of whatever USB power is available &mdash; while managing charging.</p>
+        <p>For example, the Linux CM0 runs on its own power zone. Running a full 64-bit Linux system can be power hungry. So maybe it makes sense to only power it when specific tasks are running.</p>
+        <ul class="f-list"><li><b>ULP</b> micro</li><li>17 zones</li><li>3000mAh</li><li>7-port hub</li></ul>
+      </div>
+      <div class="f-media rise">
+        <div class="frame" data-tag="power.png · ui"><img loading="lazy" decoding="async" src="assets/power.png" alt="FREE-WILi 2 simulator showing the command panel and power UI"></div>
+      </div>
+    </div>
+
+    <!-- 7. Bootloader -->
+    <div class="feature rise">
+      <div class="f-text">
+        <span class="f-tag">// Open Hardware</span>
+        <h3>Make and Load Your App</h3>
+        <p>The IO interfaces and connections are documented for the RP2350s and ESP32. The example template projects exist in github. The onboard Raspberry Pi debug probe is connected. You are all set to get started on your awesome software app - or port an amazing community app.</p>
+        <p>When you are ready to ship, the SD-card bootloader loads applications written by anyone/anything. Drop a UF2 on the card and run it. The onboard USB reader makes this a snap.</p>
+        
+        <ul class="f-list"><li><b>Open</b> Hardware</li><li><b>UF2</b> from SD</li><li>Onboard <b>Debug</b></li></ul>
+      </div>
+      <div class="f-media rise">
+        <div class="frame glow-red" data-tag="vibesim · live"><video autoplay muted loop playsinline preload="metadata" aria-label="FREE-WILi 2 VibeSim simulation running"><source src="assets/vibesim.mp4" type="video/mp4"></video></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SOFTWARE / AI -->
+<section class="block showcase" id="software">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">// software</span>
+      <h2>Software Makes it Happen</h2>
+      <p>FREE-WILi 2 is a platform for running any code &mdash; FREE-WILi default firmware, ported open source projects, or software done by the user, for the user.</p>
+    </div>
+
+    <!-- Default firmware -->
+    <div class="feature rise">
+      <div class="f-text">
+        <span class="f-tag">// freewili default firmware</span>
+        <h3>Ready to go, out of the box.</h3>
+        <p>The FREE-WILi Firmware runs all the features out of the box &mdash; the default firmware ships with the USB CLI, Python Host API, GUI screens, and stand-alone scripting enabled.</p>
+        <p>The default firmware is also a bootloader. It can cleanly launch UF2 files right from the device menu.</p>
+        <p><b>Stand-alone scripting</b> ties all the hardware together the way you want. On device compiled code like the following: 1) <b>rThon</b> is a Python-like real time scripting engine, 2) <b>WiliBlocks</b> give you point-and-click scripting, and 3) <b>ZoomIO for RISCV</b> scripting for sub microsecond real time control.</p>
+        <p>Need the power of <b>Rust or C++</b>? There is also an onboard WASM engine called <b>WiliWasm</b>. WiliWasm is designed for real time and supports remote debugging from FREE-WILi GUI.</p>
+        <ul class="f-list"><li><b>GUI and CLI</b></li><li>App Loader</li><li>Scripting</li><li>Real-Time</li></ul>
+      </div>
+      <div class="f-media rise">
+        <div class="frame glow" data-tag="fwfirmware.png"><img loading="lazy" decoding="async" src="assets/fwfirmware.png" alt="FREE-WILi 2 default firmware running on the device"></div>
+      </div>
+    </div>
+
+    <!-- FREE-WILi GUI -->
+    <div class="feature reverse rise">
+      <div class="f-text">
+        <span class="f-tag">// freewili gui</span>
+        <h3>Take it to the next level with a host PC.</h3>
+        <p>There are just some projects that are too big to set up and ideate on the small user interface - FREE-WILi GUI is a USB-drive-capable app that has GUIs to make configuration or host PC use just point and click. You can launch it straight from the device's SD card, no install needed.</p> 
+        <p>The FREE-WILi GUI offers scripting options just like hardware. For example you can have WiliBlocks run on the host or device at the same time.</p>
+        <p>Draw to the screen the same way whether you're on the device, in WASM, or over the headless Linux API.</p>
+        <ul class="f-list"><li><b>WASM</b> compiler/debugger</li><li>I2C DB</li><li>GUI builder</li><li>portable</li></ul>
+      </div>
+      <div class="f-media rise">
+        <div class="frame glow" data-tag="fwgui.webp"><img loading="lazy" decoding="async" src="assets/fwgui.webp" alt="FREE-WILi GUI software showing the I2C panel and graphical editor"></div>
+      </div>
+    </div>
+
+    <!-- Python API -->
+    <div class="feature rise">
+      <div class="f-text">
+        <span class="f-tag">// python api</span>
+        <h3>Python: pip install freewili</h3>
+        <p>Python, with libraries for everything, can do almost anything &mdash; FREE-WILi has a Python API you or your agents can use to make really cool applications.</p>
+        <p>Even better, the onboard Linux CPU can run your FREE-WILi apps without your host PC. So build it with your desktop and send it down to the onboard Linux to run.</p>
+        <ul class="f-list"><li><b>Python</b> API</li><li>host PC</li><li>onboard Linux</li><li>agent-friendly</li></ul>
+      </div>
+      <div class="f-media rise">
+        <div class="frame glow" data-tag="fwpython.png"><img loading="lazy" decoding="async" src="assets/fwpython.png" alt="FREE-WILi Python API code example"></div>
+      </div>
+    </div>
+
+    <!-- AI -->
+    <div class="feature reverse rise">
+      <div class="f-text">
+        <span class="f-tag">// ai &amp; agents</span>
+        <h3>Claude Code, in the loop.</h3>
+        <p>The new age of AI lets tools like Claude Code write and debug your embedded application the way <b>you</b> want it. FREE-WILi GUI ships with integration for <b>Claude</b> and <b>LM Studio</b> for local models &mdash; and our open hardware docs plus <code style="font-family:var(--mono);color:var(--green)">Agent.md</code> files give agents everything they need to create and debug code on open hardware.</p>
+        <p>Onboard debugging seals the end-to-end testing loop: an enhanced Raspberry Pi Debug Probe flashes and debugs both RP2350 cores <b>and</b> the LoRa processor &mdash; in the box.</p>
+        <ul class="f-list"><li><b>Claude</b> API</li><li>LM Studio (local)</li><li>Agent.md</li><li>in-box debug</li></ul>
+      </div>
+      <div class="f-media rise">
+        <div class="frame tall glow" data-tag="ai.webp · config"><img loading="lazy" decoding="async" src="assets/ai.webp" alt="FREE-WILi GUI Claude API configuration panel"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GAMING -->
+<section class="block" id="gaming">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">// play</span>
+      <h2>Fruit Jam-compatible. Doom-approved.</h2>
+      <p>The display CPU is nearly 100% compatible with Adafruit's Fruit Jam &mdash; port a Fruit Jam app to FREE-WILi 2 with barely a change. Our team brought up PICO-8 and, of course, Doom.</p>
+    </div>
+
+    <div class="feature rise">
+      <div class="f-text">
+        <span class="f-tag">// retro gaming</span>
+        <h3>It runs Doom.</h3>
+        <p>Comfortable buttons, a real D-pad, and a large display CPU make retro gaming first class. PICO-8 brought up its reality-console fantasy world; Doom brought the demons. A full-size <b>DVI</b> connector (HSTX-driven) puts it all on the big screen.</p>
+        <p>Adafruit's RP2350-based Fruit Jam mini computer shares almost all of FREE-WILi 2's display-CPU hardware (a few pins differ). That compatibility is the bridge: the broad Fruit Jam software ecosystem comes along for the ride, and it's what hinted at USB host in the first place.</p>
+        <ul class="f-list"><li><b>Fruit Jam</b> compatible</li><li>PICO-8</li><li>Doom</li><li>DVI out</li></ul>
+      </div>
+      <div class="f-media rise">
+        <div class="frame glow" data-tag="doom · live"><video autoplay muted loop playsinline preload="metadata" poster="assets/wili8.webp" aria-label="Doom running on a FREE-WILi 2 device"><source src="assets/doom.webm" type="video/webm"><source src="assets/doom.mp4" type="video/mp4"><source src="assets/doom.mov" type="video/quicktime"></video></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SPEC TABLE -->
+<section class="block specs" id="specs">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">// the full sheet</span>
+      <h2>Specifications</h2>
+    </div>
+    <div class="spec-grid rise">
+      <div class="spec-card">
+        <h4>Compute</h4>
+        <dl>
+          <dt>Main / Display</dt><dd>2× RP2350 (dual-core, PIO)</dd>
+          <dt>Memory</dt><dd>8 MB SRAM / 16 MB Flash per RP2350</dd>
+          <dt>FPGA</dt><dd>Lattice ICE40 with 8 MB SRAM</dd>
+          <dt>Linux</dt><dd>Optional Raspberry Pi CM0</dd>
+          <dt>LoRa</dt><dd>STM32WLE5JC — STM32 with integrated LoRa</dd>
+          <dt>Debug</dt><dd>Enhanced RPi Debug Probe (RP2350 + LoRa)</dd>
+        </dl>
+      </div>
+      <div class="spec-card">
+        <h4>Display &amp; Input</h4>
+        <dl>
+          <dt>Screen</dt><dd>3.5″ 480×320 capacitive touch</dd>
+          <dt>D-pad</dt><dd>5-way + A·B·X·Y (home/ok/cancel/page)</dd>
+          <dt>Keys</dt><dd>5 under-screen context buttons</dd>
+          <dt>Keyboard</dt><dd>2-press-per-letter</dd>
+          <dt>Motion</dt><dd>IMU position as input</dd>
+          <dt>USB host</dt><dd>Keyboard, mouse, and joystick</dd>
+        </dl>
+      </div>
+      <div class="spec-card">
+        <h4>Connectivity</h4>
+        <dl>
+          <dt>WiFi/BT</dt><dd>ESP32-C5, 2.4 + 5 GHz</dd>
+          <dt>SubGHz</dt><dd>CC1101 + LoRa (Meshtastic)</dd>
+          <dt>RFID/NFC</dt><dd>125 kHz + ST25R3916B</dd>
+          <dt>CAN</dt><dd>CAN FD, 8 Mbit</dd>
+          <dt>Video</dt><dd>Full-size DVI (RP2350 HSTX)</dd>
+          <dt>USB host</dt><dd>3× (2× 12 Mbit RP2350 DISPLAY + 1× 480 Mbit CM0)</dd>
+          <dt>GPS</dt><dd>Via USB host</dd>
+          <dt>IR</dt><dd>Tx/Rx, case window</dd>
+        </dl>
+      </div>
+      <div class="spec-card">
+        <h4>Analog &amp; GPIO</h4>
+        <dl>
+          <dt>Connectors</dt><dd>20-pin (FW1) + 10-pin analog + posts</dd>
+          <dt>Analog in</dt><dd>0–5V, op-amp + PGA front end</dd>
+          <dt>Analog out</dt><dd>0–5V @ 25 kHz</dd>
+          <dt>Prog. PSU</dt><dd>1–5.5V / 1.5A + MOSFET crowbar</dd>
+          <dt>IO voltage</dt><dd>SW-selectable + ADC measure</dd>
+          <dt>I2C</dt><dd>3.3V Orca bus w/ EEPROM</dd>
+        </dl>
+      </div>
+      <div class="spec-card">
+        <h4>Sensors &amp; Audio</h4>
+        <dl>
+          <dt>IMU</dt><dd>BMI323 (9-DOF w/ mag)</dd>
+          <dt>Magnetometer</dt><dd>BMM350</dd>
+          <dt>Light</dt><dd>OPT4001 ambient</dd>
+          <dt>Climate</dt><dd>SHT40 temp / humidity</dd>
+          <dt>Audio</dt><dd>4-mic array + 3.5 mm jack</dd>
+        </dl>
+      </div>
+      <div class="spec-card">
+        <h4>Power</h4>
+        <dl>
+          <dt>ULP</dt><dd>Dedicated micro, 17 power zones</dd>
+          <dt>Battery</dt><dd>3000 mAh + USB-aware charging</dd>
+          <dt>Sleep current</dt><dd>TBD</dd>
+        </dl>
+      </div>
+      <div class="spec-card">
+        <h4>Storage</h4>
+        <dl>
+          <dt>Storage</dt><dd>Dual microSD (device + Linux)</dd>
+          <dt>SD reader</dt><dd>High-speed USB, RPi-Imager ready</dd>
+          <dt>Boot</dt><dd>SD-card UF2 bootloader</dd>
+        </dl>
+      </div>
+      <div class="spec-card">
+        <h4>Physical</h4>
+        <dl>
+          <dt>Dimensions</dt><dd>152.4 &times; 78.9 &times; 22.3 mm<br>(6.00 &times; 3.11 &times; 0.88 in)</dd>
+          <dt>Weight</dt><dd>TBD</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final" id="buy">
+  <div class="wrap">
+    <span class="eyebrow rise" style="justify-content:center">// who wants one?</span>
+    <h2 class="rise">Get FREE-WILi<span class="n">2</span> at DEFCON.</h2>
+    <p class="rise">Preorder and pickup at the show. DEFCON Founders Edition. Limited supply available.</p>
+    <div class="hero-cta rise">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScKhaCV1lJEdg0SZROQ1WWX5aNY4GcFk7fkkuHtbKtyJYV3zA/viewform" target="_blank" rel="noopener" class="btn btn-primary">Get one →</a>
+      <a href="fwgui/fwcom.html" target="_blank" rel="noopener" class="btn btn-green">Try it now</a>
+      <a href="https://freewili.com/products/orca-modules/bottlenose-wifi-orca/" class="btn btn-ghost">Explore Orcas</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <a href="https://www.freewili.com" target="_blank" rel="noopener" class="logo" aria-label="FREE-WILi — visit freewili.com">
+      <img class="logo-img" src="assets/FW_Full_Logo_WHT2.svg" alt="FREE-WILi">
+    </a>
+    <div class="foot-links">
+      <a href="https://www.freewili.com">freewili.com</a>
+      <a href="#features">Features</a>
+      <a href="#specs">Specs</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScKhaCV1lJEdg0SZROQ1WWX5aNY4GcFk7fkkuHtbKtyJYV3zA/viewform" target="_blank" rel="noopener">Buy</a>
+    </div>
+    <div>© 2026 FREE-WILi · Open hardware</div>
+  </div>
+</footer>
+
+<!-- click-to-zoom lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lb-close" type="button" aria-label="Close image">&#10005;</button>
+  <img alt="">
+  <video controls autoplay loop playsinline></video>
+</div>
+
+<script>
+  // live countdown to DEF CON 34 — Aug 6–9, 2026, Las Vegas (counts to opening day)
+  (function(){
+    const el = document.getElementById('countdown');
+    if(!el) return;
+    const target = new Date('2026-08-06T10:00:00-07:00').getTime(); // 10:00 PT, doors open
+    function tick(){
+      const diff = target - Date.now();
+      if(diff <= 0){ el.innerHTML = '<b>LIVE NOW</b>'; return; }
+      const d = Math.floor(diff/86400000);
+      const h = Math.floor(diff/3600000)%24;
+      const m = Math.floor(diff/60000)%60;
+      const s = Math.floor(diff/1000)%60;
+      const pad = n => String(n).padStart(2,'0');
+      el.innerHTML = `<b>${d}</b>d <b>${pad(h)}</b>:<b>${pad(m)}</b>:<b>${pad(s)}</b>`;
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+
+  // staggered scroll reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){
+        e.target.style.transitionDelay = (Math.min(i,4)*0.07)+'s';
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.12, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.rise:not(.in)').forEach(el=>io.observe(el));
+
+  // only decode the looping video while it's on screen — saves constant CPU/GPU
+  document.querySelectorAll('video').forEach(v=>{
+    new IntersectionObserver(([e])=>{
+      if(e.isIntersecting){ v.play().catch(()=>{}); } else { v.pause(); }
+    },{threshold:.15}).observe(v);
+  });
+
+  // pause the hero's gentle float animation when it scrolls off-screen
+  const heroDev = document.querySelector('.hero-device');
+  if(heroDev){
+    new IntersectionObserver(([e])=>{
+      heroDev.style.animationPlayState = e.isIntersecting ? 'running' : 'paused';
+    },{threshold:0}).observe(heroDev);
+  }
+
+  // click any content image or video to view it full-size in a popup
+  (function(){
+    const lb = document.getElementById('lightbox');
+    const lbImg = lb.querySelector('img');
+    const lbVid = lb.querySelector('video');
+    function show(){
+      lb.classList.add('open'); lb.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    }
+    function openImg(src, alt){
+      lbVid.pause(); lbVid.removeAttribute('src'); lbVid.style.display = 'none';
+      lbImg.src = src; lbImg.alt = alt || ''; lbImg.style.display = '';
+      show();
+    }
+    function openVid(src){
+      lbImg.removeAttribute('src'); lbImg.style.display = 'none';
+      lbVid.src = src; lbVid.style.display = ''; lbVid.currentTime = 0;
+      lbVid.play().catch(()=>{});
+      show();
+    }
+    function close(){
+      lb.classList.remove('open'); lb.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+      lbImg.removeAttribute('src');
+      lbVid.pause(); lbVid.removeAttribute('src');
+    }
+    document.querySelectorAll('.frame img, .hero-device img').forEach(img=>{
+      img.addEventListener('click', ()=> openImg(img.currentSrc || img.src, img.alt));
+    });
+    document.querySelectorAll('.frame video').forEach(vid=>{
+      vid.style.cursor = 'zoom-in';
+      vid.addEventListener('click', ()=>{
+        const s = vid.querySelector('source');
+        const src = vid.currentSrc || (s && s.src);
+        if(src) openVid(src);
+      });
+    });
+    // click the backdrop (not the video itself) or the close button to dismiss
+    lb.addEventListener('click', e=>{ if(e.target !== lbVid) close(); });
+    lb.querySelector('.lb-close').addEventListener('click', e=>{ e.stopPropagation(); close(); });
+    addEventListener('keydown', e=>{ if(e.key === 'Escape' && lb.classList.contains('open')) close(); });
+  })();
+
+  // Mobile navigation menu toggle
+  (function(){
+    const burger = document.getElementById('burger');
+    const links = document.querySelector('nav.links');
+    if (burger && links) {
+      burger.addEventListener('click', () => {
+        burger.classList.toggle('open');
+        links.classList.toggle('open');
+        // Prevent background scrolling when menu is open
+        document.body.style.overflow = links.classList.contains('open') ? 'hidden' : '';
+      });
+      // Close menu when clicking individual links
+      links.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          burger.classList.remove('open');
+          links.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  })();
+</script>
+</body>
+</html>

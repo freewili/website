@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gaming — FREE-WILi 2 Specifications</title>
+<meta name="description" content="FREE-WILi 2 spec detail: 14 comfort-designed buttons, Adafruit Fruit Jam compatibility, PICO-8 and Doom.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"></noscript>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="../index.html" class="logo" aria-label="FREE-WILi 2 — home">
+      <img class="logo-img" src="../assets/FW_Full_Logo_WHT2.svg" alt="FREE-WILi">
+    </a>
+    <nav class="links">
+      <a href="../index.html#features">Features</a>
+      <a href="../index.html#software">Software</a>
+      <a href="../index.html#gaming">Gaming</a>
+      <a href="../index.html#specs">Specs</a>
+    </nav>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScKhaCV1lJEdg0SZROQ1WWX5aNY4GcFk7fkkuHtbKtyJYV3zA/viewform" target="_blank" rel="noopener" class="btn btn-primary">DEFCON Preorder</a>
+  </div>
+</header>
+
+<!-- SPEC HERO -->
+<main>
+<section class="spec-hero">
+  <div class="wrap">
+    <span class="eyebrow" style="justify-content:center">// specifications</span>
+    <h1>Built for <span class="n">gaming</span></h1>
+    <div class="big-stat">Game<em>ON</em></div>
+    <div class="sub">14 gamer buttons, emulator friendly</div>
+  </div>
+</section>
+
+<!-- BODY -->
+<div class="wrap">
+  <div class="spec-body">
+    <p>FREE-WILi 2&rsquo;s display CPU is <b>nearly 100% compatible with the Adafruit Fruit Jam</b> &mdash; hardware-compatible, with some different pin assignments &mdash; making it straightforward for anyone to port a Fruit Jam application to FREE-WILi 2. The wili team put that compatibility to the test by porting <b>PICO-8 for retro gaming</b>, and Doom runs on the platform too.</p>
+    <p>Buttons received a massive upgrade over the original FREE-WILi. A <b>full 5-button d-pad joins four new ABXY-positioned buttons</b> named home, ok, cancel, and page, plus the five under-screen context buttons &mdash; and the touch screen sits on top of all that. With 14 physical buttons and a touch screen, user input is orders of magnitude richer than before.</p>
+    <p>Every button was designed with comfort in mind so that retro gaming plays as well as it possibly can on a handheld device. FREE-WILi 2 also introduces an <b>innovative 2-button-press-per-letter keyboard</b>, giving users a fast and ergonomic way to enter text without a full keyboard.</p>
+    <div class="frame"><img src="../assets/fruitjam.webp" alt="Adafruit Fruit Jam compatibility on FREE-WILi 2" loading="lazy" decoding="async"></div>
+    <div class="spec-facts">
+      <h4>Key facts</h4>
+      <dl>
+        <dt>Buttons</dt><dd>14 + touch</dd>
+        <dt>Compatible</dt><dd>Adafruit Fruit Jam</dd>
+        <dt>Ported</dt><dd>PICO-8, Doom</dd>
+        <dt>Keyboard</dt><dd>2 presses per letter</dd>
+      </dl>
+    </div>
+  </div>
+  <nav class="spec-nav">
+    <a href="sd-reader.html">&larr; SD Reader</a>
+    <a class="home" href="../index.html">FREE-WILi 2 home</a>
+    <a href="sensors.html">Sensors &rarr;</a>
+  </nav>
+</div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot-in">
+    <a href="../index.html" class="logo" aria-label="FREE-WILi 2 — home">
+      <img class="logo-img" src="../assets/FW_Full_Logo_WHT2.svg" alt="FREE-WILi">
+    </a>
+    <div class="foot-links">
+      <a href="https://www.freewili.com">freewili.com</a>
+      <a href="../index.html#features">Features</a>
+      <a href="../index.html#specs">Specs</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScKhaCV1lJEdg0SZROQ1WWX5aNY4GcFk7fkkuHtbKtyJYV3zA/viewform" target="_blank" rel="noopener">Buy</a>
+    </div>
+    <div>&copy; 2026 FREE-WILi &middot; Open hardware</div>
+  </div>
+</footer>
+
+<!-- click-to-zoom lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lb-close" type="button" aria-label="Close image">&#10005;</button>
+  <img alt="">
+</div>
+
+<script>
+(function(){
+  var lb=document.getElementById('lightbox'),lbImg=lb.querySelector('img'),closeBtn=lb.querySelector('.lb-close');
+  function open(src,alt){lbImg.src=src;lbImg.alt=alt||'';lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
+  function close(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');lbImg.src='';document.body.style.overflow=''}
+  document.querySelectorAll('.frame img').forEach(function(img){img.addEventListener('click',function(){open(img.currentSrc||img.src,img.alt)})});
+  lb.addEventListener('click',close);
+  closeBtn.addEventListener('click',function(e){e.stopPropagation();close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('open'))close()});
+})();
+</script>
+</body>
+</html>

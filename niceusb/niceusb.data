@@ -1,0 +1,1107 @@
+# Getting Started
+
+niceusb emulates USB devices (keyboard, mouse, gamepad) on an RP2350, driven by
+a script you write here. The emulated device plugs into this PC, and the
+**HID Report Inspector** shows what the host actually received — closing the loop.
+
+## Quick start
+
+1. Wire the Raspberry Pi Debug Probe to the Pico 2 (SWD) and plug both this PC
+   and the Pico's native USB port in.
+2. Click **Attach** (Controls window). The console shows `attached (RTT 9090)`
+   and a `heartbeat` every second.
+3. Type a script in the **Script Editor**, e.g.:
+
+```
+type "hello world"
+```
+
+4. Click **Run**. The emulated keyboard types it; the **HID Report Inspector**
+   shows the decoded characters the host received.
+5. Click **Detach** to release the probe (e.g. before running a command-line
+   tool that needs it).
+
+## The panes
+
+- **Controls** — Attach / Run / Detach and probe status.
+- **Script Editor** — your WUSB script.
+- **HID Report Inspector** — live, decoded view of what the host received;
+  filter by Keyboard / Mouse / Gamepad, or Clear.
+- **Console** — device logs, `OK: script done`, and `ERR line N: ...` messages.
+- **Documentation** — this window.
+
+All panes are dockable: drag a tab to rearrange, split, or tear off. The layout
+is remembered between runs.
+
+See **WUSB Reference** for the full scripting language. On the Adafruit Fruit Jam,
+see **Standalone Mode (SD Card)** to run scripts from a card with no PC attached.
+# WUSB Reference
+
+Scripts are line-oriented: one action per line. `#` starts a comment; blank lines
+are ignored. The script runs on the device; errors come back as
+`ERR line N: <message>` and execution stops at the first error.
+
+A script starts in **keyboard** mode. Switch device with `device`. Verbs only work
+in their device's mode (e.g. `move` needs `device mouse`).
+
+## Device
+
+```
+device keyboard | mouse | gamepad   # re-enumerate as that single device
+connect                             # (re)attach to the USB bus
+disconnect                          # drop off the bus
+```
+
+Switching device re-enumerates on the host (keyboard = PID 0x4001,
+mouse = 0x4002, gamepad = 0x4003).
+
+## Keyboard
+
+```
+key tap A            # press and release
+key down LSHIFT      # hold
+key up LSHIFT
+type "Hello!"        # types the string (handles shift/symbols)
+delay 100ms          # also: 2s, 500us
+repeat 5 { key tap A }   # bounded loop (single level; inline or multi-line)
+```
+
+Named keys: `A`–`Z`, `0`–`9`, `ENTER`, `SPACE`, `TAB`, `ESC`, `BACKSPACE`,
+`LSHIFT`, `RSHIFT`, `LCTRL`, `LALT`, `LGUI`.
+
+`type` escapes: `\n` (Enter), `\t` (Tab), `\"`, `\\`.
+
+```
+repeat 3 {
+  type "line"
+  key tap ENTER
+}
+```
+
+## Mouse
+
+```
+move 50 -20          # relative dx dy
+click left           # left | right | middle
+button down right    # hold / release a button
+button up right
+scroll 3             # wheel (signed)
+```
+
+## Gamepad
+
+```
+axis x 100           # x|y|z|rz|rx|ry, value -127..127 (clamped)
+pad button 0 down    # button index 0..31
+pad button 0 up
+hat up               # center|up|upright|right|downright|down|downleft|left|upleft
+```
+
+## Example: switch devices in one script
+
+```
+device keyboard
+type "login\n"
+delay 200ms
+device mouse
+move 100 0
+click left
+device gamepad
+axis x 127
+pad button 0 down
+```
+# App Guide
+
+## Connection model
+
+The app talks to the RP2350 two ways:
+
+- **Control channel (SWD):** the app launches OpenOCD and opens a SEGGER RTT
+  channel over the debug probe to push your script text and read logs. **Attach**
+  starts this; **Detach** stops it and frees the probe.
+- **Loopback (native USB):** the emulated device plugs into this PC; the host's
+  input stack receives its reports, which the inspector reads via Win32 Raw Input.
+
+Only one program can own the debug probe at a time. If **Attach** fails with
+`RTT connect failed`, make sure no other OpenOCD / `rtt.ps1` / E2E script is
+running, then try again.
+
+## Workflow
+
+1. **Attach** → wait for `attached (RTT 9090)` and heartbeats.
+2. Write a script, **Run** it.
+3. Watch the **HID Report Inspector** for what the host received, and the
+   **Console** for `OK: script done` or `ERR line N: ...`.
+4. **Detach** when you need the probe elsewhere.
+
+## Inspector
+
+- Lines are tagged by type: `KBD`, `MOUSE`, `PAD`.
+- Toggle **Keyboard / Mouse / Gamepad** to filter; **Clear** wipes the view.
+- Keyboard shows decoded characters; mouse shows dx/dy/buttons; gamepad shows
+  axes/hat/buttons.
+
+## Notes
+
+- In interactive mode the app does not steal focus, so emulated keystrokes also
+  land in whatever window is focused — click into the editor or another window as
+  needed. (Automated self-tests grab focus so they don't leak.)
+- Switching device type re-enumerates; the host takes ~1s to be ready, which the
+  firmware waits out before sending reports.
+
+## Command-line self-tests
+
+Built-in headless end-to-end checks (used by the `tools/e2e_*.ps1` harnesses):
+
+```
+niceusb.exe --selftest-wusb  <file>   # keyboard: type "m2ok"
+niceusb.exe --selftest-mouse <file>   # mouse: move + click
+niceusb.exe --selftest-pad   <file>   # gamepad: axis + button
+```
+# How HID USB Devices Work
+
+HID (Human Interface Device) is the USB class for devices a person operates:
+keyboards, mice, gamepads, dials, touchpads, and a huge range of vendor gadgets.
+Its defining trait is that the device is self-describing: it ships a machine-readable
+description of its own data, so the operating system needs no per-device driver. Plug
+in any conformant HID device and it works.
+
+This page explains the moving parts and where each one shows up in niceusb. Doc 05
+is the deep reference for the report descriptor itself.
+
+## Why HID is self-describing
+
+A USB host that wanted to support a new mouse used to need a new driver. HID removes
+that: the device hands the host a report descriptor, a compact grammar that says
+"my data comes in packets shaped like this, and this field means X". The host's
+generic HID driver reads that grammar once at plug-in and then knows how to interpret
+every packet. The device defines the contract; the host obeys it.
+
+That is exactly why niceusb is useful: by editing the descriptors the device presents,
+you control that contract and can test how a host reacts to it.
+
+## The descriptor stack
+
+When a HID device is enumerated, the host reads a nested set of descriptors. Each
+layer narrows from "what is this device" down to "how do its data packets look":
+
+```
+Device descriptor        identity: idVendor, idProduct, bcdDevice, class
+  Configuration descriptor   power, number of interfaces
+    Interface descriptor       bInterfaceClass = 0x03 (HID)
+      HID class descriptor       bcdHID, and the length of the report descriptor
+      Endpoint descriptor        Interrupt IN  (device -> host reports)
+      Endpoint descriptor        Interrupt OUT (host -> device, optional)
+    String descriptors         human-readable Manufacturer / Product / Serial
+```
+
+- The device descriptor is the identity card: who made it and what it is.
+- The configuration groups one or more interfaces. A HID interface has class 0x03.
+- The HID class descriptor sits inside the interface and, crucially, tells the host
+  the type and length of the report descriptor to fetch next.
+- Endpoints are the data pipes. HID uses an interrupt IN endpoint for the device to
+  send reports to the host, and optionally an interrupt OUT endpoint for the reverse.
+- String descriptors hold the UTF-16 text shown in Device Manager and the like.
+
+The report descriptor is fetched separately (it is not part of the configuration
+descriptor) using the length advertised by the HID class descriptor.
+
+## Reports: the actual data
+
+Once parsed, the device and host exchange reports: small fixed-shape packets. There
+are three kinds:
+
+- Input report: device -> host. A key press, a mouse delta, a stick position.
+- Output report: host -> device. Keyboard LEDs, rumble, indicator lights.
+- Feature report: configuration/state, exchanged either direction on demand (not
+  part of the normal input stream).
+
+The report descriptor is the schema for these bytes. It declares, field by field,
+how many bits each value uses, what range it spans, and which usage (semantic
+meaning, e.g. "X axis" or "Button 1") it carries. Without the descriptor, an input
+report is just anonymous bytes; with it, the host knows byte 0 bit 0 is the left
+mouse button.
+
+## Enumeration and parsing, step by step
+
+```
+1. Host reads the device descriptor              -> sees class / identity
+2. Host reads the configuration descriptor       -> finds the HID interface + endpoints
+3. Host reads the HID class descriptor           -> learns report-descriptor length
+4. Host fetches the report descriptor            -> the field-by-field schema
+5. Host builds a parser from that schema
+6. Device sends input reports on the interrupt IN endpoint; the host decodes each
+   one against the schema and delivers events to applications
+```
+
+Steps 1-4 happen once at plug-in. Step 6 repeats for the life of the connection.
+
+## Boot vs report protocol
+
+Some HID devices (keyboards and mice) also support a fixed, descriptor-free format
+called the boot protocol, so a BIOS can use them before any HID parser exists. The
+richer, descriptor-driven format is the report protocol, which is what the OS uses
+normally. Doc 05 covers the boot report layouts.
+
+## How this maps to niceusb
+
+Every layer above is something you can inspect or author here:
+
+- Descriptor Editor -> Device / Configuration / Strings tabs: edit the device,
+  configuration (interfaces/endpoints/HID class descriptor), and string descriptors
+  directly, as forms kept in sync with the raw bytes.
+- Descriptor Editor -> HID Report tab: build or edit the report descriptor as a
+  decoded tree and as raw hex, with live validation. This is the schema from step 4.
+- Push to device: send the edited descriptor set to the Pico over RTT so it
+  re-enumerates presenting exactly those descriptors.
+- HID Report Inspector: watch the input reports the host actually receives, decoded
+  against the device's report descriptor (step 6).
+- USB Devices (browse + clone): read the descriptors of any connected USB device and
+  clone them into the editor. Note: Windows does not expose a device's raw report
+  descriptor, only its parsed form, so the cloned HID report descriptor is
+  reconstructed approximately from that parsed data (it is flagged as such). The
+  device/configuration/string descriptors are copied faithfully.
+- WUSB device modes: `device keyboard | mouse | gamepad` make the Pico present a
+  ready-made HID device of that type, each with its own report descriptor.
+
+To see the whole loop: clone or author a descriptor set, push it, then open the HID
+Report Inspector and watch the reports decode against the schema you defined.
+# HID Report Descriptors (Reference)
+
+The report descriptor is the grammar a HID device uses to describe its reports. It
+is a flat byte stream of items that a parser walks left to right, accumulating
+state, until main items emit fields into a report. This is the deep reference; doc 04
+is the conceptual overview. The Descriptor Editor's HID Report tab decodes and
+re-encodes exactly this structure.
+
+## The item model
+
+A descriptor is a sequence of items. Almost all are short items: a one-byte prefix
+followed by 0, 1, 2, or 4 data bytes.
+
+```
+prefix byte:  bbbb tt ss
+  ss  bits[1:0]  data size:  0 -> 0 bytes, 1 -> 1, 2 -> 2, 3 -> 4
+  tt  bits[3:2]  item type:  0 Main, 1 Global, 2 Local, 3 Reserved
+  bbbb bits[7:4] item tag (meaning within that type)
+```
+
+So `75 08` is prefix 0x75 (tag 0111, type Global, size 1) + data 0x08 = "Report
+Size = 8". A long item (prefix 0xFE) carries a length byte, a tag byte, then up to
+255 data bytes; it is rare and niceusb keeps any it cannot model as a raw item.
+
+Items fall into three families: Global, Local, and Main.
+
+## Global items (persistent state)
+
+Global items set parser state that persists until changed. They describe the fields
+that following main items will emit.
+
+```
+04  Usage Page          which usage namespace following Usages live in
+14  Logical Minimum     min value a field reports (as stored)
+24  Logical Maximum     max value a field reports
+34  Physical Minimum    real-world value mapped to Logical Minimum
+44  Physical Maximum    real-world value mapped to Logical Maximum
+54  Unit Exponent       power-of-ten exponent for the unit
+64  Unit                physical unit encoding (length, time, etc.)
+74  Report Size         bits per field
+84  Report ID           start an ID'd report (see Report IDs below)
+94  Report Count        number of fields of this size
+A4  Push                save the whole global state onto a stack
+B4  Pop                 restore the last pushed global state
+```
+
+Report Size x Report Count = the number of bits the next main item contributes.
+
+## Local items (reset after each main item)
+
+Local items qualify the very next main item and are cleared once it is emitted.
+
+```
+08  Usage               semantic meaning of a field (e.g. X, Button)
+18  Usage Minimum       start of a usage range
+28  Usage Maximum       end of a usage range
+38  Designator Index    index into physical designators
+48  Designator Minimum
+58  Designator Maximum
+78  String Index        index of an associated string descriptor
+88  String Minimum
+98  String Maximum
+A8  Delimiter           open/close a set of alternate usages
+```
+
+Because locals reset, you re-state Usages before every main item. Globals do not
+reset, which is why a descriptor sets Usage Page or Report Size once and reuses it.
+
+## Main items (emit fields)
+
+Main items consume the accumulated global + local state and emit fields, or open and
+close collections.
+
+```
+80  Input               a field reported device -> host
+90  Output              a field reported host -> device
+B0  Feature             a field exchanged on demand
+A0  Collection          open a grouping (data byte = type, below)
+C0  End Collection      close the current grouping
+```
+
+The data byte of Input/Output/Feature is a bit field of attributes:
+
+```
+bit0  Data        / Constant     constant = padding / read-only
+bit1  Array       / Variable     variable = one field per usage; array = an index
+bit2  Absolute    / Relative     relative = delta since last report (e.g. mouse)
+bit3  No Wrap     / Wrap
+bit4  Linear      / Nonlinear
+bit5  Preferred   / No Preferred
+bit6  No Null     / Null state
+bit7  Nonvolatile / Volatile     (Output/Feature only)
+bit8  Bit field   / Buffered bytes
+```
+
+The Array vs Variable distinction matters most. A Variable field maps each report
+bit/value to one usage (16 buttons = 16 one-bit usages). An Array field reports an
+index that selects one of N usages (a keyboard's 6-key rollover: six byte slots,
+each holding the usage of a pressed key). niceusb's clone reconstruction emits a
+usage range with report count > 1 as an Array, not a Variable.
+
+## Collections
+
+Collections group fields into a tree. `A0` opens, `C0` closes; the open's data byte
+is the type:
+
+```
+00  Physical     a set of data for one physical point (e.g. a mouse pointer)
+01  Application   top-level grouping the OS routes to one consumer (Mouse, Keyboard)
+02  Logical       a set of items that belong together as one data structure
+03  Report        groups items sharing a Report ID
+04  Named Array
+05  Usage Switch
+06  Usage Modifier
+```
+
+Every descriptor begins with an Application collection naming the device's top-level
+usage (e.g. Generic Desktop / Mouse).
+
+## Usages and usage pages
+
+A usage is the semantic tag on a field. It is a 32-bit value: the high 16 bits are
+the usage page (the namespace) and the low 16 bits are the usage ID within it.
+
+```
+usage = (page << 16) | id
+```
+
+Common pages:
+
+```
+01  Generic Desktop   X, Y, Z, Wheel, Pointer, Mouse, Keyboard, Joystick, Game Pad
+02  Simulation
+07  Keyboard / Keypad   one ID per key
+08  LEDs                Num Lock, Caps Lock, ...
+09  Button              Button 1, Button 2, ...
+0C  Consumer            volume, media transport, app launch
+```
+
+The Descriptor Editor resolves page+id to names where it can.
+
+## Report IDs
+
+By default an interface has one input report with no ID, and reports are just the
+field bytes. If the descriptor includes a Report ID global item, the device supports
+multiple distinct reports on the same interface, and every report is prefixed with
+its one-byte ID:
+
+```
+no Report ID:   [ field bytes ... ]
+with Report ID: [ id ][ field bytes for that id ... ]
+```
+
+A keyboard with a separate LED output report and a consumer-control report is a
+typical multi-report device. (Note: Windows Raw Input prepends a report-ID byte even
+when the device uses no report IDs, so a raw capture's first byte may be a leading 0.)
+
+## Boot vs report protocol
+
+Keyboards and mice may declare a boot interface (bInterfaceSubClass = 1, with a boot
+protocol) so a BIOS can use them before any HID parser runs. Boot reports have fixed
+layouts independent of the report descriptor:
+
+```
+Boot keyboard report (8 bytes):
+  byte 0     modifier bitmap (Ctrl/Shift/Alt/GUI, left & right)
+  byte 1     reserved
+  bytes 2-7  up to 6 keycodes (an array; 0 = no key)
+
+Boot mouse report (3 bytes):
+  byte 0     button bitmap
+  byte 1     X delta (signed)
+  byte 2     Y delta (signed)
+```
+
+The OS switches to report protocol after enumeration and then uses the descriptor's
+own layout. A custom HID interface (subclass 0) has no boot format and must be
+parsed; declaring boot subclass with no boot support is a common cause of a device
+failing to start.
+
+## Worked example: a mouse report descriptor
+
+This is the standard boot-style mouse descriptor (the same bytes niceusb's Mouse
+template loads). Indentation shows collection nesting:
+
+```
+05 01        Usage Page (Generic Desktop)
+09 02        Usage (Mouse)
+A1 01        Collection (Application)
+  09 01        Usage (Pointer)
+  A1 00        Collection (Physical)
+    05 09        Usage Page (Button)
+    19 01        Usage Minimum (Button 1)
+    29 03        Usage Maximum (Button 3)
+    15 00        Logical Minimum (0)
+    25 01        Logical Maximum (1)
+    95 03        Report Count (3)
+    75 01        Report Size (1)
+    81 02        Input (Data, Variable, Absolute)   -> 3 button bits
+    95 01        Report Count (1)
+    75 05        Report Size (5)
+    81 03        Input (Constant, Variable, Absolute) -> 5 padding bits
+    05 01        Usage Page (Generic Desktop)
+    09 30        Usage (X)
+    09 31        Usage (Y)
+    15 81        Logical Minimum (-127)
+    25 7F        Logical Maximum (127)
+    75 08        Report Size (8)
+    95 02        Report Count (2)
+    81 06        Input (Data, Variable, Relative)   -> X, Y deltas
+  C0           End Collection (Physical)
+C0           End Collection (Application)
+```
+
+That descriptor defines a 3-byte input report:
+
+```
+byte 0   bits 0-2 = buttons 1/2/3, bits 3-7 = padding
+byte 1   X delta, signed -127..127
+byte 2   Y delta, signed -127..127
+```
+
+Paste these bytes into the Descriptor Editor's HID Report tab to see them decode into
+exactly this tree, then push and watch the 3-byte reports arrive in the HID Report
+Inspector.
+
+## How niceusb reconstructs (and where it is approximate)
+
+When you clone a real HID device, Windows only exposes the parsed capabilities
+(usages, report sizes/counts, logical ranges), never the original report-descriptor
+bytes. niceusb rebuilds a descriptor from those capabilities: an Application
+collection, button caps as 1-bit Variable fields (with padding to byte-align),
+multi-usage arrays as Array fields, and value caps as sized Variable fields. It
+cannot recover nested Physical collections, exact item ordering, or vendor padding,
+so the result is functionally close but not byte-identical. The clone preview and the
+HID Report tab flag it as approximate.
+# Standalone Mode (SD Card)
+
+On the **Adafruit Fruit Jam** (RP2350B), niceusb can run WUSB scripts straight
+from a microSD card with **no PC and no debug probe attached** — power it up and
+it acts as the emulated device on its own. Scripts are parsed and run on the
+RP2350 itself, so the card is the only thing it needs.
+
+Note: standalone mode is Fruit-Jam-only — the Pico 2 has no SD slot. Everything in
+the other help topics still applies when a host is attached.
+
+## Quick start
+
+1. Format a microSD card as **FAT32**.
+2. Put a script named **`autorun.wusb`** in the card's root, e.g.:
+
+```
+device keyboard
+connect
+type "hello from the SD card"
+```
+
+3. Insert the card and power the Fruit Jam from any USB port (no probe needed).
+4. The script runs automatically and the emulated keyboard types into whatever
+   has focus on the host.
+
+## When the script runs
+
+`/autorun.wusb` runs on any of these:
+
+- **At boot**, if a card is already inserted.
+- **On card insert** (if the board booted without one).
+- **On a button press** — see below.
+
+## The run button
+
+Press **Button 2** on the Fruit Jam to re-run `/autorun.wusb` on demand. The
+**second NeoPixel double-blinks orange** to acknowledge the press, then the
+status NeoPixel shows the result.
+
+## Status NeoPixel
+
+The first onboard NeoPixel reports what the device is doing:
+
+- **Dim blue** — booted and idle.
+- **Blue** — a script is running.
+- **Green** — the last script finished cleanly.
+- **Red** — the last script hit an error (see the log).
+- **Off** — no card, or no `autorun.wusb` on the card.
+
+## The log file
+
+Every run appends one line to **`/wusb.log`** on the card, so you can pull the
+card and see what happened with no host attached:
+
+```
+OK: autorun.wusb
+ERR line 3: unknown verb (autorun.wusb)
+```
+
+## A library of scripts
+
+You can keep other `*.wusb` files on the card alongside `autorun.wusb`. They sit
+idle in standalone use, but when a debug probe is attached you can list and run
+them by name over the RTT link (`@list`, `@run <name>`) and push the current
+editor script to the card (`@put <name>`). Listings are capped at 16 files and
+warn if there are more.
+
+## Good to know
+
+- **Keep `autorun.wusb` short.** It runs before the heartbeat loop, so a long or
+  device-reconfiguring script delays startup. For typing, prefer a brief
+  `device keyboard / connect / type "..."`.
+- **Card removal isn't detected** on this board (there's no usable card-detect
+  line). Inserting a card into a board that booted empty works, but swapping
+  cards (remove, then reinsert) needs a power cycle before autorun picks up the
+  new card.
+- **File too large.** A script bigger than the on-device buffer (4 KB) is refused
+  rather than run truncated.
+
+See **WUSB Reference** for the scripting language and **App Guide** for the
+host-attached workflow.
+# USB Host & Pass-Through
+
+niceusb can act as a USB **host** — plugging a device-under-test (DUT) into the
+board's PIO-USB port and driving it from a script — or as an inline **proxy**
+between a real PC and the DUT. Three modes are selectable at runtime:
+
+- **emulate** (default): the RP2350's native USB port presents an emulated HID
+  device to the PC, as in all other help topics.
+- **host**: PIO-USB port acts as USB host; the DUT plugged in there is enumerated
+  and exercised by your script. Native USB is idle.
+- **proxy**: both stacks active. The DUT is enumerated over PIO-USB; its
+  descriptors are cloned so native USB re-presents the DUT to the PC byte-for-byte.
+  The board sits inline between PC and DUT, forwarding traffic both directions,
+  capturing everything, and applying optional inject/drop/delay rules.
+
+Port assignment: **native USB = device side** (PC-facing); **PIO-USB = host side**
+(DUT-facing). The control channel (SWD/RTT) is unchanged.
+
+Host/proxy mode is Fruit Jam hardware in practice — the Pico 2 has no dedicated
+host-power pin.
+
+## Mode selection
+
+```
+mode emulate               # back to normal device-emulation
+mode host                  # enable host stack, DUT side active
+mode proxy                 # MITM bridge: clone DUT to native USB, forward both ways
+```
+
+## Host-test verbs
+
+### Enumeration
+
+```
+host enumerate             # power port, enumerate DUT, bind drivers
+host wait connect 5s       # block until device attaches (or timeout → error)
+host reset                 # bus reset + re-enumerate
+host info                  # log VID:PID / class / speed / #interfaces to console
+```
+
+### Descriptors
+
+```
+host get descriptor device        # fetch device descriptor into capture
+host get descriptor config        # configuration descriptor
+host get descriptor hid           # HID class descriptor
+host get descriptor string <i>    # string descriptor at index i
+```
+
+### HID class
+
+```
+host hid poll 2s                        # read input reports for 2 s, push to capture
+host hid get report input|output|feature <id>   # GET_REPORT
+host hid set report input|output|feature [01 00 7f]  # SET_REPORT with byte payload
+host hid idle <n>                       # SET_IDLE (n = idle rate, 0 = infinite)
+```
+
+### Generic control & configuration
+
+```
+host control in  0x80 0x06 0x0100 0 64   # bmReqType bRequest wValue wIndex wLen
+host control out 0x00 0x09 0x0001 0 []   # OUT with optional byte payload
+host set config <n>                       # SET_CONFIGURATION n
+```
+
+## Assertions (`expect`)
+
+On-device assertions work in host/proxy mode the same way they work in device-
+emulation mode: a failure logs `FAIL line N: …` and stops the script.
+
+```
+expect connected                   # DUT is attached
+expect vidpid 0x046d 0xc52b        # VID:PID matches
+expect class hid                   # device class is HID
+expect report input [.. 04 ..]     # last input report matches; '..' is a wildcard byte
+expect report-count >= 10          # operators: >=  <=  ==  >  <
+expect descriptor hid len 63       # captured HID descriptor has this length
+expect stall                       # last transfer was STALLed
+expect ack                         # last transfer succeeded
+```
+
+## Proxy inject rules
+
+Rules are declared before `proxy run` starts the bridge:
+
+```
+mode proxy
+on input  report inject [00 00 04 00 00 00 00 00]  # send this extra report to the PC
+on input  report drop every 10                      # drop every 10th DUT→PC report
+on output report delay 50ms                         # delay PC→DUT OUT reports by 50 ms
+on control request stall bRequest 0x09              # force STALL on a chosen request
+proxy run 30s                                       # run for up to 30 s (or until stopped)
+```
+
+Rules are `match → action` predicates evaluated inside the forwarding tap. Byte-
+rewriting is not supported — packets are forwarded, dropped, delayed, injected
+alongside, or stalled, but not mutated. If the bridge falls behind (PIO-USB
+underrun, ring overflow), it logs a dropped-packet count rather than silently
+losing data.
+
+## App UI
+
+- **Mode selector** (toolbar): `Emulate · Host-test · Proxy` — reflects and sets
+  the firmware mode.
+- **DUT chip**: `DUT: ● 046d:c52b (HID)` next to the Device and Probe chips when
+  a device is attached, `○ none` otherwise.
+- **Capture inspector**: bidirectional event list replacing the unidirectional HID
+  Report Inspector in host/proxy mode. Each row has a direction column (`DUT→` or
+  `PC→DUT`) and a color-coded kind tag:
+
+  | Tag | Meaning |
+  |-----|---------|
+  | `ENUM` | Device connected/enumerated |
+  | `IN` | Input report, DUT → PC |
+  | `OUT` | Output report, PC → DUT |
+  | `CTRL` | Control transfer |
+  | `INJECT` | Injected report (from an `inject` rule) |
+  | `DROP` | Dropped packet (from a `drop` rule) |
+  | `RESULT` | Transfer result (ACK / STALL) |
+
+  Filter by direction or kind; decoded bytes render the same way as in the
+  existing HID inspector.
+- **Save capture**: exports the event ring (raw + decoded) to a file.
+- **DUT descriptor view**: the device/config/HID descriptors the DUT presented
+  render in the existing Descriptor Editor (read-only in host/proxy mode).
+
+## Standalone (SD card, Fruit Jam only)
+
+Host and proxy scripts parse and run on the RP2350 itself — no PC or debug probe
+required. Place a host or proxy script at `/autorun.wusb` on the SD card and the
+Fruit Jam runs it automatically at boot, exactly like any other standalone script.
+
+```
+# /autorun.wusb — standalone HID device tester example
+mode host
+host enumerate
+host wait connect 5s
+expect connected
+expect class hid
+host hid poll 2s
+expect report-count >= 1
+```
+
+The NeoPixel and log file (`/wusb.log`) report pass/fail the same way they do for
+device-emulation scripts. See **Standalone Mode (SD Card)** for the full
+standalone workflow.
+
+## Hardware — Fruit Jam pin assignments
+
+PIO-USB host runs on PIO1 at 120 MHz system clock. Pins:
+
+| Signal | GPIO |
+|--------|------|
+| D+ | 1 |
+| D- | 2 |
+| 5V host power | 11 |
+
+The RP2350B PIO reaches only a 32-pin window. D+ and D- sit within that window
+with no extra configuration needed on Fruit Jam.
+
+## Example scripts
+
+Ready-to-run scripts are in **File → Examples → Host** and **File → Examples →
+Proxy** (one device on the host port):
+
+- **Host → Enumerate** — enumerate the device, print VID:PID/class, assert it's HID.
+- **Host → Poll Reports** — capture live HID input for 3 s (move/type during the run).
+- **Host → Assert Vidpid** — guard a test on the exact device by VID/PID.
+- **Host → Descriptor Check** — assert the HID report-descriptor length.
+- **Host → Wait For Device** — wait up to 30 s for a hot-plug, then identify it.
+- **Host → Report Pattern** — wildcard byte-match the last input report.
+- **Proxy → Passthrough** — clone the device to the PC and forward its input through.
+
+Pick one to load it into the Script Editor, then press **Run**. Edit the VID/PID
+or descriptor length in the assertion examples to match your device.
+
+## Status & limitations
+
+- **Host-test mode works on hardware (single device):** enumerate, `host info`,
+  `host hid poll` with **live HID report capture**, and the `expect` assertions
+  all run reliably with one device on the host port.
+- **Proxy / pass-through works on hardware (single device):** `mode proxy` clones
+  the device-under-test's VID/PID + HID report descriptor onto the native port,
+  the PC re-enumerates the clone, and the DUT's input reports are forwarded
+  through to the PC (validated end-to-end — the PC cursor moves from the proxied
+  device).
+- **Multi-device hubs are the current limitation.** With two or more devices on
+  the onboard hub, sustained polling triggers a re-enumeration storm (a
+  single-core PIO-USB SOF-timing limit). Use one device per host port for now;
+  moving the PIO-USB host timing to core 1 is the planned fix for multi-device.
+- Not yet implemented (planned): proxy inject rules (`on …`), PC→DUT control
+  forwarding, multi-interface/composite cloning, raw-endpoint `host transfer`,
+  and standalone-SD autorun of host/proxy scripts.
+- The web/Emscripten build is authoring-only; it has no live device connection.
+
+See **WUSB Reference** for all script syntax and **App Guide** for the
+host-attached workflow.
+# Type a greeting on the host.
+device keyboard
+connect
+type "Hello from FreeWili2 NiceUSB!"
+# \n presses Enter, so this types three lines.
+device keyboard
+connect
+type "Line one\nLine two\nLine three\n"
+# Shifted punctuation is handled automatically.
+device keyboard
+connect
+type "!@#$%^&*()_+-=[]{}|;:',.<>/?"
+# Ctrl+C then Ctrl+V (hold the modifier around a tap).
+device keyboard
+connect
+key down LCTRL
+key tap C
+key up LCTRL
+delay 200ms
+key down LCTRL
+key tap V
+key up LCTRL
+# Ctrl+A to select everything.
+device keyboard
+connect
+key down LCTRL
+key tap A
+key up LCTRL
+# Ctrl+S to save.
+device keyboard
+connect
+key down LCTRL
+key tap S
+key up LCTRL
+# Alt+Tab to switch windows.
+device keyboard
+connect
+key down LALT
+key tap TAB
+key up LALT
+# Win+R opens the Run dialog, then launch Notepad.
+device keyboard
+connect
+key down LGUI
+key tap R
+key up LGUI
+delay 500ms
+type "notepad\n"
+# Fill a username/password form: user, Tab, password, Enter.
+device keyboard
+connect
+type "myusername"
+key tap TAB
+type "s3cr3t-pass"
+key tap ENTER
+# Count down with one-second pauses.
+device keyboard
+connect
+type "3"
+delay 1s
+type "2"
+delay 1s
+type "1"
+delay 1s
+type "go!\n"
+# Repeat a block five times.
+device keyboard
+connect
+repeat 5 {
+type "spam "
+}
+# Jiggle the pointer so the screen never sleeps.
+device mouse
+connect
+repeat 10 {
+move 15 0
+move -15 0
+}
+# Move the pointer in a square.
+device mouse
+connect
+move 100 0
+move 0 100
+move -100 0
+move 0 -100
+# Press, drag, release with the left button.
+device mouse
+connect
+button down left
+move 120 80
+button up left
+# Two quick left clicks.
+device mouse
+connect
+click left
+delay 60ms
+click left
+# Scroll down, pause, then scroll back up.
+device mouse
+connect
+repeat 5 { scroll -3 }
+delay 300ms
+repeat 5 { scroll 3 }
+# Trace a rough circle with the pointer.
+device mouse
+connect
+move 10 -4
+move 8 -8
+move 4 -10
+move -4 -10
+move -8 -8
+move -10 -4
+move -10 4
+move -8 8
+move -4 10
+move 4 10
+move 8 8
+move 10 4
+# Zig-zag the pointer across the screen.
+device mouse
+connect
+repeat 6 {
+move 40 20
+move 40 -20
+}
+# Sweep the left stick around the four cardinal directions.
+device gamepad
+connect
+axis x 100
+axis y 0
+delay 150ms
+axis x 0
+axis y 100
+delay 150ms
+axis x -100
+axis y 0
+delay 150ms
+axis x 0
+axis y -100
+delay 150ms
+axis x 0
+axis y 0
+# Press a button and work the d-pad (hat).
+device gamepad
+connect
+pad button 0 down
+delay 100ms
+pad button 0 up
+hat up
+delay 100ms
+hat right
+delay 100ms
+hat center
+# Pull and release the analog triggers (Z / RZ axes).
+device gamepad
+connect
+axis z 127
+delay 200ms
+axis z 0
+delay 200ms
+axis rz 127
+delay 200ms
+axis rz 0
+# Rapidly mash button 0.
+device gamepad
+connect
+repeat 8 {
+pad button 0 down
+delay 40ms
+pad button 0 up
+delay 40ms
+}
+# Spin the d-pad (hat) through all eight directions.
+device gamepad
+connect
+hat up
+delay 80ms
+hat upright
+delay 80ms
+hat right
+delay 80ms
+hat downright
+delay 80ms
+hat down
+delay 80ms
+hat downleft
+delay 80ms
+hat left
+delay 80ms
+hat upleft
+delay 80ms
+hat center
+# Tap gamepad buttons 0 through 7 in turn.
+device gamepad
+connect
+pad button 0 down
+pad button 0 up
+pad button 1 down
+pad button 1 up
+pad button 2 down
+pad button 2 up
+pad button 3 down
+pad button 3 up
+pad button 4 down
+pad button 4 up
+pad button 5 down
+pad button 5 up
+pad button 6 down
+pad button 6 up
+pad button 7 down
+pad button 7 up
+# Emit an A4 (440 Hz) tone on the UAC2 mic.
+device audio
+audio tone 440hz
+# Play a C-major scale, then silence (0 Hz).
+device audio
+audio tone 262hz
+delay 300ms
+audio tone 294hz
+delay 300ms
+audio tone 330hz
+delay 300ms
+audio tone 349hz
+delay 300ms
+audio tone 392hz
+delay 300ms
+audio tone 440hz
+delay 300ms
+audio tone 494hz
+delay 300ms
+audio tone 523hz
+delay 300ms
+audio tone 0hz
+# Two-tone siren.
+device audio
+repeat 5 {
+audio tone 440hz
+delay 250ms
+audio tone 660hz
+delay 250ms
+}
+audio tone 0hz
+# Three short beeps.
+device audio
+repeat 3 {
+audio tone 880hz
+delay 100ms
+audio tone 0hz
+delay 100ms
+}
+# Easter egg: stream a hidden looped clip from flash instead of a tone.
+# (Open the "niceusb Audio" recording device and have a listen...)
+device audio
+audio rickroll
+# Send a raw 3-byte report on a custom HID device.
+device hid
+report 0x01 0x7F 0x00
+# Load a boot-keyboard report descriptor, then become that HID device.
+hid_descriptor {
+  05 01 09 06 A1 01 05 07 19 E0 29 E7 15 00 25 01
+  75 01 95 08 81 02 95 01 75 08 81 03 05 07 19 00
+  29 65 15 00 25 65 75 08 95 06 81 00 C0
+}
+device hid
+# Load a 3-button mouse report descriptor, then become that HID device.
+hid_descriptor {
+  05 01 09 02 A1 01 09 01 A1 00 05 09 19 01 29 03
+  15 00 25 01 95 03 75 01 81 02 95 01 75 05 81 03
+  05 01 09 30 09 31 15 81 25 7F 75 08 95 02 81 06 C0 C0
+}
+device hid
+# Override the USB string descriptors (manufacturer / product / serial).
+string_descriptor 1 "FreeWili"
+string_descriptor 2 "FreeWili2 NiceUSB Device"
+string_descriptor 3 "SN-0001"
+# Send a raw 18-byte USB device descriptor (VID 0xCAFE / PID 0x4004).
+device_descriptor {
+  12 01 00 02 00 00 00 40 FE CA 04 40 00 01 01 02 03 01
+}
+# Act as a USB host: enumerate the device on the host port and assert it's HID.
+mode host
+host enumerate
+host wait connect 5s
+host info
+expect connected
+expect class hid
+# Capture live HID input reports for 3s (move/type the device); expect at least one.
+mode host
+host enumerate
+host wait connect 5s
+host hid poll 3s
+expect report-count >= 1
+# Guard a device test: assert the exact device by VID/PID (edit for your device).
+mode host
+host enumerate
+host wait connect 5s
+expect connected
+expect vidpid 0x1532 0x00b6
+# Assert the device's interface-0 HID report-descriptor length (edit the value).
+mode host
+host enumerate
+host wait connect 5s
+host info
+expect class hid
+expect descriptor hid len 94
+# Wait up to 30s for a device to be plugged into the host port, then identify it.
+mode host
+host enumerate
+host wait connect 30s
+expect connected
+host info
+# Match the last input report against a byte pattern ('..' = wildcard; edit to fit).
+mode host
+host enumerate
+host wait connect 5s
+host hid poll 3s
+expect report-count >= 1
+expect report input [.. 04 .. ..]
+# Pass-through (MITM): clone the host-port device onto the native USB port so the
+# PC sees it, and forward its input through niceusb to the PC for 20s.
+mode proxy
+host enumerate
+host wait connect 5s
+proxy run 20s
