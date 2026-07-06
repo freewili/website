@@ -104,5 +104,56 @@
   </div>
 </footer>
 
+<!-- click-to-zoom lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lb-close" type="button" aria-label="Close image">&#10005;</button>
+  <img alt="">
+  <video controls autoplay loop playsinline></video>
+</div>
+
+<script>
+  // click any content image to view it full-size in a popup
+  (function(){
+    const lb = document.getElementById('lightbox');
+    if(!lb) return;
+
+    const lbImg = lb.querySelector('img');
+    const lbVid = lb.querySelector('video');
+
+    function show(){
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function openImg(src, alt){
+      lbVid.pause();
+      lbVid.removeAttribute('src');
+      lbVid.style.display = 'none';
+      lbImg.src = src;
+      lbImg.alt = alt || '';
+      lbImg.style.display = '';
+      show();
+    }
+
+    function close(){
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+      lbImg.removeAttribute('src');
+      lbVid.pause();
+      lbVid.removeAttribute('src');
+    }
+
+    document.querySelectorAll('.frame img').forEach(img=>{
+      img.addEventListener('click', ()=> openImg(img.currentSrc || img.src, img.alt));
+    });
+
+    lb.addEventListener('click', e=>{ if(e.target !== lbVid) close(); });
+    lb.querySelector('.lb-close').addEventListener('click', e=>{ e.stopPropagation(); close(); });
+    addEventListener('keydown', e=>{ if(e.key === 'Escape' && lb.classList.contains('open')) close(); });
+  })();
+</script>
+
 </body>
 </html>
