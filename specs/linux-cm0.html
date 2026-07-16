@@ -46,7 +46,7 @@
   <div class="spec-body">
     <p>FREE-WILi 2 supports an Raspberry Pi CM0 module that brings <b>full headless Linux directly onboard</b> &mdash; no separate host machine required. The CM0 enjoys a direct connection to the onboard FPGA, giving Linux software a fast, intimate path to the programmable logic fabric.</p>
     <p>The CM0&rsquo;s single USB port is handled cleverly: it connects to both the internal USB hub as a USB gadget <b>and</b> to the third host port, with the role <b>software-swapped at runtime</b>. A dedicated microSD holds the operating system, keeping the CM0&rsquo;s storage independent from everything else on the board.</p>
-    <div class="frame"><img src="../assets/cm0.webp" alt="Raspberry Pi CM0 module on the FREE-WILi 2 board" loading="lazy" decoding="async"></div>
+    <div class="frame"><img src="../assets/cmo.png" alt="Raspberry Pi CM0 module on the FREE-WILi 2 board" loading="lazy" decoding="async"></div>
     <p>Linux software running on the CM0 talks to FREE-WILi 2 just as any application would &mdash; the drivers work exactly like the Python API, so nothing special is needed. The <b>default mode is headless</b>, with the CM0 drawing to the screen via the WASM API. Because CM0 availability is genuinely questionable, the board is designed to work perfectly well without one; user &ldquo;bring your own module&rdquo; hand-soldering is also being actively studied.</p>
     <div class="spec-facts">
       <h4>Key facts</h4>
