@@ -1,0 +1,130 @@
+{
+  "store": "FW2 Store",
+  "catalog_version": 1,
+  "apps": [
+    {
+      "id": "wiliir",
+      "name": "WiliIR",
+      "version": "0.0.0-placeholder",
+      "description": "Learn, decode, and replay IR with Flipper-compatible .ir files on a USB stick.",
+      "tags": [
+        "ir",
+        "tool",
+        "usb-content"
+      ],
+      "targets": {
+        "displaycpu": {
+          "file": "apps/wiliir/wiliir-placeholder.txt",
+          "size": 143,
+          "sha256": "6841c03a3b5fef5d41c2f884db2a21711f9c9472086336f1b6829486753e3f32"
+        }
+      }
+    },
+    {
+      "id": "sensorview",
+      "name": "SensorView",
+      "version": "0.0.0-placeholder",
+      "description": "Live instruments for environment, motion, compass, spectrum, and acoustic direction finding.",
+      "tags": [
+        "sensors",
+        "audio",
+        "tool"
+      ],
+      "targets": {
+        "displaycpu": {
+          "file": "apps/sensorview/sensorview-placeholder.txt",
+          "size": 103,
+          "sha256": "8e5657868f3c389c9dc0b315588bbafcb956ad9729d8ad0291ff99a5c46180a4"
+        }
+      }
+    },
+    {
+      "id": "subghz",
+      "name": "subghz",
+      "version": "0.0.0-placeholder",
+      "description": "CC1101 spectrum analyzer, live monitor, and OOK capture/replay for ISM bands.",
+      "tags": [
+        "radio",
+        "tool"
+      ],
+      "targets": {
+        "displaycpu": {
+          "file": "apps/subghz/subghz-placeholder.txt",
+          "size": 158,
+          "sha256": "095fc4e687b5bd45f2daf387ad4d7accbd4d073b33a51762d85a46062b40485b"
+        }
+      }
+    },
+    {
+      "id": "guitarman",
+      "name": "GuitarMan",
+      "version": "0.0.0-placeholder",
+      "description": "Scrolling chord-over-lyric teleprompter for guitar players; songs from USB or ROM.",
+      "tags": [
+        "music",
+        "usb-content"
+      ],
+      "targets": {
+        "displaycpu": {
+          "file": "apps/guitarman/guitarman-placeholder.txt",
+          "size": 101,
+          "sha256": "113c2e47e718b454b132c0dd2d9096e83cd18a5ded78f055f1a2bb71b36666ec"
+        }
+      }
+    },
+    {
+      "id": "wiliplayer",
+      "name": "wiliplayer",
+      "version": "0.0.0-placeholder",
+      "description": "USB movie player for LCD and DVI/HDMI, controlled with a Roku IR remote.",
+      "tags": [
+        "media",
+        "usb-content",
+        "dvi"
+      ],
+      "targets": {
+        "displaycpu": {
+          "file": "apps/wiliplayer/wiliplayer-placeholder.txt",
+          "size": 104,
+          "sha256": "650a96674ace34f71ab977819d45273eaa8c6298993b233ac609fd8f3dfc65c7"
+        }
+      }
+    },
+    {
+      "id": "leds-rainbow",
+      "name": "LED Rainbow",
+      "version": "0.1.0-demo",
+      "description": "Demo script artifact for store E2E — keeps stock firmware; copy to stock /scripts after download.",
+      "tags": [
+        "leds",
+        "demo",
+        "offline",
+        "script"
+      ],
+      "targets": {
+        "maincpu": {
+          "file": "apps/leds-rainbow/hello.wasm",
+          "size": 213,
+          "sha256": "3bb7c35e6e13f205b5ae014eceeea5d6cb0e716dba34efba168d7322b70da101"
+        }
+      }
+    },
+    {
+      "id": "demo-content",
+      "name": "Demo Content Pack",
+      "version": "0.1.0-demo",
+      "description": "Tiny content file for store download E2E (USB content/ tree).",
+      "tags": [
+        "demo",
+        "usb-content"
+      ],
+      "targets": {
+        "maincpu": {
+          "file": "apps/demo-content/readme.txt",
+          "size": 293,
+          "sha256": "ba3c6ec807a0d830a652df2b957ccc536d5192de2ab43db7a833be0d03c09db9"
+        }
+      }
+    }
+  ]
+}
