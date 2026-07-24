@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
-<title>Python API — FREE-WILi 2 Specifications</title>
-<meta name="description" content="FREE-WILi 2 spec detail: one Python API that runs on a host PC or the onboard Linux CM0.">
+<title>OneWili API — FREE-WILi 2 Specifications</title>
+<meta name="description" content="FREE-WILi 2 spec detail: OneWili, one unified API for every language — Python, Rust, C/C++, rThon, WASM — on a host PC or on the device itself.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
@@ -35,24 +35,25 @@
 <section class="spec-hero">
   <div class="wrap">
     <span class="eyebrow" style="justify-content:center">// specifications</span>
-    <h1><span class="n">Python</span> API</h1>
-    <div class="big-stat">Python<em>API</em></div>
-    <div class="sub">Runs on host or internal Linux</div>
+    <h1><span class="n">OneWili</span> API</h1>
+    <div class="big-stat">OneWili<em>API</em></div>
+    <div class="sub">One API — every language, host or on-device</div>
   </div>
 </section>
 
 <!-- BODY -->
 <div class="wrap">
   <div class="spec-body">
-    <p>A single <b>Python API drives FREE-WILi 2 from a host PC or from the onboard Linux CM0</b> &mdash; Linux drivers work identically to the Python API, so the same code runs wherever it is most convenient. The API pairs naturally with FREE-WILi GUI, giving developers a consistent path from rapid scripting to fully integrated tooling.</p>
-    
-    <p>Full installation instructions, API reference, and examples are available in the <b>online documentation</b> &mdash; <code>pip install freewili</code> and you are ready to go.</p>
-    <p><a href="https://freewili.github.io/freewili-python/index.html#installation" target="_blank" rel="noopener">Read the documentation</a> &middot; <a href="https://github.com/freewili/freewili-python" target="_blank" rel="noopener">Python API on GitHub</a></p>
+    <p><b>OneWili is one API for everything FREE-WILi</b> &mdash; generated directly from the firmware sources, so the bindings are always in sync with the device. The same commands, with the same names and signatures, drive FREE-WILi 2 from a host PC or the onboard Linux CM0 in <b>Python, Rust, and C/C++</b>.</p>
+    <p>The very same API surface runs <b>on the device itself</b>: <b>rThon</b> scripts, sandboxed <b>WASM</b> guests written in C or Rust, and <b>WiliBSP</b> for building your own firmware on the display CPU. Learn it once, use it everywhere &mdash; from quick host-side scripts to real-time embedded control.</p>
+    <p>Everything is organized by subsystem: <code>dev.io</code> (GPIO, UART, I2C, SPI, CAN&nbsp;FD, analog in/out, logic analyzer &amp; player, sensors, audio), <code>dev.gui</code>, <code>dev.wireless</code> (NFC, WiFi, BLE, IR), <code>dev.scripting</code>, <code>dev.hardware</code>, and more.</p>
+    <p>Full documentation is on its way &mdash; watch this space.</p>
     <div class="spec-facts">
       <h4>Key facts</h4>
       <dl>
-        <dt>Runs on</dt><dd>host PC or CM0 Linux</dd>
-        <dt>Pairs with</dt><dd>FREE-WILi GUI</dd>
+        <dt>On host</dt><dd>Python, Rust, C/C++</dd>
+        <dt>On device</dt><dd>rThon, WASM, WiliBSP</dd>
+        <dt>Generated</dt><dd>from firmware — always in sync</dd>
       </dl>
     </div>
   </div>

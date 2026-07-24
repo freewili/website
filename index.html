@@ -124,7 +124,7 @@
     <a class="stat" href="specs/sensors.html"><div class="v">Sensor<em>Package</em></div><div class="k">IR, IMU, MAG, ALS, HUMIDITY</div></a>
     <a class="stat" href="specs/ai-agents.html"><div class="v">AI<em>Agent</em></div><div class="k">Open hardware, UF2 Bootloader</div></a>
     <a class="stat" href="specs/power.html"><div class="v">3000<em>mAh</em></div><div class="k">17 Power Zones</div></a>
-    <a class="stat" href="specs/python-api.html"><div class="v">Python<em>API</em></div><div class="k">Runs on host or internal Linux</div></a>
+    <a class="stat" href="specs/onewili-api.html"><div class="v">OneWili<em>API</em></div><div class="k">One API: Python, Rust, C/C++, rThon</div></a>
     <a class="stat" href="specs/zoomio.html"><div class="v">ZoomIO<em>RISCV</em></div><div class="k">Sub microsecond BitBang scripting</div></a>
     <a class="stat" href="specs/rthon.html"><div class="v">rTHON<em>Script</em></div><div class="k">Python Like embedded script</div></a>
     <a class="stat" href="specs/wasm.html"><div class="v">C++/Rust<em>WASM</em></div><div class="k">Onboard WiliWASM engine and debugger and API</div></a>
@@ -288,7 +288,7 @@
       <div class="f-text">
         <span class="f-tag">// freewili default firmware</span>
         <h3>Ready to go, out of the box.</h3>
-        <p>The FREE-WILi Firmware runs all the features out of the box &mdash; the default firmware ships with the USB CLI, Python Host API, GUI screens, and stand-alone scripting enabled.</p>
+        <p>The FREE-WILi Firmware runs all the features out of the box &mdash; the default firmware ships with the USB CLI, OneWili API, GUI screens, and stand-alone scripting enabled.</p>
         <p>The default firmware is also a bootloader. It can cleanly launch UF2 files right from the device menu.</p>
         <p><b>Stand-alone scripting</b> ties all the hardware together the way you want. On device compiled code like the following: 1) <b>rThon</b> is a Python-like real time scripting engine, 2) <b>WiliBlocks</b> give you point-and-click scripting, and 3) <b>ZoomIO for RISCV</b> scripting for sub microsecond real time control.</p>
         <p>Need the power of <b>Rust or C++</b>? There is also an onboard WASM engine called <b>WiliWasm</b>. WiliWasm is designed for real time and supports remote debugging from FREE-WILi GUI.</p>
@@ -314,17 +314,17 @@
       </div>
     </div>
 
-    <!-- Python API -->
+    <!-- OneWili API -->
     <div class="feature rise">
       <div class="f-text">
-        <span class="f-tag">// python api</span>
-        <h3>Python: pip install freewili</h3>
-        <p>Python, with libraries for everything, can do almost anything &mdash; FREE-WILi has a Python API you or your agents can use to make really cool applications.</p>
-        <p>Even better, the onboard Linux CPU can run your FREE-WILi apps without your host PC. So build it with your desktop and send it down to the onboard Linux to run.</p>
-        <ul class="f-list"><li><b>Python</b> API</li><li>host PC</li><li>onboard Linux</li><li>agent-friendly</li></ul>
+        <span class="f-tag">// onewili api</span>
+        <h3>OneWili: one API, every language</h3>
+        <p>OneWili unifies every way of talking to FREE-WILi into a single API &mdash; generated straight from the firmware itself, so it is never out of sync. The same commands with the same names in <b>Python, Rust, and C/C++</b>, from your host PC or the onboard Linux.</p>
+        <p>The same API runs on the device too: <b>rThon</b> scripts, sandboxed <b>WASM</b> guests, even your own custom firmware via <b>WiliBSP</b>. Learn it once, use it everywhere &mdash; from quick host-side scripts to real-time embedded control.</p>
+        <ul class="f-list"><li><b>OneWili</b> API</li><li>Python</li><li>Rust</li><li>C/C++</li><li>rThon</li><li>on-device</li></ul>
       </div>
       <div class="f-media rise">
-        <div class="frame glow"><img loading="lazy" decoding="async" src="assets/freewili_python.PNG" alt="FREE-WILi Python API code example"></div>
+        <div class="frame glow"><img loading="lazy" decoding="async" src="assets/onewiliapi.png" alt="OneWili API — the same command in Python, Rust, C and rThon"></div>
       </div>
     </div>
 

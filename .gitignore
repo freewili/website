@@ -5,3 +5,6 @@ Thumbs.db
 # Editor/local settings
 .vscode/
 *.log
+
+# Wrangler local cache
+.wrangler/

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://freewili.com/</loc>
@@ -67,7 +67,7 @@
     <loc>https://freewili.com/specs/programmable-power.html</loc>
   </url>
   <url>
-    <loc>https://freewili.com/specs/python-api.html</loc>
+    <loc>https://freewili.com/specs/onewili-api.html</loc>
   </url>
   <url>
     <loc>https://freewili.com/specs/rp2350.html</loc>

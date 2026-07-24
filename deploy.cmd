@@ -10,7 +10,7 @@ cd /d "%~dp0"
 set "STAGE=%TEMP%\freewili-deploy"
 if exist "%STAGE%" rmdir /s /q "%STAGE%"
 echo Staging published files...
-robocopy "%~dp0." "%STAGE%" /E /XD ".claude" "docs" ".git" /XF "design.md" "serve.cmd" "deploy.cmd" >nul
+robocopy "%~dp0." "%STAGE%" /E /XD ".claude" "docs" ".git" ".wrangler" /XF "design.md" "serve.cmd" "deploy.cmd" >nul
 echo Uploading to Cloudflare Pages...
 call npx wrangler@latest pages deploy "%STAGE%" --project-name freewili --branch main --commit-dirty=true
 rmdir /s /q "%STAGE%"
