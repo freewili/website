@@ -3,49 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-
-<title>Our Orcas — FREE-WILi</title>
-<meta name="description" content="Explore Orca modules for FREE-WILi 2.">
+<link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+<title>Humpback Orca Module: ISO CAN FD Interface with VBATT for FREE-WILi 2</title>
+<meta name="description" content="Humpback Orca Module: ISO CAN FD interface with selectable termination, VBATT input, and DB-15 connectivity for FREE-WILi 2.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"></noscript>
-<link rel="stylesheet" href="style.css">
-<style>
-  .orca-grid { grid-template-columns: repeat(4, 1fr); }
-  .orca-grid .spec-card { display: flex; flex-direction: column; }
-  .orca-grid .orca-title {
-    font-size: 1.25rem;
-    margin: 0 0 .6rem;
-    line-height: 1.2;
-    min-height: 3.5em;
-  }
-  .orca-grid .orca-desc { margin: 0; min-height: 5.2em; }
-  .orca-grid .orca-cta { margin-top: auto; padding-top: 1rem; }
-  @media (max-width: 720px) {
-    .orca-grid { grid-template-columns: 1fr; }
-    .orca-grid .orca-title { min-height: 0; }
-    .orca-grid .orca-desc { min-height: 0; }
-  }
-</style>
+<link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
 <!-- NAV -->
 <header class="nav">
   <div class="wrap nav-in">
-    <a href="https://www.freewili.com" target="_self" rel="noopener" class="logo" aria-label="FREE-WILi — visit freewili.com">
-      <img class="logo-img" src="assets/FW_Full_Logo_WHT2.svg" alt="FREE-WILi">
+    <a href="https://www.freewili.com" target="_self" rel="noopener" class="logo" aria-label="FREE-WILi - visit freewili.com">
+      <img class="logo-img" src="../assets/FW_Full_Logo_WHT2.svg" alt="FREE-WILi">
     </a>
-    <!--
-    <nav class="links">
-      <a href="#features">Features</a>
-      <a href="#software">Software</a>
-      <a href="#gaming">Gaming</a>
-      <a href="#specs">Specs</a>
-    </nav>
-    -->
     <div class="nav-right-wrap">
       <a href="https://discord.com/invite/XJRBUCX62z" target="_blank" rel="noopener" class="btn btn-ghost">Join Discord</a>
       <a href="../index.html#buy" class="btn btn-primary" title="">DEFCON Preorder</a>
@@ -58,72 +32,69 @@
   </div>
 </header>
 
-<!-- HERO -->
+<!-- SPEC HERO -->
 <main>
 <section class="spec-hero">
   <div class="wrap">
     <span class="eyebrow" style="justify-content:center">// orca modules</span>
-    <h1>Our <span class="n">Orcas</span></h1>
-    <div class="sub">Expansion modules for FREE-WILi 2</div>
+    <h1>Humpback <span class="n">Orca</span></h1>
+    <div class="big-stat">Humpback<em>Orca</em></div>
+    <div class="sub">ISO CAN FD Interface with VBATT for FREE-WILi 2</div>
   </div>
 </section>
 
 <!-- BODY -->
 <div class="wrap">
   <div class="spec-body">
-    <p>Expand FREE-WILi 2 with Orca Modules:</p>
-    <div class="spec-grid orca-grid" aria-label="Orca module cards">
-      <article class="spec-card">
-        <div class="frame fit-contain" style="max-width:220px;margin:0 0 1rem;">
-          <img src="assets/maestro-orca.png" alt="Maestro Debug Orca" loading="lazy" decoding="async">
-        </div>
-        <h3 class="orca-title">Maestro Debug Orca</h3>
-        <p class="orca-desc">Debug and develop FREE-WILi projects with RP2040 support and convenient I/O test points.</p>
-        <p class="orca-cta"><a href="orcas/maestro-orca.html" class="btn btn-ghost">Learn More</a></p>
-      </article>
-      <article class="spec-card">
-        <div class="frame fit-contain" style="max-width:220px;margin:0 0 1rem;">
-          <img src="assets/jambu-orca.png" alt="Jambu Serial LED Control Orca" loading="lazy" decoding="async">
-        </div>
-        <h3 class="orca-title">Jambu Serial LED Control Orca</h3>
-        <p class="orca-desc">Add 8-channel serial LED control to FREE-WILi projects with a compact, high-performance breakout module.</p>
-        <p class="orca-cta"><a href="orcas/jambu-orca.html" class="btn btn-ghost">Learn More</a></p>
-      </article>
-      <article class="spec-card">
-        <div class="frame fit-contain" style="max-width:220px;margin:0 0 1rem;">
-          <img src="assets/sandiego-orca.png" alt="SAN DIEGO Orca" loading="lazy" decoding="async">
-        </div>
-        <h3 class="orca-title">SAN DIEGO Orca</h3>
-        <p class="orca-desc">Expand FREE-WILi 2 with CAN FD, RS485, and 10BASE-T1S/T1L Ethernet for automotive and industrial networks.</p>
-        <p class="orca-cta"><a href="orcas/san-diego-orca.html" class="btn btn-ghost">Learn More</a></p>
-      </article>
-      <article class="spec-card">
-        <div class="frame fit-contain" style="max-width:220px;margin:0 0 1rem;">
-          <img src="assets/humpback-orca.png" alt="Humpback Orca" loading="lazy" decoding="async">
-        </div>
-        <h3 class="orca-title">Humpback Orca</h3>
-        <p class="orca-desc">Add plug-and-play ISO CAN FD connectivity to FREE-WILi 2 with selectable termination, VBATT power, and a rugged DB-15 interface.</p>
-        <p class="orca-cta"><a href="orcas/humpback-orca.html" class="btn btn-ghost">Learn More</a></p>
-      </article>
+    <div class="frame fit-contain" style="max-width:480px;margin:0 auto 2rem;">
+      <img src="../assets/humpback-orca.png" alt="Humpback Orca board" loading="eager" decoding="async">
+    </div>
+
+    <p>The <b>Humpback Orca</b> snaps onto your FREE-WILi 2 and puts you on the CAN network in seconds. You get one <b>ISO CAN FD</b> channel with selectable on-board termination, <b>VBATT</b> power input, and a rugged <b>DB-15</b> connector in one compact module.</p>
+    <p>No laptop, no dongle stack, and no soldering a termination resistor in a parking lot. It is the simplest way to sniff, script, and simulate CAN FD traffic on real hardware.</p>
+    <p>If you work with vehicles, robots, or industrial machines, you work with CAN. Humpback Orca is the focused, no-frills way to get FREE-WILi 2 onto the bus: plug into the extension connector, wire up DB-15, and start talking CAN FD from the same Python API, touchscreen, and onboard Linux workflow you already use.</p>
+    <p>Whether you are reverse-engineering an ECU, building a bench simulator, logging a test drive, or teaching yourself automotive networking, this is the module you will reach for first.</p>
+
+    <div class="spec-facts">
+      <h4>What is on board</h4>
+      <dl>
+        <dt>ISO CAN FD</dt><dd>1x channel supporting classic CAN and CAN FD frames for modern vehicle and industrial networks</dd>
+        <dt>Termination</dt><dd>Selectable on-board 120 ohm termination for end-node or live-bus tap workflows</dd>
+        <dt>VBATT Input</dt><dd>Power the setup directly from vehicle battery when needed</dd>
+        <dt>Connector</dt><dd>Rugged DB-15 for clean, secure harness connections in lab, garage, or field</dd>
+      </dl>
+    </div>
+
+    <div class="spec-facts" style="margin-top:1.2rem;">
+      <h4>Who it is for</h4>
+      <dl>
+        <dt>Automotive Teams</dt><dd>Engineers and test teams logging, replaying, and simulating CAN FD traffic on ECUs and benches</dd>
+        <dt>Security Research</dt><dd>Researchers exploring vehicle networks with the same portable FREE-WILi workflow used at DEFCON</dd>
+        <dt>Robotics and Industrial</dt><dd>Developers working with CAN-based motor controllers, sensors, and PLC systems</dd>
+        <dt>Makers and Students</dt><dd>Learners building real automotive protocol skills on affordable open hardware</dd>
+      </dl>
+    </div>
+
+    <div class="spec-facts" style="margin-top:1.2rem;">
+      <h4>Why Humpback beats a USB-CAN dongle</h4>
+      <p>A USB-CAN adapter needs a laptop, drivers, and desk space. Humpback Orca rides on a device with a touchscreen, dual RP2350s, an FPGA, onboard Linux, Python scripting, and wireless connectivity.</p>
+      <p>Log bus traffic to a script, display live CAN data on-screen, bridge frames over WiFi, or run a full automated test sequence from your pocket.</p>
+      <p>Need more buses later? The Orca ecosystem grows with you. Move to SAN DIEGO Orca when you need RS485 and single-pair Ethernet in addition to CAN FD.</p>
     </div>
   </div>
+  <nav class="spec-nav">
+    <a href="../explore-orcas.html">&larr; All Orcas</a>
+    <a class="home" href="../index.html">FREE-WILi 2 home</a>
+  </nav>
 </div>
 </main>
 
 <!-- FOOTER -->
 <footer>
   <div class="wrap foot-in">
-    <a href="https://www.freewili.com" target="_blank" rel="noopener" class="logo" aria-label="FREE-WILi — visit freewili.com">
-      <img class="logo-img" src="assets/FW_Full_Logo_WHT2.svg" alt="FREE-WILi">
+    <a href="https://www.freewili.com" target="_blank" rel="noopener" class="logo" aria-label="FREE-WILi - visit freewili.com">
+      <img class="logo-img" src="../assets/FW_Full_Logo_WHT2.svg" alt="FREE-WILi">
     </a>
-    <!--
-    <div class="foot-links">
-      <a href="https://www.freewili.com">freewili.com</a>
-      <a href="#features">Features</a>
-      <a href="#specs">Specs</a>
-      <a href="#buy">Buy</a>
-    </div>
-    -->
     <div class="foot-social">
       <a href="https://www.facebook.com/FREEWILIOrca/" target="_blank" rel="noopener" aria-label="FREE-WILi on Facebook" title="Facebook">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
@@ -144,7 +115,7 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.16-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.69 5.4-5.25 5.68.41.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.68.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
       </a>
     </div>
-    <div>© 2026 FREE-WILi LLC · Open hardware · <a href="privacy-policy.html">Privacy Policy</a></div>
+    <div>&copy; 2026 FREE-WILi LLC &middot; Open hardware &middot; <a href="../privacy-policy.html">Privacy Policy</a></div>
   </div>
 </footer>
 

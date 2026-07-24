@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
-<title>WILEYE Camera Orca — FREE-WILi</title>
-<meta name="description" content="WILEYE Camera Orca: a compact ESP32-P4 camera module for FREE-WILi with 2MP MIPI-CSI camera, LCD display, MicroSD logging, and USB JTAG debugging.">
+<title>SAN DIEGO Orca: Vehicle Network Module for FREE-WILi 2</title>
+<meta name="description" content="SAN DIEGO Orca Module: RS485, CAN FD, 10BASE-T1S/T1L automotive and industrial interface for FREE-WILi 2.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
@@ -17,7 +17,7 @@
 <!-- NAV -->
 <header class="nav">
   <div class="wrap nav-in">
-    <a href="https://www.freewili.com" target="_self" rel="noopener" class="logo" aria-label="FREE-WILi — visit freewili.com">
+    <a href="https://www.freewili.com" target="_self" rel="noopener" class="logo" aria-label="FREE-WILi - visit freewili.com">
       <img class="logo-img" src="../assets/FW_Full_Logo_WHT2.svg" alt="FREE-WILi">
     </a>
     <div class="nav-right-wrap">
@@ -37,9 +37,9 @@
 <section class="spec-hero">
   <div class="wrap">
     <span class="eyebrow" style="justify-content:center">// orca modules</span>
-    <h1>WILEYE <span class="n">Camera Orca</span></h1>
-    <div class="big-stat">WILEYE<em>Orca</em></div>
-    <div class="sub">Compact ESP32-P4 Camera Module for FREE-WILi</div>
+    <h1>SAN DIEGO <span class="n">Orca</span></h1>
+    <div class="big-stat">SANDIEGO<em>Orca</em></div>
+    <div class="sub">RS485, CAN FD, 10BASE-T1S/T1L Automotive and Industrial Interface</div>
   </div>
 </section>
 
@@ -47,25 +47,39 @@
 <div class="wrap">
   <div class="spec-body">
     <div class="frame fit-contain" style="max-width:480px;margin:0 auto 2rem;">
-      <img src="../assets/wileye-orca.png" alt="WILEYE Camera Orca" loading="eager" decoding="async">
+      <img src="../assets/sandiego-orca.png" alt="SAN DIEGO Orca board" loading="eager" decoding="async">
     </div>
 
-    <p>Take your FREE-WILi development further with <b>WILEYE</b>, a compact camera accessory engineered for makers, hardware hackers, and embedded developers. Designed around the <b>ESP32-P4 SoC</b> and built to integrate seamlessly with Orca modules, WILEYE adds vision, debugging, and interactive control to your toolkit.</p>
-    <p>With a <b>2MP MIPI-CSI camera</b>, on-device LCD display, and MicroSD logging, WILEYE is ready for robotics, IoT, and RF projects straight out of the box. Plug-and-play USB JTAG keeps your debug workflow smooth, while the standard 1/4&rdquo; screw mount gives you flexible mounting options in any enclosure or rig.</p>
+    <p>The <b>SAN DIEGO Orca</b> snaps onto your FREE-WILi 2 and turns the open electronics multitool into a full vehicle and industrial network interface. You get <b>ISO CAN FD</b>, <b>RS485</b>, and both flavors of single-pair automotive Ethernet (<b>10BASE-T1S</b> and <b>10BASE-T1L</b>) through one rugged DB-15 connector, powered straight from the vehicle battery via <b>VBATT</b>.</p>
+    <p>Modern vehicles and industrial systems do not speak USB. They speak CAN FD, RS485, and increasingly, single-pair Ethernet. SAN DIEGO Orca brings all of them to FREE-WILi 2 so you can sniff, script, simulate, and stress-test the same buses running in cars, trucks, robots, and factory floors.</p>
+    <p>Plug it into the FREE-WILi extension connector, wire up the DB-15, and you are on the network with the same Python, Rust, C/C++ API, touchscreen, and onboard Linux workflow you already use.</p>
 
     <div class="spec-facts">
-      <h4>Features</h4>
+      <h4>What is on board</h4>
       <dl>
-        <dt>Debug</dt><dd>Plug-and-play programming &amp; debugging via USB JTAG</dd>
-        <dt>Camera</dt><dd>2MP MIPI-CSI, manual focus + software zoom</dd>
-        <dt>Display</dt><dd>1.54&Prime; SPI LCD, 240&times;240 resolution</dd>
-        <dt>Storage</dt><dd>MicroSD logging for field experiments</dd>
-        <dt>SoC</dt><dd>ESP32-P4 Dual-core RISC-V</dd>
-        <dt>Memory</dt><dd>32MB PSRAM, 16MB Flash, MicroSD support</dd>
-        <dt>USB</dt><dd>USB 2.0 HS + USB Serial JTAG</dd>
-        <dt>Mounting</dt><dd>Tripod/enclosure mounting via 1/4&Prime; screw mount</dd>
-        <dt>Ecosystem</dt><dd>Built to extend FREE-WILi Orca ecosystem</dd>
+        <dt>ISO CAN FD</dt><dd>1x channel with selectable on-board termination for end-node or tap use</dd>
+        <dt>RS485</dt><dd>1x channel for Modbus, motor drives, sensor chains, and legacy field systems</dd>
+        <dt>10BASE-T1S</dt><dd>1x multidrop single-pair Ethernet for modern zonal vehicle networks</dd>
+        <dt>10BASE-T1L</dt><dd>1x long-reach single-pair Ethernet up to 1 km for industrial/building automation</dd>
+        <dt>VBATT Input</dt><dd>1x vehicle-battery input to power the setup directly from source</dd>
+        <dt>Connector</dt><dd>All I/O routes through one rugged DB-15 harness interface</dd>
       </dl>
+    </div>
+
+    <div class="spec-facts" style="margin-top:1.2rem;">
+      <h4>Who it is for</h4>
+      <dl>
+        <dt>Automotive Teams</dt><dd>Engineers validating ECUs, gateways, and zonal architectures on CAN FD and automotive Ethernet</dd>
+        <dt>Security Research</dt><dd>Researchers exploring vehicle networks with scriptable hardware workflows</dd>
+        <dt>Industrial and IoT</dt><dd>Developers bridging RS485 field devices and 10BASE-T1L sensor networks</dd>
+        <dt>Makers and Students</dt><dd>Learners building real automotive and industrial protocol skills on open hardware</dd>
+      </dl>
+    </div>
+
+    <div class="spec-facts" style="margin-top:1.2rem;">
+      <h4>Why FREE-WILi + SAN DIEGO</h4>
+      <p>A USB-CAN adapter does CAN. A USB-RS485 stick does RS485. A T1S media converter does T1S. SAN DIEGO Orca does all of it on one module attached to a device with a touchscreen, dual RP2350s, an FPGA, onboard Linux, Python scripting, and wireless connectivity.</p>
+      <p>Log CAN traffic to scripts, bridge it over WiFi, display live bus data on-screen, and automate full test sequences without carrying a laptop.</p>
     </div>
   </div>
   <nav class="spec-nav">
@@ -78,7 +92,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="wrap foot-in">
-    <a href="https://www.freewili.com" target="_blank" rel="noopener" class="logo" aria-label="FREE-WILi — visit freewili.com">
+    <a href="https://www.freewili.com" target="_blank" rel="noopener" class="logo" aria-label="FREE-WILi - visit freewili.com">
       <img class="logo-img" src="../assets/FW_Full_Logo_WHT2.svg" alt="FREE-WILi">
     </a>
     <div class="foot-social">
