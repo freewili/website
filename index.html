@@ -215,12 +215,12 @@
         <p>Both a 20 pin connector and a 10 pin connector supply flexible voltage high speed IO. There is a rigid mounting system with off-the-shelf case options that make add-ons seamless and rugged. We call FREE-WILi add-ons Orcas and you can even make your own with our orca development kit.</p>
         <p><a href="explore-orcas.html">Explore Orcas</a> to see module families and a practical path for building your own expansion hardware.</p>
         <p>The GPIOs are driven by the FREE-WILi scripting engines. The scripting engines utilize the RP2350 PIO, the RISCV CPU and the FPGA for precise timing control. While most pins have programmable direction, the default functions and directions include: SPI, UART, and I2C. </p>
-        <p>Analog IO are onboard too: 0–5V analog in, 0–5V analog out at 25&nbsp;kHz. The analog inputs are fully buffered with opamps and bring the entire 0-5V to the high speed RP2350 ADC. Analog inputs also have a ADC with PGA for measuring low level signals like bridge sensors or current shunts.</p>
+        <p>Analog IO are onboard too: 0–5V analog in, 0 to ~4.84V analog out at 25&nbsp;kHz. The analog inputs are fully buffered with opamps and bring the entire 0-5V to the high speed RP2350 ADC. Analog inputs also have a ADC with PGA for measuring low level signals like bridge sensors or current shunts.</p>
         <p>There is a new 1–5.5V / 1.5A programmable supply with a MOSFET crowbar for <b>voltage glitching</b>.</p>
         <p> Set the GPIO IO voltage <b>in software</b> from the 5V rail, 3.3V rail, the pin itself, or the onboard programmable supply &mdash; and measure the IO voltage with an ADC.</p>
 
         <p><b>CAN FD</b> at full 8&nbsp;Mbit with the latest CAN SIC transceiver. CANFD is backward compatible with CAN which is on every vehicle for the past 15 years.</p>
-        <ul class="f-list"><li><b>PIO+FPGA+RISCV</b> Control</li><li><b>CAN FD</b> 8Mbit</li><li><b>Glitch</b></li><li>0–5V Analog in/out</li><li>PGA + window comparator</li><li>prog. PSU + crowbar</li></ul>
+        <ul class="f-list"><li><b>PIO+FPGA+RISCV</b> Control</li><li><b>CAN FD</b> 8Mbit</li><li><b>Glitch</b></li><li>0–5V in, ~4.84V out</li><li>PGA + window comparator</li><li>prog. PSU + crowbar</li></ul>
       </div>
       <div class="f-media rise">
         <div class="frame wide"><img loading="lazy" decoding="async" src="assets/freewili_pinout.png" alt="FREE-WILi 2 GPIO pinout diagram"></div>
@@ -418,7 +418,7 @@
         <dl>
           <dt>Connectors</dt><dd>20-pin (FW1) + 10-pin analog + posts</dd>
           <dt>Analog in</dt><dd>0–5V, op-amp + PGA front end</dd>
-          <dt>Analog out</dt><dd>0–5V @ 25 kHz</dd>
+          <dt>Analog out</dt><dd>0 to ~4.84V @ 25 kHz</dd>
           <dt>Prog. PSU</dt><dd>1–5.5V / 1.5A + MOSFET crowbar</dd>
           <dt>IO voltage</dt><dd>SW-selectable + ADC measure</dd>
           <dt>I2C</dt><dd>3.3V Orca bus w/ EEPROM</dd>
