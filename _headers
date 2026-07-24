@@ -1,8 +1,0 @@
-# Cloudflare Pages headers file.
-# The FreeWili WASM GUI uses SharedArrayBuffer/pthreads, which the browser
-# only allows when the page is "cross-origin isolated". These two headers
-# enable that. Scoped to /fwgui/* so the rest of the site (Google Fonts, etc.)
-# is unaffected.
-/fwgui/*
-  Cross-Origin-Opener-Policy: same-origin
-  Cross-Origin-Embedder-Policy: require-corp
