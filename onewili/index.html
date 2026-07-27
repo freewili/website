@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">OneWili API Reference | OneWili API</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://freewili.com/onewili/"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="OneWili API Reference | OneWili API"><meta data-rh="true" name="description" content="Generated from the FreeWili 2 firmware menu sources by the menutool API Generator."><meta data-rh="true" property="og:description" content="Generated from the FreeWili 2 firmware menu sources by the menutool API Generator."><link data-rh="true" rel="canonical" href="https://freewili.com/onewili/"><link data-rh="true" rel="alternate" href="https://freewili.com/onewili/" hreflang="en"><link data-rh="true" rel="alternate" href="https://freewili.com/onewili/" hreflang="x-default"><script data-rh="true">function insertBanner(){var n=document.createElement("div");n.id="__docusaurus-base-url-issue-banner-container";n.innerHTML='\n<div id="__docusaurus-base-url-issue-banner" style="border: thick solid red; background-color: rgb(255, 230, 179); margin: 20px; padding: 20px; font-size: 20px;">\n   <p style="font-weight: bold; font-size: 30px;">Your Docusaurus site did not load properly.</p>\n   <p>A very common reason is a wrong site <a href="https://docusaurus.io/docs/docusaurus.config.js/#baseUrl" style="font-weight: bold;">baseUrl configuration</a>.</p>\n   <p>Current configured baseUrl = <span style="font-weight: bold; color: red;">/onewili/</span> </p>\n   <p>We suggest trying baseUrl = <span id="__docusaurus-base-url-issue-banner-suggestion-container" style="font-weight: bold; color: green;"></span></p>\n</div>\n',document.body.prepend(n);var e=document.getElementById("__docusaurus-base-url-issue-banner-suggestion-container"),s=window.location.pathname,o="/"===s.substr(-1)?s:s+"/";e.innerHTML=o}document.addEventListener("DOMContentLoaded",function(){void 0===window.docusaurus&&insertBanner()})</script><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"OneWili API Reference","item":"https://freewili.com/onewili/"}]}</script><link rel="stylesheet" href="/onewili/assets/css/styles.e24047d5.css">
-<script src="/onewili/assets/js/runtime~main.52d82b44.js" defer="defer"></script>
-<script src="/onewili/assets/js/main.8d23a5d0.js" defer="defer"></script>
+<script src="/onewili/assets/js/runtime~main.833c0753.js" defer="defer"></script>
+<script src="/onewili/assets/js/main.1f9cfd7d.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -16,12 +16,28 @@ One reference for every generated language - see the signature blocks on each co
 <ul>
 <li class=""><a class="" href="/onewili/reference/io">IO functions</a> - <code>dev.io</code> (<code>i</code>)
 <ul>
-<li class=""><a class="" href="/onewili/reference/gpio">GPIO Functions</a> - <code>dev.io.gpio</code> (<code>i\g</code>)</li>
-<li class=""><a class="" href="/onewili/reference/uart">UART Functions</a> - <code>dev.io.uart</code> (<code>i\u</code>)</li>
+<li class=""><a class="" href="/onewili/reference/gpio">GPIO Functions</a> - <code>dev.io.gpio</code> (<code>i\g</code>)
+<ul>
+<li class=""><a class="" href="/onewili/reference/io_direction_settings">IO Directions</a> - <code>dev.io.gpio.io_direction_settings</code> (<code>i\g\a</code>)</li>
+</ul>
+</li>
+<li class=""><a class="" href="/onewili/reference/uart">UART Functions</a> - <code>dev.io.uart</code> (<code>i\u</code>)
+<ul>
+<li class=""><a class="" href="/onewili/reference/uart_settings">UART Settings</a> - <code>dev.io.uart.settings</code> (<code>i\u\s</code>)</li>
+</ul>
+</li>
 <li class=""><a class="" href="/onewili/reference/mdio">MDIO Functions</a> - <code>dev.io.mdio</code> (<code>i\m</code>)</li>
 <li class=""><a class="" href="/onewili/reference/sensors">Sensor Functions</a> - <code>dev.io.sensors</code> (<code>i\s</code>)</li>
-<li class=""><a class="" href="/onewili/reference/i2c">I2C Functions</a> - <code>dev.io.i2c</code> (<code>i\i</code>)</li>
-<li class=""><a class="" href="/onewili/reference/spi">SPI Functions</a> - <code>dev.io.spi</code> (<code>i\e</code>)</li>
+<li class=""><a class="" href="/onewili/reference/i2c">I2C Functions</a> - <code>dev.io.i2c</code> (<code>i\i</code>)
+<ul>
+<li class=""><a class="" href="/onewili/reference/i2c_settings">I2C Settings</a> - <code>dev.io.i2c.settings</code> (<code>i\i\s</code>)</li>
+</ul>
+</li>
+<li class=""><a class="" href="/onewili/reference/spi">SPI Functions</a> - <code>dev.io.spi</code> (<code>i\e</code>)
+<ul>
+<li class=""><a class="" href="/onewili/reference/spi_settings">SPI Settings</a> - <code>dev.io.spi.settings</code> (<code>i\e\s</code>)</li>
+</ul>
+</li>
 <li class=""><a class="" href="/onewili/reference/canfd">CANFD Functions</a> - <code>dev.io.canfd</code> (<code>i\c</code>)</li>
 <li class=""><a class="" href="/onewili/reference/analog_in">Analog In Functions</a> - <code>dev.io.analog_in</code> (<code>i\j</code>)</li>
 <li class=""><a class="" href="/onewili/reference/analog_out">Analog Out &amp; Trigger Functions</a> - <code>dev.io.analog_out</code> (<code>i\a</code>)</li>
@@ -41,17 +57,48 @@ One reference for every generated language - see the signature blocks on each co
 </li>
 <li class=""><a class="" href="/onewili/reference/hardware">Hardware Functions</a> - <code>dev.hardware</code> (<code>h</code>)
 <ul>
-<li class=""><a class="" href="/onewili/reference/settings_home">Device Settings</a> - <code>dev.hardware.settings_home</code> (<code>h\s</code>)</li>
+<li class=""><a class="" href="/onewili/reference/settings_home">Device Settings</a> - <code>dev.hardware.settings_home</code> (<code>h\s</code>)
+<ul>
+<li class=""><a class="" href="/onewili/reference/uart_settings_2">UART Settings</a> - <code>dev.hardware.settings_home.uart_settings</code> (<code>h\s\u</code>)</li>
+<li class=""><a class="" href="/onewili/reference/i2c_settings_2">I2C Settings</a> - <code>dev.hardware.settings_home.i2c_settings</code> (<code>h\s\i</code>)</li>
+<li class=""><a class="" href="/onewili/reference/spi_settings_2">SPI Settings</a> - <code>dev.hardware.settings_home.spi_settings</code> (<code>h\s\s</code>)</li>
+<li class=""><a class="" href="/onewili/reference/io_direction_settings_2">IO Directions</a> - <code>dev.hardware.settings_home.io_direction_settings</code> (<code>h\s\o</code>)</li>
+<li class=""><a class="" href="/onewili/reference/fpga_clock_settings">FPGA Clock</a> - <code>dev.hardware.settings_home.fpga_clock_settings</code> (<code>h\s\f</code>)</li>
+<li class=""><a class="" href="/onewili/reference/radio_settings">radio1</a> - <code>dev.hardware.settings_home.radio_settings</code> (<code>h\s\r</code>)</li>
+<li class=""><a class="" href="/onewili/reference/radio_settings_2">radio1</a> - <code>dev.hardware.settings_home.radio_settings_2</code> (<code>h\s\t</code>)</li>
+<li class=""><a class="" href="/onewili/reference/radio_fa_settings">RF Analyzer Settings</a> - <code>dev.hardware.settings_home.radio_fa_settings</code> (<code>h\s\a</code>)</li>
+<li class=""><a class="" href="/onewili/reference/rtc_settings">RTC Settings</a> - <code>dev.hardware.settings_home.rtc_settings</code> (<code>h\s\c</code>)</li>
+<li class=""><a class="" href="/onewili/reference/light_show_settings">NeoPixel Light Show</a> - <code>dev.hardware.settings_home.light_show_settings</code> (<code>h\s\n</code>)</li>
+<li class=""><a class="" href="/onewili/reference/wifi_settings">Wifi Settings</a> - <code>dev.hardware.settings_home.wifi_settings</code> (<code>h\s\w</code>)</li>
+<li class=""><a class="" href="/onewili/reference/ble_settings">Bluetooth Settings</a> - <code>dev.hardware.settings_home.ble_settings</code> (<code>h\s\b</code>)</li>
+<li class=""><a class="" href="/onewili/reference/orca_settings">Orca Communication</a> - <code>dev.hardware.settings_home.orca_settings</code> (<code>h\s\g</code>)</li>
+<li class=""><a class="" href="/onewili/reference/websocket_settings">Websocket Server</a> - <code>dev.hardware.settings_home.websocket_settings</code> (<code>h\s\k</code>)</li>
+<li class=""><a class="" href="/onewili/reference/neptune_settings">Neptune Settings</a> - <code>dev.hardware.settings_home.neptune_settings</code> (<code>h\s\p</code>)</li>
+<li class=""><a class="" href="/onewili/reference/general_settings">General Settings</a> - <code>dev.hardware.settings_home.general_settings</code> (<code>h\s\e</code>)</li>
+<li class=""><a class="" href="/onewili/reference/analog_in_settings">Analog In (TLA2024) Settings</a> - <code>dev.hardware.settings_home.analog_in_settings</code> (<code>h\s\j</code>)</li>
+</ul>
+</li>
 <li class=""><a class="" href="/onewili/reference/system">System Functions</a> - <code>dev.hardware.system</code> (<code>h\a</code>)</li>
+<li class=""><a class="" href="/onewili/reference/file_system">File System</a> - <code>dev.hardware.file_system</code> (<code>h\x</code>)</li>
+<li class=""><a class="" href="/onewili/reference/power_management">Power Management</a> - <code>dev.hardware.power_management</code> (<code>h\p</code>)</li>
 </ul>
 </li>
 <li class=""><a class="" href="/onewili/reference/wireless">Wireless</a> - <code>dev.wireless</code> (<code>w</code>)
 <ul>
 <li class=""><a class="" href="/onewili/reference/nfc">NFC Functions</a> - <code>dev.wireless.nfc</code> (<code>w\n</code>)</li>
 <li class=""><a class="" href="/onewili/reference/esp32_flasher">ESP32 Flasher Functions</a> - <code>dev.wireless.esp32_flasher</code> (<code>w\a</code>)</li>
-<li class=""><a class="" href="/onewili/reference/wifi">Wifi Functions</a> - <code>dev.wireless.wifi</code> (<code>w\w</code>)</li>
-<li class=""><a class="" href="/onewili/reference/bluetooth_le">BT Functions</a> - <code>dev.wireless.bluetooth_le</code> (<code>w\b</code>)</li>
+<li class=""><a class="" href="/onewili/reference/wifi">Wifi Functions</a> - <code>dev.wireless.wifi</code> (<code>w\w</code>)
+<ul>
+<li class=""><a class="" href="/onewili/reference/wifi_settings_2">Wifi Settings</a> - <code>dev.wireless.wifi.settings</code> (<code>w\w\e</code>)</li>
+</ul>
+</li>
+<li class=""><a class="" href="/onewili/reference/bluetooth_le">BT Functions</a> - <code>dev.wireless.bluetooth_le</code> (<code>w\b</code>)
+<ul>
+<li class=""><a class="" href="/onewili/reference/ble_settings_2">Bluetooth Settings</a> - <code>dev.wireless.bluetooth_le.ble_settings</code> (<code>w\b\b</code>)</li>
+</ul>
+</li>
 <li class=""><a class="" href="/onewili/reference/ir">IR Functions</a> - <code>dev.wireless.ir</code> (<code>w\i</code>)</li>
+<li class=""><a class="" href="/onewili/reference/lo_ra">LoRa</a> - <code>dev.wireless.lo_ra</code> (<code>w\l</code>)</li>
 </ul>
 </li>
 <li class=""><a class="" href="/onewili/reference/scripting">Scripting Functions</a> - <code>dev.scripting</code> (<code>s</code>)
