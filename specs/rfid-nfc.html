@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
-<title>USB Host — FREE-WILi 2 Specifications</title>
-<meta name="description" content="FREE-WILi 2 spec detail: three USB host ports — two 12 Mbit plus one high-speed 480 Mbit.">
+<title>NFC + RFID — FREE-WILi 2 Specifications</title>
+<meta name="description" content="FREE-WILi 2 spec detail: 13.56 MHz NFC (ST25R3916) and 125 kHz RFID with read, write, and card emulation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
@@ -35,32 +35,31 @@
 <section class="spec-hero">
   <div class="wrap">
     <span class="eyebrow" style="justify-content:center">// specifications</span>
-    <h1>3&times; USB <span class="n">host</span> ports</h1>
-    <div class="big-stat">USBHost<em>x3</em></div>
-    <div class="sub">GPS, UART, Joystick, Keyboard</div>
+    <h1>NFC + <span class="n">RFID</span></h1>
+    <div class="big-stat">NFC+<em>RFID</em></div>
+    <div class="sub">HF + LF tags, clone &amp; emulate</div>
   </div>
 </section>
 
 <!-- BODY -->
 <div class="wrap">
   <div class="spec-body">
-    <p>Three USB host ports open FREE-WILi 2 to an enormous range of peripherals &mdash; mouse, keyboard, joystick, GPS receiver, serial port, thumb drive &mdash; really <b>up to the limits of the USB stack</b> (check out TinyUSB for what that means in practice). Two of the ports connect to the display CPU at 12&nbsp;Mbit; the third is high-speed at 480&nbsp;Mbit.</p>
-    <p>The 5&nbsp;V host power on each port is <b>controlled by the display CPU</b>, which means the ports also double as convenient software-switched 5&nbsp;V power sources &mdash; handy for powering or resetting attached hardware without any extra circuitry.</p>
-    <div class="frame"><img src="../assets/hostports.webp" alt="FREE-WILi 2 USB host ports" loading="lazy" decoding="async"></div>
+    <p>FREE-WILi 2 reads and writes both bands of the RFID world. The <b>13.56 MHz</b> high-frequency side runs on the <b>ST25R3916</b>, a multi-standard NFC front-end that speaks ISO14443 A/B and handles the everyday tags &mdash; <b>MIFARE</b>, <b>NTAG</b>, and friends &mdash; for full read and write.</p>
+    <p>The <b>125 kHz</b> low-frequency side covers the classic prox and EM4100-style access cards. And because FREE-WILi 2 does more than read, it can <b>emulate</b> a saved credential &mdash; presenting a tag rather than just scanning one. It's all scriptable through the <code>dev.wireless.nfc</code> API, so cloning, emulating, and fuzzing tags is a few lines of code away.</p>
     <div class="spec-facts">
       <h4>Key facts</h4>
       <dl>
-        <dt>Ports</dt><dd>3</dd>
-        <dt>Speeds</dt><dd>2&times; 12 Mbit + 1&times; 480 Mbit</dd>
-        <dt>Power</dt><dd>switched 5 V per port</dd>
-        <dt>Stack</dt><dd>TinyUSB</dd>
+        <dt>NFC (HF)</dt><dd>ST25R3916, 13.56 MHz</dd>
+        <dt>RFID (LF)</dt><dd>125 kHz</dd>
+        <dt>Modes</dt><dd>read, write, emulate</dd>
+        <dt>API</dt><dd>dev.wireless.nfc</dd>
       </dl>
     </div>
   </div>
   <nav class="spec-nav">
-    <a href="rfid-nfc.html">&larr; NFC + RFID</a>
+    <a href="subghz-lora.html">&larr; LoRa + Sub-GHz</a>
     <a class="home" href="../index.html">FREE-WILi 2 home</a>
-    <a href="can-fd.html">CAN FD &rarr;</a>
+    <a href="usb-host.html">USB Host &times;3 &rarr;</a>
   </nav>
 </div>
 </main>
