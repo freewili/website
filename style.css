@@ -331,6 +331,7 @@ a.stat:hover .v em{color:#fff}
 .spec-body p b,.spec-body p strong{color:var(--text)}
 .spec-body .frame{margin:2rem 0;border:1px solid var(--line-strong);border-radius:14px;overflow:hidden;background:#0c0c0e}
 .spec-body .frame img{width:100%;height:auto;display:block;cursor:zoom-in}
+.spec-body .frame.shot img{aspect-ratio:auto;object-fit:contain}
 .spec-facts{background:var(--bg-2);border:1px solid var(--line);border-radius:12px;padding:26px;margin-top:2.2rem}
 .spec-facts h4{font-family:var(--mono);font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:1rem;font-weight:700}
 .spec-facts dl{display:grid;grid-template-columns:auto 1fr;gap:.55rem 1.2rem;font-size:.92rem}
