@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
 <title>Jambu Serial LED Control Orca — FREE-WILi</title>
-<meta name="description" content="Jambu Serial LED Control Orca: a compact 8-channel LED driver breakout module for FREE-WILi with I2C control and 5V barrel jack power.">
+<meta name="description" content="Jambu Serial LED Control Orca: a compact 8-channel LED driver breakout module for FREE-WILi with I2C control, QWIIC expansion, selectable LED power, and 5V barrel jack input. Full schematic included.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
@@ -81,17 +81,29 @@
 
     <p>The <b>Jambu Serial LED Control Orca</b> is a compact and powerful <b>8-channel LED driver breakout module</b> designed to bring dynamic lighting to your projects. Whether you&rsquo;re driving LED strips, individual LEDs, or incandescent bulbs, Jambu gives you full serial control over every channel through a simple two-wire I&sup2;C interface.</p>
     <p>Powered via a <b>5V barrel jack</b> and compatible with common anode Serial RGB LED strips, Jambu integrates seamlessly with FREE-WILi and any QWIIC-equipped system &mdash; making it a versatile building block for lighting installations, interactive displays, and hardware prototypes.</p>
+    <p>Each of the eight channels breaks out to its own <b>3-pin connector</b> (VCC / signal / GND), so every strip gets clean power and its own drive signal. An onboard <b>LED Power Select jumper</b> lets you feed the strips from either the external 5V barrel jack or FREE-WILi&rsquo;s own 5V USB rail &mdash; run small setups straight off the handheld, or switch to the barrel jack when your strips need more current. The QWIIC port is buffered through an <b>NXP PCA9517A level-translating I&sup2;C bus repeater</b>, cleanly bridging FREE-WILi&rsquo;s 3.3V I&sup2;C bus to QWIIC add-on boards. Jambu mounts to FREE-WILi through the standard <b>20-pin Orca expansion header</b>, which carries the SPI, UART, I&sup2;C, and GPIO signals that drive the channels.</p>
 
     <div class="spec-facts">
       <h4>Features</h4>
       <dl>
         <dt>Channels</dt><dd>8-channel LED Driver Breakout</dd>
         <dt>LED Strips</dt><dd>Control 8 LED Strips</dd>
-        <dt>Power</dt><dd>5V Barrel Jack Power</dd>
+        <dt>Outputs</dt><dd>8&times; 3-pin connectors &mdash; VCC / signal / GND per channel</dd>
+        <dt>Power</dt><dd>5V Barrel Jack Power (PJ-102AH jack)</dd>
+        <dt>Power Select</dt><dd>Jumper selects LED power source: 5V barrel jack or FREE-WILi 5V USB rail</dd>
         <dt>Compatibility</dt><dd>Common anode Serial RGB LED strips, LEDs, and Incandescent bulbs</dd>
         <dt>Control</dt><dd>Two-Wire I&sup2;C-Compatible Control Interface</dd>
-        <dt>Prototyping</dt><dd>I&sup2;C (QWIIC) connector</dd>
+        <dt>Prototyping</dt><dd>I&sup2;C (QWIIC) connector, buffered by an NXP PCA9517A I&sup2;C bus repeater</dd>
+        <dt>Host Interface</dt><dd>20-pin FREE-WILi Orca expansion header (SPI, UART, I&sup2;C, GPIO)</dd>
       </dl>
+    </div>
+
+    <div class="spec-facts" style="margin-top:1.2rem;">
+      <h4>Schematic</h4>
+      <p>Full schematic for the Jambu Orca (V1, Rev. 8/16/2024). Click the image to zoom, or <a href="../assets/jambu-orca-schematic.pdf" target="_blank" rel="noopener">download the schematic PDF</a>.</p>
+    </div>
+    <div class="frame shot">
+      <img src="../assets/jambu-orca-schematic.png" alt="Jambu Serial LED Control Orca V1 schematic showing the 20-pin FREE-WILi header, eight 3-pin LED strip outputs, LED power select jumper, 5V barrel jack, and QWIIC port with PCA9517A I&sup2;C bus repeater" loading="lazy" decoding="async">
     </div>
   </div>
   <nav class="spec-nav">
