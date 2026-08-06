@@ -414,6 +414,10 @@ a.stat:hover .v em{color:#fff}
   .burger {
     display: flex;
   }
+
+  .nav-right-wrap .btn-ghost {
+    display: inline-flex;
+  }
   
   /* Mobile navigation drawer - takes full screen matching dark cyberpunk aesthetics */
   nav.links {
@@ -560,6 +564,12 @@ a.stat:hover .v em{color:#fff}
 }
 
 @media (max-width: 480px) {
+  .nav-right-wrap .btn-ghost {
+    padding: .4rem .6rem;
+    font-size: .66rem;
+    letter-spacing: .03em;
+  }
+
   .hero .title-logo {
     width: min(290px, 85vw);
   }
