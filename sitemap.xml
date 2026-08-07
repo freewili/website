@@ -1,10 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://freewili.com/</loc>
   </url>
   <url>
     <loc>https://freewili.com/explore-orcas.html</loc>
+  </url>
+  <url>
+    <loc>https://freewili.com/freewili-og.html</loc>
   </url>
   <url>
     <loc>https://freewili.com/fwgui/fwcom.html</loc>
@@ -19,10 +22,19 @@
     <loc>https://freewili.com/orcas/maestro-orca.html</loc>
   </url>
   <url>
-    <loc>https://freewili.com/orcas/wileye-orca.html</loc>
+    <loc>https://freewili.com/orcas/san-diego-orca.html</loc>
+  </url>
+  <url>
+    <loc>https://freewili.com/orcas/humpback-orca.html</loc>
+  </url>
+  <url>
+    <loc>https://freewili.com/onewili/</loc>
   </url>
   <url>
     <loc>https://freewili.com/privacy-policy.html</loc>
+  </url>
+  <url>
+    <loc>https://freewili.com/ics-village-defcon-34-badge.html</loc>
   </url>
   <url>
     <loc>https://freewili.com/specs/ai-agents.html</loc>
@@ -67,7 +79,7 @@
     <loc>https://freewili.com/specs/programmable-power.html</loc>
   </url>
   <url>
-    <loc>https://freewili.com/specs/python-api.html</loc>
+    <loc>https://freewili.com/specs/onewili-api.html</loc>
   </url>
   <url>
     <loc>https://freewili.com/specs/rp2350.html</loc>

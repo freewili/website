@@ -13,13 +13,13 @@
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"></noscript>
 <link rel="stylesheet" href="style.css">
 <style>
-  .orca-grid { grid-template-columns: repeat(3, 1fr); }
+  .orca-grid { grid-template-columns: repeat(4, 1fr); }
   .orca-grid .spec-card { display: flex; flex-direction: column; }
   .orca-grid .orca-title {
     font-size: 1.25rem;
     margin: 0 0 .6rem;
     line-height: 1.2;
-    min-height: 2.4em;
+    min-height: 3.5em;
   }
   .orca-grid .orca-desc { margin: 0; min-height: 5.2em; }
   .orca-grid .orca-cta { margin-top: auto; padding-top: 1rem; }
@@ -35,20 +35,42 @@
 <!-- NAV -->
 <header class="nav">
   <div class="wrap nav-in">
-    <a href="https://www.freewili.com" target="_self" rel="noopener" class="logo" aria-label="FREE-WILi — visit freewili.com">
+    <a href="https://www.freewili.com" target="_self" rel="noopener" class="logo" aria-label="FREE-WILi - visit freewili.com">
       <img class="logo-img" src="assets/FW_Full_Logo_WHT2.svg" alt="FREE-WILi">
     </a>
-    <!--
     <nav class="links">
-      <a href="#features">Features</a>
-      <a href="#software">Software</a>
-      <a href="#gaming">Gaming</a>
-      <a href="#specs">Specs</a>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#software">Software</a>
+      <a href="index.html#gaming">Gaming</a>
+      <a href="index.html#specs">Specs</a>
+      <div class="nav-group">
+        <button class="nav-trigger" type="button" aria-label="Products menu">Products <span class="caret" aria-hidden="true">▼</span></button>
+        <div class="dropdown-menu" role="menu" aria-label="Products links">
+          <a href="/freewili-og.html" role="menuitem">FREE-WILi OG</a>
+          <a href="https://shop.freewili.com/products/free-wili-2" role="menuitem">FREE-WILi-2</a>
+          <a href="explore-orcas.html" role="menuitem">Orca Modules</a>
+          <a href="ics-village-defcon-34-badge.html" role="menuitem">ICS Village DEF CON 34 Badge</a>
+        </div>
+      </div>
+      <div class="nav-group">
+        <button class="nav-trigger" type="button" aria-label="More menu">More <span class="caret" aria-hidden="true">▼</span></button>
+        <div class="dropdown-menu" role="menu" aria-label="More links">
+          <a href="https://docs.freewili.com/" target="_blank" rel="noopener" role="menuitem">Documentation</a>
+          <a href="https://github.com/freewili/freewili-gui" target="_blank" rel="noopener" role="menuitem">FREE-WILi GUI</a>
+          <a href="https://github.com/freewili/freewili-updater" target="_blank" rel="noopener" role="menuitem">FREE-WILi Updater</a>
+          <a href="onewili/" role="menuitem">OneWili API Docs</a>
+          <a href="https://freewili.github.io/freewili-python/index.html" target="_blank" rel="noopener" role="menuitem">Python Library</a>
+          <a href="https://github.com/freewili/freewili-firmware" target="_blank" rel="noopener" role="menuitem">Firmware Files</a>
+          <a href="https://github.com/freewili/wasm-examples" target="_blank" rel="noopener" role="menuitem">WASM Examples</a>
+          <a href="https://github.com/freewili" target="_blank" rel="noopener" role="menuitem">GitHub</a>
+          <a href="https://www.youtube.com/@FREE-WiLi" target="_blank" rel="noopener" role="menuitem">Videos</a>
+          <a href="https://docs.freewili.com/blog/" target="_blank" rel="noopener" role="menuitem">Blog</a>
+        </div>
+      </div>
     </nav>
-    -->
     <div class="nav-right-wrap">
       <a href="https://discord.com/invite/XJRBUCX62z" target="_blank" rel="noopener" class="btn btn-ghost">Join Discord</a>
-      <a href="../index.html#buy" class="btn btn-primary" title="">DEFCON Preorder</a>
+      <a href="index.html#buy" class="btn btn-primary" title="">DEFCON Preorder</a>
       <button class="burger" id="burger" aria-label="Toggle Menu">
         <span></span>
         <span></span>
@@ -71,14 +93,14 @@
 <!-- BODY -->
 <div class="wrap">
   <div class="spec-body">
-    <p>Here are three featured Orca modules:</p>
+    <p>Expand FREE-WILi 2 with Orca Modules:</p>
     <div class="spec-grid orca-grid" aria-label="Orca module cards">
       <article class="spec-card">
         <div class="frame fit-contain" style="max-width:220px;margin:0 0 1rem;">
           <img src="assets/maestro-orca.png" alt="Maestro Debug Orca" loading="lazy" decoding="async">
         </div>
         <h3 class="orca-title">Maestro Debug Orca</h3>
-        <p class="orca-desc">Debug and develop with ease using Maestro Orca—designed for FREE-WILi with RP2040 support and handy IO test points.</p>
+        <p class="orca-desc">Debug and develop FREE-WILi projects with RP2040 support and convenient I/O test points.</p>
         <p class="orca-cta"><a href="orcas/maestro-orca.html" class="btn btn-ghost">Learn More</a></p>
       </article>
       <article class="spec-card">
@@ -86,16 +108,24 @@
           <img src="assets/jambu-orca.png" alt="Jambu Serial LED Control Orca" loading="lazy" decoding="async">
         </div>
         <h3 class="orca-title">Jambu Serial LED Control Orca</h3>
-        <p class="orca-desc">The Jambu Serial LED Control Orca is a compact and powerful 8-channel LED driver breakout module designed to bring dynamic lighting to your projects.</p>
+        <p class="orca-desc">Add 8-channel serial LED control to FREE-WILi projects with a compact, high-performance breakout module.</p>
         <p class="orca-cta"><a href="orcas/jambu-orca.html" class="btn btn-ghost">Learn More</a></p>
-       </article>
-        <article class="spec-card">
+      </article>
+      <article class="spec-card">
         <div class="frame fit-contain" style="max-width:220px;margin:0 0 1rem;">
-          <img src="assets/wileye-orca.png" alt="WILEYE Camera Orca" loading="lazy" decoding="async">
+          <img src="assets/sandiego-orca.png" alt="SAN DIEGO Orca" loading="lazy" decoding="async">
         </div>
-        <h3 class="orca-title">WILEYE Camera Orca</h3>
-        <p class="orca-desc">WILEYE is a compact ESP32-P4 camera accessory for makers, adding vision, debugging, and control with Orca integration.</p>
-        <p class="orca-cta"><a href="orcas/wileye-orca.html" class="btn btn-ghost">Learn More</a></p>
+        <h3 class="orca-title">SAN DIEGO Orca</h3>
+        <p class="orca-desc">Expand FREE-WILi 2 with CAN FD, RS485, and 10BASE-T1S/T1L Ethernet for automotive and industrial networks.</p>
+        <p class="orca-cta"><a href="orcas/san-diego-orca.html" class="btn btn-ghost">Learn More</a></p>
+      </article>
+      <article class="spec-card">
+        <div class="frame fit-contain" style="max-width:220px;margin:0 0 1rem;">
+          <img src="assets/humpback-orca.png" alt="Humpback Orca" loading="lazy" decoding="async">
+        </div>
+        <h3 class="orca-title">Humpback Orca</h3>
+        <p class="orca-desc">Add plug-and-play ISO CAN FD connectivity to FREE-WILi 2 with selectable termination, VBATT power, and a rugged DB-15 interface.</p>
+        <p class="orca-cta"><a href="orcas/humpback-orca.html" class="btn btn-ghost">Learn More</a></p>
       </article>
     </div>
   </div>
@@ -191,5 +221,46 @@
   })();
 </script>
 
+<script data-fw-nav-init>
+(function(){
+  const burger = document.getElementById('burger');
+  const links = document.querySelector('.links');
+  if (links) {
+    const groups = links.querySelectorAll('.nav-group');
+    groups.forEach((group) => {
+      const trigger = group.querySelector('.nav-trigger');
+      if (!trigger) return;
+      trigger.setAttribute('aria-expanded', 'false');
+      trigger.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        groups.forEach((other) => {
+          if (other !== group) {
+            other.classList.remove('open');
+            const otherTrigger = other.querySelector('.nav-trigger');
+            if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
+          }
+        });
+        const isOpen = group.classList.toggle('open');
+        trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    });
+    document.addEventListener('click', (event) => {
+      if (links.contains(event.target)) return;
+      groups.forEach((group) => {
+        group.classList.remove('open');
+        const trigger = group.querySelector('.nav-trigger');
+        if (trigger) trigger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  if (burger && links) {
+    burger.addEventListener('click', function(){
+      links.classList.toggle('open');
+    });
+  }
+})();
+</script>
 </body>
 </html>

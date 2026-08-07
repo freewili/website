@@ -5,3 +5,11 @@ Thumbs.db
 # Editor/local settings
 .vscode/
 *.log
+
+# Wrangler local cache
+.wrangler/
+
+# Internal project docs — kept local, not published (GitHub Pages
+# serves everything committed to main)
+docs/
+design.md
