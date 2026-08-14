@@ -217,8 +217,24 @@ gtag("config", "G-Q6LHBWVT7W");
   }
 
   if (burger && links) {
+    const closeMenu = () => {
+      burger.classList.remove('open');
+      links.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
     burger.addEventListener('click', function(){
-      links.classList.toggle('open');
+      const isOpen = links.classList.toggle('open');
+      burger.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    links.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeMenu();
     });
   }
 })();
