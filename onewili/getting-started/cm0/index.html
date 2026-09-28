@@ -4,23 +4,299 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">CM0 | OneWili</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://freewili.com/onewili/getting-started/cm0"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="CM0 | OneWili"><meta data-rh="true" name="description" content="Get the packages first - they all live in one repo:"><meta data-rh="true" property="og:description" content="Get the packages first - they all live in one repo:"><link data-rh="true" rel="canonical" href="https://freewili.com/onewili/getting-started/cm0"><link data-rh="true" rel="alternate" href="https://freewili.com/onewili/getting-started/cm0" hreflang="en"><link data-rh="true" rel="alternate" href="https://freewili.com/onewili/getting-started/cm0" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CM0","item":"https://freewili.com/onewili/getting-started/cm0"}]}</script><link rel="stylesheet" href="/onewili/assets/css/styles.e24047d5.css">
-<script src="/onewili/assets/js/runtime~main.a9ae4c42.js" defer="defer"></script>
-<script src="/onewili/assets/js/main.53eba0fb.js" defer="defer"></script>
+<script src="/onewili/assets/js/runtime~main.6f044b6b.js" defer="defer"></script>
+<script src="/onewili/assets/js/main.90de4615.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
 <symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
 </defs></svg>
-<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><a class="navbar__brand" href="/onewili/"><b class="navbar__title text--truncate">OneWili</b></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/onewili/"><span title="OneWili API Reference" class="linkLabel_WmDU">OneWili API Reference</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/onewili/getting-started/python"><span title="Getting Started" class="categoryLinkLabel_W154">Getting Started</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/onewili/getting-started/python"><span title="Python" class="linkLabel_WmDU">Python</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/onewili/getting-started/c"><span title="C" class="linkLabel_WmDU">C</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/onewili/getting-started/rust"><span title="Rust" class="linkLabel_WmDU">Rust</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/onewili/getting-started/rthon"><span title="Rthon" class="linkLabel_WmDU">Rthon</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/onewili/getting-started/wasm"><span title="WASM" class="linkLabel_WmDU">WASM</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/onewili/getting-started/wilibsp"><span title="WiliBSP" class="linkLabel_WmDU">WiliBSP</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/onewili/getting-started/cm0"><span title="CM0" class="linkLabel_WmDU">CM0</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/onewili/reference/io"><span title="Reference" class="categoryLinkLabel_W154">Reference</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/onewili/reference/enums"><span title="Enumerations" class="linkLabel_WmDU">Enumerations</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/onewili/reference/errors"><span title="Errors" class="linkLabel_WmDU">Errors</span></a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/onewili/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Getting Started</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">CM0</span></li></ul></nav><div class="theme-doc-markdown markdown"><header><h1>CM0</h1></header><p>Get the packages first - they all live in one repo:</p>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><a class="navbar__brand" href="/onewili/"><b class="navbar__title text--truncate">OneWili</b></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/onewili/"><span title="OneWili API Reference" class="linkLabel_WmDU">OneWili API Reference</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/onewili/getting-started/python"><span title="Getting Started" class="categoryLinkLabel_W154">Getting Started</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/onewili/getting-started/python"><span title="Python" class="linkLabel_WmDU">Python</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/onewili/getting-started/c"><span title="C" class="linkLabel_WmDU">C</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/onewili/getting-started/rust"><span title="Rust" class="linkLabel_WmDU">Rust</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/onewili/getting-started/rthon"><span title="Rthon" class="linkLabel_WmDU">Rthon</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/onewili/getting-started/wasm"><span title="WASM" class="linkLabel_WmDU">WASM</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/onewili/getting-started/wilibsp"><span title="WiliBSP" class="linkLabel_WmDU">WiliBSP</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/onewili/getting-started/cm0"><span title="CM0" class="linkLabel_WmDU">CM0</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/onewili/reference/io"><span title="Reference" class="categoryLinkLabel_W154">Reference</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/onewili/reference/enums"><span title="Enumerations" class="linkLabel_WmDU">Enumerations</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/onewili/reference/errors"><span title="Errors" class="linkLabel_WmDU">Errors</span></a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/onewili/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Getting Started</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">CM0</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>CM0</h1></header><p>Get the packages first - they all live in one repo:</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">git clone https://github.com/freewili/onewili</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">cd onewili</span><br></div></code></pre></div></div>
-<p>The CM0 is the Linux host beside MAIN on the same board. This package reaches MAIN&#x27;s menu system from there over the FPGA mailbox console link - no USB, no serial port - so a CM0 program drives the device exactly as a PC would.</p>
+<p>The CM0 is the Linux host beside MAIN on the same board. This package reaches MAIN&#x27;s menu system from there over the FPGA mailbox console link, without an external PC or USB connection. The generated commands use the same menu API as the host libraries.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="connect-from-c-or-c">Connect from C or C++<a href="#connect-from-c-or-c" class="hash-link" aria-label="Direct link to Connect from C or C++" title="Direct link to Connect from C or C++" translate="no">​</a></h2>
 <p>It needs the <code>fwcm0</code> driver (<code>fwcm0::fwcm0_core</code>) for the mailbox and router; build the package against it:</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">cmake -S ./cm0 -B ./cm0/build</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">cmake --build ./cm0/build</span><br></div></code></pre></div></div>
-<p>Open a device and send a first command, in C++:</p>
-<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">ConsoleClient </span><span class="token function" style="color:rgb(130, 170, 255)">client</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">router</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain">   </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// LinuxTransport -&gt; SramRouter -&gt; ConsoleClient</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">client</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token function" style="color:rgb(130, 170, 255)">connect</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">fwcm0</span><span class="token double-colon punctuation" style="color:rgb(199, 146, 234)">::</span><span class="token plain">OneWiliLink </span><span class="token function" style="color:rgb(130, 170, 255)">link</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">client</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">ow_transport t </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> link</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token function" style="color:rgb(130, 170, 255)">transport</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">ow_device dev</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token function" style="color:rgb(130, 170, 255)">ow_open</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token operator" style="color:rgb(137, 221, 255)">&amp;</span><span class="token plain">dev</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">&amp;</span><span class="token plain">t</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">/* ow_status ow_gui_set_led_color(ow_device* dev, int32_t ledindex, int32_t red, int32_t green, int32_t blue, int32_t duration, ow_ow_led_manager_led_mode mode); */</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token function" style="color:rgb(130, 170, 255)">ow_gui_set_led_color</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token operator" style="color:rgb(137, 221, 255)">&amp;</span><span class="token plain">dev</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">/* args */</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token function" style="color:rgb(130, 170, 255)">ow_close</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token operator" style="color:rgb(137, 221, 255)">&amp;</span><span class="token plain">dev</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><br></div></code></pre></div></div>
-<p>or in Python, which pipes the same wire bytes through the <code>fwcm0 console</code> CLI instead of a serial port (needs the <code>onewili</code> package from <code>./python</code> installed, and <code>fwcm0</code> on <code>PATH</code>):</p>
+<p>This path owns the CM0 hardware directly. Stop the bridge daemon before using it. With the driver and <code>onewili_cm0.h</code> included, open a device and send a first command in C++:</p>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">fwcm0</span><span class="token double-colon punctuation" style="color:rgb(199, 146, 234)">::</span><span class="token plain">LinuxTransport </span><span class="token function" style="color:rgb(130, 170, 255)">io</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">fwcm0</span><span class="token double-colon punctuation" style="color:rgb(199, 146, 234)">::</span><span class="token plain">LinuxConfig</span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">fwcm0</span><span class="token double-colon punctuation" style="color:rgb(199, 146, 234)">::</span><span class="token plain">SramRouter </span><span class="token function" style="color:rgb(130, 170, 255)">router</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">io</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">router</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token function" style="color:rgb(130, 170, 255)">open</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">fwcm0</span><span class="token double-colon punctuation" style="color:rgb(199, 146, 234)">::</span><span class="token plain">MboxMux </span><span class="token function" style="color:rgb(130, 170, 255)">mux</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">router</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">fwcm0</span><span class="token double-colon punctuation" style="color:rgb(199, 146, 234)">::</span><span class="token plain">ConsoleClient </span><span class="token function" style="color:rgb(130, 170, 255)">client</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">mux</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">fwcm0</span><span class="token double-colon punctuation" style="color:rgb(199, 146, 234)">::</span><span class="token plain">OneWiliLink </span><span class="token function" style="color:rgb(130, 170, 255)">link</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">client</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// confirms the API-mode handshake</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">ow_transport t </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> link</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token function" style="color:rgb(130, 170, 255)">transport</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">ow_device dev</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token function" style="color:rgb(130, 170, 255)">ow_open</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token operator" style="color:rgb(137, 221, 255)">&amp;</span><span class="token plain">dev</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">&amp;</span><span class="token plain">t</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">/* ow_status ow_gui_set_led_color(ow_device* dev, int32_t ledindex, int32_t red, int32_t green, int32_t blue, int32_t duration, ow_ow_led_manager_led_mode mode); */</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token function" style="color:rgb(130, 170, 255)">ow_gui_set_led_color</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token operator" style="color:rgb(137, 221, 255)">&amp;</span><span class="token plain">dev</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">/* args */</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token function" style="color:rgb(130, 170, 255)">ow_close</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token operator" style="color:rgb(137, 221, 255)">&amp;</span><span class="token plain">dev</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><br></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="connect-from-python">Connect from Python<a href="#connect-from-python" class="hash-link" aria-label="Direct link to Connect from Python" title="Direct link to Connect from Python" translate="no">​</a></h2>
+<p>Python pipes the same command bytes through <code>fwcm0 api</code> and the running bridge daemon. Install the <code>onewili</code> package from <code>./python</code>, add <code>./cm0/python</code> to <code>PYTHONPATH</code> for the adapter, and put <code>fwcm0</code> on <code>PATH</code>:</p>
 <div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">from</span><span class="token plain"> onewili_cm0 </span><span class="token keyword" style="font-style:italic">import</span><span class="token plain"> connect_cm0</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">dev </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> connect_cm0</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">dev</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">gui</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">set_led_color</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">dev</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">close</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><br></div></code></pre></div></div>
 <p>The CM0&#x27;s own SRAM/PSRAM router is not part of this API - it is a local capability reached directly through <code>fwcm0::SramRouter</code>.</p>
-<p>Full command list: <a class="" href="/onewili/reference/gui">GUI Functions</a> - or start at the <a class="" href="/onewili/">API index</a>.</p></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/onewili/getting-started/wilibsp"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">WiliBSP</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/onewili/reference/io"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">IO functions</div></a></nav></div></div></div></div></main></div></div></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="mailbox-architecture">Mailbox architecture<a href="#mailbox-architecture" class="hash-link" aria-label="Direct link to Mailbox architecture" title="Direct link to Mailbox architecture" translate="no">​</a></h2>
+<p>The FPGA provides two independent, single-message buffers. <strong>Inbox</strong> and
+<strong>outbox</strong> are named from MAIN&#x27;s perspective:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">CM0 Linux                         FPGA                         MAIN</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">   | -- SPI0: OP_MBOX ----------&gt; inbox (CM0 -&gt; MAIN) -- read --&gt; |</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">   | &lt;-- UART: FT_MBOX ---------- outbox (MAIN -&gt; CM0) &lt;- write -- |</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">                                   ^                             |</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">                                   +-- MAIN register interface --+</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">                                         SPI1 or I2C</span><br></div></code></pre></div></div>
+<p>Each buffer holds a mailbox body of <strong>1 to 32 bytes</strong>. Its first byte is a
+message type, leaving at most <strong>31 bytes</strong> for that type&#x27;s data. The FPGA moves
+the body without interpreting it; CM0 and MAIN implement its meaning.
+OneWili commands and replies can span many bodies. Body boundaries do not mark
+command or response boundaries.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cm0-facing-wire-formats">CM0-facing wire formats<a href="#cm0-facing-wire-formats" class="hash-link" aria-label="Direct link to CM0-facing wire formats" title="Direct link to CM0-facing wire formats" translate="no">​</a></h3>
+<p>CM0 submits a body in one SPI command, with chip select held for the command:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">[OP_MBOX = 07] [body_length: 1 byte] [body: 1..32 bytes]</span><br></div></code></pre></div></div>
+<p>For example, a HELLO request is <code>07 02 01 02</code>: opcode, length, CONTROL type,
+HELLO sub-operation. This SPI command has no per-body acknowledgement or CRC.</p>
+<p>In the reverse direction, the router wraps MAIN&#x27;s body in its UART framing:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">Decoded frame:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">[FT_MBOX = 05] [sequence = 00] [length_hi] [length_lo] [body] [CRC-8]</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">UART bytes:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">COBS(decoded frame) [00 delimiter]</span><br></div></code></pre></div></div>
+<p>The length is a big-endian 16-bit <strong>body length</strong>. CRC-8 covers the decoded
+header and body, excluding the CRC byte itself: polynomial <code>07</code>, initial
+value <code>00</code>, MSB first, no reflection or final XOR. The receiver COBS-decodes
+the frame and validates its length and CRC before dispatching it. Mailbox
+UART frames currently use sequence zero; this is separate from the sequence
+field in a OneWili response. The outer <code>FT_MBOX</code> identifies a router frame;
+the first byte inside its body identifies console, control, or shell data.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="main-facing-register-interface">MAIN-facing register interface<a href="#main-facing-register-interface" class="hash-link" aria-label="Direct link to MAIN-facing register interface" title="Direct link to MAIN-facing register interface" translate="no">​</a></h3>
+<p>MAIN accesses the same buffers through the FPGA register window. The register
+addresses below use the mailbox&#x27;s default base at <code>0x08</code>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Address</th><th>Register</th><th>Meaning</th></tr></thead><tbody><tr><td><code>0x08..0x27</code></td><td>Inbox data</td><td>Up to 32 bytes received from CM0.</td></tr><tr><td><code>0x28</code></td><td>Inbox status</td><td>Bit 7: ready; bit 6: overflow; bits 5..0: body length.</td></tr><tr><td><code>0x29</code></td><td>Inbox consume</td><td>Any write releases the inbox and clears its length and overflow flag.</td></tr><tr><td><code>0x30..0x4F</code></td><td>Outbox data</td><td>MAIN writes the next body here.</td></tr><tr><td><code>0x50</code></td><td>Outbox commit</td><td>Write the body length in bits 5..0 to publish it; zero is ignored.</td></tr><tr><td><code>0x51</code></td><td>Outbox status</td><td>Bit 0: free; bit 1: overflow.</td></tr></tbody></table>
+<p>MAIN checks inbox-ready, reads the indicated bytes, then writes consume.
+Reading data alone does not release the inbox. To reply, MAIN waits for the
+outbox to be free, writes the body, then commits its length. The FPGA releases
+the outbox after transmitting its UART frame. Do not write outbox data while
+it is busy.</p>
+<p>The MAIN SPI1 path shares pins with other functions and must access these
+registers inside the <code>IO_CONFIG_ENABLE</code> window. The I2C path does not require
+that SPI window. <code>fwProgIODir</code> supplies the register-access helpers, while
+<code>rpCM0Comm</code> services the inbox and outbox from the firmware loop.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="body-types-and-controls">Body types and controls<a href="#body-types-and-controls" class="hash-link" aria-label="Direct link to Body types and controls" title="Direct link to Body types and controls" translate="no">​</a></h2>
+<p>All byte values in these tables and examples are hexadecimal.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>First byte</th><th>Type</th><th>Remaining bytes</th></tr></thead><tbody><tr><td><code>00</code></td><td>CONSOLE</td><td>Up to 31 bytes of console or OneWili API text.</td></tr><tr><td><code>01</code></td><td>CONTROL</td><td>Sub-operation followed by its arguments.</td></tr><tr><td><code>02</code></td><td>SHELL</td><td>Up to 31 raw bytes for the CM0 bash session.</td></tr></tbody></table>
+<p>API mode still uses CONSOLE bodies. The selected stream mode tells MAIN
+whether to treat them as interactive console input or isolated API commands.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Control body</th><th>Direction</th><th>Meaning</th></tr></thead><tbody><tr><td><code>01 02</code></td><td>CM0 -&gt; MAIN</td><td>HELLO: request the mailbox protocol version.</td></tr><tr><td><code>01 02 major minor</code></td><td>MAIN -&gt; CM0</td><td>HELLO reply; current version is <code>01 02</code> (1.2).</td></tr><tr><td><code>01 01 mode</code></td><td>CM0 -&gt; MAIN</td><td>SET_STREAM: <code>00</code> off, <code>01</code> interactive console, <code>02</code> OneWili API.</td></tr><tr><td><code>01 01 mode</code></td><td>MAIN -&gt; CM0</td><td>Acknowledge that the selected mode has been applied.</td></tr><tr><td><code>01 03</code></td><td>CM0 -&gt; MAIN</td><td>RESET: inject Ctrl-C into the input stream; this is not a board reset.</td></tr><tr><td><code>01 04 enable</code></td><td>MAIN -&gt; CM0</td><td>SHELL_ATTACH: <code>01</code> starts bash, <code>00</code> stops it.</td></tr><tr><td><code>01 05</code></td><td>CM0 -&gt; MAIN</td><td>SHELL_EXIT: report that bash exited.</td></tr></tbody></table>
+<p>Control replies can be sent with console streaming disabled. MAIN reference
+counts shell attachments so multiple local surfaces can share one bash session.
+Shell data has its own queues and is not OneWili command data.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="opening-an-api-session">Opening an API session<a href="#opening-an-api-session" class="hash-link" aria-label="Direct link to Opening an API session" title="Direct link to Opening an API session" translate="no">​</a></h2>
+<ol>
+<li class="">CM0 sends HELLO (<code>01 02</code>) and receives <code>01 02 01 02</code> from current MAIN firmware.</li>
+<li class="">The client checks for mailbox protocol 1.2 or later, which supports API mode.</li>
+<li class="">CM0 sends SET_STREAM with mode 2 (<code>01 01 02</code>).</li>
+<li class="">MAIN switches modes, clears the console queues when the mode changes, and
+replies <code>01 01 02</code>. The client waits for this acknowledgement before sending
+API commands.</li>
+<li class="">The Python adapter then sends the Device State command (<code>h\a\g</code>) and requires
+a valid response before <code>connect_cm0()</code> returns a connected device.</li>
+</ol>
+<p>SET_STREAM acknowledgements were added in protocol 1.1; isolated API mode was
+added in 1.2. An interactive console connection to older firmware does not
+establish that the OneWili API is usable. The C++ <code>OneWiliLink</code> constructor
+performs the HELLO and API-mode acknowledgement steps; the Python adapter adds
+the end-to-end Device State probe.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="onewili-command-stream">OneWili command stream<a href="#onewili-command-stream" class="hash-link" aria-label="Direct link to OneWili command stream" title="Direct link to OneWili command stream" translate="no">​</a></h2>
+<p>The generated libraries write the usual menu API command as bytes:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">[Ctrl-B = 02] path[ arguments] [LF = 0A]</span><br></div></code></pre></div></div>
+<p>For example, a GPIO state query is <code>02</code> followed by the ASCII text <code>i\g\u</code>
+and a newline. Its complete SPI mailbox command fits in one body:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">07 08 00 02 69 5C 67 5C 75 0A</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">      ^^ CONSOLE body type</span><br></div></code></pre></div></div>
+<p><code>MboxMux</code> splits longer byte streams into bodies with at most 31 data bytes.
+MAIN reassembles the command until a line ending; Ctrl-B or Ctrl-C resets the
+partially assembled command. Replies use the normal menu API envelope:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">[path timestamp sequence response success]\n</span><br></div></code></pre></div></div>
+<p>Here <code>timestamp</code> is the hexadecimal timestamp field, <code>sequence</code> is the menu
+response sequence, and <code>success</code> is <code>1</code> or <code>0</code>. Response text may contain
+spaces and newlines. The SDK parses the response envelope after reassembling
+CONSOLE data; neither one mailbox body nor one UART frame necessarily contains
+a complete reply.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="how-main-isolates-api-execution">How MAIN isolates API execution<a href="#how-main-isolates-api-execution" class="hash-link" aria-label="Direct link to How MAIN isolates API execution" title="Direct link to How MAIN isolates API execution" translate="no">​</a></h3>
+<p><code>rpCM0Comm</code> routes mode-2 input to a dedicated API reader instead of shared
+console input, and disables the normal console-output tee to CM0.
+<code>fwMenuMain::processCM0API()</code> assembles one command in a private buffer and
+runs it through <code>executeLocalCommand()</code>, capturing its reply for the mailbox.
+The local command path saves and restores menu navigation and input state,
+so a USB terminal can remain partway through its own command.</p>
+<p>For commands that finish asynchronously, <code>fwMenuX</code> retains the response sink
+and the originating menu route until completion. A session-generation check
+prevents a deferred reply from an earlier session entering a new one. MAIN
+drains pending API output and deferred work before executing the next command.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="linux-implementation-and-ownership">Linux implementation and ownership<a href="#linux-implementation-and-ownership" class="hash-link" aria-label="Direct link to Linux implementation and ownership" title="Direct link to Linux implementation and ownership" translate="no">​</a></h2>
+<p>The Python route is:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">onewili -&gt; Cm0Transport -&gt; fwcm0 api -&gt; Unix socket -&gt; bridge daemon</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        -&gt; ConsoleClient -&gt; MboxMux -&gt; SramRouter -&gt; LinuxTransport</span><br></div></code></pre></div></div>
+<p>The default socket is <code>/run/fwcm0-bridge.sock</code>. The CLI opens an API connection
+with a little-endian 32-bit payload length of one, followed by socket operation
+<code>OP_API = 07</code>: <code>01 00 00 00 07</code>. After this request the socket carries a raw,
+bidirectional command/reply byte stream. This socket opcode and SPI <code>OP_MBOX</code>
+happen to share a value but belong to different protocol layers.</p>
+<p>The daemon owns SPI, UART, and the router receive thread. <code>MboxMux</code> owns the
+router&#x27;s mailbox callback, dispatches bodies by type/control sub-operation,
+and serializes console and shell sends. The daemon permits one console/API
+owner at a time and rejects a competing attachment. USB can remain connected
+because MAIN handles API mode separately. Closing the Python transport closes
+the CLI input, lets the daemon release the session, and reaps the subprocess.</p>
+<p>The C/C++ route uses the same lower layers directly. <code>OneWiliLink</code> adapts a
+<code>ConsoleClient</code> to the C library&#x27;s <code>ow_transport</code> read/write interface and
+detaches its receive callback and disables the stream on destruction. Keep
+the transport, router, mux, client, and link alive while <code>ow_device</code> uses them.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="buffering-and-limits">Buffering and limits<a href="#buffering-and-limits" class="hash-link" aria-label="Direct link to Buffering and limits" title="Direct link to Buffering and limits" translate="no">​</a></h3>
+<p>Each hardware direction holds only one body. A new CM0 body arriving while
+the inbox is occupied is dropped and sets overflow; the existing body remains.
+MAIN leaves data in the inbox when its software receive queues cannot accept
+it, and checks outbox-free before publishing a reply. CM0 sends must pass
+through the shared <code>MboxMux</code> sender. The hardware offers no per-data-body
+acknowledgement or automatic retransmission, so it must not be treated as an
+unbounded, lossless queue. HELLO and SET_STREAM replies acknowledge those
+control operations, not every chunk of subsequent data.</p>
+<p>MAIN currently has 4096-byte console rings (4095 usable bytes), a 512-byte
+command buffer (511 text bytes plus terminator), and a 4096-byte captured-reply
+buffer (4095 text bytes plus terminator). Commands or captured replies that
+exceed their buffers fail. Raw file transfers and binary event streaming are
+not supported by this adapter; ordinary menu commands and polling use the
+text API. SRAM/PSRAM access remains a separate router operation.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="source-map">Source map<a href="#source-map" class="hash-link" aria-label="Direct link to Source map" title="Direct link to Source map" translate="no">​</a></h3>
+<p>Implementation paths below are relative to the firmware repository:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Layer</th><th>Source</th></tr></thead><tbody><tr><td>FPGA buffers and register window</td><td><code>freewilifpga/fpga/src/dsn/cm0_mailbox.v</code></td></tr><tr><td>FPGA command/frame routing</td><td><code>freewilifpga/fpga/src/dsn/cm0_router_ctrl.v</code>, <code>cm0_router_defs.vh</code></td></tr><tr><td>CM0 wire definitions and framing</td><td><code>freewilicm0/include/fwcm0/protocol.h</code>, <code>freewilicm0/src/commands.cpp</code>, <code>frame_parser.cpp</code>, <code>crc8.cpp</code></td></tr><tr><td>CM0 dispatch, handshake, and socket bridge</td><td><code>freewilicm0/src/mbox_mux.cpp</code>, <code>console_client.cpp</code>, <code>bridge_daemon.cpp</code></td></tr><tr><td>MAIN register access and mailbox service</td><td><code>freewilimain/fwProgIODir.cpp</code>, <code>freewilimain/rmpLib/rpCM0Comm.cpp</code></td></tr><tr><td>MAIN API execution and deferred replies</td><td><code>freewilimain/fwMenuMain.cpp</code>, <code>freewilimain/rmpLib/fwMenuX.cpp</code></td></tr><tr><td>Generated OneWili adapters</td><td><code>freewilimain/testprojects/onewili/cm0/</code></td></tr><tr><td>Adapter and documentation generators</td><td><code>freewilimain/testprojects/menutool/core/Cm0ApiEmitter.cpp</code>, <code>DocusaurusEmitter.cpp</code></td></tr></tbody></table>
+<p>Full command list: <a class="" href="/onewili/reference/gui">GUI Functions</a> - or start at the <a class="" href="/onewili/">API index</a>.</p></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/onewili/getting-started/wilibsp"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">WiliBSP</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/onewili/reference/io"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">IO functions</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#connect-from-c-or-c" class="table-of-contents__link toc-highlight">Connect from C or C++</a></li><li><a href="#connect-from-python" class="table-of-contents__link toc-highlight">Connect from Python</a></li><li><a href="#mailbox-architecture" class="table-of-contents__link toc-highlight">Mailbox architecture</a><ul><li><a href="#cm0-facing-wire-formats" class="table-of-contents__link toc-highlight">CM0-facing wire formats</a></li><li><a href="#main-facing-register-interface" class="table-of-contents__link toc-highlight">MAIN-facing register interface</a></li></ul></li><li><a href="#body-types-and-controls" class="table-of-contents__link toc-highlight">Body types and controls</a></li><li><a href="#opening-an-api-session" class="table-of-contents__link toc-highlight">Opening an API session</a></li><li><a href="#onewili-command-stream" class="table-of-contents__link toc-highlight">OneWili command stream</a><ul><li><a href="#how-main-isolates-api-execution" class="table-of-contents__link toc-highlight">How MAIN isolates API execution</a></li></ul></li><li><a href="#linux-implementation-and-ownership" class="table-of-contents__link toc-highlight">Linux implementation and ownership</a><ul><li><a href="#buffering-and-limits" class="table-of-contents__link toc-highlight">Buffering and limits</a></li><li><a href="#source-map" class="table-of-contents__link toc-highlight">Source map</a></li></ul></li></ul></div></div></div></div></main></div></div></div></div>
 </body>
 </html>

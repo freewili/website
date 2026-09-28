@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">OneWili API Reference | OneWili</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://freewili.com/onewili/"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="OneWili API Reference | OneWili"><meta data-rh="true" name="description" content="Generated from the FreeWili 2 firmware menu sources by the menutool API Generator."><meta data-rh="true" property="og:description" content="Generated from the FreeWili 2 firmware menu sources by the menutool API Generator."><link data-rh="true" rel="canonical" href="https://freewili.com/onewili/"><link data-rh="true" rel="alternate" href="https://freewili.com/onewili/" hreflang="en"><link data-rh="true" rel="alternate" href="https://freewili.com/onewili/" hreflang="x-default"><script data-rh="true">function insertBanner(){var n=document.createElement("div");n.id="__docusaurus-base-url-issue-banner-container";n.innerHTML='\n<div id="__docusaurus-base-url-issue-banner" style="border: thick solid red; background-color: rgb(255, 230, 179); margin: 20px; padding: 20px; font-size: 20px;">\n   <p style="font-weight: bold; font-size: 30px;">Your Docusaurus site did not load properly.</p>\n   <p>A very common reason is a wrong site <a href="https://docusaurus.io/docs/docusaurus.config.js/#baseUrl" style="font-weight: bold;">baseUrl configuration</a>.</p>\n   <p>Current configured baseUrl = <span style="font-weight: bold; color: red;">/onewili/</span> </p>\n   <p>We suggest trying baseUrl = <span id="__docusaurus-base-url-issue-banner-suggestion-container" style="font-weight: bold; color: green;"></span></p>\n</div>\n',document.body.prepend(n);var e=document.getElementById("__docusaurus-base-url-issue-banner-suggestion-container"),s=window.location.pathname,o="/"===s.substr(-1)?s:s+"/";e.innerHTML=o}document.addEventListener("DOMContentLoaded",function(){void 0===window.docusaurus&&insertBanner()})</script><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"OneWili API Reference","item":"https://freewili.com/onewili/"}]}</script><link rel="stylesheet" href="/onewili/assets/css/styles.e24047d5.css">
-<script src="/onewili/assets/js/runtime~main.a9ae4c42.js" defer="defer"></script>
-<script src="/onewili/assets/js/main.53eba0fb.js" defer="defer"></script>
+<script src="/onewili/assets/js/runtime~main.6f044b6b.js" defer="defer"></script>
+<script src="/onewili/assets/js/main.90de4615.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -39,7 +39,11 @@ One reference for every generated language - see the signature blocks on each co
 <li class=""><a class="" href="/onewili/reference/spi_settings">SPI Settings</a> - <code>dev.io.spi.settings</code> (<code>i\e\s</code>)</li>
 </ul>
 </li>
-<li class=""><a class="" href="/onewili/reference/canfd">CANFD Functions</a> - <code>dev.io.canfd</code> (<code>i\c</code>)</li>
+<li class=""><a class="" href="/onewili/reference/canfd">CANFD Functions</a> - <code>dev.io.canfd</code> (<code>i\c</code>)
+<ul>
+<li class=""><a class="" href="/onewili/reference/isotp">ISO-TP Transport</a> - <code>dev.io.canfd.isotp</code> (<code>i\c\t</code>)</li>
+</ul>
+</li>
 <li class=""><a class="" href="/onewili/reference/analog_in">Analog In Functions</a> - <code>dev.io.analog_in</code> (<code>i\j</code>)</li>
 <li class=""><a class="" href="/onewili/reference/analog_out">Analog Out &amp; Trigger Functions</a> - <code>dev.io.analog_out</code> (<code>i\a</code>)</li>
 <li class=""><a class="" href="/onewili/reference/logic_player">Logic Player Functions</a> - <code>dev.io.logic_player</code> (<code>i\p</code>)</li>
@@ -48,6 +52,15 @@ One reference for every generated language - see the signature blocks on each co
 <li class=""><a class="" href="/onewili/reference/audio">Audio Functions</a> - <code>dev.io.audio</code> (<code>i\k</code>)</li>
 <li class=""><a class="" href="/onewili/reference/serial_leds">Serial LEDs</a> - <code>dev.io.serial_leds</code> (<code>i\l</code>)</li>
 <li class=""><a class="" href="/onewili/reference/nice_usb">niceusb</a> - <code>dev.io.nice_usb</code> (<code>i\n</code>)</li>
+<li class=""><a class="" href="/onewili/reference/cdc_perf">CDC Serial Performance</a> - <code>dev.io.cdc_perf</code> (<code>i\y</code>)</li>
+<li class=""><a class="" href="/onewili/reference/t1s">Ethernet 10BaseT1S</a> - <code>dev.io.t1s</code> (<code>i\r</code>)
+<ul>
+<li class=""><a class="" href="/onewili/reference/eth_test">Ethernet Test</a> - <code>dev.io.t1s.eth_test</code> (<code>i\r\t</code>)</li>
+<li class=""><a class="" href="/onewili/reference/plca">PLCA Settings</a> - <code>dev.io.t1s.plca</code> (<code>i\r\p</code>)</li>
+<li class=""><a class="" href="/onewili/reference/t1s_tc10">TC10 Wake/Sleep</a> - <code>dev.io.t1s.tc10</code> (<code>i\r\w</code>)</li>
+</ul>
+</li>
+<li class=""><a class="" href="/onewili/reference/net">Network (TCP/IP)</a> - <code>dev.io.net</code> (<code>i\w</code>)</li>
 </ul>
 </li>
 <li class=""><a class="" href="/onewili/reference/gui">GUI Functions</a> - <code>dev.gui</code> (<code>g</code>)
