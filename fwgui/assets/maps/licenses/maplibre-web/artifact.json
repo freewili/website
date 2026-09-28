@@ -1,0 +1,7 @@
+{
+  "gitSha": "089c9d4152f7c4cdaf3f9f9a922a7f212f1c35f5",
+  "version": "0.202608.0",
+  "renderBackend": "opengl",
+  "targetPlatform": "emscripten-wasm32",
+  "zigTarget": "wasm32-emscripten"
+}
