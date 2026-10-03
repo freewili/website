@@ -119,6 +119,79 @@ gtag("config", "G-Q6LHBWVT7W");
       <p>A USB-CAN adapter does CAN. A USB-RS485 stick does RS485. A T1S media converter does T1S. SAN DIEGO Orca does all of it on one module attached to a device with a touchscreen, dual RP2350s, an FPGA, onboard Linux, Python scripting, and wireless connectivity.</p>
       <p>Log CAN traffic to scripts, bridge it over WiFi, display live bus data on-screen, and automate full test sequences without carrying a laptop.</p>
     </div>
+
+    <div class="spec-facts" id="pinout" style="margin-top:1.2rem;">
+      <h4>DB-15 pinout</h4>
+      <p>Every bus and the vehicle battery input land on the module's male DB-15. The view below is what you see looking straight into the pins with the module label facing up: the wide row of eight is on top and pin 1 is at the top left.</p>
+      <figure class="pinout-fig">
+        <svg viewBox="40 0 640 420" role="img" aria-labelledby="db15-title">
+          <title id="db15-title">SAN DIEGO Orca DB-15, looking into the male pins with the module label facing up. Top row, left to right: pin 1 T1S P, 2 T1S N, 3 T1L P, 4 RS485 P, 5 not connected, 6 CAN H, 7 not connected, 8 GND. Bottom row, left to right: pin 9 T1S P, 10 T1S N, 11 T1L N, 12 RS485 N, 13 MISC DIO, 14 CAN L, 15 VBAT.</title>
+          <defs>
+            <radialGradient id="db15-gold" cx=".38" cy=".34" r=".75">
+              <stop offset="0" stop-color="#fff4c9"/><stop offset=".5" stop-color="#e0ae3a"/><stop offset="1" stop-color="#7d5a12"/>
+            </radialGradient>
+          </defs>
+          <rect class="flange" x="50" y="150" width="620" height="120" rx="12"/>
+          <circle class="screw" cx="82" cy="210" r="14"/><circle class="screw-bore" cx="82" cy="210" r="7"/>
+          <circle class="screw" cx="638" cy="210" r="14"/><circle class="screw-bore" cx="638" cy="210" r="7"/>
+          <path class="shell" d="M128 160H592Q618 160 613 184L604 240Q600 260 578 260H142Q120 260 116 240L107 184Q102 160 128 160Z"/>
+          <g class="lead pin-t1s"><path d="M150 43V166"/><path class="tip" d="M150 174l-5 -9h10z"/><rect x="113.5" y="17" width="73" height="26" rx="6"/><text x="150" y="30" dy=".35em"><tspan class="num">1</tspan> T1S P</text></g>
+          <g class="lead pin-t1s"><path d="M210 91V166"/><path class="tip" d="M210 174l-5 -9h10z"/><rect x="173.5" y="65" width="73" height="26" rx="6"/><text x="210" y="78" dy=".35em"><tspan class="num">2</tspan> T1S N</text></g>
+          <g class="lead pin-t1l"><path d="M270 43V166"/><path class="tip" d="M270 174l-5 -9h10z"/><rect x="233.5" y="17" width="73" height="26" rx="6"/><text x="270" y="30" dy=".35em"><tspan class="num">3</tspan> T1L P</text></g>
+          <g class="lead pin-rs485"><path d="M330 91V166"/><path class="tip" d="M330 174l-5 -9h10z"/><rect x="286" y="65" width="88" height="26" rx="6"/><text x="330" y="78" dy=".35em"><tspan class="num">4</tspan> RS485 P</text></g>
+          <g class="lead pin-nc"><path d="M390 43V166"/><path class="tip" d="M390 174l-5 -9h10z"/><rect x="365.5" y="17" width="49" height="26" rx="6"/><text x="390" y="30" dy=".35em"><tspan class="num">5</tspan> NC</text></g>
+          <g class="lead pin-can"><path d="M450 91V166"/><path class="tip" d="M450 174l-5 -9h10z"/><rect x="413.5" y="65" width="73" height="26" rx="6"/><text x="450" y="78" dy=".35em"><tspan class="num">6</tspan> CAN H</text></g>
+          <g class="lead pin-nc"><path d="M510 43V166"/><path class="tip" d="M510 174l-5 -9h10z"/><rect x="485.5" y="17" width="49" height="26" rx="6"/><text x="510" y="30" dy=".35em"><tspan class="num">7</tspan> NC</text></g>
+          <g class="lead pin-gnd"><path d="M570 91V166"/><path class="tip" d="M570 174l-5 -9h10z"/><rect x="541.5" y="65" width="57" height="26" rx="6"/><text x="570" y="78" dy=".35em"><tspan class="num">8</tspan> GND</text></g>
+          <g class="lead pin-t1s"><path d="M180 377V254"/><path class="tip" d="M180 246l-5 9h10z"/><rect x="143.5" y="377" width="73" height="26" rx="6"/><text x="180" y="390" dy=".35em"><tspan class="num">9</tspan> T1S P</text></g>
+          <g class="lead pin-t1s"><path d="M240 329V254"/><path class="tip" d="M240 246l-5 9h10z"/><rect x="200" y="329" width="80" height="26" rx="6"/><text x="240" y="342" dy=".35em"><tspan class="num">10</tspan> T1S N</text></g>
+          <g class="lead pin-t1l"><path d="M300 377V254"/><path class="tip" d="M300 246l-5 9h10z"/><rect x="260" y="377" width="80" height="26" rx="6"/><text x="300" y="390" dy=".35em"><tspan class="num">11</tspan> T1L N</text></g>
+          <g class="lead pin-rs485"><path d="M360 329V254"/><path class="tip" d="M360 246l-5 9h10z"/><rect x="312" y="329" width="96" height="26" rx="6"/><text x="360" y="342" dy=".35em"><tspan class="num">12</tspan> RS485 N</text></g>
+          <g class="lead pin-dio"><path d="M420 377V254"/><path class="tip" d="M420 246l-5 9h10z"/><rect x="368" y="377" width="104" height="26" rx="6"/><text x="420" y="390" dy=".35em"><tspan class="num">13</tspan> MISC DIO</text></g>
+          <g class="lead pin-can"><path d="M480 329V254"/><path class="tip" d="M480 246l-5 9h10z"/><rect x="440" y="329" width="80" height="26" rx="6"/><text x="480" y="342" dy=".35em"><tspan class="num">14</tspan> CAN L</text></g>
+          <g class="lead pin-pwr"><path d="M540 377V254"/><path class="tip" d="M540 246l-5 9h10z"/><rect x="503.5" y="377" width="73" height="26" rx="6"/><text x="540" y="390" dy=".35em"><tspan class="num">15</tspan> VBAT</text></g>
+          <circle class="male-pin" cx="150" cy="185" r="9"/>
+          <circle class="male-pin" cx="210" cy="185" r="9"/>
+          <circle class="male-pin" cx="270" cy="185" r="9"/>
+          <circle class="male-pin" cx="330" cy="185" r="9"/>
+          <circle class="male-pin" cx="390" cy="185" r="9"/>
+          <circle class="male-pin" cx="450" cy="185" r="9"/>
+          <circle class="male-pin" cx="510" cy="185" r="9"/>
+          <circle class="male-pin" cx="570" cy="185" r="9"/>
+          <circle class="male-pin" cx="180" cy="235" r="9"/>
+          <circle class="male-pin" cx="240" cy="235" r="9"/>
+          <circle class="male-pin" cx="300" cy="235" r="9"/>
+          <circle class="male-pin" cx="360" cy="235" r="9"/>
+          <circle class="male-pin" cx="420" cy="235" r="9"/>
+          <circle class="male-pin" cx="480" cy="235" r="9"/>
+          <circle class="male-pin" cx="540" cy="235" r="9"/>
+        </svg>
+        <figcaption>Looking into the male pins, module label facing up</figcaption>
+      </figure>
+      <table class="pin-table">
+        <thead>
+          <tr><th>Pin</th><th>Signal</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td><span class="pin-dot pin-t1s"></span>T1S P</td><td>10BASE-T1S positive</td></tr>
+          <tr><td>2</td><td><span class="pin-dot pin-t1s"></span>T1S N</td><td>10BASE-T1S negative</td></tr>
+          <tr><td>3</td><td><span class="pin-dot pin-t1l"></span>T1L P</td><td>10BASE-T1L positive</td></tr>
+          <tr><td>4</td><td><span class="pin-dot pin-rs485"></span>RS485 P</td><td>RS485 non-inverting line (A)</td></tr>
+          <tr><td>5</td><td><span class="pin-dot pin-nc"></span>NC</td><td>Not connected</td></tr>
+          <tr><td>6</td><td><span class="pin-dot pin-can"></span>CAN H</td><td>CAN FD high</td></tr>
+          <tr><td>7</td><td><span class="pin-dot pin-nc"></span>NC</td><td>Not connected</td></tr>
+          <tr><td>8</td><td><span class="pin-dot pin-gnd"></span>GND</td><td>Ground, signal and power return</td></tr>
+          <tr><td>9</td><td><span class="pin-dot pin-t1s"></span>T1S P</td><td>10BASE-T1S positive, joined to pin 1</td></tr>
+          <tr><td>10</td><td><span class="pin-dot pin-t1s"></span>T1S N</td><td>10BASE-T1S negative, joined to pin 2</td></tr>
+          <tr><td>11</td><td><span class="pin-dot pin-t1l"></span>T1L N</td><td>10BASE-T1L negative</td></tr>
+          <tr><td>12</td><td><span class="pin-dot pin-rs485"></span>RS485 N</td><td>RS485 inverting line (B)</td></tr>
+          <tr><td>13</td><td><span class="pin-dot pin-dio"></span>MISC DIO</td><td>General-purpose digital I/O, 5 V logic</td></tr>
+          <tr><td>14</td><td><span class="pin-dot pin-can"></span>CAN L</td><td>CAN FD low</td></tr>
+          <tr><td>15</td><td><span class="pin-dot pin-pwr"></span>VBAT</td><td>Vehicle battery input</td></tr>
+        </tbody>
+      </table>
+      <p>The 10BASE-T1S pair is brought out twice. Pins 1 and 9 are joined inside the module, as are pins 2 and 10, so a multidrop segment can come in on one pair and continue on the other.</p>
+    </div>
   </div>
   <nav class="spec-nav">
     <a href="../explore-orcas.html">&larr; All Orcas</a>

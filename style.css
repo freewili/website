@@ -360,6 +360,40 @@ a.stat:hover .v em{color:#fff}
 .spec-facts th{font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--green);background:rgba(255,255,255,.02)}
 .spec-facts td{color:var(--text)}
 .spec-facts tbody tr:nth-child(even) td{background:rgba(255,255,255,.015)}
+/* connector pinout: pin-face diagram and pin table */
+.pin-t1s{--pin:var(--green)}
+.pin-t1l{--pin:#4cc9f0}
+.pin-rs485{--pin:var(--amber)}
+.pin-can{--pin:#b693ff}
+.pin-pwr{--pin:var(--red)}
+.pin-gnd{--pin:var(--muted)}
+.pin-dio{--pin:var(--text)}
+.pinout-fig{margin:0 0 1.5rem;overflow-x:auto}
+.pinout-fig svg{display:block;width:100%;min-width:500px;max-width:640px;height:auto;margin:0 auto}
+.pinout-fig .flange{fill:var(--surface-2);stroke:var(--line-strong);stroke-width:1.5}
+.pinout-fig .screw{fill:#2a2a30;stroke:#8e919b;stroke-width:2}
+.pinout-fig .screw-bore{fill:var(--bg)}
+.pinout-fig .shell{fill:#08080a;stroke:#b9bcc6;stroke-width:3}
+.pinout-fig .male-pin{fill:url(#db15-gold);stroke:#5a400c;stroke-width:1}
+.pinout-fig .lead path{fill:none;stroke:var(--pin);stroke-width:1.5}
+.pinout-fig .lead .tip{fill:var(--pin);stroke:none}
+.pinout-fig .lead rect{fill:var(--bg);stroke:var(--pin);stroke-width:1.5}
+.pinout-fig .lead text{fill:var(--text);font-family:var(--mono);font-size:13px;text-anchor:middle}
+.pinout-fig .lead .num{fill:var(--pin);font-weight:700}
+.pinout-fig .lead.pin-nc{--pin:var(--faint)}
+.pinout-fig .lead.pin-nc path:not(.tip),.pinout-fig .lead.pin-nc rect{stroke-dasharray:4 3}
+.pinout-fig .lead.pin-nc text{fill:var(--faint)}
+.pinout-fig figcaption{margin-top:.7rem;text-align:center;font-family:var(--mono);font-size:.74rem;color:var(--faint)}
+.pin-dot{display:inline-block;width:.72em;height:.72em;border-radius:50%;margin-right:.5em;background:var(--pin);border:1px solid var(--pin)}
+.pin-dot.pin-nc{background:none;border:1px dashed var(--faint)}
+.spec-facts table.pin-table th:first-child,.spec-facts table.pin-table td:first-child{width:3.4rem;text-align:center;font-family:var(--mono)}
+.spec-facts table.pin-table td:nth-child(2){font-family:var(--mono);font-size:.82rem;white-space:nowrap}
+.spec-facts table.pin-table td:nth-child(3){color:var(--muted)}
+.spec-facts table + p{margin:1.1rem 0 0;font-size:.92rem}
+@media(max-width:520px){
+  .spec-facts table.pin-table th,.spec-facts table.pin-table td{padding:.5rem}
+  .spec-facts table.pin-table td:nth-child(2){white-space:normal}
+}
 .spec-nav{display:flex;justify-content:space-between;align-items:center;gap:1rem;border-top:1px solid var(--line);padding:28px 0;flex-wrap:wrap}
 
 /* ---------- legal / privacy policy page ---------- */
