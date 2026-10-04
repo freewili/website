@@ -12,8 +12,8 @@ gtag("config", "G-Q6LHBWVT7W");
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
-<title>SAN DIEGO Orca: Vehicle Network Module for FREE-WILi 2</title>
-<meta name="description" content="SAN DIEGO Orca Module: RS485, CAN FD, 10BASE-T1S/T1L automotive and industrial interface for FREE-WILi 2.">
+<title>SAN DIEGO Orca: Industrial Network Module for FREE-WILi 2</title>
+<meta name="description" content="SAN DIEGO Orca Module: RS485, CAN FD, 10BASE-T1L and 10BASE-T1S industrial network interface for FREE-WILi 2.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
@@ -77,7 +77,7 @@ gtag("config", "G-Q6LHBWVT7W");
     <span class="eyebrow" style="justify-content:center">// orca modules</span>
     <h1>SAN DIEGO <span class="n">Orca</span></h1>
     <div class="big-stat">SANDIEGO<em>Orca</em></div>
-    <div class="sub">RS485, CAN FD, 10BASE-T1S/T1L Automotive and Industrial Interface</div>
+    <div class="sub">RS485, CAN FD, 10BASE-T1L/T1S Industrial Network Interface</div>
   </div>
 </section>
 
@@ -88,18 +88,18 @@ gtag("config", "G-Q6LHBWVT7W");
       <img src="../assets/sandiego-orca-photo.webp" alt="SAN DIEGO Orca attached to a FREE-WILi 2, showing the DB-15 connector" width="976" height="1092" loading="eager" decoding="async">
     </div>
 
-    <p>The <b>SAN DIEGO Orca</b> snaps onto your FREE-WILi 2 and turns the open electronics multitool into a full vehicle and industrial network interface. You get <b>ISO CAN FD</b>, <b>RS485</b>, and both flavors of single-pair automotive Ethernet (<b>10BASE-T1S</b> and <b>10BASE-T1L</b>) through one rugged DB-15 connector, powered straight from the vehicle battery via <b>VBATT</b>.</p>
-    <p>Modern vehicles and industrial systems do not speak USB. They speak CAN FD, RS485, and increasingly, single-pair Ethernet. SAN DIEGO Orca brings all of them to FREE-WILi 2 so you can sniff, script, simulate, and stress-test the same buses running in cars, trucks, robots, and factory floors.</p>
+    <p>The <b>SAN DIEGO Orca</b> snaps onto your FREE-WILi 2 and turns the open electronics multitool into a full industrial network interface. You get <b>RS485</b>, <b>ISO CAN FD</b>, and both flavors of single-pair Ethernet (<b>10BASE-T1L</b> and <b>10BASE-T1S</b>) through one rugged DB-15 connector, powered straight from the field supply via <b>VBATT</b>.</p>
+    <p>Industrial networks do not speak USB. They speak RS485, CAN FD, and increasingly, single-pair Ethernet. SAN DIEGO Orca brings all of them to FREE-WILi 2 so you can sniff, script, simulate, and stress-test the same networks that run drives, sensors, robots, and entire production lines.</p>
     <p>Plug it into the FREE-WILi extension connector, wire up the DB-15, and you are on the network with the same Python, Rust, C/C++ API, touchscreen, and onboard Linux workflow you already use.</p>
 
     <div class="spec-facts">
       <h4>What is on board</h4>
       <dl>
-        <dt>ISO CAN FD</dt><dd>1x channel with selectable on-board termination for end-node or tap use</dd>
-        <dt>RS485</dt><dd>1x channel for Modbus, motor drives, sensor chains, and legacy field systems</dd>
-        <dt>10BASE-T1S</dt><dd>1x multidrop single-pair Ethernet for modern zonal vehicle networks</dd>
-        <dt>10BASE-T1L</dt><dd>1x long-reach single-pair Ethernet up to 1 km for industrial/building automation</dd>
-        <dt>VBATT Input</dt><dd>1x vehicle-battery input to power the setup directly from source</dd>
+        <dt>RS485</dt><dd>1x channel for Modbus, motor drives, sensor chains, and legacy field systems, with switchable on-board termination</dd>
+        <dt>ISO CAN FD</dt><dd>1x channel for machine, drive, and robot control networks</dd>
+        <dt>10BASE-T1L</dt><dd>1x long-reach single-pair Ethernet up to 1 km for process, factory, and building automation</dd>
+        <dt>10BASE-T1S</dt><dd>1x multidrop single-pair Ethernet for sensors and actuators sharing one cable, with switchable on-board termination</dd>
+        <dt>VBATT Input</dt><dd>1x DC supply input to power the setup directly from the field supply</dd>
         <dt>Connector</dt><dd>All I/O routes through one rugged DB-15 harness interface</dd>
       </dl>
     </div>
@@ -107,22 +107,22 @@ gtag("config", "G-Q6LHBWVT7W");
     <div class="spec-facts" style="margin-top:1.2rem;">
       <h4>Who it is for</h4>
       <dl>
-        <dt>Automotive Teams</dt><dd>Engineers validating ECUs, gateways, and zonal architectures on CAN FD and automotive Ethernet</dd>
-        <dt>Security Research</dt><dd>Researchers exploring vehicle networks with scriptable hardware workflows</dd>
+        <dt>Automation Engineers</dt><dd>Engineers commissioning and troubleshooting PLCs, drives, and field devices on RS485, CAN FD, and single-pair Ethernet</dd>
+        <dt>Security Research</dt><dd>Researchers exploring industrial control networks with scriptable hardware workflows</dd>
         <dt>Industrial and IoT</dt><dd>Developers bridging RS485 field devices and 10BASE-T1L sensor networks</dd>
-        <dt>Makers and Students</dt><dd>Learners building real automotive and industrial protocol skills on open hardware</dd>
+        <dt>Makers and Students</dt><dd>Learners building real industrial protocol skills on open hardware</dd>
       </dl>
     </div>
 
     <div class="spec-facts" style="margin-top:1.2rem;">
       <h4>Why FREE-WILi + SAN DIEGO</h4>
       <p>A USB-CAN adapter does CAN. A USB-RS485 stick does RS485. A T1S media converter does T1S. SAN DIEGO Orca does all of it on one module attached to a device with a touchscreen, dual RP2350s, an FPGA, onboard Linux, Python scripting, and wireless connectivity.</p>
-      <p>Log CAN traffic to scripts, bridge it over WiFi, display live bus data on-screen, and automate full test sequences without carrying a laptop.</p>
+      <p>Log bus traffic to scripts, bridge it over WiFi, display live bus data on-screen, and automate full test sequences without carrying a laptop.</p>
     </div>
 
     <div class="spec-facts" id="pinout" style="margin-top:1.2rem;">
       <h4>DB-15 pinout</h4>
-      <p>Every bus and the vehicle battery input land on the module's male DB-15. The view below is what you see looking straight into the pins with the module label facing up: the wide row of eight is on top and pin 1 is at the top left.</p>
+      <p>Every bus and the DC supply input land on the module's male DB-15. The view below is what you see looking straight into the pins with the module label facing up: the wide row of eight is on top and pin 1 is at the top left.</p>
       <figure class="pinout-fig">
         <svg viewBox="40 0 640 420" role="img" aria-labelledby="db15-title">
           <title id="db15-title">SAN DIEGO Orca DB-15, looking into the male pins with the module label facing up. Top row, left to right: pin 1 T1S P, 2 T1S N, 3 T1L P, 4 RS485 P, 5 not connected, 6 CAN H, 7 not connected, 8 GND. Bottom row, left to right: pin 9 T1S P, 10 T1S N, 11 T1L N, 12 RS485 N, 13 MISC DIO, 14 CAN L, 15 VBAT.</title>
@@ -187,7 +187,7 @@ gtag("config", "G-Q6LHBWVT7W");
           <tr><td>12</td><td><span class="pin-dot pin-rs485"></span>RS485 N</td><td>RS485 inverting line (B)</td></tr>
           <tr><td>13</td><td><span class="pin-dot pin-dio"></span>MISC DIO</td><td>General-purpose digital I/O, 5 V logic</td></tr>
           <tr><td>14</td><td><span class="pin-dot pin-can"></span>CAN L</td><td>CAN FD low</td></tr>
-          <tr><td>15</td><td><span class="pin-dot pin-pwr"></span>VBAT</td><td>Vehicle battery input</td></tr>
+          <tr><td>15</td><td><span class="pin-dot pin-pwr"></span>VBAT</td><td>DC supply input (marked VBATT on the module)</td></tr>
         </tbody>
       </table>
       <p>The 10BASE-T1S pair is brought out twice. Pins 1 and 9 are joined inside the module, as are pins 2 and 10, so a multidrop segment can come in on one pair and continue on the other.</p>
