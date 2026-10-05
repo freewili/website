@@ -13,7 +13,7 @@ gtag("config", "G-Q6LHBWVT7W");
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
 <title>SAN DIEGO Orca: Industrial Network Module for FREE-WILi 2</title>
-<meta name="description" content="SAN DIEGO Orca Module: RS485 for Modbus, CAN FD, 10BASE-T1L and 10BASE-T1S industrial network interface for FREE-WILi 2.">
+<meta name="description" content="SAN DIEGO Orca adds RS485 and 10BASE-T1L/T1S and routes FREE-WILi 2's internal CAN FD to DB-15. Explore the 5-60 V DC input specifications and connector pinout.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
@@ -88,20 +88,36 @@ gtag("config", "G-Q6LHBWVT7W");
       <img src="../assets/sandiego-orca-photo.webp" alt="SAN DIEGO Orca attached to a FREE-WILi 2, showing the DB-15 connector" width="976" height="1092" loading="eager" decoding="async">
     </div>
 
-    <p>The <b>SAN DIEGO Orca</b> snaps onto your FREE-WILi 2 and turns the open electronics multitool into a full industrial network interface. You get <b>RS485</b>, <b>ISO CAN FD</b>, and both flavors of single-pair Ethernet (<b>10BASE-T1L</b> and <b>10BASE-T1S</b>) through one rugged DB-15 connector, powered straight from the field supply via <b>VBATT</b>.</p>
+    <p>The <b>SAN DIEGO Orca</b> snaps onto your FREE-WILi 2 and adds <b>RS485</b> and single-pair Ethernet (<b>10BASE-T1L</b> and <b>10BASE-T1S</b>). It also routes <b>FREE-WILi 2's existing internal ISO CAN FD interface</b> to the same rugged DB-15 connector. This is the host's CAN channel; the Orca adds no CAN controller, transceiver, or CAN termination.</p>
+    <p>The <b>DC V+ input is optional</b> and is only needed if you want to <b>power and charge FREE-WILi 2 from an external 5&ndash;60 V DC supply</b>.<sup><a href="#power-edition-note" role="doc-noteref" aria-label="Power input compatibility footnote" style="color:var(--red)">*</a></sup> You can use the network interfaces without connecting DC V+. See <a href="#power-input">power input specifications</a> for wiring and supply details.</p>
     <p>Industrial networks do not speak USB. They speak Modbus over RS485, CAN FD, and increasingly, single-pair Ethernet. SAN DIEGO Orca brings all of them to FREE-WILi 2 so you can sniff, script, simulate, and stress-test the same networks that run drives, sensors, robots, and entire production lines.</p>
     <p>Plug it into the FREE-WILi extension connector, wire up the DB-15, and you are on the network with the same Python, Rust, C/C++ API, touchscreen, and onboard Linux workflow you already use.</p>
 
     <div class="spec-facts">
-      <h4>What is on board</h4>
+      <h4>Interfaces and power</h4>
       <dl>
-        <dt>RS485</dt><dd>1x channel for Modbus, motor drives, sensor chains, and legacy field systems, with switchable on-board termination</dd>
-        <dt>ISO CAN FD</dt><dd>1x channel for machine, drive, and robot control networks</dd>
-        <dt>10BASE-T1L</dt><dd>1x long-reach single-pair Ethernet up to 1 km for process, factory, and building automation</dd>
-        <dt>10BASE-T1S</dt><dd>1x multidrop single-pair Ethernet for sensors and actuators sharing one cable, with switchable on-board termination</dd>
-        <dt>VBATT Input</dt><dd>1x DC supply input to power the setup directly from the field supply</dd>
+        <dt>RS485</dt><dd>1x two-wire, half-duplex channel using an SP3485 transceiver, with switchable on-board termination, for Modbus and other RS485 protocols</dd>
+        <dt>ISO CAN FD</dt><dd>FREE-WILi 2's internal CAN FD channel routed to DB-15 pins 6 (CAN H) and 14 (CAN L); no additional CAN channel</dd>
+        <dt>10BASE-T1L</dt><dd>1x ADIN1110 interface with transformer coupling, for long-reach single-pair Ethernet up to 1 km with suitable cabling and link configuration</dd>
+        <dt>10BASE-T1S</dt><dd>1x LAN8651 interface for multidrop single-pair Ethernet, with selectable endpoint or midpoint termination and duplicated bus pins for through-wiring</dd>
+        <dt>Digital I/O</dt><dd>1x direction-controlled, 5 V logic signal on DB-15 pin 13, via the on-board I/O expander</dd>
+        <dt>DC V+ Input</dt><dd>Optional 5&ndash;60 V DC input to power and charge FREE-WILi 2; positive on pin 15, with pin 8 as return<sup><a href="#power-edition-note" role="doc-noteref" aria-label="Power input compatibility footnote" style="color:var(--red)">*</a></sup></dd>
         <dt>Connector</dt><dd>All I/O routes through one rugged DB-15 harness interface</dd>
       </dl>
+    </div>
+
+    <div class="spec-facts" id="power-input" style="margin-top:1.2rem;">
+      <h4>Power input specifications</h4>
+      <p>Connect DC V+ only when you want to power and charge FREE-WILi 2 from an external DC supply. The network interfaces do not require this connection.</p>
+      <dl>
+        <dt>Input voltage</dt><dd>5&ndash;60 V DC<sup><a href="#power-edition-note" role="doc-noteref" aria-label="Power input compatibility footnote" style="color:var(--red)">*</a></sup></dd>
+        <dt>Wiring / polarity</dt><dd>Supply positive to DB-15 pin 15 (DC V+); supply negative to pin 8 (GND)</dd>
+        <dt>Internal supply</dt><dd>The on-board buck converter feeds the host's 5 V rail through the extension connector. Internal supply rating: 5 V at 2 A (10 W)</dd>
+        <dt>Supply sizing</dt><dd>Input current depends on input voltage, load, and conversion losses. The 2 A figure refers to the internal 5 V supply, not a fixed DC V+ input current. Allow voltage headroom above 5 V for a regulated 5 V rail under load</dd>
+        <dt>Power path</dt><dd>The internal 5 V output includes ideal-diode reverse-current blocking. This is not reverse-polarity protection at the DC V+ input; observe the input polarity</dd>
+        <dt>Ground reference</dt><dd>Pin 8 is the shared signal and power return, connected to host ground. The power input is not galvanically isolated</dd>
+      </dl>
+      <p id="power-edition-note" role="doc-footnote" style="color:var(--red);font-size:.85rem;margin:1rem 0 0;scroll-margin-top:6rem;">* <b>DEF CON FREE-WILi 2 edition:</b> the DC V+ power input does not function.</p>
     </div>
 
     <div class="spec-facts" style="margin-top:1.2rem;">
@@ -116,7 +132,7 @@ gtag("config", "G-Q6LHBWVT7W");
 
     <div class="spec-facts" style="margin-top:1.2rem;">
       <h4>Why FREE-WILi + SAN DIEGO</h4>
-      <p>A USB-CAN adapter does CAN. A USB-RS485 stick does RS485. A T1S media converter does T1S. SAN DIEGO Orca does all of it on one module attached to a device with a touchscreen, dual RP2350s, an FPGA, onboard Linux, Python scripting, and wireless connectivity.</p>
+      <p>SAN DIEGO Orca brings RS485, 10BASE-T1L, 10BASE-T1S, and FREE-WILi 2's internal CAN FD interface together on one DB-15 connector. Use them with the host's touchscreen, dual RP2350s, FPGA, onboard Linux, Python scripting, and wireless connectivity.</p>
       <p>Log Modbus and CAN traffic to scripts, bridge it over WiFi, display live bus data on-screen, and automate full test sequences without carrying a laptop.</p>
     </div>
 
@@ -125,7 +141,7 @@ gtag("config", "G-Q6LHBWVT7W");
       <p>Every bus and the DC supply input land on the module's male DB-15. The view below is what you see looking straight into the pins with the module label facing up: the wide row of eight is on top and pin 1 is at the top left.</p>
       <figure class="pinout-fig">
         <svg viewBox="40 0 640 420" role="img" aria-labelledby="db15-title">
-          <title id="db15-title">SAN DIEGO Orca DB-15, looking into the male pins with the module label facing up. Top row, left to right: pin 1 T1S P, 2 T1S N, 3 T1L P, 4 RS485 P, 5 not connected, 6 CAN H, 7 not connected, 8 GND. Bottom row, left to right: pin 9 T1S P, 10 T1S N, 11 T1L N, 12 RS485 N, 13 MISC DIO, 14 CAN L, 15 VBAT.</title>
+          <title id="db15-title">SAN DIEGO Orca DB-15, looking into the male pins with the module label facing up. Top row, left to right: pin 1 T1S P, 2 T1S N, 3 T1L P, 4 RS485 P, 5 not connected, 6 CAN H, 7 not connected, 8 GND. Bottom row, left to right: pin 9 T1S P, 10 T1S N, 11 T1L N, 12 RS485 N, 13 MISC DIO, 14 CAN L, 15 DC V+.</title>
           <defs>
             <radialGradient id="db15-gold" cx=".38" cy=".34" r=".75">
               <stop offset="0" stop-color="#fff4c9"/><stop offset=".5" stop-color="#e0ae3a"/><stop offset="1" stop-color="#7d5a12"/>
@@ -149,7 +165,7 @@ gtag("config", "G-Q6LHBWVT7W");
           <g class="lead pin-rs485"><path d="M360 329V254"/><path class="tip" d="M360 246l-5 9h10z"/><rect x="312" y="329" width="96" height="26" rx="6"/><text x="360" y="342" dy=".35em"><tspan class="num">12</tspan> RS485 N</text></g>
           <g class="lead pin-dio"><path d="M420 377V254"/><path class="tip" d="M420 246l-5 9h10z"/><rect x="368" y="377" width="104" height="26" rx="6"/><text x="420" y="390" dy=".35em"><tspan class="num">13</tspan> MISC DIO</text></g>
           <g class="lead pin-can"><path d="M480 329V254"/><path class="tip" d="M480 246l-5 9h10z"/><rect x="440" y="329" width="80" height="26" rx="6"/><text x="480" y="342" dy=".35em"><tspan class="num">14</tspan> CAN L</text></g>
-          <g class="lead pin-pwr"><path d="M540 377V254"/><path class="tip" d="M540 246l-5 9h10z"/><rect x="503.5" y="377" width="73" height="26" rx="6"/><text x="540" y="390" dy=".35em"><tspan class="num">15</tspan> VBAT</text></g>
+          <g class="lead pin-pwr"><path d="M540 377V254"/><path class="tip" d="M540 246l-5 9h10z"/><rect x="497" y="377" width="86" height="26" rx="6"/><text x="540" y="390" dy=".35em"><tspan class="num">15</tspan> DC V+</text></g>
           <circle class="male-pin" cx="150" cy="185" r="9"/>
           <circle class="male-pin" cx="210" cy="185" r="9"/>
           <circle class="male-pin" cx="270" cy="185" r="9"/>
@@ -178,19 +194,21 @@ gtag("config", "G-Q6LHBWVT7W");
           <tr><td>3</td><td><span class="pin-dot pin-t1l"></span>T1L P</td><td>10BASE-T1L positive</td></tr>
           <tr><td>4</td><td><span class="pin-dot pin-rs485"></span>RS485 P</td><td>RS485 non-inverting line (A)</td></tr>
           <tr><td>5</td><td><span class="pin-dot pin-nc"></span>NC</td><td>Not connected</td></tr>
-          <tr><td>6</td><td><span class="pin-dot pin-can"></span>CAN H</td><td>CAN FD high</td></tr>
+          <tr><td>6</td><td><span class="pin-dot pin-can"></span>CAN H</td><td>FREE-WILi 2 internal CAN FD high, routed through the Orca</td></tr>
           <tr><td>7</td><td><span class="pin-dot pin-nc"></span>NC</td><td>Not connected</td></tr>
           <tr><td>8</td><td><span class="pin-dot pin-gnd"></span>GND</td><td>Ground, signal and power return</td></tr>
           <tr><td>9</td><td><span class="pin-dot pin-t1s"></span>T1S P</td><td>10BASE-T1S positive, joined to pin 1</td></tr>
           <tr><td>10</td><td><span class="pin-dot pin-t1s"></span>T1S N</td><td>10BASE-T1S negative, joined to pin 2</td></tr>
           <tr><td>11</td><td><span class="pin-dot pin-t1l"></span>T1L N</td><td>10BASE-T1L negative</td></tr>
           <tr><td>12</td><td><span class="pin-dot pin-rs485"></span>RS485 N</td><td>RS485 inverting line (B)</td></tr>
-          <tr><td>13</td><td><span class="pin-dot pin-dio"></span>MISC DIO</td><td>General-purpose digital I/O, 5 V logic</td></tr>
-          <tr><td>14</td><td><span class="pin-dot pin-can"></span>CAN L</td><td>CAN FD low</td></tr>
-          <tr><td>15</td><td><span class="pin-dot pin-pwr"></span>VBAT</td><td>DC supply input (marked VBATT on the module)</td></tr>
+          <tr><td>13</td><td><span class="pin-dot pin-dio"></span>MISC DIO</td><td>Direction-controlled digital I/O, 5 V logic, via the on-board I/O expander</td></tr>
+          <tr><td>14</td><td><span class="pin-dot pin-can"></span>CAN L</td><td>FREE-WILi 2 internal CAN FD low, routed through the Orca</td></tr>
+          <tr><td>15</td><td><span class="pin-dot pin-pwr"></span>DC V+</td><td>Optional 5&ndash;60 V DC positive input to power and charge FREE-WILi 2; return on pin 8<sup><a href="#power-edition-note" role="doc-noteref" aria-label="Power input compatibility footnote" style="color:var(--red)">*</a></sup></td></tr>
         </tbody>
       </table>
       <p>The 10BASE-T1S pair is brought out twice. Pins 1 and 9 are joined inside the module, as are pins 2 and 10, so a multidrop segment can come in on one pair and continue on the other.</p>
+      <p>RS485 uses a single pair for transmit and receive. Its switchable termination uses two 61.9 &ohm; resistors in series (123.8 &ohm; plus switch resistance). The T1S interface has separate endpoint and midpoint termination settings. The CAN pins share the host's existing CAN bus and add no termination on this module.</p>
+      <p>The DB-15 shell is coupled to ground through a 1 M&ohm; resistor and 10 nF capacitor; use pin 8 for the signal and power return.</p>
     </div>
   </div>
   <nav class="spec-nav">
