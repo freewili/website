@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="352" viewBox="0 0 760 352" role="img" aria-labelledby="j1708-title j1708-desc">
+  <title id="j1708-title">SAN DIEGO Orca SAE J1708 wiring with bus bias resistors</title>
+  <desc id="j1708-desc">DB-15 pin 4 (RS485 P) is J1708 A, pin 12 (RS485 N) is J1708 B and pin 8 is ground; all three run to the other J1708 nodes. Resistor R1, 4.7 kilohms, connects pin 13 (MISC DIO, 5 V when Bias 5V Pin 13 is on) to the A line. Resistor R2, 4.7 kilohms, connects the B line to ground. Fit one set of bias resistors per bus. RS485 termination is off.</desc>
+  <style>
+    text{font-family:Arial,Helvetica,sans-serif;fill:#ecedf1}
+    .title{font-size:16px;font-weight:700;text-anchor:middle}
+    .sub{font-family:Consolas,monospace;font-size:12px;fill:#9295a0;text-anchor:middle}
+    .pin{font-family:Consolas,monospace;font-size:14px;text-anchor:end}
+    .node{font-family:Consolas,monospace;font-size:14px}
+    .num{font-weight:700}
+    .wire{font-family:Consolas,monospace;font-size:13px;text-anchor:middle}
+    .res{font-family:Consolas,monospace;font-size:13px}
+    .tag{font-family:Consolas,monospace;font-size:11px;letter-spacing:1px;fill:#9295a0;text-anchor:middle}
+    .box{fill:#1a1a1e;stroke:#858994;stroke-width:2}
+    .w{fill:none;stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+    .rs485{stroke:#ffb340}
+    .dio{stroke:#ecedf1}
+    .gnd{stroke:#9295a0}
+    .t-rs485{fill:#ffb340}
+    .t-dio{fill:#ecedf1}
+    .t-gnd{fill:#9295a0}
+    .pad{fill:#e0ae3a;stroke:#7d5a12;stroke-width:1}
+    .dot{stroke:none}
+  </style>
+  <rect width="760" height="352" rx="12" fill="#0d0d0f"/>
+
+  <!-- SAN DIEGO Orca DB-15 -->
+  <rect class="box" x="24" y="24" width="210" height="310" rx="10"/>
+  <text class="title" x="129" y="52">SAN DIEGO Orca</text>
+  <text class="sub" x="129" y="72">DB-15 on FREE-WILi 2</text>
+  <text class="sub" x="129" y="94">RS485 termination off</text>
+  <text class="pin" x="216" y="135"><tspan class="num t-dio">13</tspan> MISC DIO</text>
+  <text class="pin" x="216" y="195"><tspan class="num t-rs485">4</tspan> RS485 P</text>
+  <text class="pin" x="216" y="265"><tspan class="num t-rs485">12</tspan> RS485 N</text>
+  <text class="pin" x="216" y="315"><tspan class="num t-gnd">8</tspan> GND</text>
+
+  <!-- wires -->
+  <path class="w dio" d="M234 130H360V142"/>
+  <path class="w rs485" d="M234 190H566"/>
+  <path class="w rs485" d="M234 260H566"/>
+  <path class="w gnd" d="M234 310H566"/>
+  <text class="wire t-dio" x="296" y="121">+5 V</text>
+
+  <!-- bias network -->
+  <rect x="334" y="104" width="120" height="220" rx="8" fill="none" stroke="#62656f" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text class="tag" x="394" y="95">BIAS: ONE SET PER BUS</text>
+  <path class="w dio" d="M360 142L352 145L368 151L352 157L368 163L352 169L368 175L360 178V190"/>
+  <path class="w gnd" d="M360 260V267L352 270L368 276L352 282L368 288L352 294L368 300L360 303V310"/>
+  <text class="res" x="380" y="158"><tspan class="num">R1</tspan></text>
+  <text class="res" x="380" y="176">4.7 kΩ</text>
+  <text class="res" x="380" y="282"><tspan class="num">R2</tspan></text>
+  <text class="res" x="380" y="300">4.7 kΩ</text>
+  <circle class="dot t-rs485" cx="360" cy="190" r="4.5"/>
+  <circle class="dot t-rs485" cx="360" cy="260" r="4.5"/>
+  <circle class="dot t-gnd" cx="360" cy="310" r="4.5"/>
+
+  <!-- bus labels -->
+  <text class="wire t-rs485" x="510" y="181">J1708 A (+)</text>
+  <text class="wire t-rs485" x="510" y="251">J1708 B (−)</text>
+  <text class="wire t-gnd" x="510" y="301">GND</text>
+
+  <!-- other nodes -->
+  <rect class="box" x="566" y="104" width="170" height="230" rx="10"/>
+  <text class="title" x="651" y="130" font-size="14">Other J1708 nodes</text>
+  <text class="sub" x="651" y="150" font-size="11">ECUs, other FREE-WILi</text>
+  <text class="node" x="582" y="195">A (+)</text>
+  <text class="node" x="582" y="265">B (−)</text>
+  <text class="node" x="582" y="315">GND</text>
+
+  <!-- pin pads -->
+  <circle class="pad" cx="234" cy="130" r="6"/>
+  <circle class="pad" cx="234" cy="190" r="6"/>
+  <circle class="pad" cx="234" cy="260" r="6"/>
+  <circle class="pad" cx="234" cy="310" r="6"/>
+  <circle class="pad" cx="566" cy="190" r="6"/>
+  <circle class="pad" cx="566" cy="260" r="6"/>
+  <circle class="pad" cx="566" cy="310" r="6"/>
+</svg>
