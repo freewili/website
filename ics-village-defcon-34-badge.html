@@ -104,7 +104,7 @@ gtag("config", "G-Q6LHBWVT7W");
           <dt>Main CPU</dt><dd>Raspberry Pi RP2350B-A4</dd>
           <dt>RS485</dt><dd>Modbus RTU capable, for PLC, RTU, and SCADA sniffing or tapping</dd>
           <dt>CAN / CANFD</dt><dd>Direct access for automotive networks and factory-floor systems</dd>
-          <dt>10BASE-T1S</dt><dd>Short-reach single-pair Ethernet with onboard physical termination switch</dd>
+          <dt>10BASE-T1S</dt><dd>Short-reach single-pair Ethernet with onboard physical termination switch; see <a href="#dip-switch">DIP switch settings</a></dd>
           <dt>10BASE-T1L</dt><dd>Long-reach single-pair Ethernet for industrial links</dd>
           <dt>Storage / UI</dt><dd>SD card slot, I2C OLED screen, 4x rotary encoders, 4x programmable RGB LEDs</dd>
           <dt>Enclosure</dt><dd>Clear custom-molded case for field use</dd>
@@ -203,6 +203,33 @@ gtag("config", "G-Q6LHBWVT7W");
       </table>
       <p id="power-edition-note" role="doc-footnote" style="color:var(--red);font-size:.85rem;margin:1rem 0 0;scroll-margin-top:6rem;">* <b>The DEF CON badge supports USB power only.</b> Powering through DC V+ (DB-15 pin 15) or any source other than USB is not supported.</p>
       <p>The 10BASE-T1S pair is brought out twice. Pins 1 and 9 are joined inside the badge, as are pins 2 and 10, so a multidrop segment can come in on one pair and continue on the other.</p>
+    </div>
+
+    <div class="spec-facts" id="dip-switch">
+      <h4>Eight-position DIP switch</h4>
+      <p>The switch bank marked <b>S7</b> controls <b>10BASE-T1S termination on switches 1 and 2</b> and <b>six green indicator LEDs on switches 3&ndash;8</b>. With the badge front facing you and USB-C at the top, the switches run from 1 on the left to 8 on the right. Move a switch toward the <b>ON</b> marking to turn it on.</p>
+      <figure class="dip-switch-fig">
+        <div class="dip-switch-scroll" role="region" aria-label="Full DIP switch diagram; scroll horizontally on small screens" tabindex="0">
+          <img src="assets/defcon34-dip-switch.svg" width="720" height="350" loading="lazy" decoding="async" alt="S7 switches 1 and 2 set T1S termination. Switches 3, 4, 5, 6, 7 and 8 control LEDs 13, 12, 11, 10, 9 and 8, respectively. All eight switches are shown OFF.">
+        </div>
+        <figcaption>Example shown: all switches OFF &mdash; T1S drop-node setting, with the six green LEDs off. LED symbols show the switch mapping, not their physical placement.</figcaption>
+      </figure>
+      <table class="dip-switch-table">
+        <caption>Switch functions and ON/OFF settings</caption>
+        <thead>
+          <tr><th scope="col">Switch</th><th scope="col">Function</th><th scope="col">ON</th><th scope="col">OFF</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">1 + 2</th><td>10BASE-T1S termination</td><td>Both ON: end node</td><td>Both OFF: drop node</td></tr>
+          <tr><th scope="row">3</th><td>Green LED13</td><td>LED on</td><td>LED off</td></tr>
+          <tr><th scope="row">4</th><td>Green LED12</td><td>LED on</td><td>LED off</td></tr>
+          <tr><th scope="row">5</th><td>Green LED11</td><td>LED on</td><td>LED off</td></tr>
+          <tr><th scope="row">6</th><td>Green LED10</td><td>LED on</td><td>LED off</td></tr>
+          <tr><th scope="row">7</th><td>Green LED9</td><td>LED on</td><td>LED off</td></tr>
+          <tr><th scope="row">8</th><td>Green LED8</td><td>LED on</td><td>LED off</td></tr>
+        </tbody>
+      </table>
+      <p><b>Set switches 1 and 2 together:</b> use both ON when the badge is at either physical end of the T1S bus, or both OFF when it is an intermediate drop node. Switches 3&ndash;8 can be set independently. CAN and RS485 use separate electronic termination controls.</p>
     </div>
   </div>
 
