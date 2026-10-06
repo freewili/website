@@ -117,7 +117,53 @@ gtag("config", "G-Q6LHBWVT7W");
     </div>
 
     <div class="spec-facts" id="pinout" style="margin-top:1.2rem;">
-      <h4>DB-15 connections</h4>
+      <h4>DB-15 pinout</h4>
+      <p>The view below looks straight into the module's male DB-15 pins with the label facing up. The wide row of eight is on top, with pin 1 at the top left. Only CAN and power connections are used on Humpback.</p>
+      <figure class="pinout-fig">
+        <svg viewBox="40 0 640 420" role="img" aria-labelledby="db15-title">
+          <title id="db15-title">Humpback Orca DB-15, looking into the male pins with the module label facing up. Top row, left to right: pins 1, 2, 3, 4 and 5 unused, pin 6 CAN H, pin 7 unused, pin 8 GND. Bottom row, left to right: pins 9, 10, 11, 12 and 13 unused, pin 14 CAN L, pin 15 DC V+.</title>
+          <defs>
+            <radialGradient id="db15-gold" cx=".38" cy=".34" r=".75">
+              <stop offset="0" stop-color="#fff4c9"/><stop offset=".5" stop-color="#e0ae3a"/><stop offset="1" stop-color="#7d5a12"/>
+            </radialGradient>
+          </defs>
+          <rect class="flange" x="50" y="150" width="620" height="120" rx="12"/>
+          <circle class="screw" cx="82" cy="210" r="14"/><circle class="screw-bore" cx="82" cy="210" r="7"/>
+          <circle class="screw" cx="638" cy="210" r="14"/><circle class="screw-bore" cx="638" cy="210" r="7"/>
+          <path class="shell" d="M128 160H592Q618 160 613 184L604 240Q600 260 578 260H142Q120 260 116 240L107 184Q102 160 128 160Z"/>
+          <g class="lead pin-nc"><path d="M150 43V166"/><path class="tip" d="M150 174l-5 -9h10z"/><rect x="125.5" y="17" width="49" height="26" rx="6"/><text x="150" y="30" dy=".35em"><tspan class="num">1</tspan> NC</text></g>
+          <g class="lead pin-nc"><path d="M210 91V166"/><path class="tip" d="M210 174l-5 -9h10z"/><rect x="185.5" y="65" width="49" height="26" rx="6"/><text x="210" y="78" dy=".35em"><tspan class="num">2</tspan> NC</text></g>
+          <g class="lead pin-nc"><path d="M270 43V166"/><path class="tip" d="M270 174l-5 -9h10z"/><rect x="245.5" y="17" width="49" height="26" rx="6"/><text x="270" y="30" dy=".35em"><tspan class="num">3</tspan> NC</text></g>
+          <g class="lead pin-nc"><path d="M330 91V166"/><path class="tip" d="M330 174l-5 -9h10z"/><rect x="305.5" y="65" width="49" height="26" rx="6"/><text x="330" y="78" dy=".35em"><tspan class="num">4</tspan> NC</text></g>
+          <g class="lead pin-nc"><path d="M390 43V166"/><path class="tip" d="M390 174l-5 -9h10z"/><rect x="365.5" y="17" width="49" height="26" rx="6"/><text x="390" y="30" dy=".35em"><tspan class="num">5</tspan> NC</text></g>
+          <g class="lead pin-can"><path d="M450 91V166"/><path class="tip" d="M450 174l-5 -9h10z"/><rect x="413.5" y="65" width="73" height="26" rx="6"/><text x="450" y="78" dy=".35em"><tspan class="num">6</tspan> CAN H</text></g>
+          <g class="lead pin-nc"><path d="M510 43V166"/><path class="tip" d="M510 174l-5 -9h10z"/><rect x="485.5" y="17" width="49" height="26" rx="6"/><text x="510" y="30" dy=".35em"><tspan class="num">7</tspan> NC</text></g>
+          <g class="lead pin-gnd"><path d="M570 91V166"/><path class="tip" d="M570 174l-5 -9h10z"/><rect x="541.5" y="65" width="57" height="26" rx="6"/><text x="570" y="78" dy=".35em"><tspan class="num">8</tspan> GND</text></g>
+          <g class="lead pin-nc"><path d="M180 377V254"/><path class="tip" d="M180 246l-5 9h10z"/><rect x="155.5" y="377" width="49" height="26" rx="6"/><text x="180" y="390" dy=".35em"><tspan class="num">9</tspan> NC</text></g>
+          <g class="lead pin-nc"><path d="M240 329V254"/><path class="tip" d="M240 246l-5 9h10z"/><rect x="211.5" y="329" width="57" height="26" rx="6"/><text x="240" y="342" dy=".35em"><tspan class="num">10</tspan> NC</text></g>
+          <g class="lead pin-nc"><path d="M300 377V254"/><path class="tip" d="M300 246l-5 9h10z"/><rect x="271.5" y="377" width="57" height="26" rx="6"/><text x="300" y="390" dy=".35em"><tspan class="num">11</tspan> NC</text></g>
+          <g class="lead pin-nc"><path d="M360 329V254"/><path class="tip" d="M360 246l-5 9h10z"/><rect x="331.5" y="329" width="57" height="26" rx="6"/><text x="360" y="342" dy=".35em"><tspan class="num">12</tspan> NC</text></g>
+          <g class="lead pin-nc"><path d="M420 377V254"/><path class="tip" d="M420 246l-5 9h10z"/><rect x="391.5" y="377" width="57" height="26" rx="6"/><text x="420" y="390" dy=".35em"><tspan class="num">13</tspan> NC</text></g>
+          <g class="lead pin-can"><path d="M480 329V254"/><path class="tip" d="M480 246l-5 9h10z"/><rect x="440" y="329" width="80" height="26" rx="6"/><text x="480" y="342" dy=".35em"><tspan class="num">14</tspan> CAN L</text></g>
+          <g class="lead pin-pwr"><path d="M540 377V254"/><path class="tip" d="M540 246l-5 9h10z"/><rect x="497" y="377" width="86" height="26" rx="6"/><text x="540" y="390" dy=".35em"><tspan class="num">15</tspan> DC V+</text></g>
+          <circle class="male-pin" cx="150" cy="185" r="9"/>
+          <circle class="male-pin" cx="210" cy="185" r="9"/>
+          <circle class="male-pin" cx="270" cy="185" r="9"/>
+          <circle class="male-pin" cx="330" cy="185" r="9"/>
+          <circle class="male-pin" cx="390" cy="185" r="9"/>
+          <circle class="male-pin" cx="450" cy="185" r="9"/>
+          <circle class="male-pin" cx="510" cy="185" r="9"/>
+          <circle class="male-pin" cx="570" cy="185" r="9"/>
+          <circle class="male-pin" cx="180" cy="235" r="9"/>
+          <circle class="male-pin" cx="240" cy="235" r="9"/>
+          <circle class="male-pin" cx="300" cy="235" r="9"/>
+          <circle class="male-pin" cx="360" cy="235" r="9"/>
+          <circle class="male-pin" cx="420" cy="235" r="9"/>
+          <circle class="male-pin" cx="480" cy="235" r="9"/>
+          <circle class="male-pin" cx="540" cy="235" r="9"/>
+        </svg>
+        <figcaption>Looking into the male pins, module label facing up. NC = unused</figcaption>
+      </figure>
       <table class="pin-table">
         <thead><tr><th>Pin</th><th>Signal</th><th>Description</th></tr></thead>
         <tbody>
@@ -127,7 +173,7 @@ gtag("config", "G-Q6LHBWVT7W");
           <tr><td>15</td><td><span class="pin-dot pin-pwr"></span>DC V+</td><td>Optional 5&ndash;60 V DC positive input to power and charge FREE-WILi 2; return on pin 8<sup><a href="#power-edition-note" role="doc-noteref" aria-label="Power input compatibility footnote" style="color:var(--red)">*</a></sup></td></tr>
         </tbody>
       </table>
-      <p>The remaining DB-15 pins are unused on Humpback. Its CAN and power connections use the same pin assignments as SAN DIEGO Orca.</p>
+      <p>Pins marked NC in the diagram are unused on Humpback. Its CAN and power connections use the same pin assignments as SAN DIEGO Orca.</p>
     </div>
 
     <div class="spec-facts" style="margin-top:1.2rem;">
