@@ -221,7 +221,8 @@ gtag("config", "G-Q6LHBWVT7W");
         </div>
         <figcaption>Bench J1708 bus biased from pin 13. RS485 termination stays off.</figcaption>
       </figure>
-      <p>A J1708 node drives the bus only for 0 bits. Between them, two bias resistors hold A above B. With <b>Bias 5V Pin 13</b> turned on, pin 13 supplies the 5 V for the pull-up, so a bench bus needs just the two resistors in the table below. <b>Fit one set of bias resistors per bus.</b> Vehicle J1708 networks are normally biased by the ECUs already on them; there, connect only A, B and GND.</p>
+      <p>Unlike ordinary RS485, a J1708 transmitter only drives the wires to send a 0. To send a 1, and whenever the bus is idle, it lets go of the wires, and two bias resistors pull A above B so every receiver reads a 1. This lets two devices start talking at once without a conflict: a 0 always wins, and the device that sent a 1 sees the 0, stops and tries again. Without the bias resistors, an idle bus has no defined level.</p>
+      <p>With <b>Bias 5V Pin 13</b> turned on, pin 13 supplies the 5 V for the pull-up, so a bench bus needs just the two resistors in the table below. <b>Fit one set of bias resistors per bus.</b> Vehicle J1708 networks are normally biased by the ECUs already on them; there, connect only A, B and GND.</p>
       <p>In the FREE-WILi 2 <b>SAE J1708</b> menu, turn on <b>Enable</b>, then turn on <b>Bias 5V Pin 13</b> on the one FREE-WILi 2 the resistors are wired to. With the setting off, or while J1708 is not running, pin 13 is high impedance and never pulls low, so the pin 13 of several devices can share one wire. FREE-WILi 2 switches the Orca's RS485 termination off while J1708 runs, as J1708 is not terminated.</p>
       <table class="pin-table">
         <thead>
