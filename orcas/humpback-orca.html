@@ -12,8 +12,8 @@ gtag("config", "G-Q6LHBWVT7W");
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
-<title>Humpback Orca Module: ISO CAN FD Interface with VBATT for FREE-WILi 2</title>
-<meta name="description" content="Humpback Orca Module: ISO CAN FD interface with selectable termination, VBATT input, and DB-15 connectivity for FREE-WILi 2.">
+<title>Humpback Orca: CAN-Only Module with DC V+ Power for FREE-WILi 2</title>
+<meta name="description" content="Humpback is the CAN-only version of SAN DIEGO Orca, routing FREE-WILi 2's internal CAN FD to DB-15 and retaining optional DC V+ power and charging.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
@@ -77,7 +77,7 @@ gtag("config", "G-Q6LHBWVT7W");
     <span class="eyebrow" style="justify-content:center">// orca modules</span>
     <h1>Humpback <span class="n">Orca</span></h1>
     <div class="big-stat">Humpback<em>Orca</em></div>
-    <div class="sub">ISO CAN FD Interface with VBATT for FREE-WILi 2</div>
+    <div class="sub">CAN-Only Connectivity with Optional DC V+ Power for FREE-WILi 2</div>
   </div>
 </section>
 
@@ -85,22 +85,49 @@ gtag("config", "G-Q6LHBWVT7W");
 <div class="wrap">
   <div class="spec-body">
     <div class="frame fit-contain" style="max-width:480px;margin:0 auto 2rem;">
-      <img src="../assets/humpback-orca.png" alt="Humpback Orca board" loading="eager" decoding="async">
+      <img src="../assets/humpback-orca.png" alt="Humpback Orca module with a male DB-15 connector" loading="eager" decoding="async">
     </div>
 
-    <p>The <b>Humpback Orca</b> snaps onto your FREE-WILi 2 and puts you on the CAN network in seconds. You get one <b>ISO CAN FD</b> channel with selectable on-board termination, <b>VBATT</b> power input, and a rugged <b>DB-15</b> connector in one compact module.</p>
-    <p>No laptop, no dongle stack, and no soldering a termination resistor in a parking lot. It is the simplest way to sniff, script, and simulate CAN FD traffic on real hardware.</p>
-    <p>If you work with vehicles, robots, or industrial machines, you work with CAN. Humpback Orca is the focused, no-frills way to get FREE-WILi 2 onto the bus: plug into the extension connector, wire up DB-15, and start talking CAN FD from the same Python API, touchscreen, and onboard Linux workflow you already use.</p>
-    <p>Whether you are reverse-engineering an ECU, building a bench simulator, logging a test drive, or teaching yourself automotive networking, this is the module you will reach for first.</p>
+    <p>The <b>Humpback Orca</b> is the <b>CAN-only version of <a href="san-diego-orca.html">SAN DIEGO Orca</a></b>. It retains the power supply and routes <b>FREE-WILi 2's existing internal ISO CAN FD interface</b> to a rugged <b>DB-15</b> connector. The RS485, 10BASE-T1L, 10BASE-T1S, and digital I/O circuitry are omitted.</p>
+    <p>This is the host's existing CAN channel. Humpback adds no CAN controller, transceiver, or CAN termination. Plug it into the FREE-WILi 2 extension connector to access CAN through the DB-15 for logging, scripting, and testing vehicle, robot, and industrial networks.</p>
+    <p>The <b>DC V+ input is optional</b> and is only needed if you want to <b>power and charge FREE-WILi 2 from an external 5&ndash;60 V DC supply</b>.<sup><a href="#power-edition-note" role="doc-noteref" aria-label="Power input compatibility footnote" style="color:var(--red)">*</a></sup> You can use CAN without connecting DC V+.</p>
 
     <div class="spec-facts">
-      <h4>What is on board</h4>
+      <h4>CAN and power</h4>
       <dl>
-        <dt>ISO CAN FD</dt><dd>1x channel supporting classic CAN and CAN FD frames for modern vehicle and industrial networks</dd>
-        <dt>Termination</dt><dd>Selectable on-board 120 ohm termination for end-node or live-bus tap workflows</dd>
-        <dt>VBATT Input</dt><dd>Power the setup directly from vehicle battery when needed</dd>
+        <dt>ISO CAN FD</dt><dd>FREE-WILi 2's internal CAN channel routed to DB-15 pins 6 (CAN H) and 14 (CAN L); no additional CAN channel</dd>
+        <dt>Termination</dt><dd>Humpback routes the host's existing CAN bus and adds no CAN termination components</dd>
+        <dt>DC V+ Input</dt><dd>Optional 5&ndash;60 V DC input to power and charge FREE-WILi 2; positive on pin 15, with pin 8 as return<sup><a href="#power-edition-note" role="doc-noteref" aria-label="Power input compatibility footnote" style="color:var(--red)">*</a></sup></dd>
         <dt>Connector</dt><dd>Rugged DB-15 for clean, secure harness connections in lab, garage, or field</dd>
       </dl>
+    </div>
+
+    <div class="spec-facts" id="power-input" style="margin-top:1.2rem;">
+      <h4>Power input specifications</h4>
+      <p>Humpback retains the SAN DIEGO Orca power supply. Connect DC V+ only when you want to power and charge FREE-WILi 2 from an external DC supply; CAN operation does not require this connection.</p>
+      <dl>
+        <dt>Input voltage</dt><dd>5&ndash;60 V DC<sup><a href="#power-edition-note" role="doc-noteref" aria-label="Power input compatibility footnote" style="color:var(--red)">*</a></sup></dd>
+        <dt>Wiring / polarity</dt><dd>Supply positive to DB-15 pin 15 (DC V+); supply negative to pin 8 (GND)</dd>
+        <dt>Internal supply</dt><dd>The on-board buck converter feeds the host's 5 V rail through the extension connector. Internal supply rating: 5 V at 2 A (10 W)</dd>
+        <dt>Supply sizing</dt><dd>Input current depends on input voltage, load, and conversion losses. The 2 A figure refers to the internal 5 V supply, not a fixed DC V+ input current. Allow voltage headroom above 5 V for a regulated 5 V rail under load</dd>
+        <dt>Power path</dt><dd>The internal 5 V output includes ideal-diode reverse-current blocking. This is not reverse-polarity protection at the DC V+ input; observe the input polarity</dd>
+        <dt>Ground reference</dt><dd>Pin 8 is the shared signal and power return, connected to host ground. The power input is not galvanically isolated</dd>
+      </dl>
+      <p id="power-edition-note" role="doc-footnote" style="color:var(--red);font-size:.85rem;margin:1rem 0 0;scroll-margin-top:6rem;">* <b>DEF CON FREE-WILi 2 edition:</b> the DC V+ power input does not function.</p>
+    </div>
+
+    <div class="spec-facts" id="pinout" style="margin-top:1.2rem;">
+      <h4>DB-15 connections</h4>
+      <table class="pin-table">
+        <thead><tr><th>Pin</th><th>Signal</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>6</td><td><span class="pin-dot pin-can"></span>CAN H</td><td>FREE-WILi 2 internal CAN FD high</td></tr>
+          <tr><td>8</td><td><span class="pin-dot pin-gnd"></span>GND</td><td>Shared signal and power return</td></tr>
+          <tr><td>14</td><td><span class="pin-dot pin-can"></span>CAN L</td><td>FREE-WILi 2 internal CAN FD low</td></tr>
+          <tr><td>15</td><td><span class="pin-dot pin-pwr"></span>DC V+</td><td>Optional 5&ndash;60 V DC positive input to power and charge FREE-WILi 2; return on pin 8<sup><a href="#power-edition-note" role="doc-noteref" aria-label="Power input compatibility footnote" style="color:var(--red)">*</a></sup></td></tr>
+        </tbody>
+      </table>
+      <p>The remaining DB-15 pins are unused on Humpback. Its CAN and power connections use the same pin assignments as SAN DIEGO Orca.</p>
     </div>
 
     <div class="spec-facts" style="margin-top:1.2rem;">
@@ -114,10 +141,10 @@ gtag("config", "G-Q6LHBWVT7W");
     </div>
 
     <div class="spec-facts" style="margin-top:1.2rem;">
-      <h4>Why Humpback beats a USB-CAN dongle</h4>
-      <p>A USB-CAN adapter needs a laptop, drivers, and desk space. Humpback Orca rides on a device with a touchscreen, dual RP2350s, an FPGA, onboard Linux, Python scripting, and wireless connectivity.</p>
+      <h4>CAN with FREE-WILi 2</h4>
+      <p>Humpback brings FREE-WILi 2's internal CAN interface to a DB-15 harness connection. Use it with the host's touchscreen, onboard Linux, Python scripting, and wireless connectivity.</p>
       <p>Log bus traffic to a script, display live CAN data on-screen, bridge frames over WiFi, or run a full automated test sequence from your pocket.</p>
-      <p>Need more buses later? The Orca ecosystem grows with you. Move to SAN DIEGO Orca when you need RS485 and single-pair Ethernet in addition to CAN FD.</p>
+      <p>Choose <a href="san-diego-orca.html">SAN DIEGO Orca</a> when you also need RS485, 10BASE-T1L, 10BASE-T1S, or digital I/O.</p>
     </div>
   </div>
   <nav class="spec-nav">
