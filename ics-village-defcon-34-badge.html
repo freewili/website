@@ -102,7 +102,7 @@ gtag("config", "G-Q6LHBWVT7W");
         <h4>Key hardware</h4>
         <dl>
           <dt>Main CPU</dt><dd>Raspberry Pi RP2350B-A4</dd>
-          <dt>RS485</dt><dd>Modbus RTU capable, for PLC, RTU, and SCADA sniffing or tapping</dd>
+          <dt>RS485</dt><dd>Modbus RTU capable, for PLC, RTU, and SCADA sniffing or tapping; also SAE J1708, see <a href="#j1708">J1708 wiring</a></dd>
           <dt>CAN / CANFD</dt><dd>Direct access for automotive networks and factory-floor systems</dd>
           <dt>10BASE-T1S</dt><dd>Short-reach single-pair Ethernet with onboard physical termination switch; see <a href="#dip-switch">DIP switch settings</a></dd>
           <dt>10BASE-T1L</dt><dd>Long-reach single-pair Ethernet for industrial links</dd>
@@ -230,6 +230,30 @@ gtag("config", "G-Q6LHBWVT7W");
         </tbody>
       </table>
       <p><b>Set switches 1 and 2 together:</b> use both ON when the badge is at either physical end of the T1S bus, or both OFF when it is an intermediate drop node. Switches 3&ndash;8 can be set independently. CAN and RS485 use separate electronic termination controls.</p>
+    </div>
+
+    <div class="spec-facts" id="j1708">
+      <h4>SAE J1708 wiring</h4>
+      <p>The badge can join an <b>SAE J1708</b> heavy-vehicle bus, the network that J1587 runs on, and both transmit and receive at 9600 baud through its RS485 transceiver. J1708 uses the RS485 pair: <b>pin 4 is J1708 A (+)</b>, <b>pin 12 is J1708 B (&minus;)</b> and <b>pin 8 is ground</b>.</p>
+      <figure class="wiring-fig">
+        <div class="wiring-scroll" role="region" aria-label="J1708 wiring diagram; scroll horizontally on small screens" tabindex="0">
+          <img src="assets/defcon34-j1708-wiring.svg" width="760" height="352" loading="lazy" decoding="async" alt="DB-15 pin 4 is J1708 A, pin 12 is J1708 B and pin 8 is ground, all running to the other J1708 nodes. R1, 4.7 kilohms, connects pin 13 (5 V when Bias 5V Pin 13 is on) to the A line. R2, 4.7 kilohms, connects the B line to ground. One set of bias resistors per bus.">
+        </div>
+        <figcaption>Bench J1708 bus biased from pin 13. RS485 termination stays off.</figcaption>
+      </figure>
+      <p>Unlike ordinary RS485, a J1708 transmitter only drives the wires to send a 0. To send a 1, and whenever the bus is idle, it lets go of the wires, and two bias resistors pull A above B so every receiver reads a 1. This lets two devices start talking at once without a conflict: a 0 always wins, and the device that sent a 1 sees the 0, stops and tries again. Without the bias resistors, an idle bus has no defined level.</p>
+      <p>With <b>Bias 5V Pin 13</b> turned on, pin 13 supplies the 5 V for the pull-up, so a bench bus needs just the two resistors in the table below. <b>Fit one set of bias resistors per bus.</b> Vehicle J1708 networks are normally biased by the ECUs already on them; there, connect only A, B and GND.</p>
+      <p>In the badge's <b>SAE J1708</b> menu, turn on <b>Enable</b>, then turn on <b>Bias 5V Pin 13</b> on the one device the resistors are wired to. With the setting off, or while J1708 is not running, pin 13 is high impedance and never pulls low, so the pin 13 of several devices can share one wire. The badge switches its RS485 termination off while J1708 runs, as J1708 is not terminated.</p>
+      <table class="pin-table">
+        <thead>
+          <tr><th>Part</th><th>Value</th><th>Connects</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>R1</td><td>4.7&nbsp;k&ohm;</td><td>Pin 13 (MISC DIO, 5 V) to pin 4 (J1708 A)</td></tr>
+          <tr><td>R2</td><td>4.7&nbsp;k&ohm;</td><td>Pin 12 (J1708 B) to pin 8 (GND)</td></tr>
+        </tbody>
+      </table>
+      <p>J1708 requires badge firmware with SAE J1708 support.</p>
     </div>
   </div>
 
