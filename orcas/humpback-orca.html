@@ -12,8 +12,8 @@ gtag("config", "G-Q6LHBWVT7W");
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
-<title>Humpback Orca: CAN-Only Module with DC V+ Power for FREE-WILi 2</title>
-<meta name="description" content="Humpback is the CAN-only version of SAN DIEGO Orca, routing FREE-WILi 2's internal CAN FD to DB-15 and retaining optional DC V+ power and charging.">
+<title>Humpback Orca: CAN and CAN FD Module with DC V+ Power for FREE-WILi 2</title>
+<meta name="description" content="Humpback supports CAN and CAN FD through FREE-WILi 2's internal SIC transceiver, routed to DB-15, with optional DC V+ power and charging.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
@@ -77,26 +77,26 @@ gtag("config", "G-Q6LHBWVT7W");
     <span class="eyebrow" style="justify-content:center">// orca modules</span>
     <h1>Humpback <span class="n">Orca</span></h1>
     <div class="big-stat">Humpback<em>Orca</em></div>
-    <div class="sub">CAN-Only Connectivity with Optional DC V+ Power for FREE-WILi 2</div>
+    <div class="sub">CAN and CAN FD with SIC Transceiver Technology and Optional DC V+ Power</div>
   </div>
 </section>
 
 <!-- BODY -->
 <div class="wrap">
   <div class="spec-body">
-    <div class="frame fit-contain" style="max-width:480px;margin:0 auto 2rem;">
-      <img src="../assets/humpback-orca.png" alt="Humpback Orca module with a male DB-15 connector" loading="eager" decoding="async">
+    <div class="frame shot" style="max-width:440px;margin:0 auto 2rem;">
+      <img src="../assets/humpback-orca-photo.png" alt="Humpback Orca product mockup attached to a FREE-WILi 2, showing the CAN FD and DC V+ label and male DB-15 connector" width="1186" height="1327" loading="eager" decoding="async">
     </div>
 
-    <p>The <b>Humpback Orca</b> is the <b>CAN-only version of <a href="san-diego-orca.html">SAN DIEGO Orca</a></b>. It retains the power supply and routes <b>FREE-WILi 2's existing internal ISO CAN FD interface</b> to a rugged <b>DB-15</b> connector. The RS485, 10BASE-T1L, 10BASE-T1S, and digital I/O circuitry are omitted.</p>
-    <p>This is the host's existing CAN channel. Humpback adds no CAN controller, transceiver, or CAN termination. Plug it into the FREE-WILi 2 extension connector to access CAN through the DB-15 for logging, scripting, and testing vehicle, robot, and industrial networks.</p>
+    <p>The <b>Humpback Orca</b> is the <b>CAN-only version of <a href="san-diego-orca.html">SAN DIEGO Orca</a></b>. It retains the power supply and routes <b>FREE-WILi 2's existing internal CAN interface</b> to a rugged <b>DB-15</b> connector. It supports <b>CAN and ISO CAN FD</b> through the host's <b>SIC (Signal Improvement Capability) transceiver</b>. The RS485, 10BASE-T1L, 10BASE-T1S, and digital I/O circuitry are omitted.</p>
+    <p>This is the host's existing CAN channel, with <b>software-selectable CAN termination on FREE-WILi 2</b>. Humpback adds no CAN controller, transceiver, or termination components. Plug it into the FREE-WILi 2 extension connector to access CAN and CAN FD through the DB-15 for logging, scripting, and testing vehicle, robot, and industrial networks.</p>
     <p>The <b>DC V+ input is optional</b> and is only needed if you want to <b>power and charge FREE-WILi 2 from an external 5&ndash;60 V DC supply</b>.<sup><a href="#power-edition-note" role="doc-noteref" aria-label="Power input compatibility footnote" style="color:var(--red)">*</a></sup> You can use CAN without connecting DC V+.</p>
 
     <div class="spec-facts">
       <h4>CAN and power</h4>
       <dl>
-        <dt>ISO CAN FD</dt><dd>FREE-WILi 2's internal CAN channel routed to DB-15 pins 6 (CAN H) and 14 (CAN L); no additional CAN channel</dd>
-        <dt>Termination</dt><dd>Humpback routes the host's existing CAN bus and adds no CAN termination components</dd>
+        <dt>CAN / CAN FD</dt><dd>Supports CAN and ISO CAN FD using FREE-WILi 2's internal SIC transceiver, routed to DB-15 pins 6 (CAN H) and 14 (CAN L); no additional CAN channel</dd>
+        <dt>CAN termination</dt><dd>Software-selectable on FREE-WILi 2; Humpback uses the host's termination and adds no termination components</dd>
         <dt>DC V+ Input</dt><dd>Optional 5&ndash;60 V DC input to power and charge FREE-WILi 2; positive on pin 15, with pin 8 as return<sup><a href="#power-edition-note" role="doc-noteref" aria-label="Power input compatibility footnote" style="color:var(--red)">*</a></sup></dd>
         <dt>Connector</dt><dd>Rugged DB-15 for clean, secure harness connections in lab, garage, or field</dd>
       </dl>
@@ -167,9 +167,9 @@ gtag("config", "G-Q6LHBWVT7W");
       <table class="pin-table">
         <thead><tr><th>Pin</th><th>Signal</th><th>Description</th></tr></thead>
         <tbody>
-          <tr><td>6</td><td><span class="pin-dot pin-can"></span>CAN H</td><td>FREE-WILi 2 internal CAN FD high</td></tr>
+          <tr><td>6</td><td><span class="pin-dot pin-can"></span>CAN H</td><td>FREE-WILi 2 internal CAN / CAN FD high</td></tr>
           <tr><td>8</td><td><span class="pin-dot pin-gnd"></span>GND</td><td>Shared signal and power return</td></tr>
-          <tr><td>14</td><td><span class="pin-dot pin-can"></span>CAN L</td><td>FREE-WILi 2 internal CAN FD low</td></tr>
+          <tr><td>14</td><td><span class="pin-dot pin-can"></span>CAN L</td><td>FREE-WILi 2 internal CAN / CAN FD low</td></tr>
           <tr><td>15</td><td><span class="pin-dot pin-pwr"></span>DC V+</td><td>Optional 5&ndash;60 V DC positive input to power and charge FREE-WILi 2; return on pin 8<sup><a href="#power-edition-note" role="doc-noteref" aria-label="Power input compatibility footnote" style="color:var(--red)">*</a></sup></td></tr>
         </tbody>
       </table>

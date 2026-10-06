@@ -13,7 +13,7 @@ gtag("config", "G-Q6LHBWVT7W");
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
 <title>SAN DIEGO Orca: Industrial Network Module for FREE-WILi 2</title>
-<meta name="description" content="SAN DIEGO Orca adds RS485 and 10BASE-T1L/T1S and routes FREE-WILi 2's internal CAN FD to DB-15. Explore the 5-60 V DC input specifications and connector pinout.">
+<meta name="description" content="SAN DIEGO Orca adds RS485 and 10BASE-T1L/T1S and supports CAN and CAN FD through FREE-WILi 2's internal SIC transceiver, routed to DB-15. Optional 5-60 V DC input.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
@@ -77,7 +77,7 @@ gtag("config", "G-Q6LHBWVT7W");
     <span class="eyebrow" style="justify-content:center">// orca modules</span>
     <h1>SAN DIEGO <span class="n">Orca</span></h1>
     <div class="big-stat">SANDIEGO<em>Orca</em></div>
-    <div class="sub">RS485, CAN FD, 10BASE-T1L/T1S Industrial Network Interface</div>
+    <div class="sub">RS485, CAN and CAN FD, 10BASE-T1L/T1S Industrial Network Interface</div>
   </div>
 </section>
 
@@ -88,16 +88,17 @@ gtag("config", "G-Q6LHBWVT7W");
       <img src="../assets/sandiego-orca-photo.webp" alt="SAN DIEGO Orca attached to a FREE-WILi 2, showing the DB-15 connector" width="976" height="1092" loading="eager" decoding="async">
     </div>
 
-    <p>The <b>SAN DIEGO Orca</b> snaps onto your FREE-WILi 2 and adds <b>RS485</b> and single-pair Ethernet (<b>10BASE-T1L</b> and <b>10BASE-T1S</b>). It also routes <b>FREE-WILi 2's existing internal ISO CAN FD interface</b> to the same rugged DB-15 connector. This is the host's CAN channel; the Orca adds no CAN controller, transceiver, or CAN termination.</p>
+    <p>The <b>SAN DIEGO Orca</b> snaps onto your FREE-WILi 2 and adds <b>RS485</b> and single-pair Ethernet (<b>10BASE-T1L</b> and <b>10BASE-T1S</b>). It also routes <b>FREE-WILi 2's existing internal CAN interface</b> to the same rugged DB-15 connector. It supports <b>CAN and ISO CAN FD</b> through the host's <b>SIC (Signal Improvement Capability) transceiver</b>, with <b>software-selectable CAN termination on FREE-WILi 2</b>. This is the host's CAN channel; the Orca adds no CAN controller, transceiver, or termination components.</p>
     <p>The <b>DC V+ input is optional</b> and is only needed if you want to <b>power and charge FREE-WILi 2 from an external 5&ndash;60 V DC supply</b>.<sup><a href="#power-edition-note" role="doc-noteref" aria-label="Power input compatibility footnote" style="color:var(--red)">*</a></sup> You can use the network interfaces without connecting DC V+. See <a href="#power-input">power input specifications</a> for wiring and supply details.</p>
-    <p>Industrial networks do not speak USB. They speak Modbus over RS485, CAN FD, and increasingly, single-pair Ethernet. SAN DIEGO Orca brings all of them to FREE-WILi 2 so you can sniff, script, simulate, and stress-test the same networks that run drives, sensors, robots, and entire production lines.</p>
+    <p>Industrial networks do not speak USB. They speak Modbus over RS485, CAN, CAN FD, and increasingly, single-pair Ethernet. SAN DIEGO Orca brings all of them to FREE-WILi 2 so you can sniff, script, simulate, and stress-test the same networks that run drives, sensors, robots, and entire production lines.</p>
     <p>Plug it into the FREE-WILi extension connector, wire up the DB-15, and you are on the network with the same Python, Rust, C/C++ API, touchscreen, and onboard Linux workflow you already use.</p>
 
     <div class="spec-facts">
       <h4>Interfaces and power</h4>
       <dl>
         <dt>RS485</dt><dd>1x two-wire, half-duplex channel using an SP3485 transceiver, with switchable on-board termination, for Modbus and other RS485 protocols</dd>
-        <dt>ISO CAN FD</dt><dd>FREE-WILi 2's internal CAN FD channel routed to DB-15 pins 6 (CAN H) and 14 (CAN L); no additional CAN channel</dd>
+        <dt>CAN / CAN FD</dt><dd>Supports CAN and ISO CAN FD using FREE-WILi 2's internal SIC transceiver, routed to DB-15 pins 6 (CAN H) and 14 (CAN L); no additional CAN channel</dd>
+        <dt>CAN termination</dt><dd>Software-selectable on FREE-WILi 2; SAN DIEGO Orca uses the host's termination and adds no CAN termination components</dd>
         <dt>10BASE-T1L</dt><dd>1x ADIN1110 interface with transformer coupling, for long-reach single-pair Ethernet up to 1 km with suitable cabling and link configuration</dd>
         <dt>10BASE-T1S</dt><dd>1x LAN8651 interface for multidrop single-pair Ethernet, with selectable endpoint or midpoint termination and duplicated bus pins for through-wiring</dd>
         <dt>Digital I/O</dt><dd>1x direction-controlled, 5 V logic signal on DB-15 pin 13, via the on-board I/O expander</dd>
@@ -123,7 +124,7 @@ gtag("config", "G-Q6LHBWVT7W");
     <div class="spec-facts" style="margin-top:1.2rem;">
       <h4>Who it is for</h4>
       <dl>
-        <dt>Automation Engineers</dt><dd>Engineers commissioning and troubleshooting PLCs, drives, and field devices on Modbus RS485, CAN FD, and single-pair Ethernet</dd>
+        <dt>Automation Engineers</dt><dd>Engineers commissioning and troubleshooting PLCs, drives, and field devices on Modbus RS485, CAN, CAN FD, and single-pair Ethernet</dd>
         <dt>Security Research</dt><dd>Researchers exploring industrial control networks with scriptable hardware workflows</dd>
         <dt>Industrial and IoT</dt><dd>Developers bridging RS485 field devices and 10BASE-T1L sensor networks</dd>
         <dt>Makers and Students</dt><dd>Learners building real industrial protocol skills on open hardware</dd>
@@ -132,7 +133,7 @@ gtag("config", "G-Q6LHBWVT7W");
 
     <div class="spec-facts" style="margin-top:1.2rem;">
       <h4>Why FREE-WILi + SAN DIEGO</h4>
-      <p>SAN DIEGO Orca brings RS485, 10BASE-T1L, 10BASE-T1S, and FREE-WILi 2's internal CAN FD interface together on one DB-15 connector. Use them with the host's touchscreen, dual RP2350s, FPGA, onboard Linux, Python scripting, and wireless connectivity.</p>
+      <p>SAN DIEGO Orca brings RS485, 10BASE-T1L, 10BASE-T1S, and FREE-WILi 2's internal CAN and CAN FD interface with its SIC transceiver together on one DB-15 connector. Use them with the host's touchscreen, dual RP2350s, FPGA, onboard Linux, Python scripting, and wireless connectivity.</p>
       <p>Log Modbus and CAN traffic to scripts, bridge it over WiFi, display live bus data on-screen, and automate full test sequences without carrying a laptop.</p>
     </div>
 
@@ -194,7 +195,7 @@ gtag("config", "G-Q6LHBWVT7W");
           <tr><td>3</td><td><span class="pin-dot pin-t1l"></span>T1L P</td><td>10BASE-T1L positive</td></tr>
           <tr><td>4</td><td><span class="pin-dot pin-rs485"></span>RS485 P</td><td>RS485 non-inverting line (A)</td></tr>
           <tr><td>5</td><td><span class="pin-dot pin-nc"></span>NC</td><td>Not connected</td></tr>
-          <tr><td>6</td><td><span class="pin-dot pin-can"></span>CAN H</td><td>FREE-WILi 2 internal CAN FD high, routed through the Orca</td></tr>
+          <tr><td>6</td><td><span class="pin-dot pin-can"></span>CAN H</td><td>FREE-WILi 2 internal CAN / CAN FD high, routed through the Orca</td></tr>
           <tr><td>7</td><td><span class="pin-dot pin-nc"></span>NC</td><td>Not connected</td></tr>
           <tr><td>8</td><td><span class="pin-dot pin-gnd"></span>GND</td><td>Ground, signal and power return</td></tr>
           <tr><td>9</td><td><span class="pin-dot pin-t1s"></span>T1S P</td><td>10BASE-T1S positive, joined to pin 1</td></tr>
@@ -202,12 +203,12 @@ gtag("config", "G-Q6LHBWVT7W");
           <tr><td>11</td><td><span class="pin-dot pin-t1l"></span>T1L N</td><td>10BASE-T1L negative</td></tr>
           <tr><td>12</td><td><span class="pin-dot pin-rs485"></span>RS485 N</td><td>RS485 inverting line (B)</td></tr>
           <tr><td>13</td><td><span class="pin-dot pin-dio"></span>MISC DIO</td><td>Direction-controlled digital I/O, 5 V logic, via the on-board I/O expander</td></tr>
-          <tr><td>14</td><td><span class="pin-dot pin-can"></span>CAN L</td><td>FREE-WILi 2 internal CAN FD low, routed through the Orca</td></tr>
+          <tr><td>14</td><td><span class="pin-dot pin-can"></span>CAN L</td><td>FREE-WILi 2 internal CAN / CAN FD low, routed through the Orca</td></tr>
           <tr><td>15</td><td><span class="pin-dot pin-pwr"></span>DC V+</td><td>Optional 5&ndash;60 V DC positive input to power and charge FREE-WILi 2; return on pin 8<sup><a href="#power-edition-note" role="doc-noteref" aria-label="Power input compatibility footnote" style="color:var(--red)">*</a></sup></td></tr>
         </tbody>
       </table>
       <p>The 10BASE-T1S pair is brought out twice. Pins 1 and 9 are joined inside the module, as are pins 2 and 10, so a multidrop segment can come in on one pair and continue on the other.</p>
-      <p>RS485 uses a single pair for transmit and receive. Its switchable termination uses two 61.9 &ohm; resistors in series (123.8 &ohm; plus switch resistance). The T1S interface has separate endpoint and midpoint termination settings. The CAN pins share the host's existing CAN bus and add no termination on this module.</p>
+      <p>RS485 uses a single pair for transmit and receive. Its switchable termination uses two 61.9 &ohm; resistors in series (123.8 &ohm; plus switch resistance). The T1S interface has separate endpoint and midpoint termination settings. The CAN pins share the host's existing CAN bus, with software-selectable CAN termination on FREE-WILi 2.</p>
       <p>The DB-15 shell is coupled to ground through a 1 M&ohm; resistor and 10 nF capacitor; use pin 8 for the signal and power return.</p>
     </div>
   </div>
