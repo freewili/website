@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6LHBWVT7W"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag("js", new Date());
+gtag("config", "G-Q6LHBWVT7W");
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<title>Porpoise Purpose Module - FREE-WILi</title>
+<meta name="description" content="The FREE-WILi Porpoise Purpose Module is a 51 x 26 mm embedded module with CAN FD, level-shifted UART, SPI, I2C and GPIO, microSD, switchable power outputs and battery support, running the FREE-WILi firmware and OneWili API.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://freewili.com/porpoise-purpose-module.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"></noscript>
+<link rel="stylesheet" href="style.css">
+<style>
+  .pp-gallery {
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 2rem auto 2.2rem;
+  }
+  .pp-shot { flex: 3 1 0; min-width: 0; }
+  .pp-shot-narrow { flex: 1 1 0; }
+  .pp-shot .frame { margin: 0; }
+  .pp-shot img { width: 100%; height: auto; max-height: 420px; object-fit: contain; }
+  .og-radio-figure.pp-pinout img { max-height: 720px; }
+  .og-gallery {
+    max-width: 520px;
+    margin: 2rem auto 2.2rem;
+  }
+  .og-gallery .frame {
+    margin: 0;
+  }
+  .og-gallery img {
+    max-height: 520px;
+    object-fit: contain;
+  }
+  .og-caption {
+    margin-top: .75rem;
+    text-align: center;
+    font-family: var(--display);
+    font-size: clamp(1.05rem, 2.2vw, 1.45rem);
+    font-weight: 700;
+  }
+  .og-section-title {
+    margin: 2.2rem 0 1rem;
+    font-family: var(--display);
+    font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+    color: var(--text);
+  }
+  .og-list {
+    columns: 2;
+    column-gap: 2rem;
+    margin: 1rem 0 0;
+    padding-left: 1.2rem;
+  }
+  .og-list li {
+    break-inside: avoid;
+    margin-bottom: .8rem;
+    color: var(--muted);
+  }
+  .og-list li strong {
+    color: var(--text);
+  }
+  .og-callout {
+    margin-top: 2rem;
+    padding: 1.2rem 1.3rem;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.02));
+  }
+  .og-radio {
+    margin-top: 2.4rem;
+  }
+  .og-radio-figure {
+    max-width: 680px;
+    margin: 1.2rem auto 1.4rem;
+  }
+  .og-radio-figure .frame {
+    margin: 0;
+  }
+  .og-radio-figure img {
+    width: 100%;
+    height: auto;
+    max-height: 360px;
+    object-fit: contain;
+  }
+  .og-radio-note {
+    margin-top: .9rem;
+    text-align: center;
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    font-style: italic;
+    color: var(--text);
+  }
+  .og-radio-copy {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .og-radio-copy p {
+    color: var(--text);
+  }
+  .og-radio-copy strong {
+    color: var(--text);
+  }
+  .og-cta {
+    margin-top: 2.2rem;
+    padding: 1.4rem;
+    border: 1px solid var(--line-strong);
+    border-radius: 16px;
+    background: radial-gradient(circle at top right, rgba(255, 46, 67, .14), transparent 35%), #0c0c0e;
+  }
+  .og-cta .btn {
+    margin-top: .7rem;
+  }
+  @media (max-width: 720px) {
+    .og-gallery {
+      max-width: 100%;
+    }
+    .og-gallery img {
+      max-height: 420px;
+    }
+    .og-list {
+      columns: 1;
+    }
+    .pp-gallery {
+      flex-direction: column;
+      align-items: center;
+    }
+    .pp-shot-narrow {
+      max-width: 60%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="https://www.freewili.com" target="_self" rel="noopener" class="logo" aria-label="FREE-WILi - visit freewili.com">
+      <img class="logo-img" src="assets/FW_Full_Logo_WHT2.svg" alt="FREE-WILi">
+    </a>
+    <nav class="links">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#software">Software</a>
+      <a href="index.html#gaming">Gaming</a>
+      <a href="index.html#specs">Specs</a>
+      <div class="nav-group">
+        <button class="nav-trigger" type="button" aria-label="Products menu">Products <span class="caret" aria-hidden="true">▼</span></button>
+        <div class="dropdown-menu" role="menu" aria-label="Products links">
+          <a href="freewili-og.html" role="menuitem">FREE-WILi OG</a>
+          <a href="https://shop.freewili.com/products/free-wili-2" role="menuitem">FREE-WILi-2</a>
+          <a href="explore-orcas.html" role="menuitem">Orca Modules</a>
+          <a href="ics-village-defcon-34-badge.html" role="menuitem">ICS Village DEF CON 34 Badge</a>
+          <a href="porpoise-purpose-module.html" role="menuitem">Porpoise Purpose Module</a>
+        </div>
+      </div>
+      <div class="nav-group">
+        <button class="nav-trigger" type="button" aria-label="More menu">More <span class="caret" aria-hidden="true">▼</span></button>
+        <div class="dropdown-menu" role="menu" aria-label="More links">
+          <a href="https://docs.freewili.com/" target="_blank" rel="noopener" role="menuitem">Documentation</a>
+          <a href="https://github.com/freewili/freewili-gui" target="_blank" rel="noopener" role="menuitem">FREE-WILi GUI</a>
+          <a href="https://github.com/freewili/freewili-updater" target="_blank" rel="noopener" role="menuitem">FREE-WILi Updater</a>
+          <a href="onewili/" role="menuitem">OneWili API Docs</a>
+          <a href="https://freewili.github.io/freewili-python/index.html" target="_blank" rel="noopener" role="menuitem">Python Library</a>
+          <a href="https://github.com/freewili/freewili-firmware" target="_blank" rel="noopener" role="menuitem">Firmware Files</a>
+          <a href="https://github.com/freewili/wasm-examples" target="_blank" rel="noopener" role="menuitem">WASM Examples</a>
+          <a href="https://github.com/freewili" target="_blank" rel="noopener" role="menuitem">GitHub</a>
+          <a href="https://www.youtube.com/@FREE-WiLi" target="_blank" rel="noopener" role="menuitem">Videos</a>
+          <a href="https://docs.freewili.com/blog/" target="_blank" rel="noopener" role="menuitem">Blog</a>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-right-wrap">
+      <a href="https://discord.com/invite/XJRBUCX62z" target="_blank" rel="noopener" class="btn btn-ghost">Join Discord</a>
+      <a href="https://shop.freewili.com/" target="_blank" rel="noopener" class="btn btn-primary">Buy Now</a>
+      <button class="burger" id="burger" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="spec-hero">
+  <div class="wrap">
+    <span class="eyebrow" style="justify-content:center">// embedded module</span>
+    <h1>Porpoise Purpose <span class="n">Module</span></h1>
+    <div class="big-stat">CAN FD, UART, SPI, I2C and GPIO on a 51 x 26 mm module</div>
+    <div class="sub">The FREE-WILi firmware, console and OneWili API, small enough to solder into your own board</div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="spec-body">
+    <p>The <strong>Porpoise Purpose Module</strong> (PP Module) is a small FREE-WILi board for embedded control and bench work. It has CAN FD, UART, SPI, I2C, GPIO, an analog input, microSD storage, switchable power outputs and battery support, all on a 51 x 26 mm module with castellated edge pads.</p>
+    <p>It runs the same FREE-WILi firmware family as FREE-WILi 2. That means the same serial console, the same menu commands, the same OneWili API and the same rThon and WiliWasm scripting. Code you write for one board works on the other wherever the hardware matches.</p>
+
+    <div class="pp-gallery" aria-label="Porpoise Purpose Module images">
+      <div class="pp-shot">
+        <div class="frame shot">
+          <img src="assets/ppmodule-top.webp" alt="Porpoise Purpose Module, top view" loading="eager" decoding="async">
+        </div>
+        <div class="og-caption">Porpoise Purpose Module</div>
+      </div>
+      <div class="pp-shot pp-shot-narrow">
+        <div class="frame shot">
+          <img src="assets/ppmodule-display.webp" alt="Porpoise Purpose Module with the optional OLED display fitted" loading="lazy" decoding="async">
+        </div>
+        <div class="og-caption">With the optional OLED display</div>
+      </div>
+    </div>
+
+    <h2 class="og-section-title">Use Cases</h2>
+    <ul class="og-list">
+      <li>CAN FD node on your desk</li>
+      <li>Level-shifted UART USB adapter</li>
+      <li>Level-shifted SPI and I2C USB adapter</li>
+      <li>Scripted test fixture with switchable power to the device under test</li>
+      <li>Building block soldered into your own carrier board</li>
+      <li>Battery-powered logger with microSD storage</li>
+      <li>Moving a FREE-WILi 2 set-up into a permanent fixture</li>
+      <li>Learning platform for embedded systems</li>
+    </ul>
+
+    <h2 class="og-section-title">Feature Set</h2>
+    <ul class="og-list">
+      <li><strong>CAN FD:</strong> one channel with an on-board transceiver and software-switchable 120 &Omega; termination.</li>
+      <li><strong>Buffered I/O:</strong> 13 signals (UART, SPI, I2C, GPIO) behind level shifters. Set the logic level with IO VREF, from 1.8 V to 5 V, with 24 mA at 3.3 V or 32 mA at 5 V.</li>
+      <li><strong>3.3 V I/O:</strong> a Qwiic I2C bus and a 0&ndash;3.3 V analog input.</li>
+      <li><strong>Power outputs:</strong> 3.3 V and 5 V outputs, plus four switchable power zone outputs you control from software.</li>
+      <li><strong>Battery:</strong> single-cell 3.7 V Li-ion / LiPo support with on-board charging and protection.</li>
+      <li><strong>Storage:</strong> 16 MB flash, 8 MB PSRAM and a microSD card slot.</li>
+      <li><strong>Extras:</strong> four addressable RGB LEDs, a header for an optional I2C OLED display, BOOT and RESET buttons and a 3-pin SWD debug connector.</li>
+      <li><strong>USB-C:</strong> power, the serial console and firmware updates.</li>
+      <li><strong>Mounting:</strong> 36 castellated pads at a 2.54 mm pitch. Solder them to a carrier board, or press standard headers in for temporary use.</li>
+      <li><strong>Same software:</strong> FREE-WILi console menus, OneWili API, rThon and WiliWasm scripting, and FREE-WILi GUI firmware updates.</li>
+    </ul>
+
+    <div class="spec-grid">
+      <div class="spec-card">
+        <h4>Core hardware</h4>
+        <dl>
+          <dt>Processor</dt><dd>150 MHz dual-core microcontroller</dd>
+          <dt>Memory</dt><dd>16 MB flash, 8 MB PSRAM, microSD card slot (4-bit SD)</dd>
+          <dt>LEDs</dt><dd>4 on-board addressable RGB LEDs, plus up to 3 external LED strips</dd>
+          <dt>Size</dt><dd>51.00 x 26.00 mm, 4 x &Oslash;2.20 mm mounting holes</dd>
+        </dl>
+      </div>
+      <div class="spec-card">
+        <h4>Interfaces</h4>
+        <dl>
+          <dt>CAN</dt><dd>1 x CAN FD with on-board transceiver and switchable termination</dd>
+          <dt>UART / SPI</dt><dd>1 x UART with RTS/CTS and 1 x SPI controller, both buffered</dd>
+          <dt>I2C</dt><dd>I2C0 buffered on the edge pads, I2C1 at 3.3 V on the Qwiic connector</dd>
+          <dt>GPIO / Analog</dt><dd>13 buffered GPIO with PWM, 2 x 3.3 V GPIO, 1 x 0&ndash;3.3 V analog input</dd>
+        </dl>
+      </div>
+      <div class="spec-card">
+        <h4>Power</h4>
+        <dl>
+          <dt>Power in</dt><dd>USB-C 5 V, or a single-cell 3.7 V Li-ion / LiPo battery</dd>
+          <dt>Power out</dt><dd>3.3 V (1 A rail) and 5 V (2 A rail), shared with the module</dd>
+          <dt>Power zones</dt><dd>4 switched outputs you can turn on, off or cycle from a script</dd>
+          <dt>Charging</dt><dd>220 mA from USB, with over-charge and over-discharge protection</dd>
+        </dl>
+      </div>
+      <div class="spec-card">
+        <h4>Software</h4>
+        <dl>
+          <dt>Console</dt><dd>FREE-WILi serial menus over USB-C, same commands as FREE-WILi 2</dd>
+          <dt>Host API</dt><dd>OneWili, with the same command IDs as FREE-WILi 2</dd>
+          <dt>Scripting</dt><dd>rThon and WiliWasm scripts run from the microSD card</dd>
+          <dt>Updates</dt><dd>FREE-WILi GUI firmware update, or drag-and-drop UF2 recovery</dd>
+        </dl>
+      </div>
+    </div>
+
+    <section class="og-radio" aria-labelledby="pinout-title">
+      <h2 class="og-section-title" id="pinout-title">FREE-WILi 2 Compatible Pinout</h2>
+      <div class="og-radio-figure pp-pinout">
+        <div class="frame shot">
+          <img src="assets/ppmodule-pinout.webp" alt="Porpoise Purpose Module pinout" loading="lazy" decoding="async">
+        </div>
+        <div class="og-caption">36 castellated pads, 2.54 mm pitch</div>
+      </div>
+      <div class="og-radio-copy">
+        <p>The module carries every signal of the <strong>FREE-WILi 2 20-pin GPIO header</strong>, with the same names and the same GPIO numbers: UART1, SPI1, I2C0, GPIO25&ndash;27, CAN H/L, 5V, 3V3 and IO VREF. A wiring set-up from FREE-WILi 2 moves straight across.</p>
+        <p>On FREE-WILi 2 the I/O voltage is chosen in software. On the module you wire <strong>IO VREF</strong> to 3V3, to 5V or to your target's own supply. Pins 19, 20 and 21 sit side by side, so one jumper sets it.</p>
+      </div>
+    </section>
+
+    <section class="og-radio" aria-labelledby="bottom-title">
+      <h2 class="og-section-title" id="bottom-title">microSD and Battery</h2>
+      <div class="og-radio-figure">
+        <div class="frame shot">
+          <img src="assets/ppmodule-bottom.webp" alt="Porpoise Purpose Module underside with the microSD slot and battery connector" loading="lazy" decoding="async">
+        </div>
+        <div class="og-caption">The underside: microSD slot and battery connector</div>
+      </div>
+      <div class="og-radio-copy">
+        <p>Scripts, settings and files live on the <strong>microSD card</strong>. Plug in a single-cell Li-ion or LiPo <strong>battery</strong> and the module runs without USB, charging whenever USB is connected.</p>
+      </div>
+    </section>
+
+    <div class="og-callout">
+      <h2 class="og-section-title" style="margin-top:0">Why Choose the Porpoise Purpose Module?</h2>
+      <p>The Porpoise Purpose Module takes the interfaces you use most on FREE-WILi 2 and puts them on a board you can build into a fixture, a harness tester or your own product. You keep the same console, the same API and the same scripts, so what you prototype on the handheld runs on the module.</p>
+    </div>
+
+    <div class="og-cta">
+      <h2 class="og-section-title" style="margin-top:0">Porpoise Purpose Module Documentation</h2>
+      <p>Pin-by-pin reference, I/O voltage set-up, power zones, CAN FD, scripting and firmware updates.</p>
+      <a href="https://docs.freewili.com/hardware/porpoise-purpose-module" target="_blank" rel="noopener" class="btn btn-primary">Read the Docs</a>
+    </div>
+  </div>
+
+  <nav class="spec-nav">
+    <a href="ics-village-defcon-34-badge.html">ICS Village Badge &larr;</a>
+    <a class="home" href="index.html">FREE-WILi home</a>
+    <a href="freewili-og.html">FREE-WILi OG &rarr;</a>
+  </nav>
+</div>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <a href="index.html" class="logo" aria-label="FREE-WILi - home">
+      <img class="logo-img" src="assets/FW_Full_Logo_WHT2.svg" alt="FREE-WILi">
+    </a>
+    <div class="foot-links">
+      <a href="https://www.freewili.com">freewili.com</a>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#specs">Specs</a>
+      <a href="https://shop.freewili.com/">Buy</a>
+    </div>
+    <div>Rev. 20260803 &middot; <a href="privacy-policy.html">Privacy Policy</a></div>
+  </div>
+</footer>
+
+<script data-fw-nav-init>
+(function(){
+  const burger = document.getElementById('burger');
+  const links = document.querySelector('.links');
+  if (links) {
+    const groups = links.querySelectorAll('.nav-group');
+    groups.forEach((group) => {
+      const trigger = group.querySelector('.nav-trigger');
+      if (!trigger) return;
+      trigger.setAttribute('aria-expanded', 'false');
+      trigger.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        groups.forEach((other) => {
+          if (other !== group) {
+            other.classList.remove('open');
+            const otherTrigger = other.querySelector('.nav-trigger');
+            if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
+          }
+        });
+        const isOpen = group.classList.toggle('open');
+        trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    });
+    document.addEventListener('click', (event) => {
+      if (links.contains(event.target)) return;
+      groups.forEach((group) => {
+        group.classList.remove('open');
+        const trigger = group.querySelector('.nav-trigger');
+        if (trigger) trigger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  if (burger && links) {
+    const closeMenu = () => {
+      burger.classList.remove('open');
+      links.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
+    burger.addEventListener('click', function(){
+      const isOpen = links.classList.toggle('open');
+      burger.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    links.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeMenu();
+    });
+  }
+})();
+</script>
+</body>
+</html>
