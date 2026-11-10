@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Page not found — FREE-WILi</title>
+<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+<script>
+  // QR codes and short links: freewili.com/go/<code> goes to the link tracker, which counts the scan and
+  // sends the visitor on to the right page. Runs before anything else so the jump is immediate.
+  (function () {
+    var m = location.pathname.match(/^\/go\/([A-Za-z0-9_-]{1,64})\/?$/);
+    if (m) location.replace('https://34-63-217-136.sslip.io/go/' + m[1] + location.search);
+  })();
+</script>
+<style>
+  html, body { margin: 0; height: 100%; background: #121111; color: #FFFFFF; font-family: 'IBM Plex Sans', 'Segoe UI', Helvetica, Arial, sans-serif; }
+  main { min-height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 24px; box-sizing: border-box; gap: 14px; }
+  .code { font-family: 'Chakra Petch', 'Trebuchet MS', Arial, sans-serif; font-weight: 700; font-size: 72px; line-height: 1; color: #EF393E; letter-spacing: .04em; }
+  h1 { margin: 0; font-family: 'Chakra Petch', 'Trebuchet MS', Arial, sans-serif; font-size: 24px; }
+  p { margin: 0; color: #9C9393; max-width: 420px; line-height: 1.6; }
+  a.btn { margin-top: 10px; display: inline-block; padding: 12px 26px; border-radius: 6px; background: #EF393E; color: #FFFFFF; text-decoration: none; font-family: 'Chakra Petch', 'Trebuchet MS', Arial, sans-serif; font-weight: 700; letter-spacing: .04em; }
+</style>
+</head>
+<body>
+<main>
+  <div class="code">404</div>
+  <h1>This page doesn’t exist</h1>
+  <p>The link may be old or mistyped. Everything about FREE-WILi starts on the home page.</p>
+  <a class="btn" href="/">Go to freewili.com</a>
+</main>
+<script>
+  // A short link that's still on its way: show a quiet "one moment" instead of the error.
+  if (/^\/go\//.test(location.pathname)) document.querySelector('main').innerHTML = '<p>One moment…</p>';
+</script>
+</body>
+</html>
