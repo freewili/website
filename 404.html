@@ -4,7 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Page not found — FREE-WILi</title>
+<!-- Neutral title and preview: link previews (Discord, iMessage, Slack, social) read this page as-is for
+     freewili.com/go/<code> short links, since they don't run the forwarding script below. -->
+<title>FREE-WILi</title>
+<meta property="og:title" content="FREE-WILi 2 — The Open Electronics Multitool">
+<meta property="og:description" content="A portable open-hardware electronics platform: touch screen, WiFi, LoRa/Meshtastic, RFID/NFC, CAN FD, onboard Linux and more.">
+<meta property="og:image" content="https://freewili.com/assets/freewili-og.png">
+<meta property="og:image:alt" content="FREE-WILi 2 handheld open electronics multitool device">
+<meta property="og:site_name" content="FREE-WILi">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 <script>
   // QR codes and short links: freewili.com/go/<code> goes to the link tracker, which counts the scan and
@@ -33,6 +41,7 @@
 <script>
   // A short link that's still on its way: show a quiet "one moment" instead of the error.
   if (/^\/go\//.test(location.pathname)) document.querySelector('main').innerHTML = '<p>One moment…</p>';
+  else document.title = 'Page not found — FREE-WILi';
 </script>
 </body>
 </html>
