@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<link rel="icon" type="image/x-icon" href="assets/appicon.ico">
+<title>AI Squared — One Seat for Every Coding Agent</title>
+<meta name="description" content="AI Squared is a native workspace for coding agents across your machines. Run Claude Code, Codex, Grok and the built-in ai2code agent in project terminals, queue work in pipelines, and control remote sessions from one seat.">
+<meta name="theme-color" content="#0a0a0b">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Squared — One Seat for Every Coding Agent">
+<meta property="og:description" content="A native workspace for coding agents, projects and models across your machines. Pipelines, agent teams, local models and remote control.">
+<meta property="og:image" content="assets/video-poster.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap"></noscript>
+<link rel="stylesheet" href="fw.css">
+<link rel="stylesheet" href="ai2.css">
+<noscript><style>.rise{opacity:1;transform:none}#burger{display:none}</style></noscript>
+</head>
+<body>
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="logo" aria-label="AI Squared">
+      <img class="logo-img" src="assets/logo-on-dark.png" alt="AI Squared">
+    </a>
+    <nav class="links" id="links">
+      <a href="#why">Why</a>
+      <a href="#structure">Projects</a>
+      <a href="#agents">Agents</a>
+      <a href="#local">Local models</a>
+      <a href="#types">Project types</a>
+      <a href="#pipeline">Pipeline</a>
+      <a href="#team">Agent Chat</a>
+      <a href="#more">More</a>
+    </nav>
+    <div class="nav-right-wrap">
+      <a href="#video" class="btn btn-ghost">Watch the video</a>
+      <a href="#download" class="btn btn-primary">Download</a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-controls="links" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="rise in" style="--d:0s"><a class="badge" href="#download"><span class="dot"></span>WINDOWS • MACOS • LINUX</a></div>
+    <h1 class="rise in" style="--d:.08s" aria-label="AI Squared"><img class="title-logo" src="assets/logo-on-dark.png" alt="AI Squared" width="950" height="256"></h1>
+    <p class="tag rise in" style="--d:.16s"><b>One seat for every coding agent.</b> A native workspace that runs Claude Code, Codex, Grok and local models as one team &mdash; across every project and every machine you own.</p>
+    <div class="hero-cta rise in" style="--d:.24s">
+      <a href="#download" class="btn btn-primary">Download →</a>
+      <a href="#pipeline" class="btn btn-green">See the Pipeline</a>
+      <a href="#why" class="btn btn-ghost">Why it exists</a>
+    </div>
+    <p class="cta-note rise in" style="--d:.28s">Native C++ · no browser inside · your agents, your accounts, your hardware</p>
+    <div class="hero-video rise in" style="--d:.34s" id="video">
+      <video aria-label="AI Squared narrated product overview" controls preload="metadata" poster="assets/video-poster.jpg" playsinline>
+        <source src="assets/ai-squared.mp4" type="video/mp4">
+        <track kind="captions" src="assets/ai-squared.vtt" srclang="en" label="English" default>
+        <p><a href="assets/ai-squared.mp4">Download the video</a> or <a href="assets/ai-squared.vtt">read the captions</a>.</p>
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="wrap"><div class="strip-in">
+    <a class="stat" href="#agents"><div class="v">4<em>Agents</em></div><div class="k">Claude Code · Codex · Grok · ai2code</div></a>
+    <a class="stat" href="#structure"><div class="v">16<em>/project</em></div><div class="k">Named agents, own sessions</div></a>
+    <a class="stat" href="#why"><div class="v">Multi<em>Machine</em></div><div class="k">One project, many computers</div></a>
+    <a class="stat" href="#pipeline"><div class="v">Pipe<em>line</em></div><div class="k">Queue · Automate · Repeat</div></a>
+    <a class="stat" href="#local"><div class="v">Local<em>GGUF</em></div><div class="k">llama.cpp + Hugging Face</div></a>
+    <a class="stat" href="#agents"><div class="v">MCP<em>Reports</em></div><div class="k">Busy · Waiting · Done, for real</div></a>
+    <a class="stat" href="#team"><div class="v">Agent<em>Chat</em></div><div class="k">Agents message each other</div></a>
+    <a class="stat" href="#more"><div class="v">Screen<em>Shot</em></div><div class="k">Point at it, paste it, polish it</div></a>
+    <a class="stat" href="#why"><div class="v">Secure<em>Peers</em></div><div class="k">Encrypted remote control</div></a>
+    <a class="stat" href="#more"><div class="v">Time<em>Lapse</em></div><div class="k">Record an agent, webcam included</div></a>
+  </div></div>
+</div>
+
+<!-- WHY -->
+<section class="block" id="why">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">// the problem</span>
+      <h2>Agents are fast. Herding them isn't.</h2>
+      <p>One coding agent in one terminal is easy. Real work is ten of them, in six projects, on three computers &mdash; and you are the only scheduler. AI Squared exists to take that job off your hands.</p>
+    </div>
+
+    <div class="feature rise">
+      <div class="f-text">
+        <span class="f-tag">// problem 1: terminal sprawl</span>
+        <h3>Twelve terminals. Which one needs you?</h3>
+        <p>Every agent CLI is its own window with its own scrollback. One is still building. One finished forty minutes ago. One has been sitting on a yes-or-no question since lunch. From the outside, <b>all three look identical</b>: a quiet terminal.</p>
+        <p>AI Squared never guesses from silence. Each agent gets a private reporting channel, so it <b>tells</b> the workbench when it starts a stretch of work, when it has a question, and when it is finished. You get one list where every agent is green, orange, red or blue &mdash; and the question that was blocking you is sitting in the Status panel, optionally read aloud.</p>
+        <ul class="f-list"><li><b>Busy</b> working</li><li><b>Question</b> needs you</li><li><b>Idle / attention</b> not confirmed busy</li><li><b>Done</b> reported complete</li></ul>
+      </div>
+      <div class="f-media rise">
+        <div class="mk glow">
+          <div class="mk-bar"><i></i><i></i><i></i><span>before: 12 terminals</span></div>
+          <div class="mk-body"><div class="twall" data-twall="12"></div></div>
+          <div class="mk-bar" style="border-top:1px solid var(--line)"><span class="led g"></span><span>after: one status board</span></div>
+          <div class="mk-body">
+            <div class="twall" data-twall="12" data-status="1"></div>
+            <div class="tally">
+              <span class="tag-s g"><span class="led g"></span>5 busy</span>
+              <span class="tag-s o"><span class="led o"></span>2 questions</span>
+              <span class="tag-s r"><span class="led r"></span>2 idle</span>
+              <span class="tag-s b"><span class="led b"></span>3 done</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature reverse rise">
+      <div class="f-text">
+        <span class="f-tag">// problem 2: one machine is not enough</span>
+        <h3>Agents will bury a single computer.</h3>
+        <p>Each agent wants a compiler, a test run, maybe a browser, maybe a GPU. Four of them building at once turns a good workstation into a space heater &mdash; and a local model wants the whole graphics card to itself.</p>
+        <p>So spread the team out. <b>Link one project across several machines</b>: the workstation runs the local model, the Linux box does the long builds, the Mac checks the Mac build. Each machine keeps its own checkout and its own agents; the copies share one project identity, one roster and one Agent Chat.</p>
+        <p>An agent in the wrong place? <b>Move to machine&hellip;</b> takes its name and persona to another computer. Code travels the way it already does &mdash; through Git.</p>
+        <ul class="f-list"><li><b>Linked</b> projects</li><li>Add agent on any machine</li><li>Move to machine</li><li>Create Git checkout remotely</li></ul>
+      </div>
+      <div class="f-media rise">
+        <div class="mk">
+          <div class="mk-bar"><i></i><i></i><i></i><span>project: fleet-dashboard · 3 machines</span></div>
+          <div class="mk-body">
+            <div class="machines">
+              <div class="machine"><div class="nm">workstation</div><div class="os">Windows · GPU</div>
+                <div class="faces"><span class="face g f-hannibal"></span><span class="face o f-faceman"></span><span class="face g f-j5"></span></div>
+                <div class="load"><b style="width:58%"></b></div></div>
+              <div class="machine"><div class="nm">build-box</div><div class="os">Linux · 32 cores</div>
+                <div class="faces"><span class="face g f-ba"></span><span class="face b f-murdoch"></span></div>
+                <div class="load"><b style="width:71%"></b></div></div>
+              <div class="machine"><div class="nm">macbook</div><div class="os">macOS · arm64</div>
+                <div class="faces"><span class="face g f-smith"></span></div>
+                <div class="load"><b style="width:34%"></b></div></div>
+            </div>
+            <div class="wire"><span></span><span></span><span></span></div>
+            <div class="seat"><span class="led r"></span><b>Your seat</b><span class="mut">one window · every terminal · encrypted workgroup</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature rise">
+      <div class="f-text">
+        <span class="f-tag">// problem 3: you are not always at that desk</span>
+        <h3>Remote control, without the remote desktop.</h3>
+        <p>Peers let one AI Squared drive the agent sessions another machine owns. <b>Start, stop, restart, watch the output and type into the terminal</b> &mdash; it is the owner's real process, mirrored, not a copy. Close your view and the agent keeps going.</p>
+        <p>Setup is a workgroup name and a password, entered on each machine. No accounts, no certificates, no pairing dance. Machines on the same network find each other; across a VPN you add <code>host:port</code>. With Secure peers enabled, everything on the wire &mdash; terminal output, keystrokes, project lists, screenshots &mdash; is mutually authenticated and encrypted.</p>
+        <p>Closing the window does not stop anything either: AI Squared stays resident in the tray, so agents, chat hand-offs and pipelines carry on. There is an <b>Android client</b> for checking on the fleet from the couch.</p>
+        <ul class="f-list"><li><b>TLS</b> + EC J-PAKE</li><li>LAN discovery</li><li>VPN friendly</li><li>Runs in the tray</li><li>Android remote</li></ul>
+      </div>
+      <div class="f-media rise">
+        <div class="frame glow shot"><img loading="lazy" decoding="async" src="assets/aisquared-controller-windows.png" alt="AI Squared showing project teams across three machines, agent status, and shared Agent Chat" width="1797" height="1177"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRUCTURE -->
+<section class="block showcase" id="structure">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">// how it is organised</span>
+      <h2>Projects. Agents. Sessions.</h2>
+      <p>Three levels, and they map onto how you already think about the work.</p>
+    </div>
+
+    <div class="feature rise">
+      <div class="f-text">
+        <span class="f-tag">// the structure</span>
+        <h3>A project is a folder with a team attached.</h3>
+        <p>A <b>project</b> is a saved reference to a working folder &mdash; an existing checkout or a brand-new directory. It carries a project type, a pipeline, a chat history and a roster.</p>
+        <p>Each project has up to sixteen <b>named agents</b>. An agent is a teammate: a name, a portrait, a persona, a machine. Add one from the team menu with a click.</p>
+        <p>Each agent has one <b>session per coding tool</b> behind the same tabs &mdash; so Hannibal can run Claude while Faceman runs Codex in the same project. Every session keeps its own terminal history, prompt history, reports, questions, launch target and Changes baseline.</p>
+        <p>Working on two things at once in one repository? <b>Add agent in worktree&hellip;</b> gives a teammate its own branch and checkout. The toolbar always shows which branch and worktree an agent is standing in &mdash; including remote ones.</p>
+        <ul class="f-list"><li><b>Project</b> → folder + type</li><li><b>Agent</b> → persona + machine</li><li><b>Session</b> → one per CLI</li><li>Git worktrees</li><li>By project / By machine</li></ul>
+      </div>
+      <div class="f-media rise">
+        <div class="mk glow">
+          <div class="mk-bar"><i></i><i></i><i></i><span>projects · by project</span><span class="sp"></span><span>active</span></div>
+          <div class="mk-body">
+            <div class="row proj">▾ fleet-dashboard <span class="grow"></span><span class="cnt">3 machines</span></div>
+            <div class="row child sel"><span class="face sm g f-hannibal"></span><span class="nm">Hannibal</span><span class="tag-s c">claude</span><span class="grow"></span><span class="dim">workstation</span><span class="led g"></span></div>
+            <div class="row child"><span class="face sm o f-faceman"></span><span class="nm">Faceman</span><span class="tag-s c">codex</span><span class="grow"></span><span class="dim">workstation</span><span class="led o"></span></div>
+            <div class="row child"><span class="face sm g f-ba"></span><span class="nm">BA Baracus</span><span class="tag-s c">ai2code</span><span class="grow"></span><span class="dim">build-box</span><span class="led g"></span></div>
+            <div class="row child"><span class="face sm b f-murdoch"></span><span class="nm">Mad Murdoch</span><span class="tag-s c">grok</span><span class="grow"></span><span class="dim">build-box</span><span class="led b"></span></div>
+            <div class="row child"><span class="face sm g f-smith"></span><span class="nm">Agent Smith</span><span class="tag-s c">claude</span><span class="grow"></span><span class="dim">macbook</span><span class="led g"></span></div>
+            <div class="row proj">▸ firmware-main <span class="grow"></span><span class="cnt">1 machine</span></div>
+            <div class="row proj">▸ docs-site <span class="grow"></span><span class="cnt">1 machine</span></div>
+            <div class="tabs"><span>Pipeline</span><span>ai2code</span><span class="on">claude</span><span>codex</span><span>grok</span></div>
+            <div class="term"><span class="dim">Branch: feat/csv-import &nbsp; Worktree: fleet-dashboard</span><br><span class="p">●</span> Reading src/import/reader.cpp<br><span class="p">●</span> <span class="c">log_status</span> "CSV reader done, writing tests"</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENTS -->
+<section class="block" id="agents">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">// the coding agents</span>
+      <h2>Bring the agents you already use.</h2>
+      <p>AI Squared does not replace your agent CLI and does not sit between you and your account. It runs the real program in a real pseudo-terminal, in the project folder, exactly as you would &mdash; then gives it a way to report back.</p>
+    </div>
+
+    <div class="agent-grid rise">
+      <div class="agent-card"><svg fill="currentColor" class="ico claude" aria-hidden="true" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg><h4>Claude Code</h4><div class="by">Anthropic CLI</div><p>Per-run MCP configuration plus lifecycle hooks, so activity updates even when the agent says nothing.</p></div>
+      <div class="agent-card"><svg class="ico codex" aria-hidden="true" fill="currentColor" fill-rule="evenodd" height="1em" style="flex:none;line-height:1" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.205 8.658v-2.26c0-.19.072-.333.238-.428l4.543-2.616c.619-.357 1.356-.523 2.117-.523 2.854 0 4.662 2.212 4.662 4.566 0 .167 0 .357-.024.547l-4.71-2.759a.797.797 0 00-.856 0l-5.97 3.473zm10.609 8.8V12.06c0-.333-.143-.57-.429-.737l-5.97-3.473 1.95-1.118a.433.433 0 01.476 0l4.543 2.617c1.309.76 2.189 2.378 2.189 3.948 0 1.808-1.07 3.473-2.76 4.163zM7.802 12.703l-1.95-1.142c-.167-.095-.239-.238-.239-.428V5.899c0-2.545 1.95-4.472 4.591-4.472 1 0 1.927.333 2.712.928L8.23 5.067c-.285.166-.428.404-.428.737v6.898zM12 15.128l-2.795-1.57v-3.33L12 8.658l2.795 1.57v3.33L12 15.128zm1.796 7.23c-1 0-1.927-.332-2.712-.927l4.686-2.712c.285-.166.428-.404.428-.737v-6.898l1.974 1.142c.167.095.238.238.238.428v5.233c0 2.545-1.974 4.472-4.614 4.472zm-5.637-5.303l-4.544-2.617c-1.308-.761-2.188-2.378-2.188-3.948A4.482 4.482 0 014.21 6.327v5.423c0 .333.143.571.428.738l5.947 3.449-1.95 1.118a.432.432 0 01-.476 0zm-.262 3.9c-2.688 0-4.662-2.021-4.662-4.519 0-.19.024-.38.047-.57l4.686 2.71c.286.167.571.167.856 0l5.97-3.448v2.26c0 .19-.07.333-.237.428l-4.543 2.616c-.619.357-1.356.523-2.117.523zm5.899 2.83a5.947 5.947 0 005.827-4.756C22.287 18.339 24 15.84 24 13.296c0-1.665-.713-3.282-1.998-4.448.119-.5.19-.999.19-1.498 0-3.401-2.759-5.947-5.946-5.947-.642 0-1.26.095-1.88.31A5.962 5.962 0 0010.205 0a5.947 5.947 0 00-5.827 4.757C1.713 5.447 0 7.945 0 10.49c0 1.666.713 3.283 1.998 4.448-.119.5-.19 1-.19 1.499 0 3.401 2.759 5.946 5.946 5.946.642 0 1.26-.095 1.88-.309a5.96 5.96 0 004.162 1.713z"></path></svg><h4>Codex</h4><div class="by">OpenAI CLI</div><p>Launch-time MCP settings and a turn-complete notification. Queued prompts wait for its paste guard.</p></div>
+      <div class="agent-card"><svg class="ico grok" aria-hidden="true" fill="currentColor" fill-rule="evenodd" height="1em" style="flex:none;line-height:1" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.27 15.29l7.978-5.897c.391-.29.95-.177 1.137.272.98 2.369.542 5.215-1.41 7.169-1.951 1.954-4.667 2.382-7.149 1.406l-2.711 1.257c3.889 2.661 8.611 2.003 11.562-.953 2.341-2.344 3.066-5.539 2.388-8.42l.006.007c-.983-4.232.242-5.924 2.75-9.383.06-.082.12-.164.179-.248l-3.301 3.305v-.01L9.267 15.292M7.623 16.723c-2.792-2.67-2.31-6.801.071-9.184 1.761-1.763 4.647-2.483 7.166-1.425l2.705-1.25a7.808 7.808 0 00-1.829-1A8.975 8.975 0 005.984 5.83c-2.533 2.536-3.33 6.436-1.962 9.764 1.022 2.487-.653 4.246-2.34 6.022-.599.63-1.199 1.259-1.682 1.925l7.62-6.815"></path></svg><h4>Grok</h4><div class="by">xAI CLI</div><p>An AI Squared entry in the project's <code>.grok/config.toml</code>, launched in minimal mode to keep scrollback.</p></div>
+      <div class="agent-card"><img class="ico" src="assets/agents/ai2code.svg" alt="" width="48" height="48"><h4>ai2code</h4><div class="by">Built-in coding agent</div><p>Use a local model or a compatible server for editing, shell commands, screenshots and progress reports. OpenCode is also available as an alternative engine.</p></div>
+    </div>
+    <p class="note rise">Agent reports power the shared Status panel, questions and pipeline automation. Configure external CLIs with your own accounts; choose a model provider for ai2code or OpenCode.</p>
+  </div>
+</section>
+
+<!-- LOCAL MODELS -->
+<section class="block showcase" id="local">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">// local models</span>
+      <h2>Your hardware. Your model.</h2>
+      <p>Run local GGUF models through llama.cpp, or connect an OpenAI-compatible model server. Choose the model that fits the work and your machine.</p>
+    </div>
+    <div class="feature reverse rise">
+      <div class="f-text">
+        <span class="f-tag">// find a model that fits</span>
+        <h3>Check the memory budget before downloading.</h3>
+        <p>Browse models from <b>Hugging Face</b>, compare quantizations, and download GGUF files in the app. Memory estimates help you choose a model before committing to a large download.</p>
+        <p>Model weights are only part of the budget: context and runtime memory need room too. Local Model Diagnostics shows how memory is being used and when the model spills into system RAM.</p>
+        <p>Install <b>llama-server</b> separately for local inference, or configure a compatible model endpoint. External model servers and web search use the network.</p>
+        <ul class="f-list"><li>GGUF models</li><li>Hugging Face downloads</li><li>Memory estimates</li><li>Local or remote server</li></ul>
+      </div>
+      <div class="f-media rise">
+        <div class="mk glow">
+          <div class="mk-bar"><i></i><i></i><i></i><span>model browser · illustrative estimates</span><span class="sp"></span><span>24 GB GPU</span></div>
+          <div class="mk-body">
+            <div class="li"><div class="grow"><div class="t">coder-14b · Q4_K_M</div><div class="s">9.0 GB · model weights</div></div><span class="tag-s g">room for context</span></div>
+            <div class="li on"><div class="grow"><div class="t">coder-32b · Q4_K_M</div><div class="s">19.8 GB · model weights · selected</div></div><span class="tag-s g">check context budget</span></div>
+            <div class="li"><div class="grow"><div class="t">coder-32b · Q8_0</div><div class="s">34.8 GB</div></div><span class="tag-s a">needs CPU offload</span></div>
+            <div class="li"><div class="grow"><div class="t">general-70b · Q4_K_M</div><div class="s">42.5 GB</div></div><span class="tag-s r">too large</span></div>
+            <div class="inp"><span class="led g"></span><span class="grow">model ready · context 65,536</span><span class="dim">127.0.0.1:11435/v1</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature rise">
+      <div class="f-text">
+        <span class="f-tag">// ai2code &amp; johnny five</span>
+        <h3>A built-in agent, tuned for local models.</h3>
+        <p><b>ai2code</b> is the coding agent that ships inside AI Squared. It reads and edits project files, runs shell commands, launches the app it built, screenshots it, and reports through the same channel as the big-name CLIs &mdash; so pipelines, Agent Chat and screenshots work with a local model out of the box.</p>
+        <p>It is built around what smaller models are bad at. <code>find_code</code> returns just the lines that answer a question, so the model does not burn its context reading whole files. Old turns are summarised when context fills. <code>/undo</code> takes back the last file edit.</p>
+        <p><b>Johnny Five</b> is the same engine as a chat companion: a robot in Agent Chat that talks to your selected model, no project required. Give it web search, page reading, library docs and your own read-only MCP servers &mdash; searches go online; inference stays local when you select a local model.</p>
+        <ul class="f-list"><li><b>ai2code</b> built in</li><li>find_code</li><li>launch_app + screenshot</li><li>Web search &amp; MCP</li><li>Local chat</li></ul>
+      </div>
+      <div class="f-media rise">
+        <div class="mk">
+          <div class="mk-bar"><i></i><i></i><i></i><span>ai2code · local model</span><span class="sp"></span><span class="led g"></span></div>
+          <div class="mk-body">
+            <div class="term" style="border-top:1px solid var(--line);border-radius:8px">
+              <span class="dim">&gt; add a --json flag to the export command</span><br>
+              <span class="p">●</span> <span class="c">find_code</span> "where are export arguments parsed"<br>
+              <span class="dim">&nbsp;&nbsp;src/cli/export.py:41-58 &nbsp;·&nbsp; 18 lines</span><br>
+              <span class="p">●</span> <span class="c">edit</span> src/cli/export.py<br>
+              <span class="p">●</span> <span class="c">shell</span> pytest tests/test_export.py<br>
+              <span class="dim">&nbsp;&nbsp;exit 0 · 12 passed</span><br>
+              <span class="p">●</span> <span class="c">tests_passed</span> "export --json added, 12/12"
+            </div>
+            <div class="msg" style="margin-top:14px"><span class="face g f-j5"></span><div class="bub"><span class="who">Johnny Five · local model</span>Searched the docs for you &mdash; the flag you want is in the 3.2 release notes. Sources linked below.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT TYPES -->
+<section class="block" id="types">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">// project types</span>
+      <h2>Stop re-explaining how you build.</h2>
+      <p>Every first prompt starts with the same paragraph: which toolkit, where build files go, how to test, what "done" looks like. A project type writes that paragraph once.</p>
+    </div>
+
+    <div class="feature rise">
+      <div class="f-text">
+        <span class="f-tag">// context, attached to the project</span>
+        <h3>A reusable brief the agent reads first.</h3>
+        <p>A <b>project type</b> is a plain Markdown file: your layout, your libraries, your testing rules, your house style, the things you are tired of correcting. Pick one in the New Project dialog and it travels with the project.</p>
+        <p>In <b>Planning</b>, type what you want built and press <b>Generate</b>. The agent receives your description, the type's brief and the reporting instructions together &mdash; so its very first move already follows your conventions.</p>
+        <p>Types ship for a native C++ desktop app, embedded firmware, a Python command-line tool and a no-build web app. Edit them, or write your own for the kind of work your team actually does. One shipped type even builds a new persona team from a folder of pictures.</p>
+        <ul class="f-list"><li><b>Markdown</b> briefs</li><li>Icon + description</li><li>Edit in app</li><li>Planning → Generate</li><li>Your own types</li></ul>
+      </div>
+      <div class="f-media rise">
+        <div class="mk glow">
+          <div class="mk-bar"><i></i><i></i><i></i><span>new project</span></div>
+          <div class="mk-body">
+            <div class="split">
+              <div>
+                <div class="li"><div class="grow"><div class="t">Blank</div></div></div>
+                <div class="li on"><div class="grow"><div class="t">C++ desktop app</div></div></div>
+                <div class="li"><div class="grow"><div class="t">Embedded firmware</div></div></div>
+                <div class="li"><div class="grow"><div class="t">Python CLI tool</div></div></div>
+                <div class="li"><div class="grow"><div class="t">Web app</div></div></div>
+                <div class="li"><div class="grow"><div class="t">Agent personas</div></div></div>
+              </div>
+              <div class="brief">
+                <h5>C++ desktop app</h5>
+                Native C++20, SDL3 window, docking Dear ImGui interface. The build must be a folder you can copy and run.
+                <ul style="margin-top:.5em">
+                  <li>build files outside the source tree</li>
+                  <li>end-to-end tests with the UI test engine</li>
+                  <li>commit after each feature</li>
+                  <li>the GUI must scale and look modern</li>
+                </ul>
+              </div>
+            </div>
+            <div class="inp"><span class="grow mut">What do you want built? &nbsp;<span style="color:var(--text)">A CAN log viewer with CSV import</span></span><span class="mbtn">Generate</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PIPELINE -->
+<section class="block showcase" id="pipeline">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">// the pipeline</span>
+      <h2>Queue the work. Go to bed.</h2>
+      <p>This is the most powerful tool in the box. The Pipeline turns a list of prompts into a production line: one task, one fresh session, an optional milestone &mdash; then the next.</p>
+    </div>
+
+    <div class="flow rise">
+      <div class="step"><div class="n">01</div><b>Save prompts</b><span>Write the tasks. Pick an agent and a coding tool. Automate runs on the project owner.</span></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="n">02</div><b>Fresh agent</b><span>Automate starts a clean session per entry. No context bleed between tasks.</span></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="n">03</div><b>Explicit report</b><span>It waits for <code style="font-size:.9em">task_complete</code>, not for a quiet terminal.</span></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="n">04</div><b>Milestone</b><span>Your milestone prompt runs &mdash; by default, stage and commit. No push.</span></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="n">05</div><b>Next</b><span>The agent is stopped and the queue moves on.</span></div>
+      <div class="loop">↻ repeats until the ticked entries are done</div>
+    </div>
+
+    <div class="feature rise">
+      <div class="f-text">
+        <span class="f-tag">// automate</span>
+        <h3>A backlog that works itself down.</h3>
+        <p>Tick the prompts you want and press <b>Automate</b>. Entries run in order on the machine that owns the project &mdash; and you can drive that from another computer. Each task starts a fresh session for its selected agent, with its own conversation context.</p>
+        <p>With the default milestone prompt, completed tasks are followed by a commit. Review the history alongside the session's <b>Changes</b> view to see what moved.</p>
+        <p>Entries name both a <b>persona</b> and a <b>coding tool</b>, so the pipeline can play to strengths: Claude for the refactor, Codex for the tests, the local model for the bulk edits that never need to leave the building.</p>
+        <p class="note"><b>Honest fine print:</b> Automate is a conveyor, not a judge. Completion reports, including failed-tests reports, advance the queue. Questions need your attention. The milestone prompt is configurable and can be disabled. Review the milestone prompt in Settings before pointing it at a folder with unrelated edits.</p>
+      </div>
+      <div class="f-media rise">
+        <div class="mk glow">
+          <div class="mk-bar"><i></i><i></i><i></i><span>pipeline · fleet-dashboard</span><span class="sp"></span><span class="led g"></span><span>automating 2 / 4</span></div>
+          <div class="mk-body">
+            <div class="li"><span class="ck y"></span><div class="grow"><div class="t">Add CSV import to the log viewer</div><div class="s">Hannibal · claude · workstation</div></div><span class="tag-s b">committed</span></div>
+            <div class="li run"><span class="ck y"></span><div class="grow"><div class="t">Regression tests for the parser</div><div class="s">Faceman · codex · workstation — "41 of 60 written"</div></div><span class="tag-s g"><span class="led g"></span>running</span></div>
+            <div class="li"><span class="ck y"></span><div class="grow"><div class="t">Port the settings page to the new layout</div><div class="s">BA Baracus · ai2code · workstation</div></div><span class="tag-s">queued</span></div>
+            <div class="li"><span class="ck y"></span><div class="grow"><div class="t">Update the user guide screenshots</div><div class="s">Mad Murdoch · grok · workstation</div></div><span class="tag-s">queued</span></div>
+            <div class="li"><span class="ck"></span><div class="grow"><div class="t">Fix empty search results crash</div><div class="s">saved by Faceman while testing</div></div><span class="tag-s o">backlog</span></div>
+            <div class="li"><span class="ck"></span><div class="grow"><div class="t">↻ Update dependencies, run the full suite</div><div class="s">every 1440 min · next run 02:00</div></div><span class="tag-s c">interval</span></div>
+            <div style="display:flex;gap:8px;margin-top:12px"><span class="mbtn">▶ Automate</span><span class="mbtn ghost">Stop</span><span class="mbtn ghost">New</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="spec-grid three rise">
+      <div class="spec-card"><h4 class="red">Agents feed the queue</h4><p>An agent that trips over a bug outside its assignment calls <code>add_pipeline_item</code> with the evidence and repro steps. It lands in the Pipeline, unticked, for you to approve &mdash; instead of the agent wandering off-task or forgetting it.</p></div>
+      <div class="spec-card"><h4 class="red">Recurring tasks</h4><p>Give an entry an interval and it becomes a scheduled job: dependency sweeps, nightly test runs, a daily docs check. Runs never overlap in a project, missed intervals do not pile up, and it keeps working with the window closed.</p></div>
+      <div class="spec-card"><h4 class="red">Any machine</h4><p>Manual runs can target another reachable machine. Automate and recurring tasks run on the project's owning machine; you can edit and control that queue remotely. Linked project folders stay on their owners.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="block" id="team">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">// agent chat &amp; personas</span>
+      <h2>Not ten terminals. A team.</h2>
+      <p>Give agents names, faces and jobs, put them in one room, and something useful happens: you start delegating instead of typing.</p>
+    </div>
+
+    <div class="feature reverse rise">
+      <div class="f-text">
+        <span class="f-tag">// agent chat</span>
+        <h3>Ask Hannibal. He'll ask BA.</h3>
+        <p><b>Agent Chat</b> is the project's shared room. Send to everyone or click the faces you want. Say <i>"Hannibal, build the importer, verify it, then have BA document it"</i> and that is what happens: Hannibal does the work, messages BA Baracus through AI Squared, waits for the reply, and reports back to you.</p>
+        <p>These are your real project agents talking &mdash; not an agent quietly role-playing a helper inside its own head. Messages land in a saved inbox, reach idle agents as a prompt, and work <b>across linked machines</b>. Sending to a stopped teammate starts it.</p>
+        <p>A small face appears under a message when a teammate has read it. No "acknowledged!" chatter, no wasted turns. The face row on top is the whole team's status at a glance: gray for stopped, red for idle or attention, orange for questions, green for working, and blue for done.</p>
+        <ul class="f-list"><li><b>All agents</b> or pick faces</li><li>Agent ↔ agent</li><li>Across machines</li><li>Read receipts</li><li>Clickable file links</li><li>Spoken replies</li></ul>
+      </div>
+      <div class="f-media rise">
+        <div class="mk glow">
+          <div class="mk-bar"><i></i><i></i><i></i><span>agent chat · fleet-dashboard</span><span class="sp"></span><span>TTS on</span></div>
+          <div class="mk-body">
+            <div class="facerow"><span class="face g f-hannibal"></span><span class="face r f-faceman"></span><span class="face g f-ba"></span><span class="face b f-murdoch"></span><span class="face f-smith"></span><span class="face g f-j5"></span></div>
+            <div class="msg me"><span class="face f-you"></span><div class="bub"><span class="who">You → Hannibal</span>Build the CSV importer, verify it, then have BA document it.<div class="rc"><span class="face sm f-hannibal"></span></div></div></div>
+            <div class="msg"><span class="face g f-hannibal"></span><div class="bub"><span class="who">Hannibal → BA Baracus</span>Importer is in src/import/, 14 tests pass. Please write docs/import.md and reply here.<div class="rc"><span class="face sm f-ba"></span></div></div></div>
+            <div class="msg"><span class="face g f-ba"></span><div class="bub"><span class="who">BA Baracus on build-box → Hannibal</span>docs/import.md is written, with three worked examples.</div></div>
+            <div class="msg"><span class="face b f-hannibal"></span><div class="bub"><span class="who">Hannibal → You</span>Done. Importer built, verified and documented. I love it when a plan comes together.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature rise">
+      <div class="f-text">
+        <span class="f-tag">// agent personas</span>
+        <h3>A face, a role, a skill file, a voice.</h3>
+        <p>A persona is a small folder: a picture, a tagline, a default coding tool, a <code>persona.md</code> that sets how the agent behaves and a <code>skill.md</code> that says what it is good at. That text is handed to the agent when it starts &mdash; so each agent starts with instructions for its role.</p>
+        <p>The built-in team is ready to go. Duplicate it and edit, or let an agent build a new group for you from a folder of photos. Your own <b>user persona</b> gives agents your name and puts your picture on your messages.</p>
+        <p>And they can talk. Assign each persona a voice &mdash; a system voice, or one <b>cloned from a few seconds of audio</b> by the built-in speech engine, running entirely on your machine. Questions and completions are read aloud in character, which turns out to be the fastest status display there is.</p>
+        <ul class="f-list"><li>persona.md</li><li>skill.md</li><li>Default coding tool</li><li>Voice cloning, local</li><li>Teams from photos</li></ul>
+      </div>
+      <div class="f-media rise">
+        <div class="frame glow-red"><img loading="lazy" decoding="async" src="assets/ai2-team.webp" alt="A team of friendly white robots flying in formation" style="aspect-ratio:1/1"></div>
+      </div>
+    </div>
+
+    <div class="persona-row rise">
+      <div class="persona"><img loading="lazy" src="assets/portraits/hannibal.webp" alt="Hannibal persona portrait"><h4>Hannibal</h4><q>I love it when a plan comes together</q></div>
+      <div class="persona"><img loading="lazy" src="assets/portraits/faceman.webp" alt="Faceman persona portrait"><h4>Faceman</h4><q>My slop is beautiful UX</q></div>
+      <div class="persona"><img loading="lazy" src="assets/portraits/mad-murdoch.webp" alt="Mad Murdoch persona portrait"><h4>Mad Murdoch</h4><q>I am crazy enough to do anything</q></div>
+      <div class="persona"><img loading="lazy" src="assets/portraits/ba-baracus.webp" alt="BA Baracus persona portrait"><h4>BA Baracus</h4><q>I pity the fool with bugs</q></div>
+      <div class="persona"><img loading="lazy" src="assets/portraits/agent-smith.webp" alt="Agent Smith persona portrait"><h4>Agent Smith</h4><q>I'm inevitable, but not yet</q></div>
+    </div>
+  </div>
+</section>
+
+<!-- MORE -->
+<section class="block specs" id="more">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">// also in the box</span>
+      <h2>The parts you find on day two.</h2>
+      <p>None of these is the headline. Two of them &mdash; the screenshot tool and recordings &mdash; you will end up using every day.</p>
+    </div>
+
+    <div class="feature rise">
+      <div class="f-text">
+        <span class="f-tag">// the screenshot tool</span>
+        <h3>Show it. Don't describe it.</h3>
+        <p>The first version of a GUI is the easy part. The real work is the chiseling: <i>that</i> button is two pixels low, <i>this</i> panel is too cramped, <i>those</i> labels do not line up. Try saying that in words and you will type a paragraph and still be misunderstood.</p>
+        <p>So every agent toolbar has a <b>Screenshot</b> button. AI Squared steps out of the way, you drag a box around the exact thing you mean, and the picture is saved with its path already on your clipboard. Paste it into the terminal, add five words &mdash; <i>"line these up"</i> &mdash; and the agent is looking at precisely what you are looking at.</p>
+        <p>It is the single most useful habit for polishing an interface: point, paste, fix, repeat. And it works in the other direction too &mdash; agents can take their own screenshots of the app they just built, so they check their work before telling you it is done.</p>
+        <ul class="f-list"><li><b>Drag</b> a region</li><li>Path on the clipboard</li><li>Paste into the terminal</li><li>Screenshot viewer</li><li>Agents can look too</li></ul>
+      </div>
+      <div class="f-media rise">
+        <div class="mk glow">
+          <div class="mk-bar"><i></i><i></i><i></i><span>the app your agent built</span></div>
+          <div class="mk-body">
+            <div class="shotapp">
+              <div class="sa-row"><span class="sa-lab">Baud rate</span><span class="sa-field"></span></div>
+              <div class="sa-row"><span class="sa-lab">Channel</span><span class="sa-field"></span></div>
+              <div class="sa-row off"><span class="sa-lab">Filter</span><span class="sa-field"></span><span class="sa-btn">Apply</span></div>
+              <div class="sa-sel"><span>412 × 96</span></div>
+            </div>
+            <div class="term" style="border-top:1px solid var(--line);border-radius:8px;margin-top:12px">
+              <span class="dim">&gt;</span> <span class="c">Pictures/AISquared/capture-1432.png</span><br>
+              <span class="dim">&gt;</span> the Apply button sits lower than the Filter field. line them up.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature reverse rise">
+      <div class="f-text">
+        <span class="f-tag">// recordings</span>
+        <h3>A time-lapse of the whole session. With you in it.</h3>
+        <p>Press <b>Record</b> on an agent and AI Squared keeps a snapshot every second. Afterwards, <b>Make video</b> turns hours of work into a short MP4: the terminal beside Agent Chat, an elapsed-time counter, and &mdash; if you switch it on &mdash; <b>your webcam in the corner</b>.</p>
+        <p>The webcam is what makes it watchable. A terminal scrolling by is a log; a terminal with a person reacting to it is a story you can show a customer, a team, or a conference room.</p>
+        <p>The edit is done for you. Idle stretches are skipped, the video slows down around each prompt you typed so it can be read, the agent's own screenshots pop up as it takes them, and every file path is blurred. Pick a length and the recording is sped up to fit.</p>
+        <ul class="f-list"><li><b>Webcam</b> picture-in-picture</li><li>Idle time skipped</li><li>Prompts highlighted</li><li>Paths blurred</li><li>720p / 1080p</li></ul>
+      </div>
+      <div class="f-media rise">
+        <div class="mk">
+          <div class="mk-bar"><span class="led r"></span><span>rec · 02:14:36 · 135× · skipping idle time</span></div>
+          <div class="mk-body">
+            <div class="recmock">
+              <div class="rm-term"><div class="ln" style="width:70%"></div><div class="ln hi" style="width:48%"></div><div class="ln" style="width:82%"></div><div class="ln" style="width:55%"></div><div class="ln" style="width:66%"></div><div class="ln hi" style="width:38%"></div><div class="rm-card">"make the toolbar icons bigger"</div></div>
+              <div class="rm-chat"><div class="msg"><span class="face sm g f-hannibal"></span><div class="bub">Toolbar updated, 32px icons.</div></div><div class="msg"><span class="face sm b f-ba"></span><div class="bub">Docs match.</div></div>
+                <div class="rm-cam"><span class="rm-head"></span><span class="rm-body"></span><em>webcam</em></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="spec-grid three rise">
+      <div class="spec-card"><h4>Changes</h4><p>See every file an agent touched since <b style="color:var(--text)">its session began</b> &mdash; a diff per file, picture previews for images. Work that was already in the folder is not blamed on the new run, and committing mid-session does not hide anything.</p></div>
+      <div class="spec-card"><h4>Launch app</h4><p>When an agent finishes a build it registers the result, and a green <b style="color:var(--text)">Launch app</b> button appears on its toolbar. One click runs what that agent built &mdash; even from another worktree.</p></div>
+      <div class="spec-card"><h4>Status</h4><p>Every report and every question from every agent in the project lands in one panel. Answer a pending question right there, or jump to the terminal that asked it.</p></div>
+      <div class="spec-card"><h4>Agents that can see</h4><p>With screenshots allowed, an agent can list the screens and windows and capture the app it just launched &mdash; so "the dialog looks right" is something it checked, not something it assumed.</p></div>
+      <div class="spec-card"><h4>Keeps running</h4><p>Close the window and everything carries on in the tray: agents, chat hand-offs, pipelines, schedules. Reopen to the same live terminals and half-typed drafts.</p></div>
+      <div class="spec-card"><h4>Attention, spoken</h4><p>A question or a failed test run can be announced out loud, from a shuffled list of phrases you can edit. You stop polling the screen and start listening for your name.</p></div>
+      <div class="spec-card"><h4>Online tools for local models</h4><p>Web search, page reading, current library docs, public code search and your own read-only MCP servers &mdash; available to ai2code and Johnny Five, switchable one by one.</p></div>
+      <div class="spec-card"><h4>Docs &amp; history</h4><p>Markdown opens in a built-in Documents view, tables and all. Prompt history, saved transcripts and chat history survive restarts. Help is one F1 away.</p></div>
+      <div class="spec-card"><h4>Native, not a web page</h4><p>C++20, SDL3 and Dear ImGui from one source tree for Windows, macOS, Linux and Android. Themes and UI scaling are built in, and it extracts from a ZIP &mdash; no installer, no build tools.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECS -->
+<section class="block" id="specs" style="padding-top:20px">
+  <div class="wrap">
+    <div class="spec-grid rise">
+      <div class="spec-card"><h4>Platforms</h4><dl>
+        <dt>Windows</dt><dd>x64 with AVX2 · the most tested platform · CPU or NVIDIA CUDA speech package</dd>
+        <dt>macOS</dt><dd>Apple Silicon (arm64), macOS 26 or newer</dd>
+        <dt>Linux</dt><dd>x86-64 desktop, glibc 2.38 or newer</dd>
+        <dt>Android</dt><dd>Remote client, built from source</dd>
+      </dl></div>
+      <div class="spec-card"><h4>You bring</h4><dl>
+        <dt>Agent CLIs</dt><dd>Installed and signed in separately, with your own accounts</dd>
+        <dt>Git</dt><dd>For branch, worktree and Changes snapshots</dd>
+        <dt>llama.cpp</dt><dd>llama-server for local models; GGUF files download in-app</dd>
+        <dt>App runtime</dt><dd>No Python or Node needed for the app itself; your agent CLIs and projects may need their own runtimes and build tools</dd>
+      </dl></div>
+      <div class="spec-card"><h4>Network</h4><dl>
+        <dt>Peers</dt><dd>TCP 11437, mutually authenticated TLS with EC J-PAKE</dd>
+        <dt>Discovery</dt><dd>UDP 11438, anonymous markers only</dd>
+        <dt>MCP</dt><dd>Loopback only, a private address per launch</dd>
+        <dt>Model API</dt><dd>Loopback, OpenAI-compatible, optional</dd>
+      </dl></div>
+      <div class="spec-card"><h4>Good to know</h4><dl>
+        <dt>Files</dt><dd>Linking machines does not sync source. Use Git</dd>
+        <dt>Permissions</dt><dd>Agents run with your user account's permissions</dd>
+        <dt>Reboots</dt><dd>Background sessions do not survive a reboot</dd>
+        <dt>Versions</dt><dd>Update both ends for remote features</dd>
+      </dl></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final" id="download">
+  <div class="wrap">
+    <span class="eyebrow">// get it</span>
+    <h2>One seat. Every agent.<br>Every machine.</h2>
+    <p>Extract the ZIP, launch, and add a project. Choose an installed agent CLI or configure a model, then press Start. AI Squared gives your agents somewhere to work together.</p>
+    <div class="hero-cta">
+      <a href="https://git.intrepidcs.net/intrepid/aisquared/-/releases" target="_blank" rel="noopener" class="btn btn-primary">View releases →</a>
+      <a href="#video" class="btn btn-ghost">Watch the video</a>
+    </div>
+    <p class="cta-note">Windows 0.2.11 · macOS 0.2.10 · Linux 0.2.2 · features vary by package · sign-in required</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div>© <span id="yr">2026</span> Intrepid Control Systems · AiSquared Controller</div>
+    <div class="foot-links">
+      <a href="#why">Why</a><a href="#pipeline">Pipeline</a><a href="#team">Agent Chat</a><a href="https://freewili.com/" target="_blank" rel="noopener">FREE-WILi</a>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:14px;font-size:.76rem">Claude Code, Codex and Grok are products of their respective owners; their marks identify compatible tools and do not imply endorsement. Interface panels on this page are illustrations.</div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview" aria-hidden="true"><button class="lb-close" aria-label="Close">×</button><img alt=""></div>
+
+<script src="mocks.js"></script>
+<script src="site.js"></script>
+</body>
+</html>
