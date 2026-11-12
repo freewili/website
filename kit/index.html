@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<!-- Hidden page: FREE-WILi kit sign-out for hackathons (opened from the QR on the FREE-WILi table, freewili.com/kit/?e=<code>).
-     Not linked from the site and not indexed. The form talks to the WILi Control Room server, which assigns the kit
-     and records the loan. -->
+<!-- FREE-WILi kit sign-out (hidden page, opened from the QR on the FREE-WILi table). Not linked from the site and not
+     indexed. The form's questions come from the WILi Control Room server (GET <api><code>/info), which also assigns
+     the kit and records the loan. The same file is served at freewili.com/kit/ and by the Control Room server. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -14,24 +14,40 @@
   :root { color-scheme: dark; }
   * { box-sizing: border-box; }
   body { margin: 0; background: #121111; color: #FFFFFF; font: 16px/1.5 'IBM Plex Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
-  main { max-width: 460px; margin: 0 auto; padding: 28px 20px 48px; }
+  main { max-width: 520px; margin: 0 auto; padding: 28px 20px 56px; }
   .brand { font: 700 13px 'Chakra Petch', Arial, sans-serif; letter-spacing: .18em; color: #EF393E; text-transform: uppercase; }
   h1 { font: 700 26px/1.2 'Chakra Petch', 'Trebuchet MS', Arial, sans-serif; margin: 6px 0 10px; }
+  h2 { font: 700 15px 'Chakra Petch', Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; color: #9C9393; margin: 8px 0 0; }
   .lead { color: #D9D4D4; margin: 0 0 18px; }
-  .fine { color: #9C9393; font-size: 13px; }
+  .fine { color: #9C9393; font-size: 13px; margin: 0; }
   form { display: flex; flex-direction: column; gap: 14px; }
   label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 14px; }
-  label i { font-weight: 400; color: #9C9393; }
-  input { font: inherit; color: #FFFFFF; background: #1F1D1D; border: 1px solid #3A3636; border-radius: 10px; padding: 12px 14px; }
-  input:focus { outline: 2px solid #EF393E; border-color: transparent; }
-  .agree { flex-direction: row; align-items: flex-start; gap: 10px; font-weight: 400; color: #D9D4D4; }
+  label small { font-weight: 400; color: #9C9393; }
+  input, textarea { font: inherit; color: #FFFFFF; background: #1F1D1D; border: 1px solid #3A3636; border-radius: 10px; padding: 12px 14px; }
+  textarea { min-height: 96px; resize: vertical; }
+  input:focus, textarea:focus { outline: 2px solid #EF393E; border-color: transparent; }
+  .box { background: #1B1A1A; border: 1px solid #2B2828; border-radius: 12px; padding: 14px 16px; }
+  .box ul { margin: 6px 0 0; padding-left: 20px; color: #D9D4D4; }
+  .opt { flex-direction: row; align-items: flex-start; gap: 12px; font-weight: 400; padding: 12px 14px; border: 1px solid #3A3636; border-radius: 10px; cursor: pointer; }
+  .opt input { width: 22px; height: 22px; margin-top: 1px; accent-color: #EF393E; flex: none; }
+  .opt b { display: block; }
+  .opt span { color: #9C9393; font-size: 13.5px; }
+  .opt.gone { opacity: .55; cursor: not-allowed; }
+  .opt.gone em { color: #FF8A8D; font-style: normal; font-size: 13.5px; display: block; }
+  .agree { flex-direction: row; align-items: flex-start; gap: 12px; font-weight: 400; color: #D9D4D4; }
   .agree input { width: 22px; height: 22px; margin-top: 2px; accent-color: #EF393E; flex: none; }
-  button { font: 700 17px 'Chakra Petch', Arial, sans-serif; letter-spacing: .04em; color: #FFFFFF; background: #EF393E; border: 0; border-radius: 10px; padding: 15px; cursor: pointer; }
-  button:disabled { opacity: .6; }
+  .sig { position: relative; background: #FFFFFF; border-radius: 10px; height: 170px; touch-action: none; }
+  .sig canvas { width: 100%; height: 100%; display: block; border-radius: 10px; cursor: crosshair; }
+  .sig .ph { position: absolute; left: 14px; bottom: 12px; color: #9C9393; font-size: 13px; pointer-events: none; }
+  .sigrow { display: flex; justify-content: space-between; align-items: center; }
+  .link { background: none; border: 0; color: #EF393E; font: 600 14px 'IBM Plex Sans', Arial, sans-serif; padding: 0; cursor: pointer; }
+  button.go { font: 700 17px 'Chakra Petch', Arial, sans-serif; letter-spacing: .04em; color: #FFFFFF; background: #EF393E; border: 0; border-radius: 10px; padding: 15px; cursor: pointer; }
+  button.go:disabled { opacity: .6; }
   .err { color: #FF8A8D; margin: 0; }
   .hp { position: absolute; left: -9999px; width: 1px; height: 1px; }
   .kit { font: 700 64px/1 'Chakra Petch', Arial, sans-serif; color: #EF393E; text-align: center; padding: 26px 0; border: 2px solid #EF393E; border-radius: 16px; margin: 8px 0 14px; letter-spacing: .04em; }
   #ok { text-align: center; }
+  #ok ul { text-align: left; display: inline-block; margin: 0 0 14px; color: #D9D4D4; }
   [hidden] { display: none !important; }
 </style>
 </head>
@@ -40,61 +56,126 @@
   <div class="brand">FREE-WILi</div>
   <h1 id="title">Borrow a FREE-WILi kit</h1>
   <p class="lead" id="msg">Loading…</p>
-  <form id="f" hidden novalidate>
-    <label>Your name<input name="name" required autocomplete="name" maxlength="80"></label>
-    <label>Email<input name="email" type="email" required autocomplete="email" maxlength="120"></label>
-    <label>Phone<input name="phone" type="tel" required autocomplete="tel" maxlength="30"></label>
-    <label>School or organization <i>(optional)</i><input name="school" autocomplete="organization" maxlength="80"></label>
-    <label>Team or project <i>(optional)</i><input name="team" maxlength="80"></label>
-    <label>Discord or GitHub <i>(optional)</i><input name="handle" maxlength="60"></label>
-    <input name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-    <label class="agree"><input type="checkbox" name="agree" required> <span>I’ll return the kit by <b id="due">the end of the event</b> in the condition I got it, and FREE-WILi may contact me about it if it’s lost or damaged.</span></label>
-    <button type="submit">Get my kit</button>
-    <p class="err" id="err" hidden></p>
-    <p class="fine">Your details are only used to get the kit back to FREE-WILi.</p>
-  </form>
+  <form id="f" hidden novalidate></form>
   <div id="ok" hidden>
     <p class="lead">Show this at the FREE-WILi table</p>
     <div class="kit" id="kit"></div>
     <p class="lead" id="who"></p>
-    <p class="fine">Please return it by <span id="due2">the end of the event</span>. Have fun building!</p>
+    <div id="extras"></div>
+    <p class="fine">Please return the complete kit at the end of the event, or when you leave. Have fun building!</p>
   </div>
 </main>
 <script>
 (function () {
-  var API = 'https://34-63-217-136.sslip.io/control/kit/';
-  var code = (new URLSearchParams(location.search).get('e') || '').replace(/[^A-Za-z0-9_-]/g, '');
+  var API = '__API__'.indexOf('__') === 0 ? 'https://34-63-217-136.sslip.io/control/kit/' : '__API__';
+  var CODE = ('__CODE__'.indexOf('__') === 0 ? '' : '__CODE__') || (new URLSearchParams(location.search).get('e') || '').replace(/[^A-Za-z0-9_-]/g, '');
   var $ = function (id) { return document.getElementById(id); };
-  var f = $('f'), err = $('err'), msg = $('msg');
+  var el = function (tag, attrs, kids) { var n = document.createElement(tag); for (var k in (attrs || {})) { if (k === 'text') n.textContent = attrs[k]; else n.setAttribute(k, attrs[k]); } (kids || []).forEach(function (c) { if (c) n.appendChild(typeof c === 'string' ? document.createTextNode(c) : c); }); return n; };
+  var f = $('f'), msg = $('msg');
   var say = function (t) { msg.textContent = t; msg.hidden = false; };
-  if (code.length < 16) { say('This sign-out link isn’t complete. Scan the QR at the FREE-WILi table again.'); return; }
-  fetch(API + code + '/info', { cache: 'no-store' }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); }).then(function (x) {
+  if (CODE.length < 16) { say('This sign-out link isn’t complete. Scan the QR at the FREE-WILi table again.'); return; }
+  var def = null, pad = null;
+
+  fetch(API + CODE + '/info', { cache: 'no-store' }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); }).then(function (x) {
     if (!x.ok) return say(x.j.error || 'This sign-out link isn’t active. Ask someone at the FREE-WILi table.');
-    if (x.j.title) { $('title').textContent = x.j.title; document.title = x.j.title + ' · FREE-WILi'; }
-    if (x.j.due) { $('due').textContent = x.j.due; $('due2').textContent = x.j.due; }
-    if (!x.j.open) return say('Kit sign-out is closed right now. Ask someone at the FREE-WILi table.');
-    if (x.j.free === 0) return say('All kits are out right now. Ask someone at the FREE-WILi table. One may be back soon.');
-    say('Borrow a FREE-WILi OG kit to build with. Fill this in, then show your screen at the FREE-WILi table to get your kit.');
-    f.hidden = false;
+    def = x.j;
+    if (def.title) { $('title').textContent = def.title; document.title = def.title + ' · FREE-WILi'; }
+    if (def.problem) return say(def.problem);
+    if (!def.open) return say('Kit sign-out is closed right now. Ask someone at the FREE-WILi table.');
+    if (def.free === 0) return say('All kits are out right now. Ask someone at the FREE-WILi table. One may be back soon.');
+    say(def.intro); build();
   }).catch(function () { say('Couldn’t load the sign-out form. Check your connection, or ask someone at the FREE-WILi table.'); });
 
-  f.addEventListener('submit', function (e) {
-    e.preventDefault(); err.hidden = true;
-    var d = {}; new FormData(f).forEach(function (v, k) { d[k] = v; }); d.agree = f.agree.checked;
-    if (!String(d.name).trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email) || String(d.phone).replace(/\D/g, '').length < 7 || !d.agree) {
-      err.textContent = 'Please add your name, a valid email, your phone number, and tick the box.'; err.hidden = false; return;
+  function build() {
+    def.fields.forEach(function (fd) {
+      var input = fd.type === 'textarea' ? el('textarea', { name: fd.name, maxlength: fd.max, required: '' }) : el('input', { name: fd.name, type: fd.type, maxlength: fd.max, required: '', autocomplete: fd.auto || 'off' });
+      f.appendChild(el('label', {}, [fd.label, fd.hint ? el('small', { text: fd.hint }) : null, input]));
+    });
+    f.appendChild(el('div', { class: 'box' }, [el('b', { text: 'Every kit includes' }), el('ul', {}, def.contents.map(function (c) { return el('li', { text: c }); }))]));
+    if (def.addons.length) {
+      f.appendChild(el('h2', { text: 'Optional add-ons' }));
+      f.appendChild(el('p', { class: 'fine', text: 'Tick any you need for your project. They’re lent with your kit and returned with it.' }));
+      def.addons.forEach(function (a) {
+        var box = el('input', { type: 'checkbox', name: 'addon', value: a.id });
+        var gone = a.left < 1;
+        if (gone) box.disabled = true;
+        f.appendChild(el('label', { class: 'opt' + (gone ? ' gone' : ''), 'data-addon': a.id }, [box, el('div', {}, [el('b', { text: a.name }), el('span', { text: a.desc }), gone ? el('em', { text: a.brought === false ? 'Not available at this event.' : 'All of these have been checked out.' }) : null])]));
+      });
     }
-    var b = f.querySelector('button'); b.disabled = true; b.textContent = 'Getting your kit…';
-    fetch(API + code, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(d) })
-      .then(function (r) { return r.json().then(function (j) { if (!r.ok) throw new Error(j.error || 'Something went wrong'); return j; }); })
-      .then(function (j) {
-        f.hidden = true; msg.hidden = true;
-        $('kit').textContent = j.kit;
-        $('who').textContent = j.again ? 'You already have this kit, ' + j.name + '.' : 'Your kit, ' + j.name + '.';
-        $('ok').hidden = false; window.scrollTo(0, 0);
-      })
-      .catch(function (x) { err.textContent = x.message; err.hidden = false; b.disabled = false; b.textContent = 'Get my kit'; });
-  });
+    f.appendChild(el('label', {}, ['Anything else you need?', el('small', { text: 'Optional' }), el('textarea', { name: 'other', maxlength: 300, style: 'min-height:64px' })]));
+    var file = el('input', { type: 'file', name: 'resume', accept: def.resume.accept });
+    f.appendChild(el('label', {}, ['Resume', el('small', { text: 'Optional · PDF or Word, up to ' + def.resume.maxMB + ' MB. Shared with the FREE-WILi team.' }), file]));
+    f.appendChild(el('input', { name: 'website', class: 'hp', tabindex: '-1', autocomplete: 'off', 'aria-hidden': 'true' }));
+    f.appendChild(el('h2', { text: 'Return policy' }));
+    f.appendChild(el('label', { class: 'agree' }, [el('input', { type: 'checkbox', name: 'ack', required: '' }), el('span', { text: def.ack })]));
+    // Signature: drawn with a finger or mouse.
+    var canvas = el('canvas', { 'aria-label': 'Signature pad' });
+    var wrap = el('div', { class: 'sig' }, [canvas, el('span', { class: 'ph', text: 'Sign here with your finger' })]);
+    f.appendChild(el('div', {}, [el('div', { class: 'sigrow' }, [el('b', { text: 'Signature', style: 'font-size:14px' }), el('button', { type: 'button', class: 'link', text: 'Clear' })]), wrap]));
+    var phEl = wrap.querySelector('.ph');
+    var err = el('p', { class: 'err', hidden: '' });
+    f.appendChild(el('button', { type: 'submit', class: 'go', text: 'Get my kit' }));
+    f.appendChild(err);
+    f.appendChild(el('p', { class: 'fine', text: 'Your details are only used to manage this loan and get the kit back to FREE-WILi.' }));
+    f.hidden = false;
+    // The pad is sized once it's on screen (a hidden canvas has no width), and again if the screen size changes.
+    pad = signaturePad(canvas, phEl);
+    f.querySelector('.sigrow .link').addEventListener('click', pad.clear);
+    f.addEventListener('submit', function (e) { e.preventDefault(); submit(err, file); });
+  }
+
+  function signaturePad(c, ph) {
+    var ctx, drawing = false, strokes = 0, last = null;
+    function size() { var r = c.getBoundingClientRect(), d = window.devicePixelRatio || 1; c.width = r.width * d; c.height = r.height * d; ctx = c.getContext('2d'); ctx.scale(d, d); ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, r.width, r.height); ctx.lineWidth = 2.4; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.strokeStyle = '#121111'; strokes = 0; ph.hidden = false; }
+    size();
+    var lastW = c.getBoundingClientRect().width;
+    window.addEventListener('resize', function () { var w = c.getBoundingClientRect().width; if (Math.abs(w - lastW) > 2) { lastW = w; size(); } });
+    var pt = function (e) { var r = c.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; };
+    c.addEventListener('pointerdown', function (e) { e.preventDefault(); drawing = true; last = pt(e); try { c.setPointerCapture(e.pointerId); } catch (x) { /* fine without */ } ph.hidden = true; ctx.beginPath(); ctx.arc(last.x, last.y, 1.1, 0, Math.PI * 2); ctx.fillStyle = '#121111'; ctx.fill(); });
+    c.addEventListener('pointermove', function (e) { if (!drawing) return; var p = pt(e); ctx.beginPath(); ctx.moveTo(last.x, last.y); ctx.lineTo(p.x, p.y); ctx.stroke(); last = p; strokes++; });
+    var end = function () { drawing = false; };
+    c.addEventListener('pointerup', end); c.addEventListener('pointercancel', end);
+    return { clear: size, empty: function () { return strokes < 8; }, png: function () { return c.toDataURL('image/png'); } };
+  }
+
+  function submit(err, file) {
+    err.hidden = true;
+    // Read fields by name through form.elements (form.name would be the form's own name, not the input).
+    var fe = function (n) { return f.elements.namedItem(n); };
+    var d = {}; def.fields.forEach(function (fd) { d[fd.name] = fe(fd.name).value.trim(); });
+    d.other = fe('other').value.trim(); d.website = fe('website').value; d.ack = fe('ack').checked;
+    d.addons = [].slice.call(f.querySelectorAll('input[name=addon]:checked')).map(function (x) { return x.value; });
+    var miss = def.fields.filter(function (fd) { return !d[fd.name]; }).map(function (fd) { return fd.label; });
+    var fail = function (t) { err.textContent = t; err.hidden = false; err.scrollIntoView({ block: 'center' }); };
+    if (miss.length) return fail('Please fill in: ' + miss.join(', ') + '.');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) return fail('Please check your email address.');
+    if (!d.ack) return fail('Please tick the return policy.');
+    if (pad.empty()) return fail('Please sign in the box.');
+    d.signature = pad.png();
+    var b = f.querySelector('button.go'); b.disabled = true; b.textContent = 'Getting your kit…';
+    var send = function () {
+      fetch(API + CODE, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(d) })
+        .then(function (r) { return r.json().then(function (j) { if (!r.ok) { var e = new Error(j.error || 'Something went wrong'); e.gone = j.gone; throw e; } return j; }); })
+        .then(function (j) {
+          f.hidden = true; msg.hidden = true;
+          $('kit').textContent = j.kit;
+          $('who').textContent = j.again ? 'You already have this kit, ' + j.name + '.' : 'Your kit, ' + j.name + '.';
+          if (j.addons && j.addons.length) $('extras').appendChild(el('div', {}, [el('p', { class: 'lead', text: 'Also pick up:' }), el('ul', {}, j.addons.map(function (a) { return el('li', { text: a }); }))]));
+          $('ok').hidden = false; window.scrollTo(0, 0);
+        })
+        .catch(function (x) {
+          (x.gone || []).forEach(function (id) { var o = f.querySelector('[data-addon="' + id + '"]'); if (o) { o.classList.add('gone'); var cb = o.querySelector('input'); cb.checked = false; cb.disabled = true; if (!o.querySelector('em')) o.querySelector('div').appendChild(el('em', { text: 'All of these have been checked out.' })); } });
+          fail(x.message); b.disabled = false; b.textContent = 'Get my kit';
+        });
+    };
+    var fileObj = file.files && file.files[0];
+    if (!fileObj) return send();
+    if (fileObj.size > def.resume.maxMB * 1048576) { b.disabled = false; b.textContent = 'Get my kit'; return fail('Your resume needs to be under ' + def.resume.maxMB + ' MB.'); }
+    var rd = new FileReader();
+    rd.onload = function () { d.resume = { name: fileObj.name, type: fileObj.type, b64: String(rd.result).split(',')[1] }; send(); };
+    rd.onerror = function () { b.disabled = false; b.textContent = 'Get my kit'; fail('Couldn’t read that file. Try again, or skip the resume.'); };
+    rd.readAsDataURL(fileObj);
+  }
 })();
 </script>
 </body>
