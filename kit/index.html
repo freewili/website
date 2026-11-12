@@ -58,7 +58,7 @@
   <p class="lead" id="msg">Loading…</p>
   <form id="f" hidden novalidate></form>
   <div id="ok" hidden>
-    <p class="lead">Show this at the FREE-WILi table</p>
+    <p class="lead">Reserved for you. Show this at the FREE-WILi table to pick it up.</p>
     <div class="kit" id="kit"></div>
     <p class="lead" id="who"></p>
     <div id="extras"></div>
@@ -159,7 +159,7 @@
         .then(function (j) {
           f.hidden = true; msg.hidden = true;
           $('kit').textContent = j.kit;
-          $('who').textContent = j.again ? 'You already have this kit, ' + j.name + '.' : 'Your kit, ' + j.name + '.';
+          $('who').textContent = j.again ? 'You already have this kit, ' + j.name + '.' : 'Your kit is reserved, ' + j.name + '.';
           if (j.addons && j.addons.length) $('extras').appendChild(el('div', {}, [el('p', { class: 'lead', text: 'Also pick up:' }), el('ul', {}, j.addons.map(function (a) { return el('li', { text: a }); }))]));
           $('ok').hidden = false; window.scrollTo(0, 0);
         })
