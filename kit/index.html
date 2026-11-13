@@ -105,6 +105,7 @@
     f.appendChild(el('label', {}, ['Anything else you need?', el('small', { text: 'Optional' }), el('textarea', { name: 'other', maxlength: 300, style: 'min-height:64px' })]));
     var file = el('input', { type: 'file', name: 'resume', accept: def.resume.accept });
     f.appendChild(el('label', {}, ['Resume', el('small', { text: 'Optional · PDF or Word, up to ' + def.resume.maxMB + ' MB. Shared with the FREE-WILi team.' }), file]));
+    if (def.optIn) f.appendChild(el('label', { class: 'agree' }, [el('input', { type: 'checkbox', name: 'optIn' }), el('span', { text: def.optIn })]));
     f.appendChild(el('input', { name: 'website', class: 'hp', tabindex: '-1', autocomplete: 'off', 'aria-hidden': 'true' }));
     f.appendChild(el('h2', { text: 'Return policy' }));
     f.appendChild(el('label', { class: 'agree' }, [el('input', { type: 'checkbox', name: 'ack', required: '' }), el('span', { text: def.ack })]));
@@ -116,7 +117,7 @@
     var err = el('p', { class: 'err', hidden: '' });
     f.appendChild(el('button', { type: 'submit', class: 'go', text: 'Get my kit' }));
     f.appendChild(err);
-    f.appendChild(el('p', { class: 'fine', text: 'Your details are only used to manage this loan and get the kit back to FREE-WILi.' }));
+    f.appendChild(el('p', { class: 'fine', text: 'Your details are used to manage this loan and get the kit back to FREE-WILi. We only email you news if you tick the box above.' }));
     f.hidden = false;
     // The pad is sized once it's on screen (a hidden canvas has no width), and again if the screen size changes.
     pad = signaturePad(canvas, phEl);
@@ -143,7 +144,7 @@
     // Read fields by name through form.elements (form.name would be the form's own name, not the input).
     var fe = function (n) { return f.elements.namedItem(n); };
     var d = {}; def.fields.forEach(function (fd) { d[fd.name] = fe(fd.name).value.trim(); });
-    d.other = fe('other').value.trim(); d.website = fe('website').value; d.ack = fe('ack').checked;
+    d.other = fe('other').value.trim(); d.website = fe('website').value; d.ack = fe('ack').checked; d.optIn = !!(fe('optIn') && fe('optIn').checked);
     d.addons = [].slice.call(f.querySelectorAll('input[name=addon]:checked')).map(function (x) { return x.value; });
     var miss = def.fields.filter(function (fd) { return !d[fd.name]; }).map(function (fd) { return fd.label; });
     var fail = function (t) { err.textContent = t; err.hidden = false; err.scrollIntoView({ block: 'center' }); };
