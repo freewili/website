@@ -275,9 +275,9 @@
     // 02 Your kit: what's in the box, then optional add-ons.
     var kit = [el('ul', { class: 'incl' }, def.contents.map(function (c, j) { return el('li', { text: c, class: j === def.contents.length - 1 && def.contents.length % 2 ? 'wide' : '' }); }))];
     if (def.addons.length) {
-      kit.push(el('div', { class: 'sec-h', style: 'margin-top:4px' }, [el('h2', { text: 'Add-on Orcas', style: 'font-size:15px' }), el('small', { text: 'Optional' })]));
+      kit.push(el('div', { class: 'sec-h', style: 'margin-top:4px' }, [el('h2', { text: 'Add-on Orcas & modules', style: 'font-size:15px' }), el('small', { text: 'Optional' })]));
       kit.push(el('p', { class: 'sub', style: 'margin-top:-8px', text: 'Tick any you need for your project. They’re lent with your kit and returned with it.' }));
-      kit.push(el('div', { class: 'limited', html: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF393E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>Limited supply.</b> Add-on Orcas are first come, first served. The counts update live as people check them out.</span>' }));
+      kit.push(el('div', { class: 'limited', html: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF393E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>Limited supply.</b> Add-ons are first come, first served. The counts update live as people check them out.</span>' }));
       kit.push(el('div', { class: 'opts' }, def.addons.map(function (a) {
         var box = el('input', { type: 'checkbox', name: 'addon', value: a.id });
         var gone = a.left < 1;
