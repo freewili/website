@@ -9,6 +9,8 @@
 .ai{color:var(--ai)}
 .hero{overflow-x:clip}
 .hero .title-logo{width:min(560px,82vw)}
+.cta-note a{color:var(--ai);text-underline-offset:.2em}
+.cta-note a:hover{color:var(--text)}
 .logo-img{height:40px}
 html{scroll-padding-top:90px}
 body.menu-open,body.lightbox-open{overflow:hidden}
