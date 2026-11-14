@@ -111,6 +111,11 @@
   .opt.gone b { color: var(--slate); }
   .opt.gone .left { display: none; }
   .opt.gone em { display: block; margin-top: 5px; font: 600 13px var(--body); font-style: normal; color: var(--red); }
+  /* All lent out: still tickable, to join the waitlist. */
+  .opt.wait { border-style: dashed; }
+  .opt.wait.on { border-style: solid; }
+  .opt.wait em { display: block; margin-top: 5px; font: 600 13px var(--body); font-style: normal; color: var(--w-80); }
+  .opt.wait .left { color: var(--red); border-color: var(--red); }
 
   /* Resume picker */
   .file { position: relative; display: flex; align-items: center; gap: 12px; padding: 14px; border: 1.5px dashed var(--s-50); border-radius: 12px; cursor: pointer; transition: border-color .15s, background .15s; }
@@ -156,6 +161,8 @@
   .ticket ul { list-style: none; padding: 0; margin: 14px 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
   .ticket li { font-size: 13px; border: 1px solid var(--s-30); border-radius: 999px; padding: 4px 11px; color: var(--w-80); }
   .ticket .also { font: 600 11px var(--display); letter-spacing: .2em; text-transform: uppercase; color: var(--slate); margin: 16px 0 0; }
+  .ticket li.wl { border-style: dashed; border-color: var(--red-50); }
+  .ticket .wlnote { font-size: 13px; color: var(--w-80); margin: 10px auto 0; max-width: 34em; }
   .next { display: grid; gap: 8px; }
   .next div { display: flex; gap: 12px; align-items: center; padding: 12px 14px; border: 1px solid var(--w-10); border-radius: 12px; background: var(--w-03); font-size: 14.5px; color: var(--w-80); }
   .next b { font: 700 16px var(--display); color: var(--red); }
@@ -239,17 +246,17 @@
   function stock(card, a, first) {
     var b = card.querySelector('.left'), box = card.querySelector('input');
     if (!b) return;
-    var was = card.getAttribute('data-left');
-    b.textContent = a.left + (a.total ? ' of ' + a.total : '') + ' left';
+    var was = card.getAttribute('data-left'), none = a.brought === false || !a.total, wait = !none && a.left < 1;
+    b.textContent = wait ? 'Waitlist' + (a.waiting ? ' · ' + a.waiting + ' waiting' : '') : a.left + ' of ' + a.total + ' left';
     b.classList.toggle('low', a.left > 0 && a.left <= 2);
     if (!first && was !== null && +was !== a.left) { b.classList.add('bump'); setTimeout(function () { b.classList.remove('bump'); }, 900); }
     card.setAttribute('data-left', a.left);
-    if (a.left < 1 && !card.classList.contains('gone')) {
-      card.classList.add('gone'); card.classList.remove('on'); box.checked = false; box.disabled = true;
-      if (!card.querySelector('em')) card.querySelector('div').appendChild(el('em', { text: a.brought === false ? 'Not available at this event' : 'All of these have been checked out.' }));
-    } else if (a.left > 0 && card.classList.contains('gone')) {
-      card.classList.remove('gone'); box.disabled = false; var em = card.querySelector('em'); if (em) em.remove();
-    }
+    // Not brought: can't be picked. All lent out: tick it to join the waitlist (a tick made earlier stays, and now means that).
+    card.classList.toggle('gone', none); card.classList.toggle('wait', wait);
+    box.disabled = none; if (none) { box.checked = false; card.classList.remove('on'); }
+    var em = card.querySelector('em'), say = none ? 'Not available at this event' : wait ? 'All checked out. Tick to join the waitlist: if one comes back, you’re in line for it.' : '';
+    if (!say && em) em.remove();
+    else if (say) { if (!em) { em = el('em'); card.querySelector('div').appendChild(em); } em.textContent = say; }
   }
   var refreshing = false;
   function refresh() {
@@ -277,12 +284,10 @@
     if (def.addons.length) {
       kit.push(el('div', { class: 'sec-h', style: 'margin-top:4px' }, [el('h2', { text: 'Add-on Orcas & modules', style: 'font-size:15px' }), el('small', { text: 'Optional' })]));
       kit.push(el('p', { class: 'sub', style: 'margin-top:-8px', text: 'Tick any you need for your project. They’re lent with your kit and returned with it.' }));
-      kit.push(el('div', { class: 'limited', html: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF393E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>Limited supply.</b> Add-ons are first come, first served. The counts update live as people check them out.</span>' }));
+      kit.push(el('div', { class: 'limited', html: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF393E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>Limited supply.</b> Add-ons are first come, first served. The counts update live as people check them out. If one runs out, you still get your kit and go on the waitlist for it.</span>' }));
       kit.push(el('div', { class: 'opts' }, def.addons.map(function (a) {
         var box = el('input', { type: 'checkbox', name: 'addon', value: a.id });
-        var gone = a.left < 1;
-        if (gone) box.disabled = true;
-        var card = el('label', { class: 'opt' + (gone ? ' gone' : ''), 'data-addon': a.id }, [box, el('div', {}, [el('span', { class: 'left' }), el('b', { text: a.name }), el('span', { text: a.desc }), gone ? el('em', { text: a.brought === false ? 'Not available at this event' : 'All of these have been checked out.' }) : null])]);
+        var card = el('label', { class: 'opt', 'data-addon': a.id }, [box, el('div', {}, [el('span', { class: 'left' }), el('b', { text: a.name }), el('span', { text: a.desc })])]);
         stock(card, a, true);
         box.addEventListener('change', function () { card.classList.toggle('on', box.checked); });
         return card;
@@ -370,6 +375,11 @@
           var first = String(j.name || '').split(' ')[0];
           $('who').textContent = j.again ? 'You already have this kit, ' + first + '.' : 'It’s yours for the event, ' + first + '.';
           if (j.addons && j.addons.length) { $('extras').appendChild(el('p', { class: 'also', text: 'Also pick up' })); $('extras').appendChild(el('ul', {}, j.addons.map(function (a) { return el('li', { text: a }); }))); }
+          if (j.waitlist && j.waitlist.length) {
+            $('extras').appendChild(el('p', { class: 'also', text: 'On the waitlist' }));
+            $('extras').appendChild(el('ul', {}, j.waitlist.map(function (a) { return el('li', { class: 'wl', text: a }); })));
+            $('extras').appendChild(el('p', { class: 'wlnote', text: 'None ' + (j.waitlist.length === 1 ? 'was' : 'were') + ' free when you signed out, so you’re in line, first come first served. If one comes back, the FREE-WILi table will hand it to you.' }));
+          }
           $('ok').hidden = false; window.scrollTo(0, 0);
         })
         .catch(function (x) {
