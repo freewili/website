@@ -111,11 +111,13 @@
   .opt.gone b { color: var(--slate); }
   .opt.gone .left { display: none; }
   .opt.gone em { display: block; margin-top: 5px; font: 600 13px var(--body); font-style: normal; color: var(--red); }
-  /* All lent out: still tickable, to join the waitlist. */
-  .opt.wait { border-style: dashed; }
-  .opt.wait.on { border-style: solid; }
-  .opt.wait em { display: block; margin-top: 5px; font: 600 13px var(--body); font-style: normal; color: var(--w-80); }
+  /* All lent out right now: can't be picked; an optional "email me" tick sits under the card. */
+  .opt.wait { cursor: default; border-style: dashed; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+  .opt.wait b { color: var(--w-80); }
+  .opt.wait em { display: block; margin-top: 5px; font: 500 13px var(--body); font-style: normal; color: var(--w-80); }
   .opt.wait .left { color: var(--red); border-color: var(--red); }
+  .ntf { display: flex; gap: 10px; align-items: center; margin-top: -11px; padding: 10px 14px; border: 1px dashed var(--s-30); border-top: 0; border-radius: 0 0 12px 12px; font-size: 13.5px; color: var(--white); cursor: pointer; }
+  .ntf input { width: 18px; height: 18px; accent-color: var(--red); flex: none; margin: 0; }
 
   /* Resume picker */
   .file { position: relative; display: flex; align-items: center; gap: 12px; padding: 14px; border: 1.5px dashed var(--s-50); border-radius: 12px; cursor: pointer; transition: border-color .15s, background .15s; }
@@ -161,8 +163,14 @@
   .ticket ul { list-style: none; padding: 0; margin: 14px 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
   .ticket li { font-size: 13px; border: 1px solid var(--s-30); border-radius: 999px; padding: 4px 11px; color: var(--w-80); }
   .ticket .also { font: 600 11px var(--display); letter-spacing: .2em; text-transform: uppercase; color: var(--slate); margin: 16px 0 0; }
-  .ticket li.wl { border-style: dashed; border-color: var(--red-50); }
-  .ticket .wlnote { font-size: 13px; color: var(--w-80); margin: 10px auto 0; max-width: 34em; }
+  .soon { margin-top: 14px; display: grid; gap: 8px; }
+  .soon h3 { font: 600 11px var(--display); letter-spacing: .2em; text-transform: uppercase; color: var(--slate); margin: 6px 0 0; text-align: center; }
+  .soon .ntf { margin: 0; border: 1px solid var(--s-30); border-radius: 12px; justify-content: space-between; text-align: left; }
+  .soon .ntf span b { display: block; font: 600 15px var(--display); }
+  .freenow { background: var(--red); color: var(--white); border-radius: 12px; padding: 12px 14px; font-weight: 600; text-align: left; animation: pulse 1.6s ease-in-out 3; }
+  @keyframes pulse { 50% { box-shadow: 0 0 0 8px var(--red-25); } }
+  .tnote { font-size: 13px; color: var(--w-80); margin: 4px auto 0; max-width: 34em; }
+  .again { display: block; margin: 14px auto 0; background: none; border: 0; color: var(--slate); text-decoration: underline; font: 500 13px var(--body); cursor: pointer; }
   .next { display: grid; gap: 8px; }
   .next div { display: flex; gap: 12px; align-items: center; padding: 12px 14px; border: 1px solid var(--w-10); border-radius: 12px; background: var(--w-03); font-size: 14.5px; color: var(--w-80); }
   .next b { font: 700 16px var(--display); color: var(--red); }
@@ -224,7 +232,15 @@
   if (CODE.length < 16) { say('This sign-out link isn’t complete. Scan the QR at the FREE-WILi table again.'); return; }
   var def = null, pad = null;
 
-  fetch(API + CODE + '/info', { cache: 'no-store' }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); }).then(function (x) {
+  var urlKey = (new URLSearchParams(location.search).get('k') || '').replace(/[^A-Za-z0-9_-]/g, '');
+  if (urlKey) { try { localStorage.setItem('kitloan:' + CODE, urlKey); } catch (e) { /* fine */ } }
+  var known = urlKey || (function () { try { return localStorage.getItem('kitloan:' + CODE) || ''; } catch (e) { return ''; } })();
+  (known ? fetch(API + CODE + '/me?k=' + encodeURIComponent(known), { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }) : Promise.resolve(null)).then(function (j) {
+    if (j) { ticket(j); return null; }
+    if (known) { try { localStorage.removeItem('kitloan:' + CODE); } catch (e) { /* fine */ } }
+    return fetch(API + CODE + '/info', { cache: 'no-store' }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); });
+  }).then(function (x) {
+    if (!x) return;
     if (!x.ok) return say(x.j.error || 'This sign-out link isn’t active. Ask someone at the FREE-WILi table.');
     def = x.j;
     if (def.title) document.title = def.title + ' · FREE-WILi';
@@ -247,14 +263,16 @@
     var b = card.querySelector('.left'), box = card.querySelector('input');
     if (!b) return;
     var was = card.getAttribute('data-left'), none = a.brought === false || !a.total, wait = !none && a.left < 1;
-    b.textContent = wait ? 'Waitlist' + (a.waiting ? ' · ' + a.waiting + ' waiting' : '') : a.left + ' of ' + a.total + ' left';
+    b.textContent = wait ? 'All out' : a.left + ' of ' + a.total + ' left';
     b.classList.toggle('low', a.left > 0 && a.left <= 2);
     if (!first && was !== null && +was !== a.left) { b.classList.add('bump'); setTimeout(function () { b.classList.remove('bump'); }, 900); }
     card.setAttribute('data-left', a.left);
-    // Not brought: can't be picked. All lent out: tick it to join the waitlist (a tick made earlier stays, and now means that).
+    // Not brought: can't be picked. All lent out: can't be picked either; check with the team later, or tick "Email me".
     card.classList.toggle('gone', none); card.classList.toggle('wait', wait);
-    box.disabled = none; if (none) { box.checked = false; card.classList.remove('on'); }
-    var em = card.querySelector('em'), say = none ? 'Not available at this event' : wait ? 'All checked out. Tick to join the waitlist: if one comes back, you’re in line for it.' : '';
+    box.disabled = none || wait; if (none || wait) { box.checked = false; card.classList.remove('on'); }
+    if (wait && !card._ntf) { card._ntf = el('label', { class: 'ntf' }, [el('input', { type: 'checkbox', name: 'notify', value: a.id }), 'Email me if one comes back (optional)']); card.parentNode && card.parentNode.insertBefore(card._ntf, card.nextSibling); }
+    if (!wait && card._ntf) { card._ntf.remove(); card._ntf = null; }
+    var em = card.querySelector('em'), say = none ? 'Not available at this event' : wait ? 'All checked out right now. Check in with the FREE-WILi team later: someone may have returned one.' : '';
     if (!say && em) em.remove();
     else if (say) { if (!em) { em = el('em'); card.querySelector('div').appendChild(em); } em.textContent = say; }
   }
@@ -268,6 +286,51 @@
   }
   setInterval(refresh, 15000);
   document.addEventListener('visibilitychange', refresh);
+
+  // ---------- The reserved screen ----------
+  // The phone remembers this sign-out (and the "See your kit sign-out" link in the email carries it), so reopening the
+  // page shows the kit again, with which sold-out add-ons are free right now.
+  var KEY = 'kitloan:' + CODE, me = null, poll = 0;
+  var store = { get: function () { try { return localStorage.getItem(KEY) || ''; } catch (e) { return ''; } }, set: function (v) { try { if (v) localStorage.setItem(KEY, v); else localStorage.removeItem(KEY); } catch (e) { /* private mode */ } } };
+  function ticket(j) {
+    me = j; if (j.key) store.set(j.key);
+    f.hidden = true; msg.hidden = true; document.querySelector('.hero').hidden = true;
+    $('kit').textContent = j.kit;
+    var first = String(j.name || '').split(' ')[0];
+    $('ok').querySelector('.pill').textContent = j.status === 'Reserved' ? 'Reserved' : j.status === 'Checked out' ? 'Checked out' : j.status || 'Reserved';
+    $('who').textContent = j.status && j.status !== 'Reserved' && j.status !== 'Checked out' ? 'This kit is ' + j.status.toLowerCase() + ', ' + first + '.' : j.again ? 'You already have this kit, ' + first + '.' : 'It’s yours for the event, ' + first + '.';
+    var x = $('extras'); x.replaceChildren();
+    (j.freeNow || []).forEach(function (a) { x.appendChild(el('p', { class: 'freenow', text: 'A ' + a + ' is free right now. Head to the FREE-WILi table with your kit. First come, first served.' })); });
+    if (j.addons && j.addons.length) { x.appendChild(el('p', { class: 'also', text: 'Also pick up' })); x.appendChild(el('ul', {}, j.addons.map(function (a) { return el('li', { text: a }); }))); }
+    if (j.missed && j.missed.length) x.appendChild(el('p', { class: 'tnote', text: j.missed.join(', ') + (j.missed.length === 1 ? ' was' : ' were') + ' checked out just before your sign-out went through. Check in with the FREE-WILi team later: someone may have returned one.' }));
+    // Sold-out add-ons: they can ask for an email, and this screen also says when one is free.
+    var held = j.status === 'Reserved' || j.status === 'Checked out' || j.status === 'Out';
+    var wantable = held && j.key ? (j.soldOut || []).concat(j.notify || []).filter(function (a, i, all) { return all.indexOf(a) === i; }) : [];
+    if (wantable.length) {
+      var soon = el('div', { class: 'soon' }, [el('h3', { text: 'Sold-out add-ons' })]);
+      wantable.forEach(function (a) {
+        var on = (j.notify || []).indexOf(a) >= 0, cb = el('input', { type: 'checkbox' }); cb.checked = on;
+        cb.addEventListener('change', function () {
+          cb.disabled = true;
+          fetch(API + CODE + '/notify', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ k: store.get(), addon: a, on: cb.checked }) })
+            .then(function (r) { return r.json().then(function (k) { if (!r.ok) throw new Error(k.error); return k; }); }).then(function (k) { ticket(k); })
+            .catch(function (e) { cb.checked = !cb.checked; cb.disabled = false; alert(e.message || 'Couldn’t save that. Try again.'); });
+        });
+        soon.appendChild(el('label', { class: 'ntf' }, [el('span', {}, [el('b', { text: a }), on ? 'We’ll email you if one comes back' : 'Email me if one comes back']), cb]));
+      });
+      x.appendChild(soon);
+      if ((j.notify || []).length) x.appendChild(el('p', { class: 'tnote', text: 'We’ll email ' + (j.email || 'you') + ' from FREE-WILi. Check your junk or spam folder too, and keep this page: it also shows here when one is free. Or just check in with the FREE-WILi team.' }));
+      else x.appendChild(el('p', { class: 'tnote', text: 'Check in with the FREE-WILi team later: someone may have returned one.' }));
+    }
+    x.appendChild(el('button', { class: 'again', type: 'button', text: 'Not you? Start a new sign-out', onclick: function () { store.set(''); location.href = location.pathname + '?e=' + encodeURIComponent(CODE); } }));
+    $('ok').hidden = false;
+    clearInterval(poll); if (j.key && held) poll = setInterval(refreshMe, 30000);
+  }
+  function refreshMe() {
+    if (document.hidden || !store.get()) return;
+    fetch(API + CODE + '/me?k=' + encodeURIComponent(store.get()), { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (j) { if (j) ticket(j); }).catch(function () { /* next time */ });
+  }
+  document.addEventListener('visibilitychange', function () { if (me) refreshMe(); });
 
   function build() {
     // 01 About you: side-by-side pairs (first and last name) share a row.
@@ -284,14 +347,14 @@
     if (def.addons.length) {
       kit.push(el('div', { class: 'sec-h', style: 'margin-top:4px' }, [el('h2', { text: 'Add-on Orcas & modules', style: 'font-size:15px' }), el('small', { text: 'Optional' })]));
       kit.push(el('p', { class: 'sub', style: 'margin-top:-8px', text: 'Tick any you need for your project. They’re lent with your kit and returned with it.' }));
-      kit.push(el('div', { class: 'limited', html: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF393E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>Limited supply.</b> Add-ons are first come, first served. The counts update live as people check them out. If one runs out, you still get your kit and go on the waitlist for it.</span>' }));
-      kit.push(el('div', { class: 'opts' }, def.addons.map(function (a) {
+      kit.push(el('div', { class: 'limited', html: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF393E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>Limited supply.</b> Add-ons are first come, first served. The counts update live as people check them out. If one runs out, you still get your kit: check with the FREE-WILi team later, or tick “Email me” on it.</span>' }));
+      kit.push(el('div', { class: 'opts' }, [].concat.apply([], def.addons.map(function (a) {
         var box = el('input', { type: 'checkbox', name: 'addon', value: a.id });
         var card = el('label', { class: 'opt', 'data-addon': a.id }, [box, el('div', {}, [el('span', { class: 'left' }), el('b', { text: a.name }), el('span', { text: a.desc })])]);
         stock(card, a, true);
         box.addEventListener('change', function () { card.classList.toggle('on', box.checked); });
-        return card;
-      })));
+        return card._ntf ? [card, card._ntf] : [card];
+      }))));
     }
     kit.push(el('label', { class: 'f', style: 'margin-top:4px' }, ['Anything else you need?', el('small', { text: 'Optional' }), el('textarea', { name: 'other', maxlength: 300, style: 'min-height:64px', placeholder: 'Cables, a specific antenna, help getting started…' })]));
     f.appendChild(sec(num(), 'Your kit', null, kit));
@@ -355,6 +418,7 @@
     var d = {}; def.fields.forEach(function (fd) { d[fd.name] = fe(fd.name).value.trim(); });
     d.other = fe('other').value.trim(); d.website = fe('website').value; d.ack = fe('ack').checked; d.optIn = !!(fe('optIn') && fe('optIn').checked);
     d.addons = [].slice.call(f.querySelectorAll('input[name=addon]:checked')).map(function (x) { return x.value; });
+    d.notify = [].slice.call(f.querySelectorAll('input[name=notify]:checked')).map(function (x) { return x.value; });
     var miss = def.fields.filter(function (fd) { return !d[fd.name]; }).map(function (fd) { return fd.label; });
     var fail = function (t) { err.textContent = t; err.hidden = false; err.scrollIntoView({ block: 'center', behavior: 'smooth' }); };
     if (miss.length) return fail('Please fill in: ' + miss.join(', ') + '.');
@@ -368,20 +432,7 @@
     var send = function () {
       fetch(API + CODE, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(d) })
         .then(function (r) { return r.json().then(function (j) { if (!r.ok) { var e = new Error(j.error || 'Something went wrong'); e.gone = j.gone; throw e; } return j; }); })
-        .then(function (j) {
-          f.hidden = true; msg.hidden = true;
-          document.querySelector('.hero').hidden = true;
-          $('kit').textContent = j.kit;
-          var first = String(j.name || '').split(' ')[0];
-          $('who').textContent = j.again ? 'You already have this kit, ' + first + '.' : 'It’s yours for the event, ' + first + '.';
-          if (j.addons && j.addons.length) { $('extras').appendChild(el('p', { class: 'also', text: 'Also pick up' })); $('extras').appendChild(el('ul', {}, j.addons.map(function (a) { return el('li', { text: a }); }))); }
-          if (j.waitlist && j.waitlist.length) {
-            $('extras').appendChild(el('p', { class: 'also', text: 'On the waitlist' }));
-            $('extras').appendChild(el('ul', {}, j.waitlist.map(function (a) { return el('li', { class: 'wl', text: a }); })));
-            $('extras').appendChild(el('p', { class: 'wlnote', text: 'None ' + (j.waitlist.length === 1 ? 'was' : 'were') + ' free when you signed out, so you’re in line, first come first served. If one comes back, the FREE-WILi table will hand it to you.' }));
-          }
-          $('ok').hidden = false; window.scrollTo(0, 0);
-        })
+        .then(function (j) { ticket(j); window.scrollTo(0, 0); })
         .catch(function (x) {
           (x.gone || []).forEach(function (id) { var o = f.querySelector('[data-addon="' + id + '"]'); if (o) { o.classList.add('gone'); o.classList.remove('on'); var cb = o.querySelector('input'); cb.checked = false; cb.disabled = true; if (!o.querySelector('em')) o.querySelector('div').appendChild(el('em', { text: 'All of these have been checked out.' })); } });
           fail(x.message); reset();
