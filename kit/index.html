@@ -132,6 +132,7 @@
   .resnote { font-size: 13.5px; color: var(--w-80); background: var(--w-03); border: 1px solid var(--w-06); border-radius: 10px; padding: 10px 12px; margin: -4px 0 0; }
   .agree { display: flex; gap: 12px; align-items: flex-start; font-size: 14.5px; color: var(--w-80); cursor: pointer; }
   .policy { background: var(--w-03); border: 1px solid var(--w-06); border-radius: 12px; padding: 13px 14px; }
+  .policy .pt { display: block; font: 600 12px var(--display); letter-spacing: .14em; text-transform: uppercase; color: var(--white); margin-bottom: 4px; }
 
   /* Signature */
   .sigrow { display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-weight: 500; color: var(--w-80); }
@@ -371,13 +372,16 @@
       el('div', { class: 'file' }, [file, ic, el('div', { class: 't' }, [fname, fhint]), fclear]),
     ]));
 
-    // 04 Return policy and signature.
+    // 04 Loan agreement: each statement ticked on its own (all required), then the signature.
     var canvas = el('canvas', { 'aria-label': 'Signature pad' });
     var wrap = el('div', { class: 'sig' }, [canvas, el('span', { class: 'ph', text: 'Sign here with your finger' })]);
-    f.appendChild(sec(num(), 'Return policy', null, [
-      el('label', { class: 'agree policy' }, [el('input', { type: 'checkbox', name: 'ack', required: '' }), el('span', { text: def.ack })]),
-      el('div', {}, [el('div', { class: 'sigrow' }, [el('span', { text: 'Signature' }), el('button', { type: 'button', class: 'link', text: 'Clear' })]), wrap]),
-    ]));
+    var terms = def.agreements && def.agreements.length
+      ? def.agreements.map(function (a) { return el('label', { class: 'agree policy' }, [el('input', { type: 'checkbox', name: 'agree_' + a.id, required: '' }), el('span', {}, [el('b', { class: 'pt', text: a.title }), a.text])]); })
+      : [el('label', { class: 'agree policy' }, [el('input', { type: 'checkbox', name: 'ack', required: '' }), el('span', { text: def.ack })])];
+    f.appendChild(sec(num(), 'Loan agreement', 'Required', terms.concat([
+      el('div', {}, [el('div', { class: 'sigrow' }, [el('span', { text: 'Signature' }), el('button', { type: 'button', class: 'link', text: 'Clear' })]), wrap,
+        el('p', { class: 'fine', style: 'margin-top:8px;text-align:left', text: 'By signing, I confirm that I have read and agree to the terms above.' })]),
+    ])));
 
     // Stay in the loop: optional and unticked.
     if (def.optIn) {
@@ -416,14 +420,18 @@
     // Read fields by name through form.elements (form.name would be the form's own name, not the input).
     var fe = function (n) { return f.elements.namedItem(n); };
     var d = {}; def.fields.forEach(function (fd) { d[fd.name] = fe(fd.name).value.trim(); });
-    d.other = fe('other').value.trim(); d.website = fe('website').value; d.ack = fe('ack').checked; d.optIn = !!(fe('optIn') && fe('optIn').checked);
+    d.other = fe('other').value.trim(); d.website = fe('website').value; d.ack = !!(fe('ack') && fe('ack').checked); d.optIn = !!(fe('optIn') && fe('optIn').checked);
     d.addons = [].slice.call(f.querySelectorAll('input[name=addon]:checked')).map(function (x) { return x.value; });
     d.notify = [].slice.call(f.querySelectorAll('input[name=notify]:checked')).map(function (x) { return x.value; });
     var miss = def.fields.filter(function (fd) { return !d[fd.name]; }).map(function (fd) { return fd.label; });
     var fail = function (t) { err.textContent = t; err.hidden = false; err.scrollIntoView({ block: 'center', behavior: 'smooth' }); };
     if (miss.length) return fail('Please fill in: ' + miss.join(', ') + '.');
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) return fail('Please check your email address.');
-    if (!d.ack) return fail('Please tick the return policy.');
+    if (def.agreements && def.agreements.length) {
+      d.agree = {}; def.agreements.forEach(function (a) { d.agree[a.id] = fe('agree_' + a.id).checked; });
+      if (d.agree.age === false) return fail('You must be 18 or older to borrow a kit. Please see a member of the FREE-WILi team.');
+      if (def.agreements.some(function (a) { return !d.agree[a.id]; })) return fail('Please tick each part of the loan agreement.');
+    } else if (!d.ack) return fail('Please tick the loan agreement.');
     if (pad.empty()) return fail('Please sign in the box.');
     d.signature = pad.png();
     var b = f.querySelector('button.go'), label = b.innerHTML;
