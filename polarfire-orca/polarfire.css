@@ -1,0 +1,9 @@
+/* PolarFire Orca proposal page, on top of fw.css and orca.css. */
+.hero h1.pitch{max-width:19ch}
+.tldr{list-style:none;counter-reset:t;margin:36px auto 0;padding:0;max-width:860px;display:grid;gap:10px}
+.tldr li{counter-increment:t;position:relative;background:var(--bg-2);border:1px solid var(--line);border-radius:12px;padding:16px 18px 16px 62px;color:var(--muted);font-size:1.02rem;line-height:1.55}
+.tldr li::before{content:"0" counter(t);position:absolute;left:18px;top:17px;font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;color:var(--red);font-weight:700}
+.tldr b{color:#fff;font-family:var(--display);font-weight:700}
+#tldr .note{max-width:860px;margin-left:auto;margin-right:auto}
+.bus-list.asks{max-width:860px;margin:36px auto 0}
+.frame.dgframe svg{max-width:560px;margin:0 auto}

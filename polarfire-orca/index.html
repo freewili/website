@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<title>PolarFire Orca — a proposal for FREE-WILi 2</title>
+<meta name="description" content="A proposal: an Orca module that puts a Microchip PolarFire FPGA on FREE-WILi 2, programmed from the SD card with no programmer pod.">
+<meta name="theme-color" content="#0a0a0b">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap"></noscript>
+<link rel="stylesheet" href="fw.css">
+<link rel="stylesheet" href="orca.css">
+<link rel="stylesheet" href="polarfire.css">
+<noscript><style>.rise{opacity:1;transform:none}#burger{display:none}</style></noscript>
+</head>
+<body>
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="https://freewili.com/" class="logo" aria-label="FREE-WILi — visit freewili.com">
+      <img class="logo-img" src="assets/FW_Full_Logo_WHT2.svg" alt="FREE-WILi">
+    </a>
+    <nav class="links" id="links">
+      <a href="#tldr">TL;DR</a>
+      <a href="#how">How it works</a>
+      <a href="#use">First use</a>
+      <a href="#notes">Design notes</a>
+      <a href="#plan">Plan</a>
+      <a href="#asks">Asks</a>
+    </nav>
+    <div class="nav-right-wrap">
+      <a href="#video" class="btn btn-ghost">Watch the video</a>
+      <a href="mailto:daverobins@intrepidcs.com?subject=PolarFire%20Orca" class="btn btn-primary">Let's talk</a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-controls="links" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="rise in" style="--d:0s"><a class="badge" href="#plan"><span class="dot"></span>PROPOSAL &middot; NOT BUILT YET</a></div>
+    <h1 class="pitch rise in" style="--d:.08s">A PolarFire FPGA Orca <em>for FREE-WILi 2.</em></h1>
+    <p class="tag rise in" style="--d:.16s"><b>An idea we would like to build with Microchip.</b> Put a PolarFire FPGA on an Orca module, and FREE-WILi 2 becomes a handheld way to load it, talk to it and debug it &mdash; with no programmer pod.</p>
+    <div class="hero-cta rise in" style="--d:.24s">
+      <a href="mailto:daverobins@intrepidcs.com?subject=PolarFire%20Orca" class="btn btn-primary">Let's talk →</a>
+      <a href="#tldr" class="btn btn-ghost">Read the TL;DR</a>
+    </div>
+    <figure class="hero-video rise in" style="--d:.34s" id="video">
+      <video aria-label="Narrated overview of Orcas, ending with the PolarFire Orca proposal" controls preload="metadata" poster="assets/video-poster.jpg" playsinline>
+        <source src="assets/polarfire-orca.mp4" type="video/mp4">
+        <track kind="captions" src="assets/polarfire-orca.vtt" srclang="en" label="English" default>
+        <p><a href="assets/polarfire-orca.mp4">Download the video</a> or <a href="assets/polarfire-orca.vtt">read the captions</a>.</p>
+      </video>
+      <figcaption>What an Orca is, then the PolarFire idea in the last minute (from 1:37).</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- TLDR -->
+<section class="block" id="tldr">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">// tl;dr</span>
+      <h2>How it would work as an Orca.</h2>
+    </div>
+    <ol class="tldr rise">
+      <li><b>The part.</b> A PolarFire MPF050T or MPF100T on an Orca that snaps onto FREE-WILi 2.</li>
+      <li><b>Loading.</b> FREE-WILi 2 programs the FPGA itself over SPI, streaming the Libero design file from its SD card. About 27 seconds, no programmer pod.</li>
+      <li><b>Talking to it.</b> After loading, the same SPI wires become a register bus, so scripts and the touchscreen talk straight to the design.</li>
+      <li><b>Debug.</b> Registers and a stream FIFO through FREE-WILi 2, its built-in logic analyzer on the header, and a standard JTAG header for SmartDebug.</li>
+      <li><b>Building designs.</b> Libero SoC in batch mode behind one command line: lint, simulate, build, load.</li>
+      <li><b>First use.</b> A 10BASE-T1S test bench, running beside a SAN DIEGO Orca as the reference.</li>
+    </ol>
+    <p class="note rise"><b>Status:</b> this is research and a plan. Nothing here has been built or tested on hardware.</p>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="block showcase" id="how">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">// how it works</span>
+      <h2>Three pictures.</h2>
+    </div>
+
+    <div class="feature rise">
+      <div class="f-text">
+        <span class="f-tag">// 1: what is on the board</span>
+        <h3>A PolarFire, and what it needs.</h3>
+        <p>The Orca carries the FPGA, three regulators fed from FREE-WILi 2's 5 V, a crystal oscillator, user IO headers and a JTAG header. An ID EEPROM tells the handheld what is plugged in.</p>
+        <p>The proposed package is the 0.8 mm-pitch <b>FCVG484</b>, which keeps the board buildable on six layers at ordinary PCB fabs.</p>
+      </div>
+      <figure class="f-media rise">
+        <div class="frame dgframe glow">
+        <svg class="dg" viewBox="0 0 480 380" role="img" aria-labelledby="pf-d1">
+          <title id="pf-d1">Block diagram: FREE-WILi 2 on the left connects through the Orca connector to the proposed PolarFire Orca, which holds the PolarFire FPGA, regulators, an oscillator, an ID EEPROM, a JTAG header, user IO and a T1S port.</title>
+          <rect class="body" x="12" y="70" width="168" height="250" rx="16"/>
+          <text class="t sm" x="96" y="104" text-anchor="middle">FREE-WILi 2</text>
+          <text class="s" x="96" y="150" text-anchor="middle">RP2350</text>
+          <text class="s" x="96" y="180" text-anchor="middle">SD card</text>
+          <text class="s" x="96" y="210" text-anchor="middle">touchscreen</text>
+          <text class="s" x="96" y="240" text-anchor="middle">logic analyzer</text>
+          <text class="s" x="96" y="270" text-anchor="middle">USB</text>
+          <rect class="conn g" x="176" y="150" width="34" height="90" rx="4"/>
+          <text class="lab g" x="240" y="24" text-anchor="middle">PROPOSED POLARFIRE ORCA</text>
+          <rect class="orca v" x="206" y="38" width="262" height="322" rx="14"/>
+          <rect class="chip" x="226" y="56" width="222" height="112" rx="8"/>
+          <text class="t sm" x="337" y="94" text-anchor="middle">PolarFire FPGA</text>
+          <text class="s" x="337" y="120" text-anchor="middle">MPF050T or MPF100T</text>
+          <text class="s" x="337" y="144" text-anchor="middle">FCVG484</text>
+          <rect class="box" x="226" y="184" width="106" height="44" rx="6"/><text class="s" x="279" y="211" text-anchor="middle">regulators</text>
+          <rect class="box" x="342" y="184" width="106" height="44" rx="6"/><text class="s" x="395" y="211" text-anchor="middle">oscillator</text>
+          <rect class="box" x="226" y="240" width="106" height="44" rx="6"/><text class="s" x="279" y="267" text-anchor="middle">ID EEPROM</text>
+          <rect class="conn r" x="342" y="240" width="106" height="44" rx="6"/><text class="s" x="395" y="267" text-anchor="middle">JTAG header</text>
+          <rect class="box" x="226" y="296" width="106" height="44" rx="6"/><text class="s" x="279" y="323" text-anchor="middle">user IO</text>
+          <rect class="box" x="342" y="296" width="106" height="44" rx="6"/><text class="s" x="395" y="323" text-anchor="middle">T1S port</text>
+        </svg></div>
+        <figcaption>What is on the Orca.</figcaption>
+      </figure>
+    </div>
+
+    <div class="feature reverse rise">
+      <div class="f-text">
+        <span class="f-tag">// 2: one set of wires, two jobs</span>
+        <h3>Load it, then talk to it.</h3>
+        <p><b>Load:</b> FREE-WILi 2 raises one pin to hand its SPI bus to the PolarFire's programming port, then streams the design file from the SD card. No FlashPro is needed to get a design running.</p>
+        <p><b>Run:</b> with that pin low, the same wires reach the fabric. One chip select is a register bus for control and readout; a second is handed to the design untouched as its own SPI port.</p>
+        <p>The design is stored in the FPGA's flash, so after a reset it is running again in a few milliseconds with no host involved.</p>
+      </div>
+      <figure class="f-media rise">
+        <div class="frame dgframe">
+        <svg class="dg" viewBox="0 0 480 400" role="img" aria-labelledby="pf-d2">
+          <title id="pf-d2">Diagram of two modes. Load: a design file on the SD card goes through FREE-WILi 2 over SPI into the FPGA's flash in about 27 seconds. Run: your scripts and the touchscreen talk through FREE-WILi 2 over the same wires to your design, as a register bus.</title>
+          <text class="lab r" x="20" y="24">1 &middot; LOAD</text>
+          <rect class="panel" x="12" y="36" width="456" height="150" rx="14"/>
+          <rect class="box" x="26" y="68" width="112" height="62" rx="8"/>
+          <text class="s" x="82" y="94" text-anchor="middle">SD card</text><text class="s" x="82" y="114" text-anchor="middle">design file</text>
+          <path class="wire r" d="M138 99 H176"/>
+          <rect class="body" x="176" y="68" width="124" height="62" rx="10"/>
+          <text class="t sm" x="238" y="105" text-anchor="middle">FREE-WILi 2</text>
+          <path class="wire r" d="M300 99 H340"/>
+          <text class="s r" x="320" y="88" text-anchor="middle">SPI</text>
+          <rect class="box hot" x="340" y="68" width="114" height="62" rx="8"/>
+          <text class="s" x="397" y="94" text-anchor="middle">FPGA</text><text class="s" x="397" y="114" text-anchor="middle">flash</text>
+          <text class="s" x="240" y="166" text-anchor="middle">about 27 s &middot; no programmer pod</text>
+          <text class="lab g" x="20" y="226">2 &middot; RUN</text>
+          <rect class="panel on" x="12" y="238" width="456" height="150" rx="14"/>
+          <rect class="box" x="26" y="270" width="112" height="62" rx="8"/>
+          <text class="s" x="82" y="296" text-anchor="middle">scripts</text><text class="s" x="82" y="316" text-anchor="middle">touchscreen</text>
+          <path class="wire g" d="M138 301 H176"/>
+          <rect class="body" x="176" y="270" width="124" height="62" rx="10"/>
+          <text class="t sm" x="238" y="307" text-anchor="middle">FREE-WILi 2</text>
+          <path class="harness" d="M300 301 H340"/>
+          <rect class="chip" x="340" y="270" width="114" height="62" rx="8"/>
+          <text class="s" x="397" y="296" text-anchor="middle">your</text><text class="s" x="397" y="316" text-anchor="middle">design</text>
+          <text class="s" x="240" y="368" text-anchor="middle">same wires &middot; now a register bus</text>
+        </svg></div>
+        <figcaption>Load, then run.</figcaption>
+      </figure>
+    </div>
+
+    <div class="feature rise">
+      <div class="f-text">
+        <span class="f-tag">// 3: building a design</span>
+        <h3>One command line around Libero.</h3>
+        <p>You write one module; a fixed shell supplies the pins, the register bus and the ID block. A small command-line tool runs Libero SoC in Tcl batch mode for synthesis, place and route, timing and bitstream export.</p>
+        <p>The same flow is written up for AI coding agents, the way the Orca templates are, so an agent can take a design from an idea to a loaded board.</p>
+      </div>
+      <figure class="f-media rise">
+        <div class="frame dgframe">
+        <svg class="dg" viewBox="0 0 480 300" role="img" aria-labelledby="pf-d3">
+          <title id="pf-d3">Flow diagram in six steps: new design, lint, simulate, build with Libero in batch mode, load from the SD card, then status, registers and streaming.</title>
+          <rect class="box" x="16" y="30" width="136" height="64" rx="8"/><text class="lab m" x="28" y="52">01</text><text class="s" x="84" y="76" text-anchor="middle">new design</text>
+          <rect class="box" x="172" y="30" width="136" height="64" rx="8"/><text class="lab m" x="184" y="52">02</text><text class="s" x="240" y="76" text-anchor="middle">lint</text>
+          <rect class="box" x="328" y="30" width="136" height="64" rx="8" style="stroke:var(--green)"/><text class="lab g" x="340" y="52">03</text><text class="s" x="396" y="76" text-anchor="middle">simulate</text>
+          <path class="wire g" d="M152 62 H172 M308 62 H328 M396 94 V150"/>
+          <rect class="box" x="328" y="150" width="136" height="64" rx="8" style="stroke:var(--ai)"/><text class="lab c" x="340" y="172">04</text><text class="s" x="396" y="196" text-anchor="middle">build &middot; Libero</text>
+          <rect class="box hot" x="172" y="150" width="136" height="64" rx="8"/><text class="lab r" x="184" y="172">05</text><text class="s" x="240" y="196" text-anchor="middle">load</text>
+          <rect class="box" x="16" y="150" width="136" height="64" rx="8"/><text class="lab m" x="28" y="172">06</text><text class="s" x="84" y="196" text-anchor="middle">talk to it</text>
+          <path class="wire g" d="M328 182 H308 M172 182 H152"/>
+          <text class="s" x="240" y="262" text-anchor="middle">simulate first: every load is a flash write</text>
+        </svg></div>
+        <figcaption>From a new design to a running one.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- FIRST USE -->
+<section class="block" id="use">
+  <div class="wrap">
+    <div class="feature rise" style="border-top:0">
+      <div class="f-text">
+        <span class="f-tag">// first use</span>
+        <h3>A 10BASE-T1S test bench.</h3>
+        <p>The first thing we would do with it: run a 10BASE-T1S core in the PolarFire and test it on a real bus, next to a FREE-WILi 2 with a SAN DIEGO Orca, which uses Microchip's LAN8651.</p>
+        <p>The Orca would present the same SPI interface as SAN DIEGO, so the T1S screens, counters and test tools FREE-WILi 2 already has work at both ends of the wire.</p>
+      </div>
+      <figure class="f-media rise">
+        <div class="frame dgframe">
+        <svg class="dg" viewBox="0 0 480 250" role="img" aria-labelledby="pf-d4">
+          <title id="pf-d4">Diagram: two FREE-WILi 2 handhelds on one 10BASE-T1S pair. The left one carries the PolarFire Orca and is under test; the right one carries a SAN DIEGO Orca and is the reference.</title>
+          <text class="lab r" x="107" y="34" text-anchor="middle">UNDER TEST</text>
+          <rect class="body" x="12" y="50" width="190" height="110" rx="14"/>
+          <text class="t sm" x="107" y="98" text-anchor="middle">FREE-WILi 2</text>
+          <text class="s" x="107" y="126" text-anchor="middle">+ PolarFire Orca</text>
+          <path class="harness" d="M202 105 H278"/>
+          <text class="s" x="240" y="90" text-anchor="middle">T1S pair</text>
+          <text class="lab g" x="373" y="34" text-anchor="middle">REFERENCE</text>
+          <rect class="body" x="278" y="50" width="190" height="110" rx="14"/>
+          <text class="t sm" x="373" y="98" text-anchor="middle">FREE-WILi 2</text>
+          <text class="s" x="373" y="126" text-anchor="middle">+ SAN DIEGO Orca</text>
+          <text class="s" x="240" y="212" text-anchor="middle">same screens and tools at both ends</text>
+        </svg></div>
+        <figcaption>The first test bench.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- NOTES -->
+<section class="block showcase" id="notes">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">// design notes</span>
+      <h2>Three things that shape the design.</h2>
+      <p>PolarFire is not a load-on-every-edit FPGA, and the plan is built around that.</p>
+    </div>
+    <ol class="steps rise">
+      <li><b>Every load is a flash write</b><span>The datasheet allows 1000 programming cycles at 0 to 85 &deg;C. So the flow simulates first, skips a load when the design is already there, and keeps a load counter on the Orca.</span></li>
+      <li><b>Loads take about 27 seconds</b><span>Typical for both proposed parts. Test controls are therefore registers you change live, not rebuilds.</span></li>
+      <li><b>The tools are Libero</b><span>Place and route and bitstream export are Libero-only, so users need Libero SoC and a licence. Whether the free Silver licence covers the chosen parts is the first thing to confirm.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- PLAN -->
+<section class="block" id="plan">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">// the plan</span>
+      <h2>Prove the risky parts first.</h2>
+      <p>Host programming and the batch build flow get proven on a bought development board before any PCB is drawn.</p>
+    </div>
+    <ol class="steps four rise">
+      <li><b>Paper checks</b><span>Licence coverage, power budget, part choice. Ends in a written go or no-go.</span></li>
+      <li><b>Spike on a dev board</b><span>FREE-WILi 2 programs a PolarFire from its SD card. Measure load time.</span></li>
+      <li><b>Orca hardware</b><span>Rev A board from the Orca template, then the shell, register bus and firmware support.</span></li>
+      <li><b>Open it up</b><span>A public board-support repository with example designs, documentation and agent guides.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ASKS -->
+<section class="block showcase" id="asks">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">// where microchip can help</span>
+      <h2>Four questions we could not answer alone.</h2>
+    </div>
+    <ul class="bus-list asks rise">
+      <li><i class="pin-dot pin-pwr"></i><b>Licence coverage</b><span>Does the free Libero Silver licence cover MPF050T and MPF100T in the FCVG484 package?</span></li>
+      <li><i class="pin-dot pin-t1l"></i><b>Programming code</b><span>What are the licence terms for SPI-DirectC if parts of it are reused in FREE-WILi 2 firmware?</span></li>
+      <li><i class="pin-dot pin-rs485"></i><b>One board, two parts</b><span>Can one FCVG484 footprint take both MPF050T and MPF100T?</span></li>
+      <li><i class="pin-dot pin-t1s"></i><b>A board for the spike</b><span>Which development board best exposes the SPI-slave programming pins for a first test?</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final" id="talk">
+  <div class="wrap">
+    <span class="eyebrow">// next step</span>
+    <h2>Let's build it together.</h2>
+    <p>If a PolarFire you can hold, load and debug from one handheld sounds useful, we would like to hear what you think.</p>
+    <div class="hero-cta">
+      <a href="mailto:daverobins@intrepidcs.com?subject=PolarFire%20Orca" class="btn btn-primary">Let's talk →</a>
+      <a href="https://freewili.com/why-orcas/" class="btn btn-ghost">What is an Orca?</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <a href="https://freewili.com/" class="logo" aria-label="FREE-WILi — visit freewili.com"><img class="logo-img" src="assets/FW_Full_Logo_WHT2.svg" alt="FREE-WILi"></a>
+    <div class="foot-links">
+      <a href="https://freewili.com/why-orcas/">Why Orcas</a><a href="https://github.com/freewili/fw2-orca-templates" target="_blank" rel="noopener">Orca templates</a>
+    </div>
+    <div>© <span id="yr">2026</span> FREE-WILi LLC</div>
+  </div>
+  <div class="wrap" style="margin-top:14px;font-size:.76rem">A proposal, not a product announcement. Figures come from Microchip's published PolarFire datasheet and programming guide. PolarFire, Libero, SmartDebug and FlashPro are trademarks of Microchip Technology Inc.</div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview" aria-hidden="true"><button class="lb-close" aria-label="Close">×</button><img alt=""></div>
+
+<script src="site.js"></script>
+</body>
+</html>
