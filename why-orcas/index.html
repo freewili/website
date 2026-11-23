@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js), same as the rest of freewili.com -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6LHBWVT7W"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag("js", new Date());
+gtag("config", "G-Q6LHBWVT7W");
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<title>Why Orcas — Snap-On Interfaces for FREE-WILi 2</title>
+<meta name="description" content="Orcas are expansion modules for FREE-WILi 2. An Orca can be anything: a network interface, a radio, or a board you design yourself from the open templates, with about 90% of the device already done.">
+<meta name="theme-color" content="#0a0a0b">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Why Orcas — Snap-On Interfaces for FREE-WILi 2">
+<meta property="og:description" content="One handheld. Snap on the interface the job needs. An Orca can be anything, including your own design.">
+<meta property="og:image" content="https://freewili.com/why-orcas/assets/video-poster.jpg">
+<meta property="og:url" content="https://freewili.com/why-orcas/">
+<link rel="canonical" href="https://freewili.com/why-orcas/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap"></noscript>
+<link rel="stylesheet" href="fw.css">
+<link rel="stylesheet" href="orca.css">
+<noscript><style>.rise{opacity:1;transform:none}#burger{display:none}</style></noscript>
+</head>
+<body>
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="https://freewili.com/" class="logo" aria-label="FREE-WILi — visit freewili.com">
+      <img class="logo-img" src="assets/FW_Full_Logo_WHT2.svg" alt="FREE-WILi">
+    </a>
+    <nav class="links" id="links">
+      <a href="#why">Why Orcas</a>
+      <a href="#attach">Attach</a>
+      <a href="#orcas">The Orcas</a>
+      <a href="#build">Build</a>
+      <a href="#example">Example</a>
+    </nav>
+    <div class="nav-right-wrap">
+      <a href="#video" class="btn btn-ghost">Watch the video</a>
+      <a href="https://freewili.com/explore-orcas.html" class="btn btn-primary">Explore the Orcas</a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-controls="links" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="rise in" style="--d:0s"><a class="badge" href="#orcas"><span class="dot"></span>ORCA MODULES FOR FREE-WILi 2</a></div>
+    <h1 class="pitch rise in" style="--d:.08s">Snap on the interface <em>the job needs.</em></h1>
+    <p class="tag rise in" style="--d:.16s"><b>Orcas are expansion modules for FREE-WILi 2, and an Orca can be anything.</b> A network interface, a radio, a sensor front end, or a board nobody has thought of yet. Each one adds the connector and circuit for a different job, while the handheld, its touchscreen and your scripts stay the same.</p>
+    <div class="hero-cta rise in" style="--d:.24s">
+      <a href="https://freewili.com/explore-orcas.html" class="btn btn-primary">Explore the Orcas →</a>
+      <a href="#build" class="btn btn-green">Build your own</a>
+      <a href="#example" class="btn btn-ghost">See an example</a>
+    </div>
+    <figure class="hero-video rise in" style="--d:.34s" id="video">
+      <video aria-label="Narrated overview of FREE-WILi Orca modules" controls preload="metadata" poster="assets/video-poster.jpg" playsinline>
+        <source src="assets/orcas.mp4" type="video/mp4">
+        <track kind="captions" src="assets/orcas.vtt" srclang="en" label="English" default>
+        <p><a href="assets/orcas.mp4">Download the video</a> or <a href="assets/orcas.vtt">read the captions</a>.</p>
+      </video>
+      <figcaption>Orcas in under two minutes.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="wrap"><div class="strip-in six">
+    <a class="stat" href="#attach"><div class="v">20<em>pin</em></div><div class="k">One Orca connector layout</div></a>
+    <a class="stat" href="#attach"><div class="v">Rigid<em>mount</em></div><div class="k">No flex, no flaky contact</div></a>
+    <a class="stat" href="#attach"><div class="v">Auto<em>detect</em></div><div class="k">An EEPROM on each Orca</div></a>
+    <a class="stat" href="#orcas"><div class="v">Any<em>thing</em></div><div class="k">Network, radio, sensor, yours</div></a>
+    <a class="stat" href="#build"><div class="v">Open<em>templates</em></div><div class="k">KiCad starter + examples</div></a>
+    <a class="stat" href="#build"><div class="v">90<em>% done</em></div><div class="k">Build your own: just the last 10%</div></a>
+  </div></div>
+</div>
+
+<!-- WHY -->
+<section class="block" id="why">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">// why orcas</span>
+      <h2>An Orca can be anything.</h2>
+      <p>A network interface, a radio, a sensor front end, or something nobody has built yet. Whatever it is, it snaps onto the same handheld and turns FREE-WILi 2 into the tool for that job &mdash; in your hand, or from your computer over USB.</p>
+    </div>
+
+    <div class="feature rise">
+      <div class="f-text">
+        <span class="f-tag">// benefit 1: one tool, many jobs</span>
+        <h3>The handheld stays. The interface changes.</h3>
+        <p>FREE-WILi 2 already carries the parts every job needs: a touchscreen, wireless, and scripting. An Orca adds the one part that differs from job to job &mdash; the physical connection to the thing in front of you.</p>
+        <p>So moving from a field bus to a radio link to a sensor of your own means <b>swapping a module, not learning a new tool</b>. You keep the same Python, Rust and C/C++ API and the same touchscreen workflow.</p>
+      </div>
+      <figure class="f-media rise">
+        <div class="frame dgframe glow">
+        <svg class="dg" viewBox="0 0 480 400" role="img" aria-labelledby="dg-swap-t">
+          <title id="dg-swap-t">Diagram: one FREE-WILi 2 handheld on the left stays the same, while three interchangeable Orcas on the right, a network Orca, a radio Orca and your own, each plug into its Orca connector.</title>
+          <text class="lab g" x="125" y="92" text-anchor="middle">STAYS THE SAME</text>
+          <rect class="body" x="20" y="108" width="210" height="184" rx="18"/>
+          <rect class="screen" x="42" y="128" width="166" height="92" rx="8"/>
+          <text class="t" x="125" y="180" text-anchor="middle">FREE-WILi 2</text>
+          <text class="s" x="125" y="246" text-anchor="middle">touchscreen · wireless</text>
+          <text class="s" x="125" y="268" text-anchor="middle">scripts · battery</text>
+          <rect class="conn" x="226" y="170" width="14" height="60" rx="3"/>
+          <text class="lab r" x="378" y="24" text-anchor="middle">SWAP THIS</text>
+          <path class="wire v" d="M284 75 C256 75 264 190 242 192"/>
+          <path class="wire a" d="M284 200 H242"/>
+          <path class="wire c" d="M284 325 C256 325 264 210 242 208"/>
+          <rect class="orca v" x="284" y="40" width="188" height="70" rx="12"/>
+          <text class="t" x="378" y="70" text-anchor="middle">A NETWORK ORCA</text>
+          <text class="s" x="378" y="92" text-anchor="middle">e.g. SAN DIEGO</text>
+          <rect class="orca a" x="284" y="165" width="188" height="70" rx="12"/>
+          <text class="t" x="378" y="195" text-anchor="middle">A RADIO ORCA</text>
+          <text class="s" x="378" y="217" text-anchor="middle">e.g. the NRF example</text>
+          <rect class="orca c dash" x="284" y="290" width="188" height="70" rx="12"/>
+          <text class="t" x="378" y="320" text-anchor="middle">YOUR ORCA</text>
+          <text class="s" x="378" y="342" text-anchor="middle">anything you design</text>
+          <text class="s" x="125" y="322" text-anchor="middle">one Orca connector</text>
+        </svg></div>
+        <figcaption>One handheld, many Orcas.</figcaption>
+      </figure>
+    </div>
+
+    <div class="feature reverse rise">
+      <div class="f-text">
+        <span class="f-tag">// benefit 2: built to leave the bench</span>
+        <h3>A connection you can carry out of the lab.</h3>
+        <p>A module resting on header-pin friction is fine on a desk and a liability once the tool is moving in your hand. Orcas use a <b>rigid mounting system</b> that holds the module in place without flex or intermittent connections.</p>
+        <p>An Orca carries its own connector for the job &mdash; the network Orcas, for example, use a <b>rugged DB-15</b> &mdash; so the harness is one secure connection in the lab, on the shop floor or in the field &mdash; and the logging, the live display and the test sequence can run on the device in your hand. Plug in USB and the same tool works from your computer too.</p>
+      </div>
+      <figure class="f-media rise">
+        <div class="frame dgframe">
+        <svg class="dg" viewBox="0 0 480 400" role="img" aria-labelledby="dg-field-t">
+          <title id="dg-field-t">Diagram: without an Orca, a computer needs a separate adapter for each interface to reach the device under test; with an Orca, one handheld and one harness reach the equipment, standalone or connected to your computer over USB.</title>
+          <text class="lab m" x="20" y="24">AN ADAPTER PER INTERFACE</text>
+          <rect class="panel" x="12" y="36" width="456" height="146" rx="14"/>
+          <rect class="box" x="28" y="76" width="92" height="66" rx="8"/>
+          <text class="s" x="74" y="114" text-anchor="middle">computer</text>
+          <path class="usb" d="M120 96 C150 96 150 68 176 68"/><path class="usb" d="M120 109 H176"/><path class="usb" d="M120 122 C150 122 150 150 176 150"/>
+          <rect class="box" x="176" y="52" width="142" height="32" rx="6"/><text class="s" x="247" y="73" text-anchor="middle">CAN adapter</text>
+          <rect class="box" x="176" y="93" width="142" height="32" rx="6"/><text class="s" x="247" y="114" text-anchor="middle">RS485 dongle</text>
+          <rect class="box" x="176" y="134" width="142" height="32" rx="6"/><text class="s" x="247" y="155" text-anchor="middle">media converter</text>
+          <path class="usb" d="M318 68 C346 68 342 100 366 102"/><path class="usb" d="M318 109 H366"/><path class="usb" d="M318 150 C346 150 342 118 366 116"/>
+          <rect class="box" x="366" y="76" width="88" height="66" rx="8"/>
+          <text class="s" x="410" y="106" text-anchor="middle">device</text><text class="s" x="410" y="124" text-anchor="middle">under test</text>
+          <text class="lab g" x="20" y="226">WITH AN ORCA</text>
+          <rect class="panel on" x="12" y="238" width="456" height="146" rx="14"/>
+          <rect class="box dash" x="24" y="282" width="76" height="58" rx="8"/>
+          <text class="s" x="62" y="307" text-anchor="middle">your</text><text class="s" x="62" y="325" text-anchor="middle">computer</text>
+          <path class="usb" d="M100 311 H138"/>
+          <text class="s" x="119" y="302" text-anchor="middle">USB</text>
+          <text class="s" x="62" y="364" text-anchor="middle">optional</text>
+          <rect class="body" x="138" y="272" width="118" height="78" rx="12"/>
+          <text class="t sm" x="197" y="307" text-anchor="middle">FREE-WILi 2</text>
+          <text class="s" x="197" y="328" text-anchor="middle">in your hand</text>
+          <rect class="orca v" x="256" y="282" width="52" height="58" rx="8"/>
+          <text class="s" x="282" y="316" text-anchor="middle">Orca</text>
+          <path class="harness" d="M308 311 H350"/>
+          <text class="s" x="329" y="262" text-anchor="middle">one harness</text>
+          <rect class="box hot" x="350" y="272" width="108" height="78" rx="8"/>
+          <text class="s" x="404" y="300" text-anchor="middle">sensor</text><text class="s" x="404" y="318" text-anchor="middle">machine</text><text class="s" x="404" y="336" text-anchor="middle">equipment</text>
+        </svg></div>
+        <figcaption>One tool, one harness.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ATTACH -->
+<section class="block showcase" id="attach">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">// how it attaches</span>
+      <h2>Plug it in. It knows what arrived.</h2>
+      <p>Three things happen when an Orca goes on, and none of them is a setup screen.</p>
+    </div>
+    <ol class="steps rise">
+      <li><b>It plugs into the Orca connector</b><span>Orcas use the 20-pin GPIO connector. FREE-WILi 2 kept the same pin layout as the original FREE-WILi specifically so the existing library of Orcas keeps working, and adds a 10-pin connector with analog I/O.</span></li>
+      <li><b>It mounts rigidly</b><span>The mounting system holds the Orca in place without flex or intermittent connections, unlike a header connection resting on friction alone.</span></li>
+      <li><b>FREE-WILi 2 detects it</b><span>An EEPROM on each Orca lets FREE-WILi 2 auto-detect what's plugged in and configure itself, rather than requiring manual setup every time you swap modules.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- LINE-UP -->
+<section class="block" id="orcas">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">// the orcas</span>
+      <h2>Some that exist. One that doesn't yet.</h2>
+      <p>The connector gives a module power, digital buses, CAN FD and analog I/O. What it does with them is open. Here are two you can buy, one a builder made from the template, and the one that matters most: yours.</p>
+    </div>
+    <div class="orca-cards four rise">
+      <article class="orca-card">
+        <figure><div class="frame"><img class="cover" src="assets/sandiego-orca-photo.webp" alt="SAN DIEGO Orca attached to the end of a FREE-WILi 2, with its DB-15 connector facing outward" width="976" height="1092" loading="lazy" decoding="async"></div>
+          <figcaption>SAN DIEGO Orca on FREE-WILi 2.</figcaption></figure>
+        <div class="for">Field networks</div>
+        <h3>SAN DIEGO Orca</h3>
+        <p>Adds RS485 and 10BASE-T1L/T1S Ethernet, and brings FREE-WILi 2's CAN and CAN FD to the same DB-15.</p>
+        <p class="more"><a href="https://freewili.com/orcas/san-diego-orca.html" class="btn btn-ghost">SAN DIEGO details</a></p>
+      </article>
+      <article class="orca-card">
+        <figure><div class="frame"><img src="assets/humpback-orca.png" alt="Humpback Orca module with DB-15 connector" width="500" height="500" loading="lazy" decoding="async"></div>
+          <figcaption>Humpback Orca.</figcaption></figure>
+        <div class="for">CAN only</div>
+        <h3>Humpback Orca</h3>
+        <p>The CAN-only version of SAN DIEGO Orca: CAN and CAN FD on a DB-15, with the optional DC V+ power and charging input.</p>
+        <p class="more"><a href="https://freewili.com/orcas/humpback-orca.html" class="btn btn-ghost">Humpback details</a></p>
+      </article>
+      <article class="orca-card">
+        <figure><div class="frame"><img class="cover" src="assets/orca-nrf.jpg" alt="Assembled ORCA NRF example board: a blue PCB with two connector headers on one edge and two radio modules" width="848" height="951" loading="lazy" decoding="async"></div>
+          <figcaption>ORCA NRF example board.</figcaption></figure>
+        <div class="for">Radio</div>
+        <h3>ORCA NRF example</h3>
+        <p>A radio-carrier Orca built from the template. Its KiCad project is in the repository to open and copy from.</p>
+        <p class="more"><a href="https://github.com/freewili/fw2-orca-templates/tree/main/examples/ORCA_NRF" target="_blank" rel="noopener" class="btn btn-ghost">See the project</a></p>
+      </article>
+      <article class="orca-card own">
+        <figure><div class="frame dgframe">
+          <svg class="dg" viewBox="0 0 400 300" role="img" aria-labelledby="dg-own-t">
+            <title id="dg-own-t">Diagram: an Orca board outline. The two connector headers and the ID EEPROM come from the template; the rest of the board and its outward connector are yours to design.</title>
+            <rect class="board" x="60" y="24" width="300" height="252" rx="14"/>
+            <rect class="conn g" x="44" y="46" width="34" height="128" rx="4"/>
+            <text class="s g" x="88" y="104">CN1</text><text class="s" x="88" y="122">20-pin</text>
+            <rect class="conn g" x="44" y="190" width="34" height="68" rx="4"/>
+            <text class="s g" x="88" y="220">CN2</text><text class="s" x="88" y="238">10-pin</text>
+            <rect class="chip" x="150" y="212" width="46" height="26" rx="3"/>
+            <text class="s g" x="150" y="258">ID EEPROM</text>
+            <rect class="yours" x="150" y="46" width="150" height="140" rx="10"/>
+            <text class="t sm" x="225" y="110" text-anchor="middle">YOUR</text><text class="t sm" x="225" y="132" text-anchor="middle">CIRCUIT</text>
+            <rect class="conn r" x="330" y="70" width="46" height="92" rx="4"/>
+            <text class="s r" x="352" y="186" text-anchor="middle">yours</text>
+            <text class="lab g" x="60" y="16">FROM THE TEMPLATE</text>
+          </svg></div>
+          <figcaption>Your Orca, from the template.</figcaption></figure>
+        <div class="for">Nobody makes it</div>
+        <h3>Your Orca</h3>
+        <p>About 90% of the device already exists. Build the last 10% from the open templates, by hand or with an AI agent.</p>
+        <p class="more"><a href="#build" class="btn btn-green">How to build one</a></p>
+      </article>
+    </div>
+    <div class="table-scroll rise">
+      <table class="pick">
+        <thead><tr><th scope="col">If you need to connect to</th><th scope="col">Choose</th><th scope="col">Why</th></tr></thead>
+        <tbody>
+          <tr><td>Modbus or other RS485 devices, or single-pair Ethernet</td><td><a href="https://freewili.com/orcas/san-diego-orca.html">SAN DIEGO Orca</a></td><td>RS485, 10BASE-T1L and 10BASE-T1S, plus CAN and CAN FD, on one DB-15</td></tr>
+          <tr><td>CAN or CAN FD, and nothing else</td><td><a href="https://freewili.com/orcas/humpback-orca.html">Humpback Orca</a></td><td>The same CAN and power connections without the RS485 and Ethernet circuitry</td></tr>
+          <tr><td>Something nobody makes</td><td><a href="#build">Your own Orca</a></td><td>The handheld is the finished 90%; the open templates start you on the rest</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- BUILD -->
+<section class="block showcase" id="build">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">// build your own orca</span>
+      <h2>90% of your device is already done.</h2>
+      <p>Most of any custom instrument is the same every time: a processor, a screen, a battery, radios, storage, a case, and the software to drive them. FREE-WILi 2 is that part, finished. <b style="color:var(--text)">Your Orca is the 10% that is left</b> &mdash; the connector and circuit for your signal &mdash; and the open template repository gives you a head start on that too. Build it by hand or with an AI agent.</p>
+    </div>
+
+    <div class="split9010 rise" role="img" aria-label="Bar showing roughly ninety percent of a device already done in FREE-WILi 2 and ten percent left for your Orca">
+      <div class="done"><b>~90%</b><span>already done &middot; FREE-WILi 2</span></div>
+      <div class="yours"><b>10%</b><span>your Orca</span></div>
+    </div>
+    <div class="spec-grid rise" style="margin-top:14px">
+      <div class="spec-card">
+        <h4>Already done: in the handheld</h4>
+        <dl>
+          <dt>Compute</dt><dd>Two RP2350 microcontrollers and an ICE40 FPGA</dd>
+          <dt>Screen + input</dt><dd>3.5&Prime; 480&times;320 touchscreen, D-pad and buttons</dd>
+          <dt>Wireless</dt><dd>ESP32-C5 WiFi and Bluetooth</dd>
+          <dt>Power</dt><dd>3000 mAh battery with USB-aware charging</dd>
+          <dt>Storage</dt><dd>microSD and an SD-card UF2 bootloader</dd>
+          <dt>Software</dt><dd>One API for Python, Rust and C/C++</dd>
+        </dl>
+      </div>
+      <div class="spec-card">
+        <h4 style="color:var(--red)">Yours: on the Orca</h4>
+        <dl>
+          <dt>Your connector</dt><dd>Whatever your signal needs to plug into</dd>
+          <dt>Your circuit</dt><dd>The transceiver, sensor, driver or radio nobody else makes</dd>
+          <dt>20-pin header</dt><dd>Gives you SPI, UART, I&sup2;C, GPIO, CAN FD, 5 V and 3.3 V</dd>
+          <dt>10-pin header</dt><dd>Gives you analog inputs, analog outputs and a second I&sup2;C bus</dd>
+          <dt>ID EEPROM</dt><dd>A 24LC02BT on that I&sup2;C bus identifies your Orca; the footprint is in the template</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="feature rise">
+      <div class="f-text">
+        <span class="f-tag">// the open repository</span>
+        <h3>The last 10% comes with a head start.</h3>
+        <p><a href="https://github.com/freewili/fw2-orca-templates" target="_blank" rel="noopener">freewili/fw2-orca-templates</a> is public. Clone it and you start from a board that already fits, instead of from a blank sheet and a pair of calipers.</p>
+        <ul class="repo-list">
+          <li><b>KiCad template</b><span><code>ORCATemplate</code>: a starter project with both Orca connector symbols (<code>CN1</code> 20-pin, <code>CN2</code> 10-pin), a 3D STEP model and the EEPROM footprint library.</span></li>
+          <li><b>Connector pinouts</b><span><code>PINOUTS.md</code>: every pin of the 20- and 10-position connectors, for FREE-WILi 2 and the original FREE-WILi.</span></li>
+          <li><b>A built example</b><span><code>ORCA_NRF</code>: a complete radio-carrier Orca made from the template, assembled and photographed.</span></li>
+          <li><b>A manufacturing example</b><span><code>gpiojoiner</code>: a board that has been built, with its Gerbers, BOM, placement files and the answers for a PCB assembly quote.</span></li>
+          <li><b>An agent guide</b><span><code>AGENTS.md</code>: the Orca workflow written for AI coding agents.</span></li>
+        </ul>
+      </div>
+      <figure class="f-media rise">
+        <div class="frame dgframe glow">
+        <svg class="dg" viewBox="0 0 480 400" role="img" aria-labelledby="dg-repo-t">
+          <title id="dg-repo-t">Diagram: the contents of the fw2-orca-templates repository as a file tree: the KiCad template, the connector pinouts, two example Orcas and an agent guide.</title>
+          <rect class="panel" x="12" y="12" width="456" height="376" rx="14"/>
+          <text class="t sm" x="34" y="50">fw2-orca-templates/</text>
+          <path class="wire g" d="M46 62 V346 M46 104 H70 M46 164 H70 M46 224 H70 M46 284 H70 M46 346 H70"/>
+          <text class="s c" x="78" y="100">kicad/ORCATemplate</text><text class="s" x="78" y="120">start here: connectors already placed</text>
+          <text class="s c" x="78" y="160">PINOUTS.md</text><text class="s" x="78" y="180">every pin of both connectors</text>
+          <text class="s c" x="78" y="220">examples/ORCA_NRF</text><text class="s" x="78" y="240">a built Orca to copy from</text>
+          <text class="s c" x="78" y="280">examples/gpiojoiner</text><text class="s" x="78" y="300">a full fabrication package</text>
+          <text class="s c" x="78" y="342">AGENTS.md</text><text class="s" x="78" y="362">the workflow for an AI agent</text>
+        </svg></div>
+        <figcaption>What is in the repository.</figcaption>
+      </figure>
+    </div>
+
+    <div class="sec-head rise" style="margin-top:30px">
+      <span class="eyebrow">// from idea to board</span>
+      <h2>Four steps, with or without AI.</h2>
+    </div>
+    <ol class="steps four rise">
+      <li><b>Start from the template</b><span>Clone the repository and open <code>ORCATemplate</code> in KiCad. The connectors, their positions and the ID EEPROM footprint are already there.</span></li>
+      <li><b>Add your 10%</b><span>Draw your circuit between the headers and your own connector, using <code>PINOUTS.md</code> to pick the signals you need.</span></li>
+      <li><b>Check it</b><span>Run the electrical and design-rule checks, then review the schematic and board views before you export anything.</span></li>
+      <li><b>Order it</b><span>Export Gerbers, BOM and placement files. The GPIO Joiner example shows a full package prepared for JLCPCB and PCBWay.</span></li>
+    </ol>
+
+    <div class="feature reverse rise">
+      <div class="f-text">
+        <span class="f-tag">// ai assisted, if you want</span>
+        <h3>Hand the 10% to an agent.</h3>
+        <p>Because the template, the pinouts and two worked examples are plain files in one repository, an AI coding agent has what it needs to draft an Orca with you. <code>AGENTS.md</code> tells it how:</p>
+        <ul class="f-list"><li><b>Always</b> include the ID EEPROM</li><li><b>Show you</b> the circuit and placement before routing</li><li><b>Verify</b> with an independent check</li><li><b>Run</b> ERC and DRC</li><li><b>Build</b> the manufacturing files</li></ul>
+        <p>Prefer to do it yourself? It is an ordinary KiCad project. Nothing in the flow requires AI.</p>
+      </div>
+      <figure class="f-media rise">
+        <div class="frame photo"><img src="assets/gpio-joiner-preview.jpg" alt="KiCad 3D preview of the GPIO Joiner example board with FREE-WILi connectors on four sides" width="1100" height="948" loading="lazy" decoding="async"></div>
+        <figcaption>GPIO Joiner example.</figcaption>
+      </figure>
+    </div>
+
+    <p class="note rise"><b>Good to know before you start:</b> the template's footprint library table points at paths from another machine, so repoint those libraries on a fresh checkout. The repository includes the ID EEPROM hardware but not yet the identification contents or programming procedure &mdash; ask on <a href="https://discord.com/invite/XJRBUCX62z" target="_blank" rel="noopener">Discord</a>, where you can also ask for an Altium template.</p>
+    <div class="hero-cta rise" style="margin-top:2rem">
+      <a href="https://github.com/freewili/fw2-orca-templates" target="_blank" rel="noopener" class="btn btn-green">Get the Orca templates</a>
+      <a href="https://docs.freewili.com/hardware/orca-modules" target="_blank" rel="noopener" class="btn btn-ghost">Read the Orca docs</a>
+    </div>
+  </div>
+</section>
+
+<!-- EXAMPLE -->
+<section class="block" id="example">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">// one example</span>
+      <h2>What one Orca looks like in use.</h2>
+      <p>An Orca can be anything; this is just one that exists today. SAN DIEGO Orca is built for field networks: it brings RS485, CAN, CAN FD and single-pair Ethernet to FREE-WILi 2 on one connector, so you can sniff, script, simulate and stress-test them.</p>
+    </div>
+    <div class="example rise">
+      <figure class="pinout-fig" tabindex="0" aria-label="SAN DIEGO Orca DB-15 pinout diagram, scrolls sideways on small screens">
+        <svg viewBox="40 0 640 420" role="img" aria-labelledby="db15-title">
+        <title id="db15-title">SAN DIEGO Orca DB-15, looking into the male pins with the module label facing up. Top row, left to right: pin 1 T1S P, 2 T1S N, 3 T1L P, 4 RS485 P, 5 not connected, 6 CAN H, 7 not connected, 8 GND. Bottom row, left to right: pin 9 T1S P, 10 T1S N, 11 T1L N, 12 RS485 N, 13 MISC DIO, 14 CAN L, 15 DC V+.</title>
+        <defs>
+        <radialGradient id="db15-gold" cx=".38" cy=".34" r=".75">
+        <stop offset="0" stop-color="#fff4c9"/><stop offset=".5" stop-color="#e0ae3a"/><stop offset="1" stop-color="#7d5a12"/>
+        </radialGradient>
+        </defs>
+        <rect class="flange" x="50" y="150" width="620" height="120" rx="12"/>
+        <circle class="screw" cx="82" cy="210" r="14"/><circle class="screw-bore" cx="82" cy="210" r="7"/>
+        <circle class="screw" cx="638" cy="210" r="14"/><circle class="screw-bore" cx="638" cy="210" r="7"/>
+        <path class="shell" d="M128 160H592Q618 160 613 184L604 240Q600 260 578 260H142Q120 260 116 240L107 184Q102 160 128 160Z"/>
+        <g class="lead pin-t1s"><path d="M150 43V166"/><path class="tip" d="M150 174l-5 -9h10z"/><rect x="113.5" y="17" width="73" height="26" rx="6"/><text x="150" y="30" dy=".35em"><tspan class="num">1</tspan> T1S P</text></g>
+        <g class="lead pin-t1s"><path d="M210 91V166"/><path class="tip" d="M210 174l-5 -9h10z"/><rect x="173.5" y="65" width="73" height="26" rx="6"/><text x="210" y="78" dy=".35em"><tspan class="num">2</tspan> T1S N</text></g>
+        <g class="lead pin-t1l"><path d="M270 43V166"/><path class="tip" d="M270 174l-5 -9h10z"/><rect x="233.5" y="17" width="73" height="26" rx="6"/><text x="270" y="30" dy=".35em"><tspan class="num">3</tspan> T1L P</text></g>
+        <g class="lead pin-rs485"><path d="M330 91V166"/><path class="tip" d="M330 174l-5 -9h10z"/><rect x="286" y="65" width="88" height="26" rx="6"/><text x="330" y="78" dy=".35em"><tspan class="num">4</tspan> RS485 P</text></g>
+        <g class="lead pin-nc"><path d="M390 43V166"/><path class="tip" d="M390 174l-5 -9h10z"/><rect x="365.5" y="17" width="49" height="26" rx="6"/><text x="390" y="30" dy=".35em"><tspan class="num">5</tspan> NC</text></g>
+        <g class="lead pin-can"><path d="M450 91V166"/><path class="tip" d="M450 174l-5 -9h10z"/><rect x="413.5" y="65" width="73" height="26" rx="6"/><text x="450" y="78" dy=".35em"><tspan class="num">6</tspan> CAN H</text></g>
+        <g class="lead pin-nc"><path d="M510 43V166"/><path class="tip" d="M510 174l-5 -9h10z"/><rect x="485.5" y="17" width="49" height="26" rx="6"/><text x="510" y="30" dy=".35em"><tspan class="num">7</tspan> NC</text></g>
+        <g class="lead pin-gnd"><path d="M570 91V166"/><path class="tip" d="M570 174l-5 -9h10z"/><rect x="541.5" y="65" width="57" height="26" rx="6"/><text x="570" y="78" dy=".35em"><tspan class="num">8</tspan> GND</text></g>
+        <g class="lead pin-t1s"><path d="M180 377V254"/><path class="tip" d="M180 246l-5 9h10z"/><rect x="143.5" y="377" width="73" height="26" rx="6"/><text x="180" y="390" dy=".35em"><tspan class="num">9</tspan> T1S P</text></g>
+        <g class="lead pin-t1s"><path d="M240 329V254"/><path class="tip" d="M240 246l-5 9h10z"/><rect x="200" y="329" width="80" height="26" rx="6"/><text x="240" y="342" dy=".35em"><tspan class="num">10</tspan> T1S N</text></g>
+        <g class="lead pin-t1l"><path d="M300 377V254"/><path class="tip" d="M300 246l-5 9h10z"/><rect x="260" y="377" width="80" height="26" rx="6"/><text x="300" y="390" dy=".35em"><tspan class="num">11</tspan> T1L N</text></g>
+        <g class="lead pin-rs485"><path d="M360 329V254"/><path class="tip" d="M360 246l-5 9h10z"/><rect x="312" y="329" width="96" height="26" rx="6"/><text x="360" y="342" dy=".35em"><tspan class="num">12</tspan> RS485 N</text></g>
+        <g class="lead pin-dio"><path d="M420 377V254"/><path class="tip" d="M420 246l-5 9h10z"/><rect x="368" y="377" width="104" height="26" rx="6"/><text x="420" y="390" dy=".35em"><tspan class="num">13</tspan> MISC DIO</text></g>
+        <g class="lead pin-can"><path d="M480 329V254"/><path class="tip" d="M480 246l-5 9h10z"/><rect x="440" y="329" width="80" height="26" rx="6"/><text x="480" y="342" dy=".35em"><tspan class="num">14</tspan> CAN L</text></g>
+        <g class="lead pin-pwr"><path d="M540 377V254"/><path class="tip" d="M540 246l-5 9h10z"/><rect x="497" y="377" width="86" height="26" rx="6"/><text x="540" y="390" dy=".35em"><tspan class="num">15</tspan> DC V+</text></g>
+        <circle class="male-pin" cx="150" cy="185" r="9"/>
+        <circle class="male-pin" cx="210" cy="185" r="9"/>
+        <circle class="male-pin" cx="270" cy="185" r="9"/>
+        <circle class="male-pin" cx="330" cy="185" r="9"/>
+        <circle class="male-pin" cx="390" cy="185" r="9"/>
+        <circle class="male-pin" cx="450" cy="185" r="9"/>
+        <circle class="male-pin" cx="510" cy="185" r="9"/>
+        <circle class="male-pin" cx="570" cy="185" r="9"/>
+        <circle class="male-pin" cx="180" cy="235" r="9"/>
+        <circle class="male-pin" cx="240" cy="235" r="9"/>
+        <circle class="male-pin" cx="300" cy="235" r="9"/>
+        <circle class="male-pin" cx="360" cy="235" r="9"/>
+        <circle class="male-pin" cx="420" cy="235" r="9"/>
+        <circle class="male-pin" cx="480" cy="235" r="9"/>
+        <circle class="male-pin" cx="540" cy="235" r="9"/>
+        </svg>
+        <figcaption>DB-15 pinout, looking into the pins.</figcaption>
+      </figure>
+      <ul class="bus-list">
+        <li><i class="pin-dot pin-rs485"></i><b>RS485</b><span>One two-wire, half-duplex channel with switchable on-board termination, for Modbus and other RS485 protocols.</span></li>
+        <li><i class="pin-dot pin-can"></i><b>CAN and CAN FD</b><span>FREE-WILi 2's internal CAN interface and its SIC transceiver, routed to pins 6 and 14. Termination is software-selectable on FREE-WILi 2.</span></li>
+        <li><i class="pin-dot pin-t1l"></i><b>10BASE-T1L</b><span>Long-reach single-pair Ethernet, up to 1 km with suitable cabling and link configuration.</span></li>
+        <li><i class="pin-dot pin-t1s"></i><b>10BASE-T1S</b><span>Multidrop single-pair Ethernet. The pair is brought out twice, so a segment can come in on one pair and continue on the other.</span></li>
+        <li><i class="pin-dot pin-pwr"></i><b>DC V+ in</b><span>Optional 5&ndash;60 V DC input to power and charge FREE-WILi 2.* The network interfaces work without it.</span></li>
+      </ul>
+    </div>
+    <p class="note rise"><b>The result:</b> log Modbus and CAN traffic to scripts, bridge it over WiFi, display live bus data on-screen, and automate full test sequences, on its own or from your computer over USB. <a href="https://freewili.com/orcas/san-diego-orca.html">Full SAN DIEGO Orca specifications, pinout table and wiring&nbsp;→</a></p>
+    <p class="cta-note rise">* DEF CON FREE-WILi 2 edition: the DC V+ power input does not function.</p>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final" id="explore">
+  <div class="wrap">
+    <span class="eyebrow">// next step</span>
+    <h2>One handheld.<br>Swap the Orca.</h2>
+    <p>See every Orca, with specifications, pinouts and wiring, and pick the one that matches the job in front of you &mdash; or build the one nobody makes.</p>
+    <div class="hero-cta">
+      <a href="https://freewili.com/explore-orcas.html" class="btn btn-primary">Explore the Orcas →</a>
+      <a href="https://github.com/freewili/fw2-orca-templates" target="_blank" rel="noopener" class="btn btn-green">Get the Orca templates</a>
+      <a href="https://shop.freewili.com/products/free-wili-2" target="_blank" rel="noopener" class="btn btn-ghost">Get FREE-WILi 2</a>
+      <a href="#video" class="btn btn-ghost">Watch the video</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <a href="https://freewili.com/" class="logo" aria-label="FREE-WILi — visit freewili.com"><img class="logo-img" src="assets/FW_Full_Logo_WHT2.svg" alt="FREE-WILi"></a>
+    <div class="foot-links">
+      <a href="https://freewili.com/explore-orcas.html">Orca Modules</a><a href="https://docs.freewili.com/" target="_blank" rel="noopener">Documentation</a><a href="https://discord.com/invite/XJRBUCX62z" target="_blank" rel="noopener">Discord</a>
+    </div>
+    <div>© <span id="yr">2026</span> FREE-WILi LLC · Open hardware · <a href="https://freewili.com/privacy-policy.html">Privacy Policy</a></div>
+  </div>
+  <div class="wrap" style="margin-top:14px;font-size:.76rem">The bus-traffic screen in the video is an illustration.</div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview" aria-hidden="true"><button class="lb-close" aria-label="Close">×</button><img alt=""></div>
+
+<script src="site.js"></script>
+</body>
+</html>

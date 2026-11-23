@@ -1,0 +1,108 @@
+WEBVTT
+
+00:00:00.683 --> 00:00:01.875
+Here's the big idea.
+
+00:00:02.163 --> 00:00:06.640
+About ninety percent of your device is
+already done: the processor, the
+
+00:00:06.640 --> 00:00:10.331
+screen, the battery, the wireless, the
+software.
+
+00:00:10.744 --> 00:00:13.402
+You only build the ten percent that's
+left.
+
+00:00:13.690 --> 00:00:15.519
+Your connector, and your circuit.
+
+00:00:15.934 --> 00:00:18.503
+The finished part is FREE-WILi 2.
+
+00:00:18.791 --> 00:00:21.029
+The part you add is called an Orca.
+
+00:00:22.640 --> 00:00:24.125
+An Orca can be anything.
+
+00:00:24.401 --> 00:00:28.998
+A network interface, a radio, or something
+nobody has built yet.
+
+00:00:29.417 --> 00:00:34.851
+Snap one on, and FREE-WILi 2, a handheld
+with a touchscreen, wireless,
+
+00:00:34.851 --> 00:00:37.751
+and scripting built in, becomes the tool
+for the job.
+
+00:00:39.368 --> 00:00:44.036
+Every Orca plugs into the same expansion
+connector, and mounts rigidly, so
+
+00:00:44.036 --> 00:00:46.631
+the connection survives a trip outside the
+lab.
+
+00:00:47.067 --> 00:00:52.310
+A small memory on each Orca lets FREE-WILi
+2 detect what's plugged in and
+
+00:00:52.310 --> 00:00:53.565
+configure itself.
+
+00:00:55.179 --> 00:00:56.205
+Here is one example.
+
+00:00:56.506 --> 00:01:02.123
+SAN DIEGO Orca puts RS485, CAN and CAN FD,
+
+00:01:02.296 --> 00:01:06.039
+and both kinds of single-pair Ethernet on
+one rugged connector.
+
+00:01:06.461 --> 00:01:08.622
+Wire up the harness and you're on the
+network.
+
+00:01:08.923 --> 00:01:11.288
+Sniff it, script it, simulate it.
+
+00:01:12.863 --> 00:01:17.875
+Now the logging, the live display, and the
+test sequence all run on the
+
+00:01:17.875 --> 00:01:19.003
+device in your hand.
+
+00:01:19.428 --> 00:01:22.788
+On its own, or plugged into your computer
+over USB.
+
+00:01:24.416 --> 00:01:25.149
+Building your own?
+
+00:01:25.449 --> 00:01:30.041
+The open template repository gives you a
+head start: a KiCad starter, the
+
+00:01:30.041 --> 00:01:32.444
+connector pinouts, and worked examples.
+
+00:01:32.860 --> 00:01:35.799
+Build it by hand, or hand it to an AI
+agent.
+
+00:01:37.405 --> 00:01:38.252
+One handheld.
+
+00:01:38.540 --> 00:01:41.275
+A different tool every time you swap the
+Orca.
+
+00:01:41.692 --> 00:01:44.644
+Explore the Orcas at freewili.com.
+
